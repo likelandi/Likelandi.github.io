@@ -1,0 +1,193 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Juan Pablo Fernández Rebosio — Landia</title>
+<meta name="description" content="Psiquiatra y creador de Landia. Tecnología, salud mental, música y alojamiento en Luján, Buenos Aires." />
+<style>
+:root{
+  --bg:#0f101a; --fg:#f7f7fb; --muted:#b9b9c5;
+  --brand:#ec4899; --brand-2:#8b5cf6; --line:#232332;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#0f101a;color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+a{color:inherit}
+.container{max-width:1120px;margin:0 auto;padding:0 18px}
+header{position:sticky;top:0;backdrop-filter:saturate(140%) blur(10px);background:rgba(20,20,32,.55);border-bottom:1px solid var(--line);z-index:50}
+nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.3px}
+.logo .dot{width:12px;height:12px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;border:1px solid var(--line);
+  background:linear-gradient(180deg,#1a1a2a,#141427);color:var(--fg);font-weight:700;text-decoration:none}
+.btn.primary{border:none;background:linear-gradient(135deg,var(--brand),var(--brand-2))}
+.hero{position:relative;min-height:86vh;display:grid;place-items:center;border-bottom:1px solid var(--line);overflow:hidden}
+.hero::before{content:'';position:absolute;inset:-15%;background:
+  radial-gradient(1100px 700px at 12% 10%, rgba(236,72,153,.22), transparent 60%),
+  radial-gradient(1100px 800px at 92% 8%, rgba(139,92,246,.24), transparent 60%),
+  linear-gradient(160deg,#15162a,#0f101a 55%);animation:float 14s ease-in-out infinite alternate}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.65))}
+@keyframes float{from{transform:translateY(-8px)} to{transform:translateY(8px)}}
+.hero-inner{position:relative;z-index:1;padding:80px 0 56px}
+.kicker{letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-size:12px}
+h1{font-size:58px;line-height:1.04;margin:.35em 0 .25em;background:linear-gradient(120deg,#fff,#e9e0ff 40%, var(--brand));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{color:#f0e9f9;font-size:19px;line-height:1.65;max-width:880px}
+.cta{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.shape{height:120px;color:#fff}
+.wave{display:block;width:100%;height:120px}
+section{padding:76px 0;border-bottom:1px solid var(--line)}
+h2{font-size:32px;margin:0 0 16px}
+.grid{display:grid;gap:18px}
+.about{grid-template-columns:1.2fr .8fr}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));border:1px solid var(--line);border-radius:18px;padding:18px;backdrop-filter:blur(10px)}
+.stat{display:flex;gap:12px;align-items:center}
+.stat .num{font-size:26px;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.projects{grid-template-columns:repeat(3,1fr)}
+.project{position:relative;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:
+  linear-gradient(180deg,#1b1a25,#171523);
+  transform-style:preserve-3d;transition:transform .2s ease, box-shadow .2s ease}
+.project:hover{box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.project .banner{height:160px;background:
+  linear-gradient(180deg,rgba(0,0,0,.1),rgba(0,0,0,.4)),
+  radial-gradient(500px 240px at 20% 10%, rgba(236,72,153,.35), transparent 60%),
+  radial-gradient(500px 260px at 90% 20%, rgba(139,92,246,.35), transparent 60%);}
+.project .inner{padding:16px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#1f1a28;border:1px solid var(--line);font-size:12px;color:#f0e9f9}
+.services{grid-template-columns:repeat(3,1fr)}
+.service{border:1px solid var(--line);border-radius:18px;padding:18px;background:linear-gradient(180deg,#1f1a28,#181525)}
+.service h3{margin:6px 0 8px}
+.footer{padding:36px 0;color:#b9b9c5}
+.made{font-size:12px;color:#b9b9c5}
+@media (max-width:1000px){.about,.projects,.services{grid-template-columns:1fr} h1{font-size:44px} .hero{min-height:74vh}}
+</style>
+</head>
+<body>
+<header>
+  <div class="container">
+    <nav>
+      <div class="logo"><span class="dot"></span><span>Juan Pablo — Landia</span></div>
+      <div><a class="btn" href="#contacto">Escribime</a></div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="kicker">Salud mental · Tecnología · Creatividad</div>
+      <h1>Juan Pablo Fernández Rebosio</h1>
+      <p class="lead">Psiquiatra y creador de <strong>Landia</strong>. Trabajo en la intersección entre <em>iOS, apps de salud mental</em> y experiencias creativas como <strong>Landia’s Musik</strong> y <strong>Likelandii</strong>. También desarrollo un <strong>alojamiento turístico</strong> en Luján, Buenos Aires.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://wa.me/5491124605401?text=Hola%20Juan%20Pablo%2C%20quiero%20consultar%20por%20fechas%20en%20Likelandii">Reservar por WhatsApp</a>
+        <a class="btn" href="#proyectos">Ver proyectos</a>
+        <a class="btn" href="#contacto">Contacto</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="shape" aria-hidden="true">
+    <svg class="wave" viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0,64 C240,120 480,0 720,48 C960,96 1200,80 1440,24 L1440,120 L0,120 Z" fill="currentColor" opacity="0.2"/>
+    </svg>
+  </div>
+
+  <section id="sobre-mi">
+    <div class="container grid about">
+      <div>
+        <h2>Sobre mí</h2>
+        <p>Integro tecnología y salud mental con foco en <strong>privacidad</strong>, <strong>ética</strong> y <strong>experiencia de usuario</strong>. Busco <strong>apps más seguras en iOS</strong> y herramientas de <strong>voz</strong> para facilitar procesos terapéuticos y de bienestar.</p>
+        <p>También desarrollo proyectos creativos y de hospitalidad bajo el ecosistema <strong>Landia</strong>, cuidando la identidad de marca y la protección de datos.</p>
+      </div>
+      <div class="card">
+        <div class="stat"><span class="num">10+ años</span><span>en práctica clínica y proyectos digitales</span></div>
+        <div class="stat"><span class="num">3 líneas</span><span>clínica, tecnología, hospitalidad</span></div>
+        <div class="stat"><span class="num">Luján</span><span>Base operativa · Provincia de Buenos Aires</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="container">
+      <h2>Proyectos destacados</h2>
+      <div class="grid projects">
+        <article class="project">
+          <div class="banner"></div>
+          <div class="inner">
+            <h3>Landia’s Musik</h3>
+            <p>Acceso rápido a música y experiencias sonoras con foco en privacidad y baja fricción.</p>
+            <div class="badges"><span class="pill">Audio</span><span class="pill">ALAC</span><span class="pill">Apple</span></div>
+          </div>
+        </article>
+        <article class="project">
+          <div class="banner"></div>
+          <div class="inner">
+            <h3>Likelandii</h3>
+            <p>Ecosistema creativo-digital y marca personal. Identidad, derechos y trazabilidad.</p>
+            <div class="badges"><span class="pill">Brand</span><span class="pill">Legal</span><span class="pill">Contenido</span></div>
+          </div>
+        </article>
+        <article class="project">
+          <div class="banner"></div>
+          <div class="inner">
+            <h3>Alojamiento en Luján</h3>
+            <p>Espacio rústico-moderno en el 2º piso con entrada independiente. Ideal para parejas y viajeros.</p>
+            <div class="badges"><span class="pill">Reservas</span><span class="pill">Privacidad</span></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="container">
+      <h2>Servicios</h2>
+      <div class="grid services">
+        <div class="service">
+          <div class="pill">Clínica</div>
+          <h3>Consulta psiquiátrica</h3>
+          <p>Evaluación integral, seguimiento y coordinación con otros profesionales.</p>
+        </div>
+        <div class="service">
+          <div class="pill">Tecnología</div>
+          <h3>Salud mental digital</h3>
+          <p>Asesoría en diseño de apps seguras en iOS 18, control y privacidad.</p>
+        </div>
+        <div class="service">
+          <div class="pill">Creatividad</div>
+          <h3>Identidad & contenido</h3>
+          <p>Desarrollo de marca, guías de estilo y activos para el ecosistema Landia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacto">
+    <div class="container">
+      <h2>Contacto</h2>
+      <p>¿Colaboramos? Escribime por WhatsApp o email.</p>
+      <div class="cta">
+        <a class="btn primary" href="https://wa.me/5491124605401?text=Hola%20Juan%20Pablo%2C%20quiero%20consultar%20por%20fechas%20en%20Likelandii">WhatsApp</a>
+        <a class="btn" href="mailto:likelandi@proton.me">Email</a>
+        <a class="btn" href="mailto:jprebosio@gmail.com">Reservas (Airbnb/Booking)</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">© <span id="year"></span> Juan Pablo Fernández Rebosio · Landia — Hecho con foco en privacidad</div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+document.querySelectorAll('.project').forEach(el=>{
+  const tilt = (e)=>{
+    const b = el.getBoundingClientRect();
+    const px = (e.clientX - b.left) / b.width - .5;
+    const py = (e.clientY - b.top) / b.height - .5;
+    el.style.transform = `rotateX(${(-py*6)}deg) rotateY(${(px*6)}deg)`;
+  };
+  el.addEventListener('mousemove', tilt);
+  el.addEventListener('mouseleave', ()=>{ el.style.transform='rotateX(0) rotateY(0)'; });
+});
+</script>
+</body></html>
