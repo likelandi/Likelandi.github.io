@@ -1,0 +1,129 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Likelandi</title>
+<style>
+:root{ --bg:#0a0a14; --fg:#f7f7fb; --muted:#b9b9c5; --brand:#FF2DAA; --brand2:#7C3AED; --brand3:#FFD34D; --line:#231c3f; --halo: rgba(255,45,170,.25)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+header{position:sticky;top:0;background:rgba(18,18,28,.55);border-bottom:1px solid var(--line);backdrop-filter:saturate(140%) blur(12px)}
+nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.navlinks a{margin-right:12px}
+.hero{position:relative;min-height:86vh;display:grid;place-items:center;overflow:hidden;border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(700px 420px at 85% 18%, var(--halo), transparent 60%),
+    linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.72)),
+    url('og_hero.jpg') center/cover no-repeat;}
+.hero-inner{position:relative;z-index:1;padding:84px 0 60px;text-align:center}
+.kicker{letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-size:12px}
+h1{font-size:64px;line-height:1.02;margin:.3em 0 .15em;text-shadow:0 0 24px rgba(255,45,170,.4), 0 0 48px rgba(124,58,237,.25)}
+.lead{color:#efe9fb;font-size:20px;line-height:1.65;max-width:900px;margin:0 auto}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(180deg,#1a1a2a,#141427);color:var(--fg);font-weight:700}
+.btn.primary{border:none;background:linear-gradient(135deg,var(--brand),var(--brand3) 52%,var(--brand2))}
+section{padding:80px 0;border-bottom:1px solid var(--line)}
+.grid{display:grid;gap:20px}
+.projects{grid-template-columns:repeat(3,1fr)}
+.players{display:grid;gap:12px;grid-template-columns:1fr 1fr;margin:18px 0 12px}
+/* canvases */
+.viz{position:absolute; inset:0; z-index:0; pointer-events:none; opacity:.55; mix-blend-mode:screen}
+</style>
+</head><body>
+<header><div class="container"><nav>
+  <div class="navlinks"><a href="#sobre-mi">Sobre mí</a><a href="#proyectos">Proyectos</a><a href="#hot-new">Hot New</a><a href="#tecnologia">Tecnología</a><a href="/audios.html">Audios (privado)</a></div>
+  <div><a class="btn" href="#contacto">Escribime</a></div>
+</nav></div></header>
+<main id="top">
+  <section class="hero"><div class="container hero-inner">
+    <canvas id="viz" class="viz"></canvas>
+    <div class="kicker">Rehabilitación · Reinserción Psicosocial · Tecnología Responsable</div>
+    <h1>Rehabilitación y Reinserción Psicosocial</h1>
+    <p class="lead">Psiquiatra (Juan Pablo Fernández Rebosio). Trabajo en <strong>rehabilitación y reinserción psicosocial</strong> para trastornos mentales, apoyándome en <strong>nuevas tecnologías</strong> (IA y asistentes como ChatGPT) para agilizar procesos clínicos y de coordinación, sin reemplazar el vínculo terapéutico.</p>
+    <div class="cta"><a class="btn primary" href="#preview-charli">🎧 Preview</a></div>
+  </div></section>
+
+  <section id="sobre-mi"><div class="container"><div><h2>Sobre mí</h2><p>Soy psiquiatra y mi enfoque es práctico y humano: ayudar a la persona a recuperar autonomía, hábitos y propósito; y a la familia a sostener el proceso.</p><p>placeholder</p><p>placeholder</p></div><div class="card"></div></div></section>
+
+  
+<section id="proyectos"><div class="container">
+  <h2>Programas de cuidado</h2>
+  <div class="grid projects">
+    <article class="project">
+      <div class="banner" aria-hidden="true"></div>
+      <div class="inner">
+        <h3>Evaluación & Plan</h3>
+        <p>Entrevistas clínicas, objetivos medibles y cronograma de acciones claras.</p>
+        <div class="badges"><span class="pill">Diagnóstico funcional</span><span class="pill">Objetivos SMART</span><span class="pill">Familia</span></div>
+      </div>
+    </article>
+    <article class="project">
+      <div class="banner" aria-hidden="true"></div>
+      <div class="inner">
+        <h3>Reinserción Psicosocial</h3>
+        <p>Rutinas, habilidades sociales, reinicio educativo/laboral con apoyos progresivos.</p>
+        <div class="badges"><span class="pill">Hábitos</span><span class="pill">Empleo asistido</span><span class="pill">Redes seguras</span></div>
+      </div>
+    </article>
+    <article class="project">
+      <div class="banner music" aria-hidden="true"></div>
+      <div class="inner">
+        <h3>Creatividad & Música</h3>
+        <p>Landia’s Musik como soporte expresivo y regulador. Integración con Apple/Spotify.</p>
+        <div class="badges"><span class="pill">Música</span><span class="pill">Expresión</span><span class="pill">Bienestar</span></div>
+        <div class="mlinks">
+          <a class="btn" id="btn-apple" href="#" target="_blank" rel="noopener">Apple Music</a>
+          <a class="btn" id="btn-spotify" href="#" target="_blank" rel="noopener">Spotify</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</div></section>
+
+
+  <section id="hot-new"><div class="container"><h2>Hot New — Top 10</h2><div class="players"></div></div></section>
+
+  <section id="preview-charli"><div class="container">
+    <h2>Preview — “Blame It on Your Love (Remix)”</h2>
+    <p class="help">Reproducción embebida.</p>
+    <div class="players">
+      <div class="cta" style="margin:0 0 10px 0"><button class="btn" id="sel-spotify">Spotify</button><button class="btn" id="sel-apple">Apple Music</button></div><div id="wrap-spotify"><iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7oLh6fCeN2Hf6ayfyXKtpY" width="100%" height="152" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></div><div id="wrap-apple" style="display:none"><iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="175" style="width:100%; max-width: 100%; overflow:hidden; background:transparent;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/ar/song/blame-it-on-your-love-feat-lizzo-dylan-brady-remix/1493545169"></iframe></div>
+    </div>
+    <div class="cta">
+      <a class="btn" target="_blank" rel="noopener" href="https://open.spotify.com/track/7oLh6fCeN2Hf6ayfyXKtpY">Abrir en Spotify</a>
+      <a class="btn" target="_blank" rel="noopener" href="https://music.apple.com/ar/song/blame-it-on-your-love-feat-lizzo-dylan-brady-remix/1493545169">Abrir en Apple Music</a>
+    </div>
+  </div></section>
+
+  
+<section id="tecnologia"><div class="container">
+  <h2>Tecnología responsable (IA & ChatGPT)</h2>
+  <div class="grid services">
+    <div class="service"><div class="pill">Apoyo</div><h3>Seguimiento ágil</h3><p>Recordatorios, psicoeducación y organización con asistentes; sin sustituir consulta profesional.</p></div>
+    <div class="service"><div class="pill">Seguridad</div><h3>Privacidad y ética</h3><p>Evitamos datos sensibles innecesarios y favorecemos el consentimiento informado.</p></div>
+    <div class="service"><div class="pill">Clínica</div><h3>Trabajo en red</h3><p>Coordinación con psicología, neurología y red familiar/educativa.</p></div>
+  </div>
+  <p class="help">La IA puede asistir tareas, pero <strong>no reemplaza</strong> la evaluación ni el tratamiento médico. En emergencias, acudí al sistema de salud.</p>
+</div></section>
+
+<!-- OPINIONES --><section id="opiniones"><div class="container"><h2>Opiniones</h2></div></section>
+  <section id="servicios"><div class="container"><h2>Consultas y talleres</h2><div class="grid services"><div class="service"><div class="pill">Clínica</div><h3>Consulta psiquiátrica</h3><p>Rehabilitación orientada a metas, comorbilidades y tratamiento integral.</p></div><div class="service"><div class="pill">Familias</div><h3>Psicoeducación & acompañamiento</h3><p>Herramientas para el día a día, señales de alerta y comunicación efectiva.</p></div><div class="service"><div class="pill">Habilidades</div><h3>Entrenamiento social</h3><p>Rutinas, rol-play, exposición gradual y autocuidado.</p></div></div></div></section>
+  <section id="contacto"><div class="container"><h2>Contacto</h2></div></section>
+</main>
+<script></script>
+
+<script>
+// === Preview platform toggle (Spotify default) ===
+(function(){
+  const S='preferred_player', sBtn=document.getElementById('sel-spotify'), aBtn=document.getElementById('sel-apple');
+  const sWrap=document.getElementById('wrap-spotify'), aWrap=document.getElementById('wrap-apple');
+  function set(p){
+    if(!sWrap||!aWrap) return;
+    if(p==='apple'){ sWrap.style.display='none'; aWrap.style.display='block'; }
+    else { sWrap.style.display='block'; aWrap.style.display='none'; p='spotify'; }
+    localStorage.setItem(S,p);
+  }
+  if(sBtn) sBtn.addEventListener('click', ()=>set('spotify'));
+  if(aBtn) aBtn.addEventListener('click', ()=>set('apple'));
+  set(localStorage.getItem(S)||'spotify');
+})();
+</script>
+
+</body></html>
