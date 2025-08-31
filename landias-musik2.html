@@ -1,0 +1,329 @@
+<!doctype html><html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Landia’s Musik — Hot New · Energía/Ánimo · Previews</title>
+<meta name="description" content="Landia’s Musik: Top-10 Hot New, por energía/ánimo, previews de Spotify y Apple Music.">
+<style>
+:root{
+  --bg:#0b0a16; --fg:#f7f7fb; --muted:#b8b6c9; --line:#2a2140;
+  --pink:#FF2DAA; --violet:#7C3AED; --gold:#C9A200; /* amarillo oscuro */
+  --card:#161424dd; --chip:#171333; --chipLine:#2a2140;
+}
+*{box-sizing:border-box} html,body{margin:0;background:radial-gradient(1200px 600px at 20% -10%,#201936 0%,#0b0a16 55%),#0b0a16;color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+a{color:inherit} .wrap{max-width:1100px;margin:0 auto;padding:20px 16px}
+header{position:sticky;top:0;z-index:5;background:#0b0a16cc;border-bottom:1px solid #1e1930;backdrop-filter:saturate(140%) blur(10px)}
+.brand{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand-left{display:flex;align-items:center;gap:12px}
+.logo{width:36px;height:36px;border-radius:12px;background:conic-gradient(from 210deg,var(--pink),#FFD34D,var(--violet),var(--pink));
+  box-shadow:0 0 24px #ff2daa55}
+h1{font-size:18px;margin:0;background:linear-gradient(120deg,#fff,#efe9ff 40%,#FFD34D);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.toggle{display:flex;align-items:center;gap:8px}
+.theme{appearance:none;width:44px;height:28px;border-radius:20px;background:#1a1730;border:1px solid #221b3a;position:relative}
+.theme::after{content:"";position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;background:#fff;transition:.2s}
+.theme:checked{background:#ffd34d}
+.theme:checked::after{left:21px;background:#0b0a16}
+
+.hero{padding:18px 0 6px}
+h2.section-title{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#cfcce0;margin:20px 0 8px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{border:1px solid #241e3a;border-radius:999px;padding:8px 12px;background:#1a1630;cursor:pointer}
+.tab.active{background:linear-gradient(135deg,var(--pink),#FFD34D 52%,var(--violet));color:#0b0a16;font-weight:800;border:none}
+
+.card{background:var(--card);border:1px solid #241e3a;border-radius:18px;padding:14px}
+.controls{display:grid;gap:10px;grid-template-columns:1fr}
+.input{display:flex;gap:8px}
+.input input{flex:1;border-radius:12px;border:1px solid var(--line);background:#120f20;color:#fff;padding:12px 14px}
+.btn{border:none;border-radius:12px;padding:12px 14px;font-weight:800;color:#0b0a16;
+     background:linear-gradient(135deg,var(--pink),#FFD34D 52%,var(--violet));}
+.btn:active{transform:scale(.98)}
+
+.grid{display:grid;gap:14px}
+@media(min-width:720px){ .controls{grid-template-columns:1fr 1fr} .grid{grid-template-columns:repeat(2,1fr)} }
+@media(min-width:980px){ .grid{grid-template-columns:repeat(3,1fr)} }
+
+.track{position:relative;border:1px solid #241e3a;border-radius:16px;padding:12px;background:#131126}
+.track .meta{opacity:.9;color:#d7d4e6;font-size:14px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.badge{font-size:11px;padding:6px 10px;border-radius:999px;border:1px solid var(--chipLine);background:var(--chip)}
+.badge.new{border-color:#3a2a00;background:#2a2100;color:#ffdf7a}
+.links{display:flex;gap:10px;margin-top:8px;flex-wrap:wrap}
+.linkbtn{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;border:1px solid var(--chipLine);background:#1a1630;text-decoration:none}
+.linkbtn svg{width:16px;height:16px}
+
+.search{margin:10px 0}
+.search input{width:100%;border-radius:12px;border:1px solid var(--line);background:#120f20;color:#fff;padding:12px 14px}
+
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.chip{font-size:12px;padding:8px 10px;border-radius:999px;border:1px solid var(--chipLine);background:var(--chip);cursor:pointer}
+.chip.active{background:linear-gradient(135deg,var(--pink),#FFD34D 52%,var(--violet));color:#0b0a16;border:none;font-weight:800}
+
+.footer{opacity:.7;font-size:12px;margin:14px 0 28px}
+.note{color:var(--muted)}
+/* Light theme */
+.light{background:#faf7ff;color:#0a0a14}
+.light header{background:#ffffffcc;border-bottom:1px solid #eee}
+.light .card{background:#fff;border-color:#eee}
+.light .input input{background:#fff;color:#111;border-color:#ddd}
+.light .track{background:#fff;border-color:#eee}
+.light .chip,.light .linkbtn{background:#fafafa;border-color:#ddd}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap brand">
+    <div class="brand-left">
+      <div class="logo"></div>
+      <h1>Landia’s Musik · Hot New · Energía/Ánimo</h1>
+    </div>
+    <label style="display:flex;align-items:center;gap:8px;font-size:12px">
+      ☾/☼
+      <input id="themeToggle" class="theme" type="checkbox" aria-label="Cambiar tema">
+    </label>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="tabs" role="tablist">
+      <div class="tab active" data-mode="hot">Hot New · Top-10</div>
+      <div class="tab" data-mode="mood">Por energía/ánimo</div>
+    </div>
+  </section>
+
+  <section class="card">
+    <h3>Preescucha al toque (Spotify / Apple Music)</h3>
+    <div class="controls">
+      <div class="card">
+        <div class="input">
+          <input id="spotifyUrl" placeholder="Pegá un link de Spotify (track / playlist / álbum)">
+          <button class="btn" onclick="embedSpotify()">Preview</button>
+        </div>
+        <div id="spotifyEmbed" style="margin-top:10px"></div>
+      </div>
+      <div class="card">
+        <div class="input">
+          <input id="appleUrl" placeholder="Pegá un link de Apple Music">
+          <button class="btn" onclick="embedApple()">Preview</button>
+        </div>
+        <div id="appleEmbed" style="margin-top:10px"></div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:8px">Tip: copiá cualquier URL pública. No subimos audio: usamos <em>embeds</em> oficiales.</div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Catálogo</h2>
+    <div class="search"><input id="q" placeholder="Buscar por tema o artista..." oninput="render()"></div>
+    <div id="moodChips" class="chips" style="display:none"></div>
+    <div id="list" class="grid"></div>
+  </section>
+
+  <section id="sugerencias" class="card">
+    <h3>Sugerencias / Enviar tu tema</h3>
+    <form onsubmit="return sendSuggestion()">
+      <div class="input" style="margin-bottom:8px">
+        <input id="name" placeholder="Tu nombre (opcional)">
+      </div>
+      <div class="input" style="margin-bottom:8px">
+        <input id="link" placeholder="Link de Spotify / Apple Music" required>
+      </div>
+      <div class="input" style="margin-bottom:8px">
+        <input id="notes" placeholder="Notas (opcional)">
+      </div>
+      <button class="btn" type="submit">Enviar</button>
+    </form>
+    <div class="note" style="margin-top:8px">En iPhone se abre tu mail con el texto completado. Si querés usar Google Forms, pasame el enlace y lo conecto.</div>
+  </section>
+
+  <section class="footer">
+    <div class="note">
+      Apple Music: <a id="appleProfile" href="#" target="_blank" rel="noopener">perfil</a> ·
+      Spotify: <a id="spotifyProfile" href="#" target="_blank" rel="noopener">perfil/playlist</a> ·
+      Sugerencias: <a href="#sugerencias">enviar</a>
+    </div>
+  </section>
+</main>
+
+<!-- DATASET editable rápido en iPhone -->
+<script type="application/json" id="musikData">
+{
+  "config": {
+    "newDays": 45,
+    "autoFreshBoost": 40,
+    "appleProfile": "https://music.apple.com/profile/jprebosio",
+    "spotifyProfile": "",
+    "googleForm": ""  // si luego agregás un Google Form, poné la URL acá
+  },
+  "tracks": [
+    { "title":"Track Alpha", "artist":"Artist A", "releaseDate":"2025-08-05", "score":96, "energy":"Upbeat",
+      "spotify":"", "apple":"" },
+    { "title":"Track Beta", "artist":"Artist B", "releaseDate":"2025-07-31", "energy":"Chill",
+      "spotify":"", "apple":"" },
+    { "title":"Track Gamma", "artist":"Artist C", "releaseDate":"2025-08-15", "score":92, "energy":"Party",
+      "spotify":"", "apple":"" },
+    { "title":"Track Delta", "artist":"Artist D", "releaseDate":"2025-07-20", "energy":"Focus",
+      "spotify":"", "apple":"" },
+    { "title":"Track Epsilon", "artist":"Artist E", "releaseDate":"2025-08-10", "score":89, "energy":"Melancolía",
+      "spotify":"", "apple":"" },
+    { "title":"Track Zeta", "artist":"Artist F", "releaseDate":"2025-06-28", "energy":"Upbeat",
+      "spotify":"", "apple":"" },
+    { "title":"Track Eta", "artist":"Artist G", "releaseDate":"2025-08-08", "energy":"Chill",
+      "spotify":"", "apple":"" },
+    { "title":"Track Theta", "artist":"Artist H", "releaseDate":"2025-07-29", "energy":"Focus",
+      "spotify":"", "apple":"" },
+    { "title":"Track Iota", "artist":"Artist I", "releaseDate":"2025-08-01", "energy":"Party",
+      "spotify":"", "apple":"" },
+    { "title":"Track Kappa", "artist":"Artist J", "releaseDate":"2025-07-18", "energy":"Melancolía",
+      "spotify":"", "apple":"" },
+    { "title":"Track Lambda", "artist":"Artist K", "releaseDate":"2025-08-12", "energy":"Upbeat",
+      "spotify":"", "apple":"" },
+    { "title":"Track Mu", "artist":"Artist L", "releaseDate":"2025-08-14", "energy":"Chill",
+      "spotify":"", "apple":"" }
+  ]
+}
+</script>
+
+<script>
+const $ = s => document.querySelector(s);
+const state = JSON.parse(document.getElementById('musikData').textContent);
+const cfg = state.config || {};
+const NEW_DAYS = cfg.newDays || 45;
+const FRESH_BOOST = cfg.autoFreshBoost || 40;
+let MODE = 'hot';
+let MOOD = 'All';
+
+// THEME
+const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+const savedTheme = localStorage.getItem('landia_theme') || (prefersLight ? 'light' : 'dark');
+applyTheme(savedTheme);
+$('#themeToggle').checked = savedTheme === 'light';
+$('#themeToggle').addEventListener('change', (e)=>{
+  applyTheme(e.target.checked ? 'light' : 'dark');
+});
+function applyTheme(theme){
+  document.body.classList.toggle('light', theme==='light');
+  localStorage.setItem('landia_theme', theme);
+}
+
+// TABS
+document.querySelectorAll('.tab').forEach(el=>{
+  el.addEventListener('click', ()=>{
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    el.classList.add('active');
+    MODE = el.dataset.mode;
+    $('#moodChips').style.display = MODE==='mood' ? '' : 'none';
+    render();
+  })
+});
+
+// EMBEDS
+function embedSpotify(){
+  const raw = $('#spotifyUrl').value.trim();
+  if(!raw) return;
+  try{
+    const u = new URL(raw);
+    const parts = u.pathname.split('/').filter(Boolean);
+    const type = parts[0], id = (parts[1]||'').split('?')[0];
+    if(!['track','playlist','album'].includes(type) || !id) throw 0;
+    const src = `https://open.spotify.com/embed/${type}/${id}?utm_source=generator`;
+    $('#spotifyEmbed').innerHTML = `<iframe style="border-radius:12px" src="${src}" width="100%" height="${type==='track'?'152':'352'}" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>`;
+  }catch{ alert('Pegá una URL pública de Spotify válida (track/playlist/álbum).'); }
+}
+function embedApple(){
+  const raw = $('#appleUrl').value.trim();
+  if(!raw) return;
+  try{
+    const u = new URL(raw);
+    if(!u.hostname.includes('music.apple.com')) throw 0;
+    const src = raw.replace('https://music.apple.com','https://embed.music.apple.com');
+    $('#appleEmbed').innerHTML = `<iframe allow="autoplay *; encrypted-media *;" frameborder="0" height="190" style="width:100%;overflow:hidden;border-radius:12px" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="${src}"></iframe>`;
+  }catch{ alert('Pegá una URL pública de Apple Music válida.'); }
+}
+
+// SCORING
+function daysFrom(d){ return (Date.now() - new Date(d).getTime())/864e5; }
+function isNew(d){ return daysFrom(d) <= NEW_DAYS; }
+function scoreOf(t){
+  // Si no hay score, se calcula boost por frescura (0..FRESH_BOOST)
+  const base = Number.isFinite(t.score) ? t.score : 0;
+  const diff = Math.max(0, NEW_DAYS - daysFrom(t.releaseDate));
+  const fresh = Math.max(0, Math.min(1, diff / NEW_DAYS)) * FRESH_BOOST;
+  return Math.round(base + fresh);
+}
+function fmt(d){ const dt = new Date(d); return dt.toLocaleDateString('es-AR',{year:'numeric',month:'short',day:'2-digit'}); }
+
+// MOOD chips
+const MOODS = ['All','Chill','Focus','Upbeat','Party','Melancolía'];
+$('#moodChips').innerHTML = MOODS.map(m=>`<button class="chip ${m==='All'?'active':''}" data-mood="${m}">${m}</button>`).join('');
+$('#moodChips').addEventListener('click', e=>{
+  const b = e.target.closest('.chip'); if(!b) return;
+  MOOD = b.dataset.mood;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  b.classList.add('active');
+  render();
+});
+
+// SUGGESTIONS (mailto o Google Form)
+function sendSuggestion(){
+  const name = encodeURIComponent($('#name').value||'');
+  const link = encodeURIComponent($('#link').value||'');
+  const notes = encodeURIComponent($('#notes').value||'');
+  const subject = encodeURIComponent('Sugerencia Landia’s Musik');
+  const body = encodeURIComponent(`Nombre: ${decodeURIComponent(name)}%0ALink: ${decodeURIComponent(link)}%0ANotas: ${decodeURIComponent(notes)}`);
+  if(cfg.googleForm){ window.open(cfg.googleForm,'_blank'); return false; }
+  window.location.href = `mailto:jprebosio@gmail.com?subject=${subject}&body=${body}`;
+  return false;
+}
+
+// RENDER
+function render(){
+  if(cfg.appleProfile){ $('#appleProfile').href = cfg.appleProfile; }
+  if(cfg.spotifyProfile){ $('#spotifyProfile').href = cfg.spotifyProfile; }
+
+  const q = ($('#q').value||'').toLowerCase().trim();
+  let arr = [...state.tracks];
+
+  // Filtros base por búsqueda
+  if(q){
+    arr = arr.filter(t =>
+      (t.title||'').toLowerCase().includes(q) ||
+      (t.artist||'').toLowerCase().includes(q)
+    );
+  }
+
+  // Modo
+  if(MODE==='hot'){
+    arr.sort((a,b)=> scoreOf(b) - scoreOf(a) || new Date(b.releaseDate)-new Date(a.releaseDate));
+    arr = arr.slice(0,10);
+  }else{
+    if(MOOD!=='All'){ arr = arr.filter(t => (t.energy||'').toLowerCase()===MOOD.toLowerCase()); }
+    arr.sort((a,b)=> scoreOf(b) - scoreOf(a));
+    arr = arr.slice(0,12);
+  }
+
+  const html = arr.map(t=>`
+    <article class="track">
+      <h3>${t.title}</h3>
+      <div class="meta">${t.artist} · <span>${fmt(t.releaseDate)}</span></div>
+      <div class="badges">
+        <span class="badge">Score ${scoreOf(t)}</span>
+        ${isNew(t.releaseDate) ? '<span class="badge new">NEW</span>' : ''}
+        ${t.energy ? `<span class="badge">${t.energy}</span>` : ''}
+      </div>
+      <div class="links">
+        ${t.spotify ? `<a class="linkbtn" href="${t.spotify}" target="_blank" rel="noopener" aria-label="Abrir en Spotify">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5a10.5 10.5 0 1 0 0 21 10.5 10.5 0 0 0 0-21zm4.8 15.2a.78.78 0 0 1-1.08.26c-2.95-1.8-6.67-2.2-11.05-1.2a.8.8 0 1 1-.35-1.57c4.78-1.07 8.9-.63 12.2 1.36.36.22.48.69.28 1.15zM17 13.3a.98.98 0 0 1-1.35.33c-3.37-2.06-8.5-2.66-12.5-1.45a1 1 0 0 1-.58-1.9c4.46-1.37 10.1-.69 13.95 1.63.46.28.6.9.33 1.39zM6.3 9.7c3.87-1.12 8.98-.36 12 .95a1.2 1.2 0 0 1-1 2.18c-2.67-1.22-7.26-1.9-10.53-.95a1.2 1.2 0 1 1-.47-2.18z"/></svg> Spotify</a>`:''}
+        ${t.apple ? `<a class="linkbtn" href="${t.apple}" target="_blank" rel="noopener" aria-label="Abrir en Apple Music">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16.5 2l-7 1.9c-.8.2-1.5 1.1-1.5 2v9.7c0 1.5-1.2 2.6-2.6 2.6S2.3 17 2.3 15.6s1.2-2.5 2.6-2.5c.6 0 1.1.2 1.6.5V7.7c0-1 .7-2 1.6-2.2l8.1-2.2c.5-.1 1 .3 1 .8v8.8c0 1.5-1.2 2.6-2.6 2.6s-2.6-1.1-2.6-2.5 1.2-2.5 2.6-2.5c.6 0 1.1.2 1.6.5V2.8c0-.5-.5-.9-1-.8z"/></svg> Apple</a>`:''}
+      </div>
+    </article>
+  `).join('');
+  $('#list').innerHTML = html || '<div class="note">Sin resultados. Probá con otro término.</div>';
+}
+// init
+$('#moodChips').style.display = 'none';
+render();
+</script>
+</body>
+</html>
