@@ -1,0 +1,108 @@
+<!doctype html><html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Likelandi · Producers (Privado)</title>
+<meta name="description" content="Galería privada para productoras: fotos y specs del espacio.">
+<style>
+:root{--bg:#0b0a16;--fg:#f7f7fb;--muted:#b8b6c9;--line:#2a2140;--pink:#FF2DAA;--violet:#7C3AED;--gold:#C9A200;--card:#161424dd}
+*{box-sizing:border-box}html,body{margin:0;background:#0b0a16;color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 16px}
+h1{margin:0 0 8px;font-size:22px;background:linear-gradient(120deg,#fff,#efe9ff 40%,#FFD34D);-webkit-background-clip:text;background-clip:text;color:transparent}
+.note{color:var(--muted);font-size:13px}
+.card{background:var(--card);border:1px solid #241e3a;border-radius:16px;padding:16px;margin-top:14px}
+.input{display:flex;gap:8px;margin-top:8px}
+.input input{flex:1;border-radius:12px;border:1px solid var(--line);background:#120f20;color:#fff;padding:12px 14px}
+.btn{border:none;border-radius:12px;padding:12px 14px;font-weight:800;color:#0b0a16;background:linear-gradient(135deg,#FF2DAA,#FFD34D 52%,#7C3AED);cursor:pointer}
+.badge{display:inline-block;margin:6px 6px 0 0;padding:6px 10px;border-radius:999px;border:1px solid #2a2140;background:#171333;font-size:12px}
+.embed{width:100%;height:70vh;border:0;border-radius:14px;background:#111}
+.footer{opacity:.8;font-size:12px;margin:16px 0 28px}
+a{color:#fff}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <h1>Likelandi · Producers (Privado)</h1>
+  <div class="note">Acceso para productoras (fotos y detalles del espacio). Si necesitás acceso, pedilo abajo.</div>
+
+  <!-- Portón con código -->
+  <section id="gate" class="card">
+    <h3>Ingresar</h3>
+    <div class="input">
+      <input id="code" type="password" placeholder="Código de acceso">
+      <button class="btn" onclick="unlock()">Entrar</button>
+    </div>
+    <div class="note">Si no tenés el código, pedilo por WhatsApp o email.</div>
+    <div style="margin-top:8px">
+      <a class="badge" href="mailto:jprebosio@gmail.com?subject=Acceso%20Producers%20Likelandi&body=Hola%2C%20solicito%20acceso%20privado%20para%20ver%20las%20fotos.%20Empresa%3A%20%0D%0AEmail%3A%20" target="_blank" rel="noopener">Pedir acceso por email</a>
+      <a class="badge" href="https://wa.me/5491124605401?text=Hola%2C%20solicito%20acceso%20privado%20Producers%20Likelandi." target="_blank" rel="noopener">WhatsApp</a>
+      <a class="badge" href="https://instagram.com/likelandii" target="_blank" rel="noopener">@likelandii</a>
+    </div>
+  </section>
+
+  <!-- Área privada -->
+  <section id="private" class="card" style="display:none">
+    <h3>Galería privada en Dropbox</h3>
+    <div class="note">Requiere estar logueado/a en Dropbox con el email autorizado o tener el vínculo protegido por contraseña.</div>
+
+    <!-- 1) Si el embed está bloqueado por el navegador, usá el botón Abrir en Dropbox -->
+    <iframe id="dbx" class="embed" src="" referrerpolicy="no-referrer"></iframe>
+    <div style="margin-top:8px">
+      <a id="dbxOpen" class="btn" href="#" target="_blank" rel="noopener">Abrir en Dropbox</a>
+    </div>
+
+    <!-- (Opcional) Subidas de material -->
+    <div id="req" style="display:none;margin-top:12px">
+      <a id="dbxReq" class="badge" href="#" target="_blank" rel="noopener">Enviar materiales (File Request)</a>
+    </div>
+
+    <h3 style="margin-top:18px">Especificaciones del espacio</h3>
+    <div>
+      <span class="badge">Ambientes: 3</span>
+      <span class="badge">Dormitorios: 1</span>
+      <span class="badge">Baños: 1</span>
+      <span class="badge">Luz natural</span>
+      <span class="badge">Aislación sonora</span>
+      <span class="badge">Arte/Música</span>
+      <span class="badge">Disponibilidad: coordinar</span>
+      <span class="badge">Ubicación: a confirmar</span>
+    </div>
+  </section>
+
+  <section class="footer">
+    Contacto: <a href="mailto:jprebosio@gmail.com">jprebosio@gmail.com</a> · <a href="https://wa.me/5491124605401">WhatsApp</a>
+  </section>
+</main>
+
+<script>
+/* EDITAR ESTOS 3 DATOS */
+const PASSCODE = "LandiDorado2027#"; // tu código
+const DROPBOX_FOLDER_URL = "PEGÁ_AQUÍ_TU_LINK_DE_CARPETA"; // ej: https://www.dropbox.com/scl/fo/ABC...?dl=0
+const DROPBOX_REQUEST_URL = ""; // opcional: link de File Request
+
+/* Recuerda acceso en esta sesión */
+if (sessionStorage.getItem('prod_access') === 'ok') showPrivate();
+
+function unlock(){
+  const v = (document.getElementById('code').value||"").trim();
+  if (v !== PASSCODE){ alert("Código incorrecto"); return; }
+  sessionStorage.setItem('prod_access','ok');
+  showPrivate();
+}
+
+function showPrivate(){
+  document.getElementById('gate').style.display = 'none';
+  document.getElementById('private').style.display = '';
+  const link = DROPBOX_FOLDER_URL;
+  // Intento de embed (puede bloquearse por X-Frame-Options)
+  document.getElementById('dbx').src = link;
+  // Botón de apertura directa
+  const open = document.getElementById('dbxOpen');
+  open.href = link;
+  // File Request (opcional)
+  if (DROPBOX_REQUEST_URL){
+    document.getElementById('req').style.display = '';
+    document.getElementById('dbxReq').href = DROPBOX_REQUEST_URL;
+  }
+}
+</script>
+</body></html>
