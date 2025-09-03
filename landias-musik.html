@@ -1,1 +1,32 @@
-<a href="/landias-musik.html">Landia’s Musik</a>
+<a href="/landias-musik.html<!-- Last.fm Profile (animado) -->
+<section class="card" style="margin-top:18px">
+  <h3 style="margin:0 0 8px">Perfil Last.fm</h3>
+  <div id="lfm" style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+    <div class="eq" aria-hidden="true" style="display:flex;gap:3px">
+      <span style="width:3px;height:12px;background:#FF2DAA;display:inline-block;animation:beat 0.9s infinite ease-in-out"></span>
+      <span style="width:3px;height:18px;background:#C9A200;display:inline-block;animation:beat 1.1s infinite ease-in-out .1s"></span>
+      <span style="width:3px;height:9px;background:#7C3AED;display:inline-block;animation:beat 0.8s infinite ease-in-out .2s"></span>
+      <span style="width:3px;height:16px;background:#FF2DAA;display:inline-block;animation:beat 1.05s infinite ease-in-out .05s"></span>
+      <span style="width:3px;height:11px;background:#C9A200;display:inline-block;animation:beat 0.95s infinite ease-in-out .15s"></span>
+    </div>
+    <div style="flex:1;min-width:260px;overflow:hidden">
+      <div id="lfmTicker" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.9">
+        Conectá tu Last.fm para ver tus últimos temas →
+      </div>
+    </div>
+    <a id="lfmLink" class="linkbtn" href="https://www.last.fm/user/" target="_blank" rel="noopener"
+       style="display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;border:1px solid #2a2140;background:#1a1630;color:#fff;text-decoration:none">
+      Ver perfil
+    </a>
+    <button id="lfmCfg" type="button"
+       style="display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;border:1px solid #2a2140;background:#1a1630;color:#fff">
+      ⚙️ Configurar
+    </button>
+  </div>
+</section>
+
+<style>
+@keyframes beat{0%{transform:scaleY(.6)}50%{transform:scaleY(1)}100%{transform:scaleY(.6)}}
+@keyframes marq{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+</style>
+">Landia’s Musik</a>
