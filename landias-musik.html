@@ -1,31 +1,32 @@
 <!doctype html><html lang="es"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Landia’s Musik — Likelandi</title>
-<meta name="description" content="Landia’s Musik: mi universo musical — Apple Music, Spotify y Last.fm con los últimos temas.">
+<meta name="description" content="Landia’s Musik: Apple Music, Spotify y Last.fm (últimos temas)">
 <style>
 :root{
-  --bg:#0b0a16;--fg:#f7f7fb;--muted:#b8b6c9;--line:#241e3a;
-  --pink:#FF2DAA;--violet:#7C3AED;--gold:#C9A200;--card:#161424dd
+  /* Mahogany + bubblegum + leather */
+  --bg:#110C0A; --fg:#FFFEFC; --muted:#E5DAD2; --line:#3A1E17;
+  --pink:#FF8AC9; --gold:#C49A6C; --violet:#4B1F24; --card:#1A110Edd;
 }
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
 .wrap{max-width:1100px;margin:0 auto;padding:24px 16px}
-h1{margin:0 0 8px;font-size:28px;line-height:1.15;
-  background:linear-gradient(120deg,#fff,#efe9ff 40%,#FFD34D);
-  -webkit-background-clip:text;background-clip:text;color:transparent}
+h1{margin:0 0 6px;font-size:32px;line-height:1.1;
+  background:linear-gradient(120deg,#A78BFA,#FF8AC9 55%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 1px 0 rgba(0,0,0,.25);
+}
 p{color:var(--muted)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:14px}
-.btn{border:none;border-radius:12px;padding:12px 14px;font-weight:800;color:#0b0a16;
-  background:linear-gradient(135deg,var(--pink),var(--gold) 52%,var(--violet));cursor:pointer}
-.link{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;
-  border:1px solid var(--line);background:#1a1630;color:#fff;text-decoration:none}
-.row{display:flex;gap:10px;flex-wrap:wrap}
+.btn{border:none;border-radius:12px;padding:10px 12px;font-weight:800;color:#100906;
+  background:linear-gradient(135deg,#7E2F26,#C49A6C 52%,#4B1F24);cursor:pointer}
+.btn-ghost{background:#211510;border:1px solid var(--line);color:#fff}
+.link{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#211510;color:#fff;text-decoration:none}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
 .note{font-size:12px;color:var(--muted)}
-hr{border:0;border-top:1px solid var(--line);margin:16px 0}
-h3{margin:0 0 8px}
-.badge{display:inline-block;margin:6px 6px 0 0;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:#171333;font-size:12px}
+.badge{display:inline-block;margin:6px 6px 0 0;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:#24140f;font-size:12px}
 ul.clean{margin:10px 0 0 0;padding:0;list-style:none}
-ul.clean li{padding:8px 10px;border:1px solid var(--line);border-radius:12px;margin:6px 0;background:#141129}
+ul.clean li{padding:8px 10px;border:1px solid var(--line);border-radius:12px;margin:6px 0;background:#1b100c}
 .eq span{width:3px;display:inline-block}
 .eq span:nth-child(1){height:12px;background:var(--pink);animation:beat .9s infinite ease-in-out}
 .eq span:nth-child(2){height:18px;background:var(--gold);animation:beat 1.1s infinite ease-in-out .1s}
@@ -34,32 +35,61 @@ ul.clean li{padding:8px 10px;border:1px solid var(--line);border-radius:12px;mar
 .eq span:nth-child(5){height:11px;background:var(--gold);animation:beat .95s infinite ease-in-out .15s}
 @keyframes beat{0%{transform:scaleY(.6)}50%{transform:scaleY(1)}100%{transform:scaleY(.6)}}
 @keyframes marq{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+
+/* HERO */
+.hero{
+  position:relative;border-radius:20px;overflow:hidden;margin-top:14px;
+  min-height:340px;display:flex;align-items:end;
+  background:
+    linear-gradient(to bottom right, rgba(17,12,10,.35), rgba(126,47,38,.55) 45%, rgba(0,0,0,.60)),
+    url('/landias-hero.jpg?v=4');
+  background-size:cover;
+  /* background-position se controla por JS (guardado en localStorage) */
+  border:1px solid var(--line);
+}
+.hero-inner{padding:24px 16px;max-width:1100px;width:100%}
+.hero p{color:var(--muted);margin:0 0 10px}
+
+/* Variante: ver imagen completa */
+.hero--contain{
+  background-size:contain;
+  background-position:center top !important;
+  background-repeat:no-repeat;
+  min-height:460px;
+}
+@media (max-width:640px){ .hero{ min-height:300px } }
 </style>
 </head><body>
 <main class="wrap">
-  <!-- Hero -->
-  <section class="card">
-    <h1>Landia’s Musik</h1>
-    <p>Mi universo musical — seguime en Apple Music y Spotify, y mirá en vivo mis últimos scrobbles de Last.fm.</p>
-    <div class="row" id="musicLinks">
-      <a id="appleLink" class="link" href="https://music.apple.com/profile/jprebosio" target="_blank" rel="noopener"> Music</a>
-      <a id="spotifyLink" class="link" href="https://open.spotify.com/search/Juan%20Pablo%20Fernandez%20rebosio" target="_blank" rel="noopener">Spotify</a>
-      <button class="btn" id="cfgLinks" type="button">⚙️ Editar enlaces</button>
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <h1>Landia’s Musik</h1>
+      <p>Mi universo musical — Apple Music, Spotify y mis últimos scrobbles de Last.fm.</p>
+      <div class="row" id="musicLinks">
+        <a id="appleLink" class="link" href="https://music.apple.com/profile/jprebosio" target="_blank" rel="noopener"> Music</a>
+        <a id="spotifyLink" class="link" href="https://open.spotify.com/search/Juan%20Pablo%20Fernandez%20rebosio" target="_blank" rel="noopener">Spotify</a>
+        <button class="btn" id="cfgLinks" type="button">⚙️ Editar enlaces</button>
+        <button class="btn" id="toggleHero" type="button" title="Alternar cover/entera">🖼️ Ver foto completa</button>
+        <span class="note">Foco:</span>
+        <button class="btn-ghost" id="posUp" type="button" title="Subir foco">⬆️</button>
+        <button class="btn-ghost" id="posDown" type="button" title="Bajar foco">⬇️</button>
+        <span class="note" id="posLabel"></span>
+      </div>
     </div>
-    <div class="note">Podés ajustar tus enlaces con el botón ⚙️ (se guardan en este dispositivo).</div>
   </section>
 
   <!-- Last.fm -->
   <section class="card">
-    <div class="row" style="align-items:center;justify-content:space-between">
+    <div class="row" style="justify-content:space-between">
       <h3 style="margin:0">Perfil Last.fm</h3>
-      <div class="row" style="margin:0">
+      <div class="row">
         <button class="btn" id="cfgLfm" type="button">⚙️ Configurar Last.fm</button>
-        <a id="lfmLink" class="link" href="https://www.last.fm/user/jprebosio" target="_blank" rel="noopener">Ver perfil</a>
+        <a id="lfmLink" class="link" href="https://www.last.fm/user/animatefran" target="_blank" rel="noopener">Ver perfil</a>
       </div>
     </div>
 
-    <div class="row" style="align-items:center;margin-top:8px">
+    <div class="row" style="margin-top:8px">
       <div class="eq" aria-hidden="true" style="display:flex;gap:3px"><span></span><span></span><span></span><span></span><span></span></div>
       <div style="flex:1;min-width:260px;overflow:hidden">
         <div id="lfmTicker" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.9">
@@ -72,21 +102,19 @@ ul.clean li{padding:8px 10px;border:1px solid var(--line);border-radius:12px;mar
 
   <!-- Hot New 10 -->
   <section class="card">
-    <div class="row" style="align-items:center;justify-content:space-between">
+    <div class="row" style="justify-content:space-between">
       <h3 style="margin:0">🔥 Hot New 10</h3>
       <button class="btn" id="editHot" type="button">✍️ Editar lista</button>
     </div>
-    <ul class="clean" id="hotList">
-      <!-- Se llena desde localStorage o con placeholders -->
-    </ul>
-    <div class="note">Consejo: pegá 10 líneas (una por tema). Se guarda localmente en tu navegador.</div>
+    <ul class="clean" id="hotList"></ul>
+    <div class="note">Pegá 10 líneas (una por tema). Se guarda en tu navegador.</div>
   </section>
 
-  <section class="card" style="background:#121022;border-style:dashed">
+  <section class="card" style="background:#150E0C;border-style:dashed">
     <h3 style="margin:0 0 6px">Próximamente</h3>
     <div class="row">
       <span class="badge">Audios divertidos (zona privada)</span>
-      <span class="badge">Mi set-up y playlists curadas</span>
+      <span class="badge">Playlists curadas</span>
       <span class="badge">Integración con YouTube / Apple Music embebido</span>
     </div>
   </section>
@@ -95,12 +123,11 @@ ul.clean li{padding:8px 10px;border:1px solid var(--line);border-radius:12px;mar
 </main>
 
 <script>
-// ====== Enlaces Apple/Spotify (editables) ======
+// ===== Enlaces Apple/Spotify (editables) =====
 const appleDefault = "https://music.apple.com/profile/jprebosio";
 const spotifyDefault = "https://open.spotify.com/search/Juan%20Pablo%20Fernandez%20rebosio";
 const appleLink = document.getElementById('appleLink');
 const spotifyLink = document.getElementById('spotifyLink');
-
 function applyLinks(){
   const a = localStorage.getItem('apple_url') || appleDefault;
   const s = localStorage.getItem('spotify_url') || spotifyDefault;
@@ -108,7 +135,6 @@ function applyLinks(){
   if (spotifyLink) spotifyLink.href = s;
 }
 applyLinks();
-
 document.getElementById('cfgLinks').addEventListener('click', ()=>{
   const a0 = localStorage.getItem('apple_url') || appleDefault;
   const s0 = localStorage.getItem('spotify_url') || spotifyDefault;
@@ -122,17 +148,12 @@ document.getElementById('cfgLinks').addEventListener('click', ()=>{
   alert("Enlaces actualizados ✅");
 });
 
-// ====== Last.fm (animado + ticker con API) ======
-let LFM_USER = localStorage.getItem('lfm_user') || "jprebosio"; // prellenado
+// ===== Last.fm (usuario por defecto = animatefran) =====
+let LFM_USER = localStorage.getItem('lfm_user') || "animatefran";
 let LFM_API_KEY = localStorage.getItem('lfm_key') || "";
 const LFM_LIMIT = 10;
-
-function applyLfmLink(){
-  const link = document.getElementById('lfmLink');
-  if (link) link.href = "https://www.last.fm/user/"+encodeURIComponent(LFM_USER||"");
-}
-applyLfmLink();
-
+const lfmLink = document.getElementById('lfmLink');
+if (lfmLink) lfmLink.href = "https://www.last.fm/user/"+encodeURIComponent(LFM_USER||"");
 document.getElementById('cfgLfm').addEventListener('click', ()=>{
   const u = prompt("Usuario de Last.fm:", LFM_USER||"");
   if (u===null) return;
@@ -142,10 +163,9 @@ document.getElementById('cfgLfm').addEventListener('click', ()=>{
   LFM_API_KEY = (k||"").trim();
   localStorage.setItem('lfm_user', LFM_USER);
   localStorage.setItem('lfm_key', LFM_API_KEY);
-  applyLfmLink();
+  if (lfmLink) lfmLink.href = "https://www.last.fm/user/"+encodeURIComponent(LFM_USER||"");
   loadLastFm();
 });
-
 async function loadLastFm(){
   if(!LFM_USER || !LFM_API_KEY){ return; }
   try{
@@ -162,45 +182,59 @@ async function loadLastFm(){
     const line = items.join('  ·  ');
     const el = document.getElementById('lfmTicker');
     if (el) el.innerHTML = `<div style="display:inline-block;animation:marq 18s linear infinite;padding-left:100%">${line}</div>`;
-  }catch(e){/* silencioso */}
+  }catch(e){}
 }
 loadLastFm();
 
-// ====== Hot New 10 (editable) ======
-const hotListEl = document.getElementById('hotList');
-function renderHot(){
-  const raw = localStorage.getItem('hot_new_list') || 
-`1) Charli XCX — Blame It On Your Love (remix)
-2) (Editá esta lista con ✍️)
-3) Tema
-4) Tema
-5) Tema
-6) Tema
-7) Tema
-8) Tema
-9) Tema
-10) Tema`;
-  const rows = raw.split(/\r?\n/).filter(Boolean);
-  hotListEl.innerHTML = rows.map(txt=>`<li>${txt.replace(/^[-*\d.)\s]+/,'')}</li>`).join("");
-}
-renderHot();
+// ===== HERO: centrar iPod + auriculares con controles =====
+const hero = document.getElementById('hero');
+const posLabel = document.getElementById('posLabel');
+const btnUp = document.getElementById('posUp');
+const btnDown = document.getElementById('posDown');
+const btnToggle = document.getElementById('toggleHero');
 
-document.getElementById('editHot').addEventListener('click', ()=>{
-  const now = (localStorage.getItem('hot_new_list') || 
-`1) Charli XCX — Blame It On Your Love (remix)
-2) (Editá esta lista con ✍️)
-3) Tema
-4) Tema
-5) Tema
-6) Tema
-7) Tema
-8) Tema
-9) Tema
-10) Tema`);
-  const val = prompt("Pegá tus 10 temas (una línea por tema):", now);
-  if (val===null) return;
-  localStorage.setItem('hot_new_list', val);
-  renderHot();
+// Auto detectar ruta de imagen si no carga la por defecto
+(function pickHero(i=0){
+  const CANDIDATES = ['/landias-hero.jpg','/landias-hero.jpeg','/assets/landias-hero.jpg','/assets/landias-hero.jpeg'].map(p=>p+'?v=4');
+  function setHero(src){
+    const grad='linear-gradient(to bottom right, rgba(17,12,10,.35), rgba(126,47,38,.55) 45%, rgba(0,0,0,.60))';
+    hero.style.backgroundImage = grad + ', url("'+src+'")';
+  }
+  function tryNext(j){
+    if(j>=CANDIDATES.length) return;
+    const test = new Image();
+    test.onload = ()=> setHero(CANDIDATES[j]);
+    test.onerror = ()=> tryNext(j+1);
+    test.src = CANDIDATES[j];
+  }
+  tryNext(0);
+})();
+
+// Posición vertical (%) — default 50 para centrar más el objeto
+let pos = Number(new URLSearchParams(location.search).get('pos') ?? localStorage.getItem('hero_pos') ?? 50);
+function clamp(n,min,max){ return Math.max(min, Math.min(max, n)); }
+function applyPos(){
+  pos = clamp(Math.round(pos),0,100);
+  hero.style.backgroundPosition = `center ${pos}%`;
+  posLabel.textContent = `${pos}%`;
+  localStorage.setItem('hero_pos', String(pos));
+}
+btnUp.addEventListener('click', ()=>{ pos -= 3; applyPos(); });
+btnDown.addEventListener('click', ()=>{ pos += 3; applyPos(); });
+applyPos();
+
+// Toggle cover/contain
+function applyHeroMode(mode){
+  if(mode==='full'){ hero.classList.add('hero--contain'); btnToggle.textContent="🖼️ Ver foco arriba"; }
+  else{ hero.classList.remove('hero--contain'); btnToggle.textContent="🖼️ Ver foto completa"; }
+  localStorage.setItem('hero_mode', mode);
+}
+btnToggle.addEventListener('click', ()=>{
+  const current = (localStorage.getItem('hero_mode')||'top');
+  applyHeroMode(current==='top'?'full':'top');
 });
+const viewParam = new URLSearchParams(location.search).get('view');
+if(viewParam){ applyHeroMode(viewParam==='full'?'full':'top'); }
+else{ applyHeroMode(localStorage.getItem('hero_mode')||'top'); }
 </script>
 </body></html>
