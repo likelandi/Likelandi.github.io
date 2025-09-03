@@ -1,415 +1,85 @@
-<!doctype html><html lang="es"><!-- Open Graph / Facebook -->
-<meta property="og:title" content="Likelandi — Like Landii">
-<meta property="og:description" content="Landia’s Musik · Apple Music · Spotify · Last.fm · arte terapia & tecnología.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://likelandi.github.io/">
-<meta property="og:image" content="https://likelandi.github.io/og-likelandi.jpg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Likelandi — Like Landii">
-<meta name="twitter:description" content="Landia’s Musik · Apple Music · Spotify · Last.fm · arte terapia & tecnología.">
-<meta name="twitter:image" content="https://likelandi.github.io/og-likelandi.jpg">
-
-<link rel="canonical" href="https://likelandi.github.io/">
+<!doctype html>
+<html lang="es">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Juan Pablo Fernández Rebosio — Landia</title>
-<meta name="description" content="Psiquiatra y creador de Landia. Tecnología, salud mental, música y alojamiento en Luján, Buenos Aires.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Likelandi — Like Landii</title>
+  <meta name="description" content="Landia’s Musik · Apple Music · Spotify · Last.fm · arte terapia & tecnología.">
 
-<!-- Favicon (inline) -->
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ec4899'/%3E%3Cstop offset='1' stop-color='%238b5cf6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect rx='14' width='64' height='64' fill='%230f101a'/%3E%3Ccircle cx='32' cy='32' r='18' fill='url(%23g)'/%3E%3C/svg%3E">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://likelandi.github.io/">
 
-<!-- Open Graph / Twitter -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://likelandi.github.io/">
-<meta property="og:title" content="Juan Pablo Fernández Rebosio — Landia">
-<meta property="og:description" content="Psiquiatra y creador de Landia. Tecnología, salud mental y creatividad.">
-<meta property="og:image" content="https://likelandi.github.io/og_hero.jpg">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Juan Pablo Fernández Rebosio — Landia">
-<meta name="twitter:description" content="Psiquiatra y creador de Landia. Tecnología, salud mental y creatividad.">
-<meta name="twitter:image" content="https://likelandi.github.io/og_hero.jpg">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:title" content="Likelandi — Like Landii">
+  <meta property="og:description" content="Landia’s Musik · Apple Music · Spotify · Last.fm · arte terapia & tecnología.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://likelandi.github.io/">
+  <meta property="og:image" content="https://likelandi.github.io/og-likelandi.jpg?v=2">
+  <meta property="og:image:secure_url" content="https://likelandi.github.io/og-likelandi.jpg?v=2">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Likelandi">
 
-<style>
-:root{
-  --bg:#0f101a; --fg:#f7f7fb; --muted:#b9b9c5;
-  --brand:#ec4899; --brand2:#8b5cf6; --brand3:#b8860b; /* dorado */
-  --line:#242436;
-}
-*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-a{color:inherit;text-decoration:none}.container{max-width:1200px;margin:0 auto;padding:0 20px}
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Likelandi — Like Landii">
+  <meta name="twitter:description" content="Landia’s Musik · Apple Music · Spotify · Last.fm · arte terapia & tecnología.">
+  <meta name="twitter:image" content="https://likelandi.github.io/og-likelandi.jpg?v=2">
 
-/* Header */
-header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(12px);background:rgba(18,18,28,.55);border-bottom:1px solid var(--line)}
-nav{display:flex;align-items:center;justify-content:space-between;height:68px}
-.logo{display:flex;gap:12px;align-items:center;font-weight:900}
-.logo .dot{width:12px;height:12px;border-radius:50%;
-  background:conic-gradient(from 180deg,var(--brand),var(--brand3) 55%,var(--brand2))}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:16px;border:1px solid var(--line);background:linear-gradient(180deg,#1a1a2a,#141427);color:var(--fg);font-weight:700}
-.btn.primary{border:none;background:linear-gradient(135deg,var(--brand),var(--brand3) 52%,var(--brand2));box-shadow:0 12px 36px rgba(184,134,11,.25),0 10px 30px rgba(139,92,246,.22)}
-
-/* Hero (usa tu imagen og_hero.jpg + halo dorado) */
-.hero{position:relative;min-height:86vh;display:grid;place-items:center;overflow:hidden;border-bottom:1px solid var(--line);
-  background:
-    radial-gradient(700px 420px at 85% 18%, rgba(184,134,11,.28), rgba(0,0,0,0) 60%),
-    linear-gradient(180deg,rgba(0,0,0,.18),rgba(0,0,0,.72)),
-    url('og_hero.jpg') center/cover no-repeat;}
-.hero-inner{position:relative;z-index:1;padding:84px 0 60px;text-align:center}
-.kicker{letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-size:12px}
-h1{font-size:64px;line-height:1.02;margin:.3em 0 .15em;
-  background:linear-gradient(120deg,#fff,#efe9ff 40%,var(--brand3));-webkit-background-clip:text;background-clip:text;color:transparent}
-.lead{color:#efe9fb;font-size:20px;line-height:1.65;max-width:900px;margin:0 auto}
-.cta{display:flex;gap:12px;margin-top:26px;flex-wrap:wrap;justify-content:center}
-
-/* Sections */
-section{padding:80px 0;border-bottom:1px solid var(--line)}h2{font-size:34px;margin:0 0 18px}
-.grid{display:grid;gap:20px}.about{grid-template-columns:1.2fr .8fr;align-items:start}
-.card{border:1px solid var(--line);border-radius:20px;padding:20px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));backdrop-filter:blur(10px)}
-.stat{display:flex;gap:12px;align-items:center}
-.stat .num{font-size:28px;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand3) 60%,var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
-
-/* Projects */
-.projects{grid-template-columns:repeat(3,1fr)}
-.project{position:relative;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:linear-gradient(180deg,#1b1a25,#171523)}
-.project .banner{height:200px;background:linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.45))}
-.project .banner.music{
-  background:
-    radial-gradient(600px 380px at 78% 22%, rgba(184,134,11,.18), transparent 60%),
-    linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.55)),
-    url('music_cds.jpg') center/cover no-repeat}
-.project .inner{padding:16px}
-.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-.pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#1f1a28;border:1px solid var(--line);font-size:12px;color:#f0e9f9;box-shadow:inset 0 0 0 1px rgba(184,134,11,.15)}
-.mlinks{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
-
-/* Hot New */
-.ticker{overflow:hidden;white-space:nowrap;border:1px solid var(--line);border-radius:14px;background:linear-gradient(180deg,#1b1826,#141322);margin-top:-18px;box-shadow:inset 0 0 0 1px rgba(184,134,11,.18)}
-.ticker span{display:inline-block;padding:10px 16px;opacity:.9}
-.ticker .hot{margin-right:22px;font-weight:900;background:linear-gradient(135deg,var(--brand),var(--brand3) 60%,var(--brand2));-webkit-background-clip:text;background-clip:text;color:transparent}
-.ticker .scroll{display:inline-block;animation:marq 28s linear infinite}
-@keyframes marq{from{transform:translateX(0)} to{transform:translateX(-50%)}}
-
-.players{display:grid;gap:12px;grid-template-columns:1fr 1fr;margin:18px 0 12px}
-.players iframe{width:100%;height:380px;border:0;border-radius:16px;background:#12121c}
-.hotlist{grid-template-columns:repeat(2,1fr)}
-.track{border:1px solid var(--line);border-radius:16px;padding:14px 16px;background:linear-gradient(180deg,#1a1926,#161423);display:flex;gap:12px;align-items:center;justify-content:space-between;transition:transform .15s ease}
-.track:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(0,0,0,.35),0 6px 22px rgba(184,134,11,.18)}
-.tmeta{display:flex;gap:12px;align-items:center}
-.rank{width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,var(--brand),var(--brand3) 55%,var(--brand2));font-weight:900}
-.tname{font-weight:800}
-.tartist{color:#b9b9c5;font-size:13px}
-.badge{margin-left:8px;font-size:11px;padding:4px 8px;border-radius:999px;border:1px solid var(--line);background:#1f1a28}
-.tlinks{display:flex;gap:8px}
-.tlinks a{font-size:12px;border-radius:999px;padding:6px 10px;border:1px solid var(--line);background:#1f1a28}
-
-/* Opiniones (Formulario) */
-.form{display:grid;gap:12px;grid-template-columns:1fr 1fr}
-.form .full{grid-column:1/-1}
-.input, textarea, select{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#161523;color:#f7f7fb}
-label{font-size:14px;color:#d9d9e3}
-.help{color:#b9b9c5;font-size:12px}
-.form-actions{display:flex;gap:10px;flex-wrap:wrap}
-.note{color:#b9b9c5;font-size:12px;margin-top:6px}
-
-/* Services & FAQ */
-.services{grid-template-columns:repeat(3,1fr)}
-.service{border:1px solid var(--line);border-radius:20px;padding:20px;background:linear-gradient(180deg,#1f1a28,#181525)}
-.faq{grid-template-columns:1fr 1fr}
-.faq .q{border:1px solid var(--line);border-radius:16px;padding:14px 16px;background:linear-gradient(180deg,#1a1926,#161423)}
-.faq .q summary{cursor:pointer;font-weight:700}
-
-/* Press Kit */
-.presskit{display:grid;gap:14px;grid-template-columns:1fr 1fr}
-.pcard{border:1px solid var(--line);border-radius:16px;padding:16px;background:linear-gradient(180deg,#1b1a25,#171523)}
-.pcard a{display:inline-block;margin-top:8px}
-
-/* Footer & Float */
-.footer{padding:36px 0;color:#b9b9c5}
-.float{position:fixed;right:18px;bottom:18px;display:flex;gap:10px;z-index:60}
-.float a{height:46px;display:inline-flex;align-items:center;gap:10px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:linear-gradient(135deg,var(--brand),var(--brand3) 52%,var(--brand2));color:#fff;font-weight:800;box-shadow:0 10px 28px rgba(139,92,246,.35)}
-
-@media (max-width:1000px){
-  .about,.projects,.services,.faq,.hotlist,.presskit,.form{grid-template-columns:1fr}
-  .players{grid-template-columns:1fr}
-  h1{font-size:46px}.hero{min-height:74vh}
-}
-</style>
-</head><body>
-<header><div class="container"><nav>
-  <a class="logo" href="#top" aria-label="Inicio"><span class="dot"></span><span>Juan Pablo — Landia</span></a>
-  <div class="navlinks" role="navigation" aria-label="Secciones">
-    <a href="#sobre-mi">Sobre mí</a><a href="#proyectos">Proyectos</a><a href="#hot-new">Hot New</a><a href="#opiniones">Opiniones</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a>
-  </div>
-  <div><a class="btn" href="#contacto">Escribime</a></div>
-</nav></div></header>
-
-<main id="top">
-  <section class="hero" aria-label="Portada"><div class="container hero-inner">
-    <div class="kicker">Salud mental · Tecnología · Creatividad</div>
-    <h1>Juan Pablo Fernández Rebosio</h1>
-    <p class="lead">Psiquiatra y creador de <strong>Landia</strong>. Intersección entre <em>iOS, apps de salud mental</em> y experiencias creativas como <strong>Landia’s Musik</strong> y <strong>Likelandii</strong>. También desarrollo un <strong>alojamiento turístico</strong> en Luján, Buenos Aires.</p>
-    <div class="cta">
-      <a class="btn primary" href="https://wa.me/5491124605401?text=Hola%20Juan%20Pablo%2C%20quiero%20consultar%20por%20fechas%20en%20Likelandii" target="_blank" rel="noopener">Reservar por WhatsApp</a>
-      <a class="btn" href="#proyectos">Ver proyectos</a>
-      <a class="btn" href="#contacto">Contacto</a>
+  <style>
+    :root{
+      --violet-soft:#A78BFA;   /* violeta pastel */
+      --pink-bubble:#FF8AC9;   /* rosa chicle */
+      --mahogany:#110C0A; --line:#3A1E17;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+    header{padding:20px 16px;border-bottom:1px solid #eee;background:#fff}
+    .wrap{max-width:1100px;margin:0 auto;padding:0 12px}
+    .brand-vp{
+      font-size:28px;font-weight:800;line-height:1;
+      background:linear-gradient(90deg,var(--violet-soft),var(--pink-bubble));
+      -webkit-background-clip:text;background-clip:text;color:transparent;
+      filter:saturate(.95) brightness(1.03);text-shadow:0 .5px 0 rgba(0,0,0,.12);
+    }
+    main{padding:22px 0}
+    .card{
+      margin:18px 0;padding:16px;border:1px solid var(--line);
+      border-radius:16px;background:#1A110Edd;color:#FFFEFC
+    }
+    .card h2{margin:0 0 8px}
+    .card p{margin:0 0 12px;opacity:.85}
+    .btn{
+      display:inline-block;padding:10px 14px;border-radius:12px;font-weight:800;text-decoration:none;color:#100906;
+      background:linear-gradient(135deg,#7E2F26,#C49A6C 52%,#4B1F24);
+    }
+    footer{padding:20px 16px;border-top:1px solid #eee;color:#666;font-size:14px}
+    .note{font-size:12px;color:#777}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <span class="brand-vp">Like Landii</span>
     </div>
-  </div></section>
+  </header>
 
-  <section id="sobre-mi"><div class="container grid about">
-    <div>
-      <h2>Sobre mí</h2>
-      <p>Integro tecnología y salud mental con foco en <strong>privacidad</strong>, <strong>ética</strong> y <strong>experiencia de usuario</strong>. Busco <strong>apps más seguras en iOS</strong> y herramientas de <strong>voz</strong> para facilitar procesos terapéuticos y de bienestar.</p>
-      <p>Desarrollo proyectos creativos y de hospitalidad bajo el ecosistema <strong>Landia</strong>, cuidando la identidad de marca y la protección de datos.</p>
-    </div>
+  <main class="wrap">
+    <!-- Tarjeta destacada: Landia’s Musik -->
     <div class="card">
-      <div class="stat"><span class="num">10+ años</span><span>en práctica clínica y proyectos digitales</span></div>
-      <div class="stat"><span class="num">3 líneas</span><span>clínica · tecnología · hospitalidad</span></div>
-      <div class="stat"><span class="num">Luján</span><span>Base operativa · Prov. de Buenos Aires</span></div>
+      <h2>Landia’s Musik</h2>
+      <p>Mi universo musical — Apple Music, Spotify y mis scrobbles de Last.fm.</p>
+      <a class="btn" href="/landias-musik.html">🎧 Abrir Landia’s Musik</a>
     </div>
-  </div></section>
 
-  <section id="proyectos"><div class="container">
-    <h2>Proyectos destacados</h2>
-    <div class="grid projects">
-      <!-- Landia's Musik con imagen y links a Apple/Spotify -->
-      <article class="project">
-        <div class="banner music" aria-hidden="true"></div>
-        <div class="inner">
-          <h3>Landia's Musik</h3>
-          <p>Playlists y experiencias sonoras con foco en privacidad y baja fricción.</p>
-          <div class="badges"><span class="pill">Audio</span><span class="pill">CDs</span><span class="pill">Apple/Spotify</span></div>
-          <div class="mlinks">
-            <a class="btn" id="btn-apple" href="#" target="_blank" rel="noopener" aria-label="Abrir perfil en Apple Music">
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16 3v12.26a3.74 3.74 0 1 1-1.5-3V8.5l-7 1.4V16.7a3.74 3.74 0 1 1-1.5-3V6.1L16 3z"/></svg>
-              Apple Music
-            </a>
-            <a class="btn" id="btn-spotify" href="#" target="_blank" rel="noopener" aria-label="Abrir perfil en Spotify">
-              <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 1.8A10.2 10.2 0 1 0 22.2 12 10.2 10.2 0 0 0 12 1.8Zm4.5 14.9a.9.9 0 0 1-1.25.3 11.7 11.7 0 0 0-9.4-.94.9.9 0 1 1-.56-1.7 13.6 13.6 0 0 1 10.9 1.1.9.9 0 0 1 .31 1.24Zm1.08-2.86a1 1 0 0 1-1.37.34 14.9 14.9 0 0 0-12-1.24 1 1 0 0 1-.55-1.93 16.8 16.8 0 0 1 13.55 1.37 1 1 0 0 1 .37 1.46Zm.15-2.98a1.1 1.1 0 0 1-1.5.37 18.7 18.7 0 0 0-15.1-1.37 1.1 1.1 0 1 1-.75-2.05A20.6 20.6 0 0 1 17.1 8.1a1.1 1.1 0 0 1 .68 1.55Z"/></svg>
-              Spotify
-            </a>
-          </div>
-        </div>
-      </article>
+    <p class="note">Si no ves la previsualización en Facebook, volvé a compartir luego de refrescar el caché en el Sharing Debugger.</p>
+  </main>
 
-      <article class="project"><div class="banner" aria-hidden="true"></div><div class="inner">
-        <h3>Likelandii</h3><p>Ecosistema creativo-digital y marca personal. Identidad, derechos y trazabilidad.</p>
-        <div class="badges"><span class="pill">Brand</span><span class="pill">Legal</span><span class="pill">Contenido</span></div>
-      </div></article>
-
-      <article class="project"><div class="banner" aria-hidden="true"></div><div class="inner">
-        <h3>Alojamiento en Luján</h3><p>Espacio rústico-moderno en el 2º piso con entrada independiente. Ideal para parejas y viajeros.</p>
-        <div class="badges"><span class="pill">Reservas</span><span class="pill">Privacidad</span></div>
-      </div></article>
+  <footer>
+    <div class="wrap">
+      © Likelandi — <a href="mailto:jprebosio@gmail.com">jprebosio@gmail.com</a>
     </div>
-  </div></section>
-
-  <!-- HOT NEW (Top 10) -->
-  <section id="hot-new"><div class="container">
-    <h2>Hot New — Top 10</h2>
-    <div class="ticker"><span class="hot">🔥 Hot New</span><span class="scroll" id="tickerA"></span><span class="scroll" id="tickerB"></span></div>
-    <div id="players" class="players"></div>
-    <div id="hotlist" class="grid hotlist"></div>
-  </div></section>
-
-  <!-- OPINIONES -->
-  <section id="opiniones"><div class="container">
-    <h2>Opiniones</h2>
-    <p class="help">Contame qué te pareció la página o dejá sugerencias. Podés enviarlo por WhatsApp o por Email.</p>
-    <form id="fb-form" class="form" autocomplete="on">
-      <div>
-        <label for="fb-name">Nombre (opcional)</label>
-        <input id="fb-name" class="input" name="name" placeholder="Tu nombre">
-      </div>
-      <div>
-        <label for="fb-email">Email (opcional)</label>
-        <input id="fb-email" class="input" name="email" placeholder="tu@correo.com" type="email">
-      </div>
-      <div>
-        <label for="fb-rate">Calificación</label>
-        <select id="fb-rate" class="input" name="rate" required>
-          <option value="" disabled selected>Elegí una opción</option>
-          <option>⭐️ 1</option><option>⭐️⭐️ 2</option><option>⭐️⭐️⭐️ 3</option>
-          <option>⭐️⭐️⭐️⭐️ 4</option><option>⭐️⭐️⭐️⭐️⭐️ 5</option>
-        </select>
-      </div>
-      <div class="full">
-        <label for="fb-msg">Opinión</label>
-        <textarea id="fb-msg" class="input" name="message" rows="5" placeholder="Escribí tu opinión o sugerencia..." required></textarea>
-      </div>
-      <div class="full">
-        <label><input type="checkbox" id="fb-consent"> Acepto que me contacten para responder mi opinión.</label>
-        <div class="note">Tus datos no se publican. Por ahora usamos envío manual (WhatsApp o Email) sin guardar en base de datos.</div>
-      </div>
-      <div class="form-actions full">
-        <button class="btn primary" type="submit">Enviar por WhatsApp</button>
-        <button class="btn" type="button" id="send-email">Enviar por Email</button>
-      </div>
-    </form>
-    <!-- ¿Preferís Google Forms? Pegá acá el iframe de tu formulario y listo. -->
-    <!-- <iframe src="URL_EMBED_DE_TU_GOOGLE_FORM" width="100%" height="640" frameborder="0"></iframe> -->
-  </div></section>
-
-  <!-- PRESS KIT -->
-  <section id="press"><div class="container">
-    <h2>Press Kit</h2>
-    <div class="presskit">
-      <div class="pcard">
-        <h3>Logo (PNG)</h3>
-        <p>Versión raster para redes y documentos.</p>
-        <a class="btn" href="likelandii_logo.png" download>Descargar PNG</a>
-      </div>
-      <div class="pcard">
-        <h3>Logo (SVG)</h3>
-        <p>Vector escalable para impresión.</p>
-        <a class="btn" href="likelandii_logo.svg" download>Descargar SVG</a>
-      </div>
-    </div>
-  </div></section>
-
-  <section id="servicios"><div class="container">
-    <h2>Servicios</h2>
-    <div class="grid services">
-      <div class="service"><div class="pill">Clínica</div><h3>Consulta psiquiátrica</h3><p>Evaluación integral, seguimiento y coordinación con otros profesionales.</p></div>
-      <div class="service"><div class="pill">Tecnología</div><h3>Salud mental digital</h3><p>Asesoría en diseño de apps seguras en iOS 18, control y privacidad.</p></div>
-      <div class="service"><div class="pill">Creatividad</div><h3>Identidad & contenido</h3><p>Desarrollo de marca, guías de estilo y activos para el ecosistema Landia.</p></div>
-    </div>
-  </div></section>
-
-  <section id="faq"><div class="container">
-    <h2>Preguntas frecuentes</h2>
-    <div class="grid faq">
-      <details class="q"><summary>¿Cómo reservo alojamiento?</summary>
-        <p>Escribime por <a href="https://wa.me/5491124605401?text=Hola%20Juan%20Pablo%2C%20quiero%20consultar%20por%20fechas%20en%20Likelandii" target="_blank" rel="noopener">WhatsApp</a> y coordinamos fechas y condiciones.</p>
-      </details>
-      <details class="q"><summary>¿Atendés por videollamada?</summary>
-        <p>Sí, según disponibilidad y necesidades del caso.</p>
-      </details>
-    </div>
-  </div></section>
-
-  <section id="contacto"><div class="container">
-    <h2>Contacto</h2>
-    <p>¿Colaboramos? Escribime por WhatsApp o email.</p>
-    <div class="cta">
-      <a class="btn primary" href="https://wa.me/5491124605401?text=Hola%20Juan%20Pablo%2C%20quiero%20consultar%20por%20fechas%20en%20Likelandii" target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn" href="mailto:likelandi@proton.me">Email</a>
-      <a class="btn" href="mailto:jprebosio@gmail.com">Reservas (Airbnb/Booking)</a>
-    </div>
-  </div></section>
-</main>
-
-<footer class="footer"><div class="container">© <span id="year"></span> Juan Pablo Fernández Rebosio · Landia — Hecho con foco en privacidad</div></footer>
-<div class="float"><a class="btn primary" href="https://wa.me/5491124605401?text=Hola%20Juan%20Pablo%2C%20quiero%20consultar%20por%20fechas%20en%20Likelandii" target="_blank" rel="noopener" aria-label="WhatsApp directo">WhatsApp</a></div>
-
-<script>
-/* LINKS de perfiles y (opcional) embeds */
-const LINKS = {
-  appleMusic: "https://music.apple.com/profile/jprebosio",
-  // hasta tener tu URL exacta de Spotify, dejo búsqueda por tu nombre:
-  spotify:    "https://open.spotify.com/search/Juan%20Pablo%20Fernandez%20rebosio"
-};
-// Pega URLs de embed si tenés playlists "Hot New"
-const PLAYLIST_EMBEDS = {
-  apple: "",   // p.ej: https://embed.music.apple.com/xx/playlist/....
-  spotify: ""  // p.ej: https://open.spotify.com/embed/playlist/XXXXXXXX
-};
-// Tus 10 temas (editá títulos/artistas; podés añadir apple:"URL", spotify:"URL" en cada ítem)
-const HOTNEW = [
-  {t:"Tema 1", a:"Artista 1"},
-  {t:"Tema 2", a:"Artista 2"},
-  {t:"Tema 3", a:"Artista 3"},
-  {t:"Tema 4", a:"Artista 4"},
-  {t:"Tema 5", a:"Artista 5"},
-  {t:"Tema 6", a:"Artista 6"},
-  {t:"Tema 7", a:"Artista 7"},
-  {t:"Tema 8", a:"Artista 8"},
-  {t:"Tema 9", a:"Artista 9"},
-  {t:"Tema 10", a:"Artista 10"}
-];
-
-document.getElementById('year').textContent = new Date().getFullYear();
-document.getElementById('btn-apple').href = LINKS.appleMusic;
-document.getElementById('btn-spotify').href = LINKS.spotify;
-
-/* Embeds si existen */
-const players = document.getElementById('players');
-if (PLAYLIST_EMBEDS.apple) {
-  const ifr = document.createElement('iframe');
-  ifr.allow="autoplay *; encrypted-media *;";
-  ifr.loading="lazy"; ifr.src = PLAYLIST_EMBEDS.apple;
-  players.appendChild(ifr);
-}
-if (PLAYLIST_EMBEDS.spotify) {
-  const ifr = document.createElement('iframe');
-  ifr.allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
-  ifr.loading="lazy"; ifr.src = PLAYLIST_EMBEDS.spotify;
-  players.appendChild(ifr);
-}
-
-/* Hotlist + Ticker */
-const hotlist = document.getElementById('hotlist');
-const mk = (tag, cls, txt)=>{const el=document.createElement(tag); if(cls)el.className=cls; if(txt)el.textContent=txt; return el;}
-const top10 = HOTNEW.slice(0,10);
-top10.forEach((item, idx)=>{
-  const card = mk('div','track');
-  const meta = mk('div','tmeta');
-  const rank = mk('div','rank', String(idx+1));
-  const textWrap = mk('div','');
-  const name = mk('div','tname', item.t);
-  const art  = mk('div','tartist', item.a);
-  if (idx<3){ const b=mk('span','badge','NEW'); name.appendChild(b); }
-  textWrap.append(name,art);
-  meta.append(rank,textWrap);
-
-  const links = mk('div','tlinks');
-  const query = encodeURIComponent(`${item.t} ${item.a}`);
-  const appleURL = item.apple || `https://music.apple.com/us/search?term=${query}`;
-  const spotURL  = item.spotify || `https://open.spotify.com/search/${query}`;
-  const a1 = mk('a','', 'Apple'); a1.href=appleURL; a1.target="_blank"; a1.rel="noopener";
-  const a2 = mk('a','', 'Spotify'); a2.href=spotURL; a2.target="_blank"; a2.rel="noopener";
-  links.append(a1,a2);
-
-  card.append(meta,links);
-  hotlist.append(card);
-});
-const tickerText = top10.map(x=>`${x.t} — ${x.a}`).join('   •   ');
-document.getElementById('tickerA').textContent = tickerText + '   •   ';
-document.getElementById('tickerB').textContent = tickerText + '   •   ';
-
-/* Opiniones: envío por WhatsApp / Email (sin backend) */
-const fb = document.getElementById('fb-form');
-const buildMsg = ()=>{
-  const n = document.getElementById('fb-name').value.trim();
-  const e = document.getElementById('fb-email').value.trim();
-  const r = document.getElementById('fb-rate').value || '(sin calificación)';
-  const m = document.getElementById('fb-msg').value.trim();
-  const c = document.getElementById('fb-consent').checked ? 'Sí' : 'No';
-  return `Opinion Web Landia%0A%0ANombre: ${encodeURIComponent(n||'-')}`+
-         `%0AEmail: ${encodeURIComponent(e||'-')}`+
-         `%0ACalificacion: ${encodeURIComponent(r)}`+
-         `%0AContacto permitido: ${encodeURIComponent(c)}`+
-         `%0A%0AMensaje:%0A${encodeURIComponent(m)}`;
-};
-fb.addEventListener('submit', (ev)=>{
-  ev.preventDefault();
-  const url = `https://wa.me/5491124605401?text=${buildMsg()}`;
-  window.open(url, '_blank');
-  fb.reset();
-});
-document.getElementById('send-email').addEventListener('click', ()=>{
-  const url = `mailto:likelandi@proton.me?subject=Opinion%20web%20Landia&body=${buildMsg()}`;
-  window.location.href = url;
-});
-
-/* Tilt suave (proyectos) */
-document.querySelectorAll('.project').forEach(el=>{
-  const tilt=e=>{const b=el.getBoundingClientRect(),px=(e.clientX-b.left)/b.width-.5,py=(e.clientY-b.top)/b.height-.5;
-  el.style.transform=`rotateX(${(-py*6)}deg) rotateY(${(px*6)}deg)`};
-  el.addEventListener('mousemove',tilt);
-  el.addEventListener('mouseleave',()=>{el.style.transform='rotateX(0) rotateY(0)';});
-});
-</script>
-</body></html>
+  </footer>
+</body>
+</html>
