@@ -1,0 +1,231 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Landia’s Musik — Likelandi</title>
+<meta name="description" content="Landia’s Musik: Apple Music, Spotify y Last.fm (últimos temas)">
+<style>
+:root{
+  /* Paleta Mahogany + White + Light Leather */
+  --bg:#110C0A;        /* fondo caoba profundo */
+  --fg:#FFFEFC;        /* blanco cálido */
+  --muted:#E5DAD2;     /* texto secundario */
+  --line:#3A1E17;      /* bordes caoba oscuro */
+
+  /* Acentos (botones, ecualizador, detalles) */
+  --pink:#7E2F26;      /* mahogany */
+  --gold:#C49A6C;      /* cuero claro */
+  --violet:#4B1F24;    /* vino/plum oscuro */
+
+  --card:#1A110Edd;    /* tarjetas */
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 16px}
+h1{margin:0 0 6px;font-size:32px;line-height:1.1;
+  background:linear-gradient(120deg,#FFFFFF,#F3ECE6 40%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  text-shadow:0 1px 0 rgba(0,0,0,.25);
+}
+p{color:var(--muted)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;margin-top:14px}
+.btn{border:none;border-radius:12px;padding:12px 14px;font-weight:800;color:#100906;
+  background:linear-gradient(135deg,var(--pink),var(--gold) 52%,var(--violet));cursor:pointer}
+.link{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#211510;color:#fff;text-decoration:none}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.note{font-size:12px;color:var(--muted)}
+.badge{display:inline-block;margin:6px 6px 0 0;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:#24140f;font-size:12px}
+ul.clean{margin:10px 0 0 0;padding:0;list-style:none}
+ul.clean li{padding:8px 10px;border:1px solid var(--line);border-radius:12px;margin:6px 0;background:#1b100c}
+.eq span{width:3px;display:inline-block}
+.eq span:nth-child(1){height:12px;background:var(--pink);animation:beat .9s infinite ease-in-out}
+.eq span:nth-child(2){height:18px;background:var(--gold);animation:beat 1.1s infinite ease-in-out .1s}
+.eq span:nth-child(3){height:9px;background:var(--violet);animation:beat .8s infinite ease-in-out .2s}
+.eq span:nth-child(4){height:16px;background:var(--pink);animation:beat 1.05s infinite ease-in-out .05s}
+.eq span:nth-child(5){height:11px;background:var(--gold);animation:beat .95s infinite ease-in-out .15s}
+@keyframes beat{0%{transform:scaleY(.6)}50%{transform:scaleY(1)}100%{transform:scaleY(.6)}}
+@keyframes marq{0%{transform:translateX(0)}100%{transform:translateX(-100%)}}
+
+/* HERO con foto + blend de color */
+.hero{
+  position:relative;border-radius:20px;overflow:hidden;margin-top:14px;
+  min-height:320px;display:flex;align-items:end;
+  background:
+    linear-gradient(to bottom right, rgba(17,12,10,.35), rgba(126,47,38,.55) 45%, rgba(0,0,0,.60)),
+    url('/landias-hero.jpg');
+  background-size:cover;background-position:center;
+  border:1px solid var(--line);
+}
+.hero-inner{padding:24px 16px;max-width:1100px;width:100%}
+.hero p{color:var(--muted);margin:0 0 10px}
+</style>
+</head><body>
+<main class="wrap">
+  <!-- HERO con foto de portada -->
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>Landia’s Musik</h1>
+      <p>Mi universo musical — Apple Music, Spotify y mis últimos scrobbles de Last.fm.</p>
+      <div class="row" id="musicLinks">
+        <a id="appleLink" class="link" href="https://music.apple.com/profile/jprebosio" target="_blank" rel="noopener"> Music</a>
+        <a id="spotifyLink" class="link" href="https://open.spotify.com/search/Juan%20Pablo%20Fernandez%20rebosio" target="_blank" rel="noopener">Spotify</a>
+        <button class="btn" id="cfgLinks" type="button">⚙️ Editar enlaces</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Last.fm -->
+  <section class="card">
+    <div class="row" style="align-items:center;justify-content:space-between">
+      <h3 style="margin:0">Perfil Last.fm</h3>
+      <div class="row" style="margin:0">
+        <button class="btn" id="cfgLfm" type="button">⚙️ Configurar Last.fm</button>
+        <a id="lfmLink" class="link" href="https://www.last.fm/user/animatefran" target="_blank" rel="noopener">Ver perfil</a>
+      </div>
+    </div>
+
+    <div class="row" style="align-items:center;margin-top:8px">
+      <div class="eq" aria-hidden="true" style="display:flex;gap:3px"><span></span><span></span><span></span><span></span><span></span></div>
+      <div style="flex:1;min-width:260px;overflow:hidden">
+        <div id="lfmTicker" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:.9">
+          Conectá tu Last.fm con ⚙️ para ver tus últimos temas →
+        </div>
+      </div>
+    </div>
+    <div class="note">Para mostrar la lista en vivo necesitás una API key de Last.fm (gratis). Si no, queda la animación y el link a tu perfil.</div>
+  </section>
+
+  <!-- Hot New 10 -->
+  <section class="card">
+    <div class="row" style="align-items:center;justify-content:space-between">
+      <h3 style="margin:0">🔥 Hot New 10</h3>
+      <button class="btn" id="editHot" type="button">✍️ Editar lista</button>
+    </div>
+    <ul class="clean" id="hotList"></ul>
+    <div class="note">Pegá 10 líneas (una por tema). Se guarda en tu navegador.</div>
+  </section>
+
+  <section class="card" style="background:#150E0C;border-style:dashed">
+    <h3 style="margin:0 0 6px">Próximamente</h3>
+    <div class="row">
+      <span class="badge">Audios divertidos (zona privada)</span>
+      <span class="badge">Playlists curadas</span>
+      <span class="badge">Integración con YouTube / Apple Music embebido</span>
+    </div>
+  </section>
+
+  <p class="note">Likelandi · Contacto: <a href="mailto:jprebosio@gmail.com" style="color:#fff">jprebosio@gmail.com</a></p>
+</main>
+
+<script>
+// ====== Enlaces Apple/Spotify (editables) ======
+const appleDefault = "https://music.apple.com/profile/jprebosio";
+const spotifyDefault = "https://open.spotify.com/search/Juan%20Pablo%20Fernandez%20rebosio";
+const appleLink = document.getElementById('appleLink');
+const spotifyLink = document.getElementById('spotifyLink');
+
+function applyLinks(){
+  const a = localStorage.getItem('apple_url') || appleDefault;
+  const s = localStorage.getItem('spotify_url') || spotifyDefault;
+  if (appleLink) appleLink.href = a;
+  if (spotifyLink) spotifyLink.href = s;
+}
+applyLinks();
+
+document.getElementById('cfgLinks').addEventListener('click', ()=>{
+  const a0 = localStorage.getItem('apple_url') || appleDefault;
+  const s0 = localStorage.getItem('spotify_url') || spotifyDefault;
+  const a = prompt("URL de tu perfil en Apple Music:", a0);
+  if (a===null) return;
+  const s = prompt("URL de tu perfil en Spotify:", s0);
+  if (s===null) return;
+  localStorage.setItem('apple_url', (a||"").trim());
+  localStorage.setItem('spotify_url', (s||"").trim());
+  applyLinks();
+  alert("Enlaces actualizados ✅");
+});
+
+// ====== Last.fm (usuario por defecto = animatefran) ======
+let LFM_USER = localStorage.getItem('lfm_user') || "animatefran";
+let LFM_API_KEY = localStorage.getItem('lfm_key') || "";
+const LFM_LIMIT = 10;
+
+// Forzar usuario por URL ?setlfm=
+const setParam = new URLSearchParams(location.search).get('setlfm');
+if (setParam){ localStorage.setItem('lfm_user', setParam); LFM_USER = setParam; }
+
+// Aplicar link visible
+const lfmLink = document.getElementById('lfmLink');
+if (lfmLink) lfmLink.href = "https://www.last.fm/user/"+encodeURIComponent(LFM_USER||"");
+
+// Configuración rápida
+document.getElementById('cfgLfm').addEventListener('click', ()=>{
+  const u = prompt("Usuario de Last.fm:", LFM_USER||"");
+  if (u===null) return;
+  const k = prompt("API key de Last.fm (opcional, para mostrar últimos temas):", LFM_API_KEY||"");
+  if (k===null) return;
+  LFM_USER = (u||"").trim();
+  LFM_API_KEY = (k||"").trim();
+  localStorage.setItem('lfm_user', LFM_USER);
+  localStorage.setItem('lfm_key', LFM_API_KEY);
+  if (lfmLink) lfmLink.href = "https://www.last.fm/user/"+encodeURIComponent(LFM_USER||"");
+  loadLastFm();
+});
+
+// Cargar últimos temas si hay API key
+async function loadLastFm(){
+  if(!LFM_USER || !LFM_API_KEY){ return; }
+  try{
+    const url = `https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${encodeURIComponent(LFM_USER)}&api_key=${encodeURIComponent(LFM_API_KEY)}&format=json&limit=${LFM_LIMIT}`;
+    const res = await fetch(url);
+    const data = await res.json();
+    const tracks = (data.recenttracks && data.recenttracks.track) ? data.recenttracks.track : [];
+    if(!tracks.length) return;
+    const items = tracks.map(t=>{
+      const artist = (t.artist && t.artist['#text']) || '';
+      const name = t.name || '';
+      return `${artist} — ${name}`;
+    });
+    const line = items.join('  ·  ');
+    const el = document.getElementById('lfmTicker');
+    if (el) el.innerHTML = `<div style="display:inline-block;animation:marq 18s linear infinite;padding-left:100%">${line}</div>`;
+  }catch(e){}
+}
+loadLastFm();
+
+// ====== Hot New 10 (editable) ======
+const hotListEl = document.getElementById('hotList');
+function renderHot(){
+  const raw = localStorage.getItem('hot_new_list') || 
+`1) Charli XCX — Blame It On Your Love (remix)
+2) (Editá esta lista con ✍️)
+3) Tema
+4) Tema
+5) Tema
+6) Tema
+7) Tema
+8) Tema
+9) Tema
+10) Tema`;
+  const rows = raw.split(/\r?\n/).filter(Boolean);
+  hotListEl.innerHTML = rows.map(txt=>`<li>${txt.replace(/^[-*\d.)\s]+/,'')}</li>`).join("");
+}
+renderHot();
+document.getElementById('editHot').addEventListener('click', ()=>{
+  const now = (localStorage.getItem('hot_new_list') || 
+`1) Charli XCX — Blame It On Your Love (remix)
+2) (Editá esta lista con ✍️)
+3) Tema
+4) Tema
+5) Tema
+6) Tema
+7) Tema
+8) Tema
+9) Tema
+10) Tema`);
+  const val = prompt("Pegá tus 10 temas (una línea por tema):", now);
+  if (val===null) return;
+  localStorage.setItem('hot_new_list', val);
+  renderHot();
+});
+</script>
+</body></html>
