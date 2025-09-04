@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Flyer Programas — Likelandi</title>
+<style>
+@page{size:A4;margin:14mm}*{box-sizing:border-box}
+body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;color:#111;margin:0}
+.flyer{border:2px solid #000;border-radius:14px;padding:18px}
+h1{margin:0 0 4px;font-size:26px;line-height:1.1;background:linear-gradient(120deg,#A78BFA,#FF8AC9 55%);-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{margin:8px 0 6px}.row{display:flex;gap:14px;align-items:flex-start}.col{flex:1}
+.qrbox{width:160px;height:160px;border:1px solid #000;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#fff}
+.muted{color:#555}ul{margin:6px 0 0 18px}.foot{margin-top:10px;border-top:1px dashed #ccc;padding-top:8px;font-size:12px}
+.cta{display:inline-block;padding:6px 10px;border-radius:8px;border:1px solid #333;text-decoration:none;color:#111}
+@media print{.cta{display:none}}
+</style>
+</head>
+<body>
+<div class="flyer">
+  <h1>Likelandi · Programas &amp; Talleres</h1>
+  <div class="row">
+    <div class="col">
+      <h2>Grupales con cupos reducidos</h2>
+      <ul>
+        <li>Grupal psicoeducativa (regulación emocional)</li>
+        <li>Musicoterapia (expresión y ansiedad/estrés)</li>
+        <li>Arteterapia (pintura y dibujo)</li>
+        <li>Reinserción psicosocial (rutina y habilidades)</li>
+        <li>Tecnologías en salud (IA y apps seguras)</li>
+      </ul>
+      <p class="muted">Atención en CABA (dirección privada por seguridad). Presencial y opciones virtuales.</p>
+      <p><strong>Contacto:</strong> jprebosio@gmail.com · WhatsApp +54 9 11 2460-5401</p>
+      <a class="cta" id="openLink" href="#" target="_blank" rel="noopener">Abrir enlace de preinscripción</a>
+    </div>
+    <div class="col" style="flex:0 0 180px">
+      <div class="qrbox"><img id="qr" alt="QR" width="150" height="150" loading="lazy"></div>
+      <p class="muted" style="margin:6px 0 0 0;font-size:12px">Escaneá para preinscribirte</p>
+    </div>
+  </div>
+  <div class="foot muted">Privacidad y consentimiento informado. Urgencias: emergencias o 107/911.</div>
+</div>
+<script>
+const link="https://likelandi.github.io/programas-talleres.html#preinscripcion";
+document.getElementById('openLink').href=link;
+// QR rápido (Google Charts)
+document.getElementById('qr').src="https://chart.googleapis.com/chart?cht=qr&chs=300x300&chl="+encodeURIComponent(link);
+</script>
+</body>
+</html>
