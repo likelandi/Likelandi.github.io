@@ -1,218 +1,40 @@
 <!doctype html>
-<html lang="es" prefix="og: http://ogp.me/ns#">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Likelandi — Salud Mental & Landia’s Musik</title>
-  <meta name="description" content="Consultorio particular, 2º piso para terapia grupal (arteterapia, musicoterapia) y nuevas tecnologías. Programas, preinscripción y música.">
-  <link rel="canonical" href="https://likelandi.github.io/">
-
-  <!-- Open Graph para compartir -->
-  <meta property="og:locale" content="es_LA">
-  <meta property="og:title" content="Likelandi — Salud Mental & Landia’s Musik">
-  <meta property="og:description" content="Consultorio, terapia grupal, arteterapia, musicoterapia y nuevas tecnologías.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://likelandi.github.io/">
-  <meta property="og:image" content="https://likelandi.github.io/og-likelandi-1200x630.jpg?v=home1">
-  <meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+  <title>Likelandi — Home</title>
+  <meta name="description" content="Proyecto Likelandi: salud mental, arteterapia, música y nuevas tecnologías.">
 
   <style>
-    :root{
-      --violet:#A78BFA; --pink:#FF8AC9; --bubble:#FFC1E3; --mahogany:#110C0A; --line:#3A1E17;
-      --gold:#C49A6C; --fg:#FFFEFC; --muted:#E5DAD2; --card:#1A110Edd;
-    }
-    *{box-sizing:border-box}
-    html,body{margin:0;background:var(--mahogany);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
-    a{color:inherit;text-decoration:none}
-
-    /* ===== NAVBAR (responsive con hamburger) ===== */
-    .navbar{
-      position:sticky; top:0; z-index:999;
-      background:linear-gradient(90deg,#110C0A 10%,#7E2F26 55%,#C49A6C 90%);
-      border-bottom:1px solid var(--line);
-    }
-    .navwrap{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px}
-    .navbrand{font-weight:900;letter-spacing:.3px;font-size:18px;background:linear-gradient(90deg,var(--violet),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .navlinks{display:flex;gap:14px;align-items:center}
-    .navlink{padding:8px 10px;border-radius:10px}
-    .navlink.btn-cta{background:linear-gradient(135deg,#7E2F26,#C49A6C 52%,#4B1F24);color:#100906;font-weight:800}
-    .navburger{display:none;width:40px;height:40px;border:1px solid var(--line);border-radius:10px;background:#211510;color:#fff;align-items:center;justify-content:center;cursor:pointer}
-    .navburger span{display:block;width:18px;height:2px;background:#fff;position:relative}
-    .navburger span::before,.navburger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:#fff}
-    .navburger span::before{top:-6px}.navburger span::after{top:6px}
-    @media (max-width:820px){
-      .navlinks{display:none;position:absolute;top:56px;left:0;right:0;padding:10px 16px;background:#1A110E;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:8px}
-      .navlinks.show{display:flex}
-      .navburger{display:flex}
-    }
-
-    /* ===== HERO ===== */
-    header.site{padding:16px 0;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#140D0B,#0E0A08)}
-    .wrap{max-width:1100px;margin:0 auto;padding:24px 16px}
-    .hero{position:relative;border-radius:20px;overflow:hidden;margin-top:14px;min-height:420px;display:flex;align-items:end;border:1px solid var(--line);
-      background:radial-gradient(1200px 480px at 20% -10%, rgba(167,139,250,.35), transparent 40%),
-                 radial-gradient(1200px 520px at 110% 10%, rgba(255,138,201,.25), transparent 45%),
-                 linear-gradient(180deg, rgba(17,12,10,.40), rgba(0,0,0,.65))}
-    .hero-visual{position:absolute;inset:0;background-size:cover;background-position:center 52%;transform:rotate(1.5deg) scale(1.08);opacity:0;transition:opacity .3s}
-    .hero.loaded .hero-visual{opacity:1}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom right, rgba(17,12,10,.30), rgba(126,47,38,.45) 45%, rgba(0,0,0,.60))}
-    .hero-inner{position:relative;z-index:2;padding:24px 16px}
-    h1.title{margin:0 0 6px;font-size:34px;line-height:1.1;background:linear-gradient(120deg,var(--violet),var(--pink) 55%);-webkit-background-clip:text;background-clip:text;color:transparent}
-    p.sub{color:var(--muted);margin:0}
-
-    /* ===== CARDS & BOTONES ===== */
-    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:16px}
-    .card{grid-column:span 12;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
-    .two{grid-column:span 12}@media(min-width:900px){.two{grid-column:span 6}}
-    .btn{display:inline-block;padding:10px 14px;border-radius:12px;font-weight:800;color:#100906;background:linear-gradient(135deg,#7E2F26,#C49A6C 52%,#4B1F24)}
-    .btn-ghost{display:inline-block;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#211510;color:#fff}
-    .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
-
-    /* ===== FOOTER ===== */
-    .site-footer{margin-top:28px;border-top:1px solid var(--line);background:linear-gradient(180deg,#140D0B,#0E0A08);color:var(--muted)}
-    .site-footer .fwrap{max-width:1100px;margin:0 auto;padding:18px 16px;display:grid;gap:14px;grid-template-columns:1fr}
-    .site-footer h4{margin:0 0 6px;font-size:16px;font-weight:900;background:linear-gradient(90deg,var(--violet),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
-    .site-footer a{color:#fff}
-    .frow{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-    .fpill{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:#211510;color:#fff;font-size:13px}
-    .fnote{font-size:12px;color:var(--muted)} .fcopy{font-size:12px;color:var(--muted);opacity:.85}
-    @media(min-width:860px){.site-footer .fwrap{grid-template-columns:1.2fr .8fr .9fr}}
-
-    /* ===== DECOR ===== */
-    .tagline{display:inline-block;margin-top:6px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:#24140f}
+    body { font-family: Arial, sans-serif; background:#110C0A; color:#fff; margin:0; }
+    header { text-align:center; padding:30px; background:linear-gradient(120deg,#FF7A00,#FFC6B3,#B18CFF); }
+    header h1 { font-size:2.2em; margin:0; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; color:transparent; }
+    main { max-width:900px; margin:0 auto; padding:20px; text-align:center; }
+    .btn { display:inline-block; margin:10px; padding:14px 24px; border-radius:14px; font-weight:800; font-size:18px; text-decoration:none; color:#100906;
+           background:linear-gradient(135deg,#FF7A00 10%,#FFC6B3 55%,#B18CFF 100%); box-shadow:0 6px 18px rgba(0,0,0,.3); }
+    .btn:hover { filter:brightness(1.05) saturate(1.1); }
+    footer { text-align:center; padding:20px; color:#aaa; border-top:1px solid #333; margin-top:40px; }
+    a { color:#FF8AC9; }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar" role="navigation" aria-label="Principal">
-  <div class="navwrap">
-    <div class="navbrand">Likelandi</div>
-    <button class="navburger" id="navBurger" aria-label="Abrir menú"><span></span></button>
-    <div class="navlinks" id="navLinks">
-      <a class="navlink" href="/index.html">🏠 Home</a>
-      <a class="navlink" href="/consultorio-terapias.html">🧠 Consultorio</a>
-      <a class="navlink" href="/programas-talleres.html">🎟️ Programas</a>
-      <a class="navlink" href="/flyer-programas.html" target="_blank" rel="noopener">📄 Flyer</a>
-      <a class="navlink btn-cta" href="/landias-musik.html">🎧 Landia’s Musik</a>
-    </div>
-  </div>
-</nav>
-
-<header class="site">
-  <div class="wrap">
-    <section class="hero" id="hero">
-      <div class="hero-visual" id="heroVisual"></div>
-      <div class="hero-inner">
-        <h1 class="title">Salud mental con arte & tecnología</h1>
-        <p class="sub">Consultorio particular y 2º piso para terapia grupal: arteterapia, musicoterapia y nuevas tecnologías (IA/ChatGPT).</p>
-        <span class="tagline">CABA · Dirección privada por seguridad</span>
-        <div class="row" style="margin-top:12px">
-          <a class="btn" href="https://wa.me/5491124605401?text=Hola%20Likelandi%2C%20quisiera%20solicitar%20un%20turno" target="_blank" rel="noopener">🗓️ Reservar turno</a>
-          <a class="btn-ghost" href="mailto:jprebosio@gmail.com?subject=Consulta%20Likelandi" target="_blank" rel="noopener">✉️ Escribir email</a>
-        </div>
-      </div>
-    </section>
-  </div>
+<header>
+  <h1>Bienvenido a Likelandi</h1>
 </header>
 
 <main>
-  <div class="wrap">
-    <!-- Bloque de accesos rápidos -->
-    <section class="grid">
-      <article class="card two">
-        <h3>🧠 Consultorio & 2º piso</h3>
-        <p class="sub">Atención individual · Terapia grupal · Protocolos de privacidad y consentimiento informado.</p>
-        <div class="row" style="margin-top:8px">
-          <a class="btn" href="/consultorio-terapias.html">Ver consultorio</a>
-        </div>
-      </article>
-
-      <article class="card two">
-        <h3>🎟️ Programas & Talleres</h3>
-        <p class="sub">Grupal psicoeducativa, musicoterapia, arteterapia, reinserción psicosocial y tecnologías en salud.</p>
-        <div class="row" style="margin-top:8px">
-          <a class="btn" href="/programas-talleres.html">Ver programas</a>
-          <a class="btn-ghost" href="/flyer-programas.html" target="_blank" rel="noopener">Imprimir flyer (QR)</a>
-        </div>
-      </article>
-
-      <article class="card two">
-        <h3>🎧 Landia’s Musik</h3>
-        <p class="sub">Tu espacio musical: playlists y perfiles (Spotify & Apple Music). Próximamente, página dedicada.</p>
-        <div class="row" style="margin-top:8px">
-          <a class="btn-ghost" href="https://open.spotify.com/search/Juan%20Pablo%20Fernandez%20rebosio" target="_blank" rel="noopener">Spotify</a>
-          <a class="btn-ghost" href="https://music.apple.com/profile/jprebosio" target="_blank" rel="noopener">Apple Music</a>
-        </div>
-      </article>
-
-      <article class="card two">
-        <h3>📩 Preinscripción / Contacto</h3>
-        <p class="sub">Escribinos para coordinar entrevista inicial o sumarte a un grupo.</p>
-        <div class="row" style="margin-top:8px">
-          <a class="btn" href="mailto:jprebosio@gmail.com?subject=Consulta%20inicial%20Likelandi" target="_blank" rel="noopener">Solicitar entrevista</a>
-          <a class="btn-ghost" href="https://wa.me/5491124605401?text=Hola%20Likelandi%2C%20quiero%20preinscribirme" target="_blank" rel="noopener">WhatsApp</a>
-        </div>
-      </article>
-    </section>
-  </div>
+  <h2>Explorá nuestros espacios</h2>
+  <a class="btn" href="consultorio-terapias.html">🧠 Consultorio</a>
+  <a class="btn" href="programas-talleres.html">🎟️ Programas</a>
+  <a class="btn" href="landias-musik.html">🎧 Landia’s Musik</a>
 </main>
 
-<!-- FOOTER -->
-<footer class="site-footer" role="contentinfo">
-  <div class="fwrap">
-    <section>
-      <h4>Likelandi · Salud Mental</h4>
-      <p class="fnote">Consultorio particular y 2º piso: arteterapia, musicoterapia y nuevas tecnologías (IA). Atención presencial y virtual.</p>
-      <p class="fnote">CABA — la dirección se comparte al confirmar, por motivos de seguridad.</p>
-    </section>
-
-    <section>
-      <h4>Contacto</h4>
-      <div class="frow" style="margin-top:6px">
-        <a class="fpill" href="https://wa.me/5491124605401?text=Hola%20Likelandi%2C%20quisiera%20solicitar%20un%20turno" target="_blank" rel="noopener">WhatsApp: +54 9 11 2460-5401</a>
-        <a class="fpill" href="mailto:jprebosio@gmail.com?subject=Consulta%20Likelandi" target="_blank" rel="noopener">Email: jprebosio@gmail.com</a>
-      </div>
-      <p class="fnote" style="margin-top:8px">Instagram: <a href="https://instagram.com/likelandii" target="_blank" rel="noopener">@likelandii</a></p>
-    </section>
-
-    <section>
-      <h4>Landia’s Musik</h4>
-      <div class="frow" style="margin-top:6px">
-        <a class="fpill" href="https://open.spotify.com/search/Juan%20Pablo%20Fernandez%20rebosio" target="_blank" rel="noopener">Spotify — Juan Pablo Fernandez rebosio</a>
-        <a class="fpill" href="https://music.apple.com/profile/jprebosio" target="_blank" rel="noopener">Apple Music — @jprebosio</a>
-      </div>
-      <p class="fnote" style="margin-top:8px">Facebook: <a href="#" aria-label="Perfil Facebook">Juan Pablo Fernandez Rebosio</a></p>
-    </section>
-
-    <section style="grid-column:1/-1">
-      <p class="fnote">⚠️ Ante una urgencia, concurrí al servicio de emergencias o llamá al 107/911 (Argentina).</p>
-      <p class="fcopy">© Likelandi — Todos los derechos reservados</p>
-    </section>
-  </div>
+<footer>
+  <p>Contacto: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a> · WhatsApp <a href="https://wa.me/5491124605401" target="_blank">+54 9 11 2460 5401</a></p>
+  <p>© Likelandi — Todos los derechos reservados</p>
 </footer>
-
-<script>
-  // Navbar hamburger
-  (function(){
-    const burger=document.getElementById('navBurger');
-    const links =document.getElementById('navLinks');
-    if(burger && links){ burger.addEventListener('click',()=>links.classList.toggle('show')); }
-  })();
-
-  // Hero con imagen opcional (?hero=URL) o archivo local /home-hero.jpg
-  (function(){
-    const hero=document.getElementById('hero'); const vis=document.getElementById('heroVisual');
-    if(!hero||!vis) return;
-    const u=new URLSearchParams(location.search).get('hero');
-    if(u){ vis.style.backgroundImage=`url('${u}')`; hero.classList.add('loaded'); return; }
-    const C=['/home-hero.jpg?v=1','/home-hero.jpeg?v=1'];
-    (function f(i){ if(i>=C.length) return; const img=new Image();
-      img.onload=()=>{vis.style.backgroundImage=`url('${C[i]}')`; hero.classList.add('loaded')};
-      img.onerror=()=>f(i+1); img.src=C[i];
-    })(0);
-  })();
-</script>
 
 </body>
 </html>
