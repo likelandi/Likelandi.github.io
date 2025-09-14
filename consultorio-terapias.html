@@ -1,113 +1,42 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Consultorio & 2º Piso — Likelandi</title>
-<meta name="description" content="Consultorio particular y 2º piso para terapia grupal, arteterapia, musicoterapia y nuevas tecnologías (IA).">
-<style>
-:root{--violet:#A78BFA;--pink:#FF8AC9;--mahogany:#110C0A;--line:#3A1E17;--fg:#FFFEFC;--muted:#E5DAD2;--card:#1A110Edd;--gold:#C49A6C}
-*{box-sizing:border-box}html,body{margin:0;background:var(--mahogany);color:var(--fg);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial}
-.wrap{max-width:1100px;margin:0 auto;padding:24px 16px}
-header{padding:14px 0;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#140D0B,#0E0A08)}
-.brand{font-weight:900;font-size:26px;background:linear-gradient(90deg,var(--violet),var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
-main{padding:18px 0 70px}
-.hero{position:relative;border-radius:20px;overflow:hidden;margin-top:14px;min-height:380px;display:flex;align-items:end;border:1px solid var(--line);
-  background:radial-gradient(1200px 480px at 20% -10%, rgba(167,139,250,.35), transparent 40%),
-             radial-gradient(1200px 520px at 110% 10%, rgba(255,138,201,.25), transparent 45%),
-             linear-gradient(180deg, rgba(17,12,10,.40), rgba(0,0,0,.65))}
-.hero-visual{position:absolute;inset:0;background-size:cover;background-position:center 52%;transform:rotate(1.5deg) scale(1.08);opacity:0;transition:opacity .3s}
-.hero.loaded .hero-visual{opacity:1}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom right, rgba(17,12,10,.30), rgba(126,47,38,.45) 45%, rgba(0,0,0,.60))}
-.hero-inner{position:relative;z-index:2;padding:24px 16px}
-h1{margin:0 0 6px;font-size:32px;line-height:1.1;background:linear-gradient(120deg,var(--violet),var(--pink) 55%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.sub{color:var(--muted);margin:0}
-.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:16px}
-.card{grid-column:span 12;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px}
-.two{grid-column:span 12}@media(min-width:900px){.two{grid-column:span 6}}
-.pill{display:inline-block;padding:6px 10px;border-radius:999px;border:1px solid var(--line);background:#24140f;font-size:12px;margin:4px 6px 0 0}
-.btn{display:inline-block;padding:10px 14px;border-radius:12px;font-weight:800;text-decoration:none;color:#100906;background:linear-gradient(135deg,#7E2F26,#C49A6C 52%,#4B1F24);border:0}
-.btn-ghost{display:inline-block;padding:10px 12px;border-radius:12px;border:1px solid var(--line);background:#211510;color:#fff;text-decoration:none}
-footer{margin-top:28px;padding-top:12px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
-.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Consultorio — Likelandi</title>
+  <meta name="description" content="Consultorio particular: atención individual y grupal, arteterapia y musicoterapia.">
+
+  <style>
+    body { font-family: Arial, sans-serif; background:#110C0A; color:#fff; margin:0; }
+    header { text-align:center; padding:30px; background:linear-gradient(120deg,#FF7A00,#FFC6B3,#B18CFF); }
+    header h1 { font-size:2.2em; margin:0; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; color:transparent; }
+    main { max-width:900px; margin:0 auto; padding:20px; text-align:center; }
+    .btn { display:inline-block; margin:10px; padding:14px 24px; border-radius:14px; font-weight:800; font-size:18px; text-decoration:none; color:#100906;
+           background:linear-gradient(135deg,#FF7A00 10%,#FFC6B3 55%,#B18CFF 100%); box-shadow:0 6px 18px rgba(0,0,0,.3); }
+    .btn:hover { filter:brightness(1.05) saturate(1.1); }
+    footer { text-align:center; padding:20px; color:#aaa; border-top:1px solid #333; margin-top:40px; }
+    a { color:#FF8AC9; }
+  </style>
 </head>
 <body>
-<header><div class="wrap"><span class="brand">Likelandi · Salud Mental</span></div></header>
-<main><div class="wrap">
-  <section class="hero" id="hero"><div class="hero-visual" id="heroVisual"></div>
-    <div class="hero-inner">
-      <h1>Consultorio Particular & 2º Piso</h1>
-      <p class="sub">Atención individual y terapia grupal con arteterapia, musicoterapia y nuevas tecnologías (IA/ChatGPT).</p>
-      <div class="row" style="margin-top:10px">
-        <a class="btn" href="https://wa.me/5491124605401?text=Hola%20Likelandi%2C%20quisiera%20solicitar%20un%20turno" target="_blank" rel="noopener">🗓️ Reservar por WhatsApp</a>
-        <a class="btn-ghost" href="mailto:jprebosio@gmail.com?subject=Turno%20Consultorio%20Likelandi" target="_blank" rel="noopener">✉️ Escribir por email</a>
-      </div>
-    </div>
-  </section>
 
-  <section class="grid">
-    <article class="card two">
-      <h3>Consultorio Particular (Planta Baja)</h3>
-      <p>Sesiones individuales de psiquiatría y psicoterapia. Enfoque integrativo y humanista. Presencial y virtual.</p>
-      <div class="pill">45–50′</div><div class="pill">Confidencialidad</div><div class="pill">Presencial/Virtual</div>
-    </article>
+<header>
+  <h1>Consultorio Particular</h1>
+</header>
 
-    <article class="card two">
-      <h3>2º Piso · Terapia Grupal</h3>
-      <p>Grupos psicoeducativos (regulación emocional, hábitos, sueño) y reinserción psicosocial. Protocolos de cuidado.</p>
-      <div class="pill">Cupos reducidos</div><div class="pill">Psicoeducación</div><div class="pill">Seguimiento</div>
-    </article>
+<main>
+  <h2>Servicios</h2>
+  <p>Atención individual, terapia grupal, arteterapia, musicoterapia y reinserción psicosocial apoyada en nuevas tecnologías.</p>
 
-    <article class="card two">
-      <h3>Arteterapia & Musicoterapia</h3>
-      <p>Expresión creativa clínica: escucha activa, ritmos/voz, pintura/dibujo. Trabajo individual y grupal.</p>
-      <div class="pill">Creatividad segura</div><div class="pill">Basado en evidencia</div>
-    </article>
+  <a class="btn" href="index.html">🏠 Volver a Home</a>
+  <a class="btn" href="programas-talleres.html">🎟️ Ver Programas</a>
+  <a class="btn" href="landias-musik.html">🎧 Landia’s Musik</a>
+</main>
 
-    <article class="card two">
-      <h3>Nuevas Tecnologías en Salud</h3>
-      <p>IA y apps validadas para hábitos, psicoeducación y tareas entre sesiones. Privacidad y consentimiento informado.</p>
-      <div class="pill">Privacidad prioritaria</div><div class="pill">Consentimiento informado</div>
-    </article>
+<footer>
+  <p>Contacto: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a> · WhatsApp <a href="https://wa.me/5491124605401" target="_blank">+54 9 11 2460 5401</a></p>
+  <p>© Likelandi — Todos los derechos reservados</p>
+</footer>
 
-    <article class="card two">
-      <h3>Turnos, Honorarios y Ubicación</h3>
-      <p>CABA — la dirección se comparte al confirmar (seguridad). Honorarios según modalidad.</p>
-      <div class="row" style="margin-top:6px">
-        <a class="btn" href="https://wa.me/5491124605401?text=Hola%20Likelandi%2C%20quisiera%20solicitar%20un%20turno" target="_blank">🗓️ Reservar</a>
-        <a class="btn-ghost" href="mailto:jprebosio@gmail.com?subject=Consulta%20y%20turnos%20Likelandi" target="_blank">✉️ Escribir</a>
-      </div>
-    </article>
-
-    <article class="card two" style="border-style:dashed">
-      <h3>Contacto rápido</h3>
-      <p>Se abre tu email con el mensaje prellenado (no guardamos datos en servidores).</p>
-      <form onsubmit="return sendMail(this)" style="display:grid;gap:8px;max-width:520px">
-        <input required name="nombre" placeholder="Tu nombre" style="padding:10px;border-radius:10px;border:1px solid var(--line);background:#211510;color:#fff">
-        <input required name="correo" placeholder="Tu email" type="email" style="padding:10px;border-radius:10px;border:1px solid var(--line);background:#211510;color:#fff">
-        <textarea required name="mensaje" placeholder="Motivo de consulta" rows="4" style="padding:10px;border-radius:10px;border:1px solid var(--line);background:#211510;color:#fff"></textarea>
-        <button class="btn" type="submit">Enviar</button>
-      </form>
-      <p class="sub" style="margin-top:8px">⚠️ Urgencias: concurrí a emergencias o 107/911 (Argentina).</p>
-    </article>
-  </section>
-
-  <footer>© Likelandi — <a href="mailto:jprebosio@gmail.com" style="color:#fff">jprebosio@gmail.com</a> · WhatsApp <a href="https://wa.me/5491124605401" style="color:#fff">+54 9 11 2460-5401</a></footer>
-</div></main>
-
-<script>
-(function(){ // Foto de portada: ?hero=URL o archivo /consultorio-hero.jpg
-  const hero=document.getElementById('hero'), vis=document.getElementById('heroVisual');
-  const u=new URLSearchParams(location.search).get('hero');
-  if(u){ vis.style.backgroundImage=`url('${u}')`; hero.classList.add('loaded'); return; }
-  const C=['/consultorio-hero.jpg?v=1','/consultorio-hero.jpeg?v=1']; (function f(i){
-    if(i>=C.length) return; const img=new Image(); img.onload=()=>{vis.style.backgroundImage=`url('${C[i]}')`; hero.classList.add('loaded')}; img.onerror=()=>f(i+1); img.src=C[i];
-  })(0);
-})();
-function sendMail(f){
-  const n=encodeURIComponent(f.nombre.value.trim()), c=encodeURIComponent(f.correo.value.trim()), m=encodeURIComponent(f.mensaje.value.trim());
-  const sub='Consulta desde Likelandi (Consultorio)'; const body=`Nombre: ${decodeURIComponent(n)}%0AEmail: ${decodeURIComponent(c)}%0A%0AMensaje:%0A${decodeURIComponent(m)}`;
-  location.href=`mailto:jprebosio@gmail.com?subject=${encodeURIComponent(sub)}&body=${body}`; return false;
-}
-</script>
-</body></html>
+</body>
+</html>
