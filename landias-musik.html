@@ -7,118 +7,19 @@
   <meta name="description" content="Landia’s Musik: selección musical curada por Juan Pablo Fernández Rebosio para acompañar procesos terapéuticos con arte y calma.">
   <style>
     :root{--bg:#0f0b10;--fg:#f7f0ff;--violet:#c77dff;--mint:#7cffcb;--muted:#ffffffb3}
-    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
     a{color:var(--mint);text-decoration:none} a:hover{opacity:.85}
-
-    /* NAV */
     .nav{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;justify-content:flex-end;align-items:center}
     .brand{margin-right:auto;font-weight:700;color:var(--fg)}
-
-    /* HERO */
     .hero{
-      position:relative;width:100%;height:34vh;min-height:260px;max-height:420px;overflow:hidden;
-      background: radial-gradient(1200px 600px at 20% -10%, #271a33 0%, #0f0b10 60%) no-repeat;
-    }
-    .hero::before{
-      content:""; position:absolute; inset:0;
-      background: radial-gradient(800px 400px at 85% 20%, #1c2730 0%, transparent 60%);
-      mix-blend-mode: screen; opacity:.5;
+      position:relative;width:100%;height:60vh;min-height:360px;overflow:hidden;
+      background-image:url("https://likelandi.github.io/Consultorio-hero.jpg");
+      background-size:cover;background-position:center;background-repeat:no-repeat;
     }
     .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#00000055 0%,#0f0b10 80%)}
     .hero-txt{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 16px}
-    .hero-txt h1{
-      margin:0;font-size:clamp(26px,3.6vw,42px);
-      background:linear-gradient(90deg,var(--violet),var(--mint));
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent
-    }
-    .hero-txt p{margin-top:10px;opacity:.9}
-
-    /* MAIN */
+    .hero-txt h1{margin:0;font-size:clamp(28px,4vw,48px);background:linear-gradient(90deg,var(--violet),var(--mint));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-txt p{margin-top:12px;opacity:.9}
     .wrap{max-width:980px;margin:-24px auto 60px;padding:0 16px}
-    .card{background:#141019;border:1px solid #ffffff14;border-radius:18px;padding:20px;box-shadow:0 10px 30px #00000033}
-    h2{margin:0 0 10px;font-size:clamp(18px,2.8vw,24px)}
-    .muted{color:var(--muted)}
-
-    /* TRACKLIST */
-    .tracks{list-style:none;padding:0;margin:12px 0}
-    .tracks li{display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #ffffff17}
-    .n{width:28px;opacity:.65;text-align:right}
-
-    /* GRID */
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-
-    /* CTA */
-    .cta{margin-top:16px}
-    .btn{
-      display:inline-block; padding:12px 18px; border-radius:12px; font-weight:700;
-      background:linear-gradient(135deg,var(--violet),var(--mint)); color:#0f0b10;
-      text-decoration:none
-    }
-
-    /* FOOTER */
-    footer{max-width:1100px;margin:40px auto 24px;padding:0 16px;opacity:.7;font-size:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}
-  </style>
-</head>
-<body>
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="brand">Likelandi</div>
-    <a href="/">Home</a>
-    <a href="/consultorio-terapias.html">Consultorio</a>
-    <a href="/programas.html">Programas</a>
-    <a href="/landias-musik.html">Landia’s Musik</a>
-  </nav>
-
-  <!-- HERO -->
-  <header class="hero" role="banner" aria-label="Landia’s Musik">
-    <div class="hero-txt">
-      <div>
-        <h1>Landia’s Musik</h1>
-        <p class="muted">Selección curada para acompañar con calma, color y respiración</p>
-      </div>
-    </div>
-  </header>
-
-  <!-- CONTENIDO -->
-  <main class="wrap">
-    <section class="grid">
-      <article class="card">
-        <h2>Sobre la selección</h2>
-        <p class="muted">
-          Curada por <strong>Juan Pablo Fernández Rebosio</strong>, integra temas que favorecen foco,
-          regulación emocional y pausas conscientes. Ideal para sesiones breves de arte y respiración.
-        </p>
-        <div class="cta"><a class="btn" href="/consultorio-terapias.html">Agendar consulta</a></div>
-      </article>
-
-      <article class="card">
-        <h2>Listado del iPod</h2>
-        <ul class="tracks">
-          <li><span class="n">1.</span> Justice — D.A.N.C.E</li>
-          <li><span class="n">2.</span> Daft Punk — Something About Us</li>
-          <li><span class="n">3.</span> The Weeknd — Out of Time</li>
-          <li><span class="n">4.</span> Lady Gaga — Replay</li>
-          <li><span class="n">5.</span> Arca — Nonbinary</li>
-          <li><span class="n">6.</span> Florence + the Machine — Cosmic Love</li>
-        </ul>
-        <p class="muted" style="margin-top:8px">*Listado ilustrativo. Podés pasarme los temas finales y lo actualizo.</p>
-      </article>
-    </section>
-
-    <section class="card" style="margin-top:18px">
-      <h2>Contacto</h2>
-      <p class="muted">
-        Correo: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a> ·
-        WhatsApp: <a href="https://wa.me/5491124605401" target="_blank" rel="noopener">+54 9 11 2460 5401</a>
-      </p>
-      <p><a href="/" class="muted">← Volver a Home</a></p>
-    </section>
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    <span>© Likelandi — Todos los derechos reservados</span>
-    <span>Hecho con 💜 violeta + 💚 menta</span>
-  </footer>
-</body>
-</html>
+    .card{background:#141019;border:1px solid #ffffff14;border-radius:18px;padding:20px;box-shadow:0 10px 30px #00000033;margin-bottom:20px}
+    h2{margin:0 0 10px;font-s
