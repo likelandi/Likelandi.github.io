@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Juan Pablo Fernández Rebosio — Consultorio Landia</title>
+  <style>
+    :root {
+      --bg:#0f0b10;
+      --fg:#f7f0ff;
+      --accent-violet:#c77dff;
+      --accent-green:#7cffcb;
+    }
+    body {
+      margin:0; background:var(--bg); color:var(--fg);
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      overflow: hidden;
+    }
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.8);
+    }
+    .hero-text {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: var(--fg);
+    }
+    .hero-text h1 {
+      font-size: 46px;
+      margin: 0;
+      background: linear-gradient(90deg, var(--accent-violet), var(--accent-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-text p {
+      font-size: 20px;
+      margin-top: 12px;
+    }
+    section { padding: 40px 20px; max-width: 960px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <img src="A_website_homepage_screenshot_for_Juan_Pablo_Fern.png" alt="Consultorio Landia" class="hero-img">
+    <div class="hero-text">
+      <h1>🛋️ Consultorio Landia</h1>
+      <p>Un espacio pensado para la calma, la escucha y la arteterapia</p>
+    </div>
+  </div>
+
+  <section>
+    <h2>Bienvenido</h2>
+    <p>
+      Soy <strong>Juan Pablo Fernández Rebosio</strong>, médico psiquiatra y creador de Landia’s Musik.
+      Esta página integra mi espacio clínico y creativo, pensado para brindar acompañamiento terapéutico,
+      arteterapia y experiencias musicales en un entorno seguro y acogedor.
+    </p>
+  </section>
+</body>
+</html>
