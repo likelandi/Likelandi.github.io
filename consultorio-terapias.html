@@ -1,20 +1,49 @@
-<header class="hero" role="banner" aria-label="Consultorio Landia" style="
-  position:relative;width:100%;height:44vh;min-height:360px;max-height:560px;overflow:hidden;
-  background-image:url('https://likelandi.github.io/Consultorio-hero.jpg');
-  background-size:cover;background-position:center;">
-  <div style="position:absolute;inset:0;background:linear-gradient(180deg,#00000055 0%,#0f0b10 80%);"></div>
-  <div style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 16px;">
-    <div>
-      <h1 style="margin:0;font-size:clamp(28px,4vw,48px);
-        background:linear-gradient(90deg,#c77dff,#7cffcb);
-        -webkit-background-clip:text;-webkit-text-fill-color:transparent">
-        🛋️ Consultorio Landia
-      </h1>
-      <p style="margin-top:12px;opacity:.9">Calma, escucha activa y arteterapia</p>
-    </div>
-  </div>
-</header>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Likelandi — Consultorio</title>
+  <meta name="description" content="Consultorio psiquiátrico con enfoque en arteterapia, musicoterapia y nuevas tecnologías.">
+  <style>
+    :root{--bg:#0f0b10;--fg:#f7f0ff;--violet:#c77dff;--mint:#7cffcb;--muted:#ffffffb3}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+    a{color:var(--mint);text-decoration:none} a:hover{opacity:.85}
+    .nav{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;justify-content:flex-end;align-items:center}
+    .brand{margin-right:auto;font-weight:700;color:var(--fg)}
+    .hero{
+      position:relative;width:100%;height:60vh;min-height:360px;overflow:hidden;
+      background-image:url("https://likelandi.github.io/Consultorio-hero.jpg");
+      background-size:cover;background-position:center;background-repeat:no-repeat;
+    }
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#00000055 0%,#0f0b10 80%)}
+    .hero-txt{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 16px}
+    .hero-txt h1{margin:0;font-size:clamp(28px,4vw,48px);background:linear-gradient(90deg,var(--violet),var(--mint));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero-txt p{margin-top:12px;opacity:.9}
+    .wrap{max-width:900px;margin:-24px auto 60px;padding:0 16px}
+    .card{background:#141019;border:1px solid #ffffff14;border-radius:18px;padding:20px;box-shadow:0 10px 30px #00000033;margin-bottom:20px}
+    h2{margin:0 0 10px;font-size:clamp(20px,3.2vw,28px)}
+    .muted{color:var(--muted)}
+    footer{max-width:1100px;margin:40px auto 24px;padding:0 16px;opacity:.7;font-size:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="brand">Likelandi</div>
+    <a href="/">Home</a>
+    <a href="/consultorio-terapias.html">Consultorio</a>
+    <a href="/programas.html">Programas</a>
+    <a href="/landias-musik.html">Landia’s Musik</a>
+  </nav>
 
+  <!-- HERO -->
+  <header class="hero" role="banner">
+    <div class="hero-txt">
+      <h1>🛋️ Consultorio Landia</h1>
+      <p class="muted">Calma, escucha activa y arteterapia con apoyo en nuevas tecnologías</p>
+    </div>
+  </header>
 
   <!-- CONTENIDO -->
   <main class="wrap">
@@ -24,15 +53,15 @@
         Atención individual, terapia grupal, arteterapia, musicoterapia y reinserción psicosocial
         apoyada en nuevas tecnologías.
       </p>
-      <p>
-        Contacto: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a> ·
-        WhatsApp <a href="https://wa.me/5491124605401" target="_blank" rel="noopener">+54 9 11 2460 5401</a>
+    </section>
+
+    <section class="card">
+      <h2>Contacto</h2>
+      <p class="muted">
+        Correo: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a><br>
+        WhatsApp: <a href="https://wa.me/5491124605401" target="_blank" rel="noopener">+54 9 11 2460 5401</a>
       </p>
-      <p>
-        <a href="/">Volver a Home</a> ·
-        <a href="/programas.html">Ver Programas</a> ·
-        <a href="/landias-musik.html">Landia’s Musik</a>
-      </p>
+      <p><a href="/" class="muted">← Volver a Home</a></p>
     </section>
   </main>
 
@@ -41,6 +70,5 @@
     <span>© Likelandi — Todos los derechos reservados</span>
     <span>Hecho con 💜 violeta + 💚 menta</span>
   </footer>
-
 </body>
 </html>
