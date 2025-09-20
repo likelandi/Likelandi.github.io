@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultorio Landia</title>
+  <style>
+    :root {
+      --bg:#0f0b10;
+      --fg:#f7f0ff;
+      --accent-violet:#c77dff;
+      --accent-green:#7cffcb;
+    }
+    body {
+      margin:0; background:var(--bg); color:var(--fg);
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 420px;
+      overflow: hidden;
+      border-radius: 0 0 22px 22px;
+    }
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.85);
+    }
+    .hero-text {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: #f7f0ff;
+      text-align: center;
+    }
+    .hero-text h1 {
+      font-size: 40px;
+      margin: 0;
+      background: linear-gradient(90deg, var(--accent-violet), var(--accent-green));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-text p {
+      margin-top: 10px;
+      font-size: 18px;
+      opacity: .9;
+    }
+    section { padding: 20px; max-width: 960px; margin: 0 auto; }
+  </style>
+</head>
+<body>
+  <section id="consultorio">
+    <div class="hero">
+      <img src="57EEF30F-1597-4034-B1EF-D867599B8A95.jpeg" alt="Consultorio psiquiátrico" class="hero-img">
+      <div class="hero-text">
+        <h1>🛋️ Consultorio Landia</h1>
+        <p>Un espacio pensado para la calma, la escucha y la arteterapia</p>
+      </div>
+    </div>
+    <h2>Sobre este espacio</h2>
+    <p>
+      Aquí comienza la experiencia de <strong>Landia’s Musik</strong> desde un enfoque clínico y creativo.
+      Este consultorio combina la psiquiatría con la arteterapia y la música, ofreciendo un entorno seguro
+      y acogedor para acompañar cada proceso personal.
+    </p>
+  </section>
+</body>
+</html>
