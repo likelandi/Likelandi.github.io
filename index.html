@@ -5,54 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Likelandi — Inicio</title>
   <style>
-    :root{
-      --bg:#0f0b10; --fg:#f7f0ff; --violet:#c77dff; --mint:#7cffcb; --muted:#ffffffb3;
-    }
+    :root{--bg:#0f0b10;--fg:#f7f0ff;--violet:#c77dff;--mint:#7cffcb;--muted:#ffffffb3}
     body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
     a{color:var(--mint);text-decoration:none} a:hover{opacity:.85}
     .nav{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;justify-content:flex-end;align-items:center}
     .brand{margin-right:auto;font-weight:700;color:var(--fg)}
     .hero{
-      position:relative;width:100%;height:44vh;min-height:360px;max-height:560px;overflow:hidden;
+      position:relative;width:100%;height:60vh;min-height:360px;overflow:hidden;
       background-image:url("https://likelandi.github.io/Consultorio-hero.jpg");
-      background-size:cover;background-position:center;
+      background-size:cover;background-position:center;background-repeat:no-repeat;
     }
     .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#00000055 0%,#0f0b10 80%)}
     .hero-txt{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 16px}
-    .hero-txt h1{margin:0;font-size:clamp(28px,4vw,48px);background:linear-gradient(90deg,var(--violet),var(--mint));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .hero-txt p{margin-top:12px;opacity:.9}
-    .wrap{max-width:900px;margin:-24px auto 60px;padding:0 16px}
-    .card{background:#141019;border:1px solid #ffffff14;border-radius:18px;padding:20px;box-shadow:0 10px 30px #00000033}
-    footer{max-width:1100px;margin:40px auto 24px;padding:0 16px;opacity:.7;font-size:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}
-  </style>
-</head>
-<body>
-  <nav class="nav">
-    <div class="brand">Likelandi</div>
-    <a href="/">Home</a>
-    <a href="/consultorio-terapias.html">Consultorio</a>
-    <a href="/programas.html">Programas</a>
-    <a href="/landias-musik.html">Landia’s Musik</a>
-  </nav>
-
-  <header class="hero" role="banner" aria-label="Bienvenida a Likelandi">
-    <div class="hero-txt">
-      <h1>Bienvenido a Likelandi</h1>
-      <p class="muted">Psiquiatría · Arteterapia · Musicoterapia · Creatividad</p>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <section class="card">
-      <h2>Sobre mí</h2>
-      <p>Soy <strong>Juan Pablo Fernández Rebosio</strong>, médico psiquiatra y creador de proyectos como <em>Landia’s Musik</em> y <em>Likelandi</em>.</p>
-      <p>Este sitio reúne mis propuestas: consultorio, programas terapéuticos y espacios creativos donde la música y el arte acompañan los procesos de salud mental.</p>
-    </section>
-  </main>
-
-  <footer>
-    <span>© Likelandi — Todos los derechos reservados</span>
-    <span>Hecho con 💜 violeta + 💚 menta</span>
-  </footer>
-</body>
-</html>
+    .hero-txt h1{margin:0;fo
