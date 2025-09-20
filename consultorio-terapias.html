@@ -24,11 +24,9 @@
     .card{background:#141019;border:1px solid #ffffff14;border-radius:18px;padding:20px;box-shadow:0 10px 30px #00000033;margin-bottom:20px}
     h2{margin:0 0 10px;font-size:clamp(20px,3.2vw,28px)}
     .muted{color:var(--muted)}
-    footer{max-width:1100px;margin:40px auto 24px;padding:0 16px;opacity:.7;font-size:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}
   </style>
 </head>
 <body>
-  <!-- NAV -->
   <nav class="nav">
     <div class="brand">Likelandi</div>
     <a href="/">Home</a>
@@ -37,7 +35,6 @@
     <a href="/landias-musik.html">Landia’s Musik</a>
   </nav>
 
-  <!-- HERO -->
   <header class="hero" role="banner">
     <div class="hero-txt">
       <h1>🛋️ Consultorio Landia</h1>
@@ -45,7 +42,6 @@
     </div>
   </header>
 
-  <!-- CONTENIDO -->
   <main class="wrap">
     <section class="card">
       <h2>Servicios</h2>
@@ -65,10 +61,9 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <span>© Likelandi — Todos los derechos reservados</span>
-    <span>Hecho con 💜 violeta + 💚 menta</span>
-  </footer>
+  <footer data-include></footer>
+  <script src="/footer.js"></script>
+
+  <!-- Calma Mode — (copiá el bloque común aquí, antes de cerrar body) -->
 </body>
 </html>
