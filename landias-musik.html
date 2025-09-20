@@ -22,4 +22,64 @@
     .hero-txt p{margin-top:12px;opacity:.9}
     .wrap{max-width:980px;margin:-24px auto 60px;padding:0 16px}
     .card{background:#141019;border:1px solid #ffffff14;border-radius:18px;padding:20px;box-shadow:0 10px 30px #00000033;margin-bottom:20px}
-    h2{margin:0 0 10px;font-s
+    h2{margin:0 0 10px;font-size:clamp(20px,3.2vw,28px)}
+    .muted{color:var(--muted)}
+    .tracks{list-style:none;padding:0;margin:12px 0}
+    .tracks li{display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #ffffff17}
+    .n{width:28px;opacity:.65;text-align:right}
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">Likelandi</div>
+    <a href="/">Home</a>
+    <a href="/consultorio-terapias.html">Consultorio</a>
+    <a href="/programas.html">Programas</a>
+    <a href="/landias-musik.html">Landia’s Musik</a>
+  </nav>
+
+  <header class="hero" role="banner">
+    <div class="hero-txt">
+      <h1>Landia’s Musik</h1>
+      <p class="muted">Selección curada para acompañar con calma, color y respiración</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Sobre la selección</h2>
+      <p class="muted">
+        Curada por <strong>Juan Pablo Fernández Rebosio</strong>, integra temas que favorecen foco,
+        regulación emocional y pausas conscientes. Ideal para sesiones breves de arte y respiración.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Listado del iPod</h2>
+      <ul class="tracks">
+        <li><span class="n">1.</span> Justice — D.A.N.C.E</li>
+        <li><span class="n">2.</span> Daft Punk — Something About Us</li>
+        <li><span class="n">3.</span> The Weeknd — Out of Time</li>
+        <li><span class="n">4.</span> Lady Gaga — Replay</li>
+        <li><span class="n">5.</span> Arca — Nonbinary</li>
+        <li><span class="n">6.</span> Florence + the Machine — Cosmic Love</li>
+      </ul>
+      <p class="muted" style="margin-top:8px">*Listado ilustrativo. Pasame los temas reales y lo actualizo.</p>
+    </section>
+
+    <section class="card">
+      <h2>Contacto</h2>
+      <p class="muted">
+        Correo: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a><br>
+        WhatsApp: <a href="https://wa.me/5491124605401" target="_blank" rel="noopener">+54 9 11 2460 5401</a>
+      </p>
+      <p><a href="/" class="muted">← Volver a Home</a></p>
+    </section>
+  </main>
+
+  <footer data-include></footer>
+  <script src="/footer.js"></script>
+
+  <!-- Calma Mode — (pegá el bloque común aquí) -->
+</body>
+</html>
