@@ -1,51 +1,106 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Consultorio — Likelandi</title>
-  <meta name="description" content="Consultorio particular: atención individual y grupal, arteterapia y musicoterapia.">
-
+  <meta name="description" content="Consultorio psiquiátrico con enfoque en arteterapia, musicoterapia y nuevas tecnologías.">
   <style>
-    body { font-family: Arial, sans-serif; background:#110C0A; color:#fff; margin:0; }
-    header { text-align:center; padding:30px; background:linear-gradient(120deg,#FF7A00,#FFC6B3,#B18CFF); }
-    header h1 { font-size:2.2em; margin:0; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; color:transparent; }
-    main { max-width:900px; margin:0 auto; padding:20px; text-align:center; }
-    .btn { display:inline-block; margin:10px; padding:14px 24px; border-radius:14px; font-weight:800; font-size:18px; text-decoration:none; color:#100906;
-           background:linear-gradient(135deg,#FF7A00 10%,#FFC6B3 55%,#B18CFF 100%); box-shadow:0 6px 18px rgba(0,0,0,.3); }
-    .btn:hover { filter:brightness(1.05) saturate(1.1); }
-    footer { text-align:center; padding:20px; border-top:1px solid #333; margin-top:40px; }
-    footer a { color:#FF8AC9; font-weight:600; text-decoration:none; }
-    footer a:hover { text-decoration:underline; }
+    :root{
+      --bg:#0f0b10;          /* negro violáceo */
+      --fg:#f7f0ff;          /* lavanda claro */
+      --violet:#c77dff;      /* acento violeta */
+      --mint:#7cffcb;        /* acento verde menta */
+      --muted:#ffffffb3;
+    }
+    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+    a{color:var(--mint);text-decoration:none}
+    a:hover{opacity:.85}
+
+    /* NAV */
+    .nav{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;justify-content:flex-end;align-items:center}
+    .nav a{opacity:.9}
+    .brand{margin-right:auto;font-weight:700;letter-spacing:.2px;color:var(--fg)}
+
+    /* HERO */
+    .hero{position:relative;width:100%;height:44vh;min-height:360px;max-height:560px;overflow:hidden}
+    .hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.82)}
+    .hero::after{
+      content:"";position:absolute;inset:0;
+      background:linear-gradient(180deg, #00000055 0%, #0f0b10 80%);
+    }
+    .hero-txt{
+      position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 16px;
+    }
+    .hero-txt h1{
+      margin:0;
+      font-size:clamp(28px,4vw,48px);
+      background:linear-gradient(90deg,var(--violet),var(--mint));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent
+    }
+    .hero-txt p{margin-top:12px;opacity:.9}
+
+    /* MAIN */
+    .wrap{max-width:900px;margin:-24px auto 60px;padding:0 16px}
+    .card{
+      background:#141019;border:1px solid #ffffff14;border-radius:18px;padding:20px;
+      box-shadow:0 10px 30px #00000033
+    }
+    h2{margin:0 0 10px 0;font-size:clamp(20px,3.2vw,28px)}
+    .muted{color:var(--muted)}
+
+    /* FOOTER */
+    footer{max-width:1100px;margin:40px auto 24px;padding:0 16px;opacity:.7;font-size:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Consultorio Particular</h1>
-</header>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="brand">Likelandi</div>
+    <a href="/">Home</a>
+    <a href="/consultorio-terapias.html">Consultorio</a>
+    <a href="/programas.html">Programas</a>
+    <a href="/landias-musik.html">Landia’s Musik</a>
+  </nav>
 
-<main>
-  <h2>Servicios</h2>
-  <p>Atención individual, terapia grupal, arteterapia, musicoterapia y reinserción psicosocial apoyada en nuevas tecnologías.</p>
+  <!-- HERO con imagen central -->
+  <header class="hero" role="banner" aria-label="Consultorio Landia">
+    <!-- 👇 Asegurate que este archivo existe en tu repo -->
+    <img src="/assets/img/consultorio-hero.jpg" alt="Consultorio Landia — sala de espera">
+    <div class="hero-txt">
+      <div>
+        <h1>🛋️ Consultorio Landia</h1>
+        <p class="muted">Calma, escucha activa y arteterapia con apoyo en nuevas tecnologías</p>
+      </div>
+    </div>
+  </header>
 
-  <a class="btn" href="index.html">🏠 Volver a Home</a>
-  <a class="btn" href="programas-talleres.html">🎟️ Ver Programas</a>
-  <a class="btn" href="landias-musik.html">🎧 Landia’s Musik</a>
-</main>
+  <!-- CONTENIDO -->
+  <main class="wrap">
+    <section class="card">
+      <h2>Servicios</h2>
+      <p class="muted">
+        Atención individual, terapia grupal, arteterapia, musicoterapia y reinserción psicosocial
+        apoyada en nuevas tecnologías.
+      </p>
+      <p>
+        Contacto: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a> ·
+        WhatsApp <a href="https://wa.me/5491124605401" target="_blank" rel="noopener">+54 9 11 2460 5401</a>
+      </p>
+      <p>
+        <a href="/">Volver a Home</a> ·
+        <a href="/programas.html">Ver Programas</a> ·
+        <a href="/landias-musik.html">Landia’s Musik</a>
+      </p>
+    </section>
+  </main>
 
-<footer>
-  <p>
-    <a href="index.html">🏠 Home</a> ·
-    <a href="consultorio-terapias.html">🧠 Consultorio</a> ·
-    <a href="programas-talleres.html">🎟️ Programas</a> ·
-    <a href="landias-musik.html">🎧 Landia’s Musik</a>
-  </p>
-  <p>Contacto: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a> · 
-     WhatsApp <a href="https://wa.me/5491124605401" target="_blank">+54 9 11 2460 5401</a>
-  </p>
-  <p style="color:#aaa">© Likelandi — Todos los derechos reservados</p>
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <span>© Likelandi — Todos los derechos reservados</span>
+    <span>Hecho con 💜 violeta + 💚 menta</span>
+  </footer>
 
 </body>
 </html>
