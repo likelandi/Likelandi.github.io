@@ -1,0 +1,60 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landia — Página Principal</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+      background-color: #0f0b10;
+      color: #f7f0ff;
+    }
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* ocupa toda la pantalla inicial */
+      background: url("consultorio-retocado.png") no-repeat center center;
+      background-size: cover;
+      text-align: center;
+      position: relative;
+    }
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.45); /* oscurece un poco para resaltar texto */
+    }
+    .hero-text {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-text h1 {
+      font-size: 50px;
+      margin: 0;
+      background: linear-gradient(90deg, #c77dff, #7cffcb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-text p {
+      font-size: 20px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Imagen central en homepage -->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="hero-text">
+      <h1>🛋️ Consultorio Landia</h1>
+      <p>Un espacio para la calma, la escucha y la arteterapia</p>
+    </div>
+  </section>
+
+</body>
+</html>
