@@ -1,219 +1,124 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Landia’s Musik — Likelandi</title>
-  <meta name="description" content="La identidad musical de Landia: playlists, escuchas recientes y producción independiente con identidad propia.">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Likelandi — Landia’s Musik</title>
+  <meta name="description" content="Landia’s Musik: selección musical curada por Juan Pablo Fernández Rebosio para acompañar procesos terapéuticos con arte y calma.">
   <style>
-    :root{
-      --bg:#110C0A; --fg:#fff; --muted:#aaa; --line:#333;
-      --orange:#FF7A00; --peach:#FFC6B3; --lavender:#B18CFF; --brand:#FF8AC9;
+    :root{--bg:#0f0b10;--fg:#f7f0ff;--violet:#c77dff;--mint:#7cffcb;--muted:#ffffffb3}
+    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+    a{color:var(--mint);text-decoration:none} a:hover{opacity:.85}
+
+    /* NAV */
+    .nav{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;justify-content:flex-end;align-items:center}
+    .brand{margin-right:auto;font-weight:700;color:var(--fg)}
+
+    /* HERO */
+    .hero{
+      position:relative;width:100%;height:34vh;min-height:260px;max-height:420px;overflow:hidden;
+      background: radial-gradient(1200px 600px at 20% -10%, #271a33 0%, #0f0b10 60%) no-repeat;
     }
-    body{font-family:Arial,system-ui,-apple-system,Segoe UI,Roboto; background:var(--bg); color:var(--fg); margin:0}
-    header{ text-align:center; padding:30px; background:linear-gradient(120deg,var(--orange),var(--peach),var(--lavender)); }
-    header h1{ margin:0; font-size:2.2em; -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; color:transparent; display:flex; align-items:center; justify-content:center; gap:10px }
-    .ipod{ width:28px; height:28px; vertical-align:middle }
-    main{ max-width:900px; margin:0 auto; padding:20px; text-align:center }
-    .btn{ display:inline-block; margin:10px; padding:14px 24px; border-radius:14px; font-weight:800; font-size:18px; text-decoration:none; color:#100906;
-          background:linear-gradient(135deg,var(--orange) 10%,var(--peach) 55%,var(--lavender) 100%); box-shadow:0 6px 18px rgba(0,0,0,.3);}
-    .btn:hover{ filter:brightness(1.05) saturate(1.1) }
-    .profile-pic img{ width:260px; border-radius:50%; box-shadow:0 6px 18px rgba(0,0,0,.35) }
-    .profile-pic p{ color:var(--muted); font-size:14px; margin-top:6px }
-    .playlist-box{ max-width:560px; margin:20px auto; text-align:left; background:#1A110E; padding:16px; border-radius:14px; box-shadow:0 4px 14px rgba(0,0,0,.4); border:1px solid rgba(255,255,255,.05) }
-    .row{ display:flex; gap:10px; align-items:center; justify-content:space-between; margin-bottom:10px }
-    .small{ color:var(--peach) }
-    ol{ line-height:1.6; padding-left:20px; color:#E5DAD2; margin:0 }
-    .track-actions{ display:inline-flex; gap:6px; margin-left:8px }
-    .btn-mini{ font:inherit; font-weight:700; padding:6px 10px; border-radius:10px; border:1px solid #3A1E17; background:#211510; color:#fff; cursor:pointer }
-    .btn-mini:hover{ filter:brightness(1.05) }
-    footer{ text-align:center; padding:20px; border-top:1px solid var(--line); margin-top:40px }
-    footer a{ color:var(--brand); font-weight:600; text-decoration:none }
-    footer a:hover{ text-decoration:underline }
+    .hero::before{
+      content:""; position:absolute; inset:0;
+      background: radial-gradient(800px 400px at 85% 20%, #1c2730 0%, transparent 60%);
+      mix-blend-mode: screen; opacity:.5;
+    }
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#00000055 0%,#0f0b10 80%)}
+    .hero-txt{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 16px}
+    .hero-txt h1{
+      margin:0;font-size:clamp(26px,3.6vw,42px);
+      background:linear-gradient(90deg,var(--violet),var(--mint));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent
+    }
+    .hero-txt p{margin-top:10px;opacity:.9}
+
+    /* MAIN */
+    .wrap{max-width:980px;margin:-24px auto 60px;padding:0 16px}
+    .card{background:#141019;border:1px solid #ffffff14;border-radius:18px;padding:20px;box-shadow:0 10px 30px #00000033}
+    h2{margin:0 0 10px;font-size:clamp(18px,2.8vw,24px)}
+    .muted{color:var(--muted)}
+
+    /* TRACKLIST */
+    .tracks{list-style:none;padding:0;margin:12px 0}
+    .tracks li{display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #ffffff17}
+    .n{width:28px;opacity:.65;text-align:right}
+
+    /* GRID */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+
+    /* CTA */
+    .cta{margin-top:16px}
+    .btn{
+      display:inline-block; padding:12px 18px; border-radius:12px; font-weight:700;
+      background:linear-gradient(135deg,var(--violet),var(--mint)); color:#0f0b10;
+      text-decoration:none
+    }
+
+    /* FOOTER */
+    footer{max-width:1100px;margin:40px auto 24px;padding:0 16px;opacity:.7;font-size:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}
   </style>
 </head>
 <body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="brand">Likelandi</div>
+    <a href="/">Home</a>
+    <a href="/consultorio-terapias.html">Consultorio</a>
+    <a href="/programas.html">Programas</a>
+    <a href="/landias-musik.html">Landia’s Musik</a>
+  </nav>
 
-<header>
-  <h1>
-    <!-- Ícono iPod SVG -->
-    <svg class="ipod" viewBox="0 0 64 64" fill="none" aria-hidden="true">
-      <rect x="16" y="4" width="32" height="56" rx="6" stroke="white" stroke-width="3"/>
-      <rect x="22" y="10" width="20" height="20" rx="2" stroke="white" stroke-width="2"/>
-      <circle cx="32" cy="46" r="8" stroke="white" stroke-width="3"/>
-    </svg>
-    Landia’s Musik
-  </h1>
-</header>
-
-<main>
-  <!-- Foto de perfil (asegurate de subir este PNG al repo) -->
-  <div class="profile-pic">
-    <img src="landias-musik-profile-fiesta.png" alt="Perfil oficial Landia’s Musik">
-    <p>Foto oficial Landia’s Musik (versión fiesta)</p>
-  </div>
-
-  <h2>Sobre el proyecto</h2>
-  <p><strong>Landia’s Musik</strong> es el corazón musical de Landia: un espacio para explorar playlists, escuchas recientes y producción independiente con identidad propia.</p>
-
-  <h2>Conectá con Landia’s Musik</h2>
-  <a class="btn" href="https://www.last.fm/user/animatefran" target="_blank" rel="noopener">🎵 Last.fm · @animatefran</a>
-  <a class="btn" href="https://open.spotify.com/search/Juan%20Pablo%20Fernandez%20rebosio" target="_blank" rel="noopener">🎧 Spotify</a>
-  <a class="btn" href="https://music.apple.com/profile/jprebosio" target="_blank" rel="noopener">🍎 Apple Music</a>
-
-  <!-- iPod dinámico -->
-  <h2>📀 iPod de Landia’s Musik</h2>
-  <p style="color:#aaa; font-size:14px;">Listado automático desde Last.fm (@animatefran). Alterná entre Top (7 días) y Recientes. Si no hay datos, se muestra la lista manual.</p>
-
-  <div id="ipodBox" class="playlist-box">
-    <div class="row">
-      <p style="font-weight:700; color:#FFC6B3; margin:0;">🎶 Playlist del iPod</p>
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-label="Landia’s Musik">
+    <div class="hero-txt">
       <div>
-        <button id="btnTop" class="btn-mini">Top 7 días</button>
-        <button id="btnRecent" class="btn-mini">Recientes</button>
+        <h1>Landia’s Musik</h1>
+        <p class="muted">Selección curada para acompañar con calma, color y respiración</p>
       </div>
     </div>
+  </header>
 
-    <div id="ipodLoading" class="small">Cargando…</div>
-    <ol id="ipodList" style="display:none"></ol>
+  <!-- CONTENIDO -->
+  <main class="wrap">
+    <section class="grid">
+      <article class="card">
+        <h2>Sobre la selección</h2>
+        <p class="muted">
+          Curada por <strong>Juan Pablo Fernández Rebosio</strong>, integra temas que favorecen foco,
+          regulación emocional y pausas conscientes. Ideal para sesiones breves de arte y respiración.
+        </p>
+        <div class="cta"><a class="btn" href="/consultorio-terapias.html">Agendar consulta</a></div>
+      </article>
 
-    <!-- Respaldo manual -->
-    <ol id="ipodFallback">
-      <li>Blame It On Your Love (Charli XCX Remix)</li>
-      <li>Justice — D.A.N.C.E</li>
-      <li>Kylie Minogue — Padam Padam</li>
-      <li>Daft Punk — One More Time</li>
-      <li>Lady Gaga — Stupid Love</li>
-      <li>Calvin Harris — Feel So Close</li>
-      <li>Oasis — Wonderwall</li>
-      <li>Tame Impala — The Less I Know The Better</li>
-      <li>Dua Lipa — Don’t Start Now</li>
-      <li>Rosalía — Bizcochito</li>
-    </ol>
-  </div>
-</main>
+      <article class="card">
+        <h2>Listado del iPod</h2>
+        <ul class="tracks">
+          <li><span class="n">1.</span> Justice — D.A.N.C.E</li>
+          <li><span class="n">2.</span> Daft Punk — Something About Us</li>
+          <li><span class="n">3.</span> The Weeknd — Out of Time</li>
+          <li><span class="n">4.</span> Lady Gaga — Replay</li>
+          <li><span class="n">5.</span> Arca — Nonbinary</li>
+          <li><span class="n">6.</span> Florence + the Machine — Cosmic Love</li>
+        </ul>
+        <p class="muted" style="margin-top:8px">*Listado ilustrativo. Podés pasarme los temas finales y lo actualizo.</p>
+      </article>
+    </section>
 
-<footer>
-  <p>
-    <a href="index.html">🏠 Home</a> ·
-    <a href="consultorio-terapias.html">🧠 Consultorio</a> ·
-    <a href="programas-talleres.html">🎟️ Programas</a> ·
-    <a href="landias-musik.html">🎧 Landia’s Musik</a>
-  </p>
-  <p>Contacto: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a> · 
-     WhatsApp <a href="https://wa.me/5491124605401" target="_blank" rel="noopener">+54 9 11 2460 5401</a>
-  </p>
-  <p style="color:#aaa">© Likelandi — Todos los derechos reservados</p>
-</footer>
+    <section class="card" style="margin-top:18px">
+      <h2>Contacto</h2>
+      <p class="muted">
+        Correo: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a> ·
+        WhatsApp: <a href="https://wa.me/5491124605401" target="_blank" rel="noopener">+54 9 11 2460 5401</a>
+      </p>
+      <p><a href="/" class="muted">← Volver a Home</a></p>
+    </section>
+  </main>
 
-<!-- === Last.fm loader === -->
-<script>
-(function(){
-  const LASTFM_USER = 'animatefran';
-  const LASTFM_API_KEY = '9ae56925bbfa62eb560db8d5389bc41a'; // ← Tu key real
-
-  const loadingEl = document.getElementById('ipodLoading');
-  const listEl = document.getElementById('ipodList');
-  const fallbackEl = document.getElementById('ipodFallback');
-  const btnTop = document.getElementById('btnTop');
-  const btnRecent = document.getElementById('btnRecent');
-
-  function setActive(which){
-    btnTop.style.outline = (which==='top') ? '2px solid #FFC6B3' : 'none';
-    btnRecent.style.outline = (which==='recent') ? '2px solid #FFC6B3' : 'none';
-  }
-
-  function searchLinks(artist, title){
-    const q = encodeURIComponent(`${artist} ${title}`);
-    return {
-      spotify: `https://open.spotify.com/search/${q}`,
-      apple: `https://music.apple.com/search?term=${q}`
-    };
-  }
-
-  function render(items){
-    if(!items.length){ listEl.style.display='none'; fallbackEl.style.display='block'; return; }
-    listEl.innerHTML = '';
-    items.forEach(({text, artist, title})=>{
-      const li = document.createElement('li');
-      li.textContent = text;
-      const actions = document.createElement('span');
-      actions.className = 'track-actions';
-      const links = searchLinks(artist, title);
-      const a1 = document.createElement('a');
-      a1.href = links.spotify; a1.target = '_blank'; a1.rel='noopener'; a1.className = 'btn-mini'; a1.textContent = 'Spotify';
-      const a2 = document.createElement('a');
-      a2.href = links.apple; a2.target = '_blank'; a2.rel='noopener'; a2.className = 'btn-mini'; a2.textContent = 'Apple';
-      actions.appendChild(a1); actions.appendChild(a2);
-      li.appendChild(actions);
-      listEl.appendChild(li);
-    });
-    listEl.style.display='block';
-    fallbackEl.style.display='none';
-  }
-
-  async function fetchTop7d(){
-    const url = new URL('https://ws.audioscrobbler.com/2.0/');
-    url.searchParams.set('method','user.gettoptracks');
-    url.searchParams.set('user', LASTFM_USER);
-    url.searchParams.set('period','7day');
-    url.searchParams.set('limit','10');
-    url.searchParams.set('api_key', LASTFM_API_KEY);
-    url.searchParams.set('format','json');
-    const res = await fetch(url.toString());
-    if(!res.ok) throw new Error('HTTP '+res.status);
-    const data = await res.json();
-    return (data?.toptracks?.track || []).slice(0,10).map(t=>{
-      const artist = (t?.artist?.name || '').trim();
-      const title  = (t?.name || '').trim();
-      const text = artist && title ? `${artist} — ${title}` : (t?.name || '').trim();
-      return {text, artist, title};
-    }).filter(x=>x.text);
-  }
-
-  async function fetchRecent(){
-    const url = new URL('https://ws.audioscrobbler.com/2.0/');
-    url.searchParams.set('method','user.getrecenttracks');
-    url.searchParams.set('user', LASTFM_USER);
-    url.searchParams.set('limit','10');
-    url.searchParams.set('api_key', LASTFM_API_KEY);
-    url.searchParams.set('format','json');
-    const res = await fetch(url.toString());
-    if(!res.ok) throw new Error('HTTP '+res.status);
-    const data = await res.json();
-    return (data?.recenttracks?.track || []).slice(0,10).map(t=>{
-      const artist = (t?.artist?.['#text'] || '').trim();
-      const title  = (t?.name || '').trim();
-      const text = artist && title ? `${artist} — ${title}` : (t?.name || '').trim();
-      return {text, artist, title};
-    }).filter(x=>x.text);
-  }
-
-  async function load(mode){
-    if(!LASTFM_API_KEY){
-      loadingEl.textContent = 'Usando lista manual (falta API key).';
-      listEl.style.display='none'; fallbackEl.style.display='block';
-      return;
-    }
-    setActive(mode);
-    loadingEl.textContent = (mode==='top') ? 'Cargando Top (7 días)…' : 'Cargando Recientes…';
-    listEl.style.display='none';
-    try{
-      const items = (mode==='top') ? await fetchTop7d() : await fetchRecent();
-      render(items);
-      loadingEl.textContent = (mode==='top') ? 'Top (últimos 7 días) desde Last.fm.' : 'Escuchas recientes desde Last.fm.';
-    }catch(e){
-      console.error(e);
-      loadingEl.textContent = 'No se pudo conectar a Last.fm — mostrando lista manual.';
-      listEl.style.display='none'; fallbackEl.style.display='block';
-    }
-  }
-
-  btnTop.addEventListener('click', ()=>load('top'));
-  btnRecent.addEventListener('click', ()=>load('recent'));
-  load('top');
-})();
-</script>
-
+  <!-- FOOTER -->
+  <footer>
+    <span>© Likelandi — Todos los derechos reservados</span>
+    <span>Hecho con 💜 violeta + 💚 menta</span>
+  </footer>
 </body>
 </html>
