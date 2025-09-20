@@ -1,80 +1,20 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Consultorio — Likelandi</title>
-  <meta name="description" content="Consultorio psiquiátrico con enfoque en arteterapia, musicoterapia y nuevas tecnologías.">
-  <style>
-    :root{
-      --bg:#0f0b10;          /* negro violáceo */
-      --fg:#f7f0ff;          /* lavanda claro */
-      --violet:#c77dff;      /* acento violeta */
-      --mint:#7cffcb;        /* acento verde menta */
-      --muted:#ffffffb3;
-    }
-    html,body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
-    a{color:var(--mint);text-decoration:none}
-    a:hover{opacity:.85}
-
-    /* NAV */
-    .nav{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;justify-content:flex-end;align-items:center}
-    .nav a{opacity:.9}
-    .brand{margin-right:auto;font-weight:700;letter-spacing:.2px;color:var(--fg)}
-
-    /* HERO */
-    .hero{position:relative;width:100%;height:44vh;min-height:360px;max-height:560px;overflow:hidden}
-    .hero img{width:100%;height:100%;object-fit:cover;filter:brightness(.82)}
-    .hero::after{
-      content:"";position:absolute;inset:0;
-      background:linear-gradient(180deg, #00000055 0%, #0f0b10 80%);
-    }
-    .hero-txt{
-      position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 16px;
-    }
-    .hero-txt h1{
-      margin:0;
-      font-size:clamp(28px,4vw,48px);
-      background:linear-gradient(90deg,var(--violet),var(--mint));
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent
-    }
-    .hero-txt p{margin-top:12px;opacity:.9}
-
-    /* MAIN */
-    .wrap{max-width:900px;margin:-24px auto 60px;padding:0 16px}
-    .card{
-      background:#141019;border:1px solid #ffffff14;border-radius:18px;padding:20px;
-      box-shadow:0 10px 30px #00000033
-    }
-    h2{margin:0 0 10px 0;font-size:clamp(20px,3.2vw,28px)}
-    .muted{color:var(--muted)}
-
-    /* FOOTER */
-    footer{max-width:1100px;margin:40px auto 24px;padding:0 16px;opacity:.7;font-size:14px;display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between}
-  </style>
-</head>
-<body>
-
-  <!-- NAV -->
-  <nav class="nav">
-    <div class="brand">Likelandi</div>
-    <a href="/">Home</a>
-    <a href="/consultorio-terapias.html">Consultorio</a>
-    <a href="/programas.html">Programas</a>
-    <a href="/landias-musik.html">Landia’s Musik</a>
-  </nav>
-
-  <!-- HERO con imagen central -->
-  <header class="hero" role="banner" aria-label="Consultorio Landia">
-    <!-- 👇 Asegurate que este archivo existe en tu repo -->
-    <img src="/assets/img/consultorio-hero.jpg" alt="Consultorio Landia — sala de espera">
-    <div class="hero-txt">
-      <div>
-        <h1>🛋️ Consultorio Landia</h1>
-        <p class="muted">Calma, escucha activa y arteterapia con apoyo en nuevas tecnologías</p>
-      </div>
+<header class="hero" role="banner" aria-label="Consultorio Landia" style="
+  position:relative;width:100%;height:44vh;min-height:360px;max-height:560px;overflow:hidden;
+  background-image:url('https://likelandi.github.io/Consultorio-hero.jpg');
+  background-size:cover;background-position:center;">
+  <div style="position:absolute;inset:0;background:linear-gradient(180deg,#00000055 0%,#0f0b10 80%);"></div>
+  <div style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 16px;">
+    <div>
+      <h1 style="margin:0;font-size:clamp(28px,4vw,48px);
+        background:linear-gradient(90deg,#c77dff,#7cffcb);
+        -webkit-background-clip:text;-webkit-text-fill-color:transparent">
+        🛋️ Consultorio Landia
+      </h1>
+      <p style="margin-top:12px;opacity:.9">Calma, escucha activa y arteterapia</p>
     </div>
-  </header>
+  </div>
+</header>
+
 
   <!-- CONTENIDO -->
   <main class="wrap">
