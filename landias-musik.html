@@ -5,27 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Likelandi — Landia’s Musik</title>
 <meta name="description" content="Selección musical curada para acompañar procesos con calma, color y respiración.">
-
-<!-- ====== Estilos base ordenados ====== -->
 <style>
   :root{
     --bg:#0f0b10; --panel:#141019; --fg:#f7f0ff;
     --muted:#cfc7da; --violet:#c77dff; --mint:#7cffcb;
     --border:#ffffff22; --shadow:0 10px 30px #0006;
   }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
+  *{box-sizing:border-box} html,body{margin:0}
   body{background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
 
   /* NAV */
   .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);
        background:#0f0b10cc;border-bottom:1px solid var(--border)}
   .nav .inner{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
-  .brand{margin-right:auto;font-weight:800;letter-spacing:.2px}
+  .brand{margin-right:auto;font-weight:800}
   .nav a{color:var(--fg);text-decoration:none;opacity:.9}
   .nav a:hover{opacity:1}
 
-  /* HERO con imagen COMPLETA (sin recortes) */
+  /* HERO imagen completa (sin recortes) */
   .hero{position:relative;display:grid;place-items:center;min-height:72vh;padding:16px}
   .hero .frame{
     width:min(1100px,92vw); height:68vh; min-height:380px;
@@ -33,36 +30,26 @@
     background:linear-gradient(180deg,#000 0%,#0f0b10 100%);
     border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); overflow:hidden;
   }
-  .hero img{
-    max-width:100%; max-height:100%; object-fit:contain; display:block; border-radius:12px;
-    box-shadow:0 10px 40px #000a;
-  }
-  .hero .title{
-    position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
-    text-align:center; padding:0 16px;
-  }
-  .hero h1{
-    margin:0; font-size:clamp(28px,4.5vw,52px);
+  .hero img{max-width:100%;max-height:100%;object-fit:contain;display:block;border-radius:12px;box-shadow:0 10px 40px #000a}
+  .hero .title{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);text-align:center;padding:0 16px}
+  .hero h1{margin:0;font-size:clamp(28px,4.5vw,52px);
     background:linear-gradient(90deg,var(--violet),var(--mint));
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  }
-  .hero p{margin:.4rem 0 0; color:var(--muted)}
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{margin:.4rem 0 0;color:var(--muted)}
 
-  /* CONTENEDOR */
-  .wrap{max-width:1100px;margin:0 auto;padding:0 16px 80px}
-
-  /* TARJETAS */
+  /* CONTENEDOR/TARJETAS */
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px 96px}
   .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
   .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
   .card h2{margin:0 0 8px;font-size:clamp(20px,2.8vw,26px)}
   .muted{color:var(--muted)}
 
-  /* LISTA MÚSICA */
+  /* LISTA */
   .tracks{list-style:none;margin:10px 0 0;padding:0}
   .tracks li{display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #ffffff17}
   .tracks .n{width:28px;opacity:.65;text-align:right}
 
-  /* VIDEO DEL DÍA */
+  /* VIDEO */
   .video-wrap{display:grid;gap:10px}
   .video-header{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap}
   .btn{padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:#1a1323;color:var(--fg);cursor:pointer}
@@ -91,13 +78,43 @@
   input,textarea{background:#1a1323;border:1px solid var(--border);border-radius:10px;color:var(--fg);padding:10px}
   .call-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
 
-  /* FOOTER */
   footer{margin:40px 0 0;padding:18px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
+
+  /* —— Mood Mixer —— */
+  #mood-picker .btn.active{box-shadow:0 0 0 2px #7cffcb66 inset;border-color:#7cffcb99}
+
+  /* —— Sesión 5’ —— */
+  #session-overlay[hidden]{display:none}
+  #session-overlay{position:fixed;inset:0;background:#000a;display:grid;place-items:center;z-index:10002}
+  .session-card{width:min(92vw,540px);background:#141019;color:#f7f0ff;border:1px solid #ffffff22;border-radius:16px;padding:18px;box-shadow:0 20px 60px #000a;text-align:center}
+  .session-ring{width:160px;height:160px;margin:10px auto;position:relative}
+  .session-ring svg{transform:rotate(-90deg)}
+  .session-orb{--s:130px;width:var(--s);height:var(--s);border-radius:999px;margin:-146px auto 0;background:radial-gradient(closest-side,#7cffcb55,#c77dff33,#0000);box-shadow:0 0 80px #7cffcb33,0 0 40px #c77dff22 inset;animation:breathe 8s ease-in-out infinite}
+  @keyframes breathe{0%{transform:scale(.86)}50%{transform:scale(1.08)}100%{transform:scale(.86)}}
+  .session-actions{display:flex;gap:10px;justify-content:center;margin-top:12px}
+  .session-chip{padding:8px 12px;border-radius:999px;border:1px solid #ffffff22;background:#1a1323;color:#f7f0ff;cursor:pointer}
+  .session-chip.active{border-color:#7cffcb;box-shadow:0 0 0 2px #7cffcb33 inset}
+
+  /* —— Reproductor —— */
+  #landia-player{position:fixed;left:16px;bottom:16px;z-index:10000;
+    display:grid;gap:8px;grid-template-columns:auto 1fr auto;align-items:center;
+    background:#141019;border:1px solid #ffffff22;border-radius:14px;padding:10px 12px;box-shadow:0 10px 30px #0007}
+  #lp-play{width:44px;height:44px;border:none;border-radius:999px;cursor:pointer;
+    background:linear-gradient(135deg,#c77dff,#7cffcb);color:#0f0b10;font-weight:800;font-size:18px}
+  #lp-title{color:#f7f0ff;font:14px/1.4 system-ui;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:48vw}
+  #lp-ctr{display:flex;gap:6px;align-items:center}
+  #lp-next,#lp-prev,#lp-shuf{border:1px solid #ffffff33;background:#1a1323;color:#f7f0ff;border-radius:10px;cursor:pointer;padding:6px 8px}
+  #lp-vol{width:120px;accent-color:#7cffcb}
+  #lp-consent{position:fixed;inset:0;display:grid;place-items:center;background:#000a;z-index:10001}
+  #lp-consent[hidden]{display:none}
+  .lp-card{width:min(92vw,460px);background:#141019;color:#f7f0ff;border:1px solid #ffffff22;border-radius:16px;padding:18px;text-align:center;box-shadow:0 20px 60px #000a}
+  .lp-actions{display:flex;gap:10px;justify-content:center;margin-top:12px}
+  .lp-btn{padding:10px 14px;border-radius:12px;border:1px solid #ffffff33;background:#1a1323;color:#f7f0ff;cursor:pointer}
+  .lp-btn.primary{background:linear-gradient(135deg,var(--violet),var(--mint));border:none;color:#0f0b10;font-weight:700}
 </style>
 </head>
 <body>
 
-<!-- ====== NAV ====== -->
 <nav class="nav">
   <div class="inner">
     <div class="brand">Likelandi</div>
@@ -108,10 +125,9 @@
   </div>
 </nav>
 
-<!-- ====== HERO ORDENADO ====== -->
 <header class="hero" role="banner">
   <div class="frame">
-    <img src="https://likelandi.github.io/landias-musik-profile-fiesta.png?v=12" alt="Landia’s Party — Landia’s Musik">
+    <img src="https://likelandi.github.io/landias-musik-profile-fiesta.png?v=20" alt="Landia’s Party — Landia’s Musik">
   </div>
   <div class="title">
     <h1>Landia’s Musik</h1>
@@ -119,7 +135,6 @@
   </div>
 </header>
 
-<!-- ====== CONTENIDO ====== -->
 <main class="wrap">
   <section class="grid">
     <article class="card">
@@ -140,7 +155,7 @@
     </article>
   </section>
 
-  <!-- ==== VIDEO DEL DÍA (robusto) ==== -->
+  <!-- Video del día -->
   <section class="card" style="margin-top:18px">
     <div class="video-wrap">
       <div class="video-header">
@@ -156,7 +171,7 @@
     </div>
   </section>
 
-  <!-- ==== COLOR PAD ==== -->
+  <!-- Color Pad -->
   <section class="card" style="margin-top:18px">
     <h2>Color Pad (arteterapia)</h2>
     <div class="pad-tools">
@@ -168,23 +183,35 @@
     <canvas id="cpCanvas" width="960" height="420"></canvas>
   </section>
 
-  <!-- ==== CONTACTO ==== -->
+  <!-- NOVEDOSO: Mood Mixer + Sesión 5’ -->
   <section class="card" style="margin-top:18px">
-    <h2>Contacto</h2>
-    <p class="muted">
-      Correo: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a> ·
-      WhatsApp: <a href="https://wa.me/5491124605401" target="_blank" rel="noopener">+54 9 11 2460 5401</a>
-    </p>
+    <h2>Mood Mixer + Sesión 5’</h2>
+    <p class="muted">Elegí un estado y probá una sesión breve con respiración y música alineada.</p>
+
+    <div id="mood-picker" style="display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 14px">
+      <button class="btn" data-mood="calma">🌊 Calma</button>
+      <button class="btn" data-mood="enfoque">🎯 Enfoque</button>
+      <button class="btn" data-mood="energia">⚡ Energía</button>
+      <button class="btn" data-mood="sereno">🌙 Sereno</button>
+      <button class="btn" data-mood="nocturno">🌌 Nocturno</button>
+    </div>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap">
+      <button id="mood-apply" class="btn primary">Aplicar mood</button>
+      <button id="session-open" class="btn">Iniciar sesión 5’</button>
+    </div>
+
+    <p id="mood-note" class="muted" style="margin-top:10px"></p>
   </section>
 </main>
 
 <footer>© Landia’s Musik</footer>
 
-<!-- ====== FABs ====== -->
-<a class="fab-wa" href="https://wa.me/5491124605401?text=Hola%20Juan%20Pablo%2C%20quiero%20coordinar%20una%20consulta%20por%20Landia%E2%80%99s%20Musik." target="_blank" rel="noopener">💬 WhatsApp</a>
+<!-- FABs -->
+<a class="fab-wa" href="https://wa.me/5491124605401?text=Hola%20Juan%20Pablo%2C%20quiero%20coordinar%20consulta%20por%20Landia%E2%80%99s%20Musik." target="_blank" rel="noopener">💬 WhatsApp</a>
 <button class="fab-call" id="callfab" aria-label="Solicitar llamada">📞</button>
 
-<!-- ====== MODAL LLAMADA ====== -->
+<!-- MODAL LLAMADA -->
 <div id="call-overlay" hidden>
   <div class="call-card">
     <h3 style="margin:0 0 6px;background:linear-gradient(90deg,var(--violet),var(--mint));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Solicitar llamada</h3>
@@ -201,62 +228,105 @@
   </div>
 </div>
 
-<!-- ====== SCRIPTS ORDENADOS ====== -->
-<script>
-  // Video del día simple y robusto
-  (function(){
-    const tracks = [
-      "Justice D.A.N.C.E","Daft Punk Something About Us","The Weeknd Out of Time",
-      "Lady Gaga Replay","Arca Nonbinary","Florence and the Machine Cosmic Love"
-    ];
-    const iframe = document.getElementById('ytDaily');
-    const titleEl = document.getElementById('videoName');
-    const openYT = document.getElementById('openYT');
-    const fb = document.getElementById('ytFallback');
-    const fbLink = document.getElementById('ytFallbackLink');
-    const prev = document.getElementById('prevVid');
-    const next = document.getElementById('nextVid');
+<!-- SESIÓN 5' (modal) -->
+<div id="session-overlay" hidden>
+  <div class="session-card">
+    <h3 style="margin:0 0 6px;background:linear-gradient(90deg,#c77dff,#7cffcb);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent">Sesión 5’ — Respiración</h3>
+    <p class="muted">Inhalá cuando el orbe crece, exhalá cuando baja. Tenés un timer y suaves campanitas.</p>
 
-    let idx = Math.floor(Date.now()/86400000) % tracks.length;
-    function setVideo(i){
-      idx = (i + tracks.length) % tracks.length;
-      const q = encodeURIComponent(tracks[idx] + " official audio");
-      const embed = `https://www.youtube.com/embed?rel=0&modestbranding=1&listType=search&list=${q}`;
-      const search = `https://www.youtube.com/results?search_query=${q}`;
-      iframe.src = embed;
-      titleEl.textContent = tracks[idx];
-      openYT.href = search; fbLink.href = search;
-      fb.style.display = "none";
-      setTimeout(()=>{try{ if(!iframe.contentWindow) fb.style.display="block"; } catch(e){ fb.style.display="block"; }}, 1800);
+    <div class="session-ring">
+      <svg width="160" height="160" viewBox="0 0 160 160">
+        <circle cx="80" cy="80" r="70" stroke="#ffffff22" stroke-width="12" fill="none"/>
+        <circle id="ring-progress" cx="80" cy="80" r="70" stroke="#7cffcb" stroke-width="12" fill="none" stroke-linecap="round" stroke-dasharray="439.8" stroke-dashoffset="439.8"/>
+      </svg>
+    </div>
+    <div class="session-orb" aria-hidden="true"></div>
+
+    <p id="session-time" class="muted" style="margin:8px 0 10px">05:00</p>
+
+    <div class="session-actions">
+      <button id="session-start" class="btn primary">▶️ Iniciar</button>
+      <button id="session-pause" class="btn">⏸ Pausar</button>
+      <button id="session-close" class="btn">✕ Cerrar</button>
+    </div>
+
+    <div style="margin-top:12px">
+      <span class="session-chip" data-bell="on">🔔 Campanitas</span>
+      <span class="session-chip" data-bell="off">🔕 Silencio</span>
+    </div>
+  </div>
+</div>
+
+<!-- REPRODUCTOR DE FONDO + CONSENTIMIENTO -->
+<div id="lp-consent" hidden>
+  <div class="lp-card">
+    <h3 style="margin:0 0 6px;background:linear-gradient(90deg,#c77dff,#7cffcb);
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent">Landia’s Musik</h3>
+    <p style="opacity:.9">¿Reproducir música de fondo?</p>
+    <div class="lp-actions">
+      <button id="lp-no" class="lp-btn">No por ahora</button>
+      <button id="lp-yes" class="lp-btn primary">▶️ Reproducir</button>
+    </div>
+    <p style="opacity:.7;margin-top:10px;font-size:12px">Podés cambiar esto cuando quieras desde el reproductor.</p>
+  </div>
+</div>
+
+<div id="landia-player" role="region" aria-label="Reproductor Landia">
+  <button id="lp-play" title="Play/Pause">▶️</button>
+  <div id="lp-title">Listo para reproducir…</div>
+  <div id="lp-ctr">
+    <button id="lp-prev" title="Anterior">⏮</button>
+    <button id="lp-next" title="Siguiente">⏭</button>
+    <button id="lp-shuf" title="Aleatorio">🔀</button>
+    <input id="lp-vol" type="range" min="0" max="1" step="0.01" title="Volumen">
+  </div>
+</div>
+<audio id="lp-audio" preload="none" crossorigin="anonymous"></audio>
+
+<script>
+  // ===== Video del día =====
+  (function(){
+    const tracks=["Justice D.A.N.C.E","Daft Punk Something About Us","The Weeknd Out of Time","Lady Gaga Replay","Arca Nonbinary","Florence and the Machine Cosmic Love"];
+    const iframe=document.getElementById('ytDaily');
+    const title=document.getElementById('videoName');
+    const link=document.getElementById('openYT');
+    const fb=document.getElementById('ytFallback');
+    const fbLink=document.getElementById('ytFallbackLink');
+    const prev=document.getElementById('prevVid');
+    const next=document.getElementById('nextVid');
+    let idx=Math.floor(Date.now()/86400000)%tracks.length;
+    function set(i){
+      idx=(i+tracks.length)%tracks.length;
+      const q=encodeURIComponent(tracks[idx]+" official audio");
+      iframe.src=`https://www.youtube.com/embed?rel=0&modestbranding=1&listType=search&list=${q}`;
+      title.textContent=tracks[idx];
+      link.href=`https://www.youtube.com/results?search_query=${q}`;
+      fbLink.href=link.href; fb.style.display="none";
+      setTimeout(()=>{try{if(!iframe.contentWindow)fb.style.display="block";}catch(e){fb.style.display="block";}},1500);
     }
-    prev.addEventListener('click',()=>setVideo(idx-1));
-    next.addEventListener('click',()=>setVideo(idx+1));
-    setVideo(idx);
+    prev.addEventListener('click',()=>set(idx-1));
+    next.addEventListener('click',()=>set(idx+1));
+    set(idx);
   })();
 
-  // Color Pad
+  // ===== Color Pad =====
   (function(){
     const c=document.getElementById('cpCanvas'),ctx=c.getContext('2d');
-    const color=document.getElementById('cpColor'),size=document.getElementById('cpSize');
-    const clear=document.getElementById('cpClear'),save=document.getElementById('cpSave');
-    let drawing=false, last=null;
-    function stroke(x,y){ if(!last){last={x,y};return;}
-      ctx.strokeStyle=color.value; ctx.lineWidth=size.value; ctx.lineCap='round';
-      ctx.beginPath(); ctx.moveTo(last.x,last.y); ctx.lineTo(x,y); ctx.stroke(); last={x,y}; }
-    c.addEventListener('mousedown',e=>{drawing=true; last=null; stroke(e.offsetX,e.offsetY);});
-    c.addEventListener('mousemove',e=>{if(drawing) stroke(e.offsetX,e.offsetY);});
-    ['mouseup','mouseleave'].forEach(ev=>c.addEventListener(ev,()=>{drawing=false; last=null;}));
-    clear.addEventListener('click',()=>ctx.clearRect(0,0,c.width,c.height));
-    save.addEventListener('click',()=>{const a=document.createElement('a');a.download='landias-color-pad.png';a.href=c.toDataURL('image/png');a.click();});
+    let d=false,l=null;const col=document.getElementById('cpColor'),s=document.getElementById('cpSize');
+    c.onmousedown=e=>(d=true,l=null,st(e));c.onmousemove=e=>d&&st(e);['mouseup','mouseleave'].forEach(ev=>c.addEventListener(ev,()=>d=false));
+    function st(e){if(!l){l={x:e.offsetX,y:e.offsetY};return;}ctx.strokeStyle=col.value;ctx.lineWidth=s.value;ctx.lineCap='round';ctx.beginPath();ctx.moveTo(l.x,l.y);ctx.lineTo(e.offsetX,e.offsetY);ctx.stroke();l={x:e.offsetX,y:e.offsetY};}
+    document.getElementById('cpClear').onclick=()=>ctx.clearRect(0,0,c.width,c.height);
+    document.getElementById('cpSave').onclick=()=>{const a=document.createElement('a');a.download='landias-color-pad.png';a.href=c.toDataURL('image/png');a.click();}
   })();
 
-  // Llamada
+  // ===== Llamada =====
   (function(){
     const fab=document.getElementById('callfab'),ov=document.getElementById('call-overlay');
     const cancel=document.getElementById('call-cancel'),send=document.getElementById('call-send');
     fab.addEventListener('click',()=>ov.hidden=false);
-    cancel.addEventListener('click',()=>ov.hidden=true);
-    document.addEventListener('keydown',(e)=>{if(e.key==='Escape') ov.hidden=true;});
+    cancel && cancel.addEventListener('click',()=>ov.hidden=true);
+    document.addEventListener('keydown',e=>{if(e.key==='Escape') ov.hidden=true;});
     send.addEventListener('click',()=>{
       const n=(document.getElementById('call-name').value||'').trim();
       const p=(document.getElementById('call-phone').value||'').trim();
@@ -268,7 +338,174 @@
       ov.hidden=true;
     });
   })();
+
+  // ===== Mood Mixer + Sesión 5' =====
+  (function(){
+    const moodMap = {
+      calma:   {violet:"#a58bff", mint:"#7cffcb", bg:"#0e0b12", yt:"ambient calm focus"},
+      enfoque: {violet:"#8bb8ff", mint:"#6cf2c7", bg:"#0b1016", yt:"lofi beats focus no lyrics"},
+      energia: {violet:"#ff7ad9", mint:"#ffd36c", bg:"#140a10", yt:"house upbeat energizing"},
+      sereno:  {violet:"#c77dff", mint:"#7cffcb", bg:"#0f0b16", yt:"piano ambient night"},
+      nocturno:{violet:"#8e7dff", mint:"#5ae9d8", bg:"#0a0b14", yt:"downtempo chill night"}
+    };
+    const picker = document.getElementById('mood-picker');
+    const applyBtn = document.getElementById('mood-apply');
+    const openSessionBtn = document.getElementById('session-open');
+    const note = document.getElementById('mood-note');
+    let currentMood = localStorage.getItem('landia.mood') || 'calma';
+
+    function paintMood(m){
+      const {violet, mint, bg} = moodMap[m] || moodMap.calma;
+      const root = document.documentElement;
+      root.style.setProperty('--bg', bg);
+      root.style.setProperty('--violet', violet);
+      root.style.setProperty('--mint', mint);
+      picker.querySelectorAll('.btn').forEach(b=>b.classList.toggle('active', b.dataset.mood===m));
+      localStorage.setItem('landia.mood', m);
+      const titleEl = document.getElementById('videoName');
+      const ifr = document.getElementById('ytDaily');
+      const open = document.getElementById('openYT');
+      if (ifr && open) {
+        const q = encodeURIComponent(moodMap[m].yt);
+        ifr.src = `https://www.youtube.com/embed?rel=0&modestbranding=1&listType=search&list=${q}`;
+        if (titleEl) titleEl.textContent = `Mix: ${m}`;
+        open.href = `https://www.youtube.com/results?search_query=${q}`;
+      }
+      window.landiaCurrentMood = m;
+      note.textContent = `Mood aplicado: ${m[0].toUpperCase()+m.slice(1)}.`;
+    }
+    picker?.addEventListener('click', (e)=>{
+      const btn = e.target.closest('button[data-mood]'); if (!btn) return;
+      currentMood = btn.dataset.mood; paintMood(currentMood);
+    });
+    applyBtn?.addEventListener('click', ()=> paintMood(currentMood));
+    paintMood(currentMood);
+
+    // Sesión 5'
+    const overlay = document.getElementById('session-overlay');
+    const startBtn = document.getElementById('session-start');
+    const pauseBtn = document.getElementById('session-pause');
+    const closeBtn = document.getElementById('session-close');
+    const timeEl = document.getElementById('session-time');
+    const ring = document.getElementById('ring-progress');
+    const chips = document.querySelectorAll('.session-chip');
+    let total = 5*60, left = total, running=false, raf=null, lastTs=0;
+    let bells = localStorage.getItem('landia.bells') || 'on';
+
+    function setChips(){ chips.forEach(c=>c.classList.toggle('active', c.dataset.bell===bells)); }
+    setChips();
+    chips.forEach(c=>c.addEventListener('click', ()=>{ bells=c.dataset.bell; localStorage.setItem('landia.bells', bells); setChips();}));
+
+    function fmt(s){const m=Math.floor(s/60).toString().padStart(2,'0'); const ss=Math.floor(s%60).toString().padStart(2,'0'); return m+':'+ss;}
+    function draw(){
+      const R=70, C=2*Math.PI*R, progress=1-(left/total);
+      ring.style.strokeDasharray=C.toFixed(1);
+      ring.style.strokeDashoffset=(C - C*progress).toFixed(1);
+      timeEl.textContent=fmt(left);
+    }
+    function chime(freq=880, ms=160){
+      if (bells!=='on') return;
+      const actx=new (window.AudioContext||window.webkitAudioContext)();
+      const o=actx.createOscillator(); const g=actx.createGain();
+      o.type='sine'; o.frequency.value=freq; o.connect(g); g.connect(actx.destination);
+      g.gain.setValueAtTime(0.0001, actx.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.3, actx.currentTime+0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, actx.currentTime + ms/1000);
+      o.start(); o.stop(actx.currentTime + ms/1000 + 0.02);
+    }
+    function tick(ts){
+      if(!running){ lastTs=ts; raf=requestAnimationFrame(tick); return; }
+      const dt=(ts-lastTs)/1000; lastTs=ts; left=Math.max(0,left-dt); draw();
+      if (Math.abs(left - Math.round(left)) < 0.02) {
+        const sec=Math.round(left);
+        if (sec % 60 === 0) chime(660,180);
+        if (sec === 0) chime(990,300);
+      }
+      if (left<=0){ running=false; localStorage.setItem('landia.lastSession', new Date().toISOString()); }
+      raf=requestAnimationFrame(tick);
+    }
+    function start(){ if(left<=0) left=total; running=true; chime(780,180); }
+    function pause(){ running=false; }
+    function reset(){ running=false; left=total; draw(); }
+
+    openSessionBtn?.addEventListener('click', ()=>{ overlay.hidden=false; reset(); if(!raf) raf=requestAnimationFrame(tick); });
+    startBtn?.addEventListener('click', start);
+    pauseBtn?.addEventListener('click', pause);
+    closeBtn?.addEventListener('click', ()=>{ overlay.hidden=true; pause(); });
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ overlay.hidden=true; pause(); }});
+    draw();
+  })();
+
+  // ===== Reproductor de fondo =====
+  (function(){
+    // ⚠️ EDITÁ ESTAS RUTAS A TUS MP3 SUBIDOS (o pone URLs "raw")
+    const playlist = [
+      { title: "Landia — Tema 1", url: "/assets/audio/landia-01.mp3" },
+      { title: "Landia — Tema 2", url: "/assets/audio/landia-02.mp3" },
+      { title: "Landia — Tema 3", url: "/assets/audio/landia-03.mp3" },
+    ];
+
+    const audio=document.getElementById('lp-audio');
+    const title=document.getElementById('lp-title');
+    const playBtn=document.getElementById('lp-play');
+    const nextBtn=document.getElementById('lp-next');
+    const prevBtn=document.getElementById('lp-prev');
+    const shufBtn=document.getElementById('lp-shuf');
+    const vol=document.getElementById('lp-vol');
+    const consent=document.getElementById('lp-consent');
+    const yes=document.getElementById('lp-yes');
+    const no=document.getElementById('lp-no');
+
+    let i=0;
+    let shuffle=JSON.parse(localStorage.getItem('landia.shuffle')||'false');
+    let rememberedAutoplay=localStorage.getItem('landia.autoplay')||'ask';
+    let savedVol=parseFloat(localStorage.getItem('landia.vol')||'0.6');
+    audio.volume = vol.value = isNaN(savedVol) ? 0.6 : savedVol;
+
+    i = Math.floor(Date.now()/86400000) % playlist.length;
+
+    function setTrack(idx){
+      i=(idx+playlist.length)%playlist.length;
+      const t=playlist[i];
+      title.textContent=t.title;
+      audio.src=t.url + "?v=" + Date.now();
+      if ('mediaSession' in navigator) {
+        navigator.mediaSession.metadata=new MediaMetadata({title:t.title, artist:"Landia’s Musik", album:"Likelandi"});
+        navigator.mediaSession.setActionHandler('previoustrack', ()=> prev());
+        navigator.mediaSession.setActionHandler('nexttrack', ()=> next());
+        navigator.mediaSession.setActionHandler('play', ()=> play());
+        navigator.mediaSession.setActionHandler('pause', ()=> pause());
+      }
+    }
+    function next(){ if(shuffle){ setTrack(Math.floor(Math.random()*playlist.length)); } else { setTrack(i+1); } play(); }
+    function prev(){ setTrack(i-1); play(); }
+    function play(){ audio.play().then(()=>{ playBtn.textContent="⏸"; }).catch(()=>{ showConsent(); }); }
+    function pause(){ audio.pause(); playBtn.textContent="▶️"; }
+    function showConsent(){ if(rememberedAutoplay!=='ask') return; consent.hidden=false; }
+
+    playBtn.addEventListener('click', ()=>{ if(audio.paused){ if(!audio.src) setTrack(i); play(); } else { pause(); }});
+    nextBtn.addEventListener('click', next);
+    prevBtn.addEventListener('click', prev);
+    shufBtn.addEventListener('click', ()=>{ shuffle=!shuffle; localStorage.setItem('landia.shuffle', JSON.stringify(shuffle)); shufBtn.style.boxShadow=shuffle?"0 0 0 2px #7cffcb55 inset":"none"; });
+    vol.addEventListener('input', ()=>{ audio.volume=parseFloat(vol.value); localStorage.setItem('landia.vol', audio.volume.toFixed(2)); });
+    audio.addEventListener('ended', next);
+
+    yes.addEventListener('click', ()=>{ consent.hidden=true; rememberedAutoplay='allow'; localStorage.setItem('landia.autoplay','allow'); if(!audio.src) setTrack(i); play(); });
+    no.addEventListener('click',  ()=>{ consent.hidden=true; rememberedAutoplay='deny';  localStorage.setItem('landia.autoplay','deny'); });
+
+    shufBtn.style.boxShadow = shuffle ? "0 0 0 2px #7cffcb55 inset" : "none";
+
+    if (rememberedAutoplay === 'allow') {
+      setTrack(i);
+      audio.muted = true; audio.play().catch(()=>{});
+      const unlock=()=>{ audio.muted=false; audio.volume=parseFloat(localStorage.getItem('landia.vol')||'0.6'); document.removeEventListener('click',unlock,{once:true}); playBtn.textContent=audio.paused?"▶️":"⏸"; };
+      document.addEventListener('click', unlock, {once:true});
+    } else if (rememberedAutoplay === 'deny') {
+      // nada
+    } else {
+      setTimeout(()=>{ consent.hidden=false; }, 700);
+    }
+  })();
 </script>
 </body>
 </html>
-
