@@ -4,39 +4,319 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Likelandi — Landia’s Musik</title>
+  <meta name="description" content="Selección musical curada para acompañar procesos con calma, color y respiración.">
+  <script>
+    // Tema (oscuro por defecto) con persistencia
+    (function(){
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = saved || (prefersDark ? 'dark' : 'dark');
+    })();
+  </script>
   <style>
-    :root{--bg:#0f0b10;--fg:#f7f0ff;--violet:#c77dff;--mint:#7cffcb}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+    :root{--bg:#0f0b10;--fg:#f7f0ff;--violet:#c77dff;--mint:#7cffcb;--muted:#ffffffb3}
+    :root[data-theme="light"]{--bg:#faf7ff;--fg:#1a1323}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif;transition:.2s}
 
-    /* HERO fijo con tu imagen */
+    /* NAV */
+    .nav{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:12px;justify-content:flex-end;align-items:center}
+    .brand{margin-right:auto;font-weight:700}
+    .theme-btn{border:1px solid #ffffff30;padding:6px 10px;border-radius:10px;background:transparent;color:inherit;cursor:pointer}
+
+    /* HERO: usa tu imagen landias-musik-profile-fiesta.png */
     .hero{
       position:relative;width:100%;height:60vh;min-height:360px;overflow:hidden;
       background-image:url("https://likelandi.github.io/landias-musik-profile-fiesta.png");
       background-size:cover;background-position:center;background-repeat:no-repeat;
     }
-    .hero::after{content:"";position:absolute;inset:0;
-      background:linear-gradient(180deg,#00000055 0%,#0f0b10 80%)}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#00000055 0%,#0f0b10 80%)}
     .hero-txt{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 16px}
     .hero-txt h1{margin:0;font-size:clamp(28px,4vw,48px);
       background:linear-gradient(90deg,var(--violet),var(--mint));
       -webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .hero-txt p{margin-top:12px;opacity:.9}
 
-    .wrap{max-width:960px;margin:20px auto;padding:0 16px}
+    /* LAYOUT */
+    .wrap{max-width:980px;margin:-24px auto 80px;padding:0 16px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+    .card{background:#141019;border:1px solid #ffffff14;border-radius:18px;padding:20px;box-shadow:0 10px 30px #00000033}
+    h2{margin:0 0 10px;font-size:clamp(20px,3.2vw,28px)}
+    .muted{color:var(--muted)}
+
+    /* Tracks */
+    .tracks{list-style:none;padding:0;margin:12px 0}
+    .tracks li{display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #ffffff17}
+    .n{width:28px;opacity:.65;text-align:right}
+
+    /* Video del día */
+    .video-wrap{display:grid;gap:10px}
+    .video-frame{width:100%;aspect-ratio:16/9;border:none;border-radius:14px;box-shadow:0 8px 28px #00000055}
+    .video-header{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+    .video-title{font-weight:700}
+    .video-controls{display:flex;gap:8px}
+    .btn{padding:8px 12px;border-radius:10px;border:1px solid #ffffff33;background:#1a1323;color:var(--fg);cursor:pointer}
+    .btn:hover{border-color:#ffffff66}
+    .btn.primary{background:linear-gradient(135deg,var(--violet),var(--mint));color:#0f0b10;border:none;font-weight:700}
+
+    /* Color Pad */
+    .pad-wrap{display:grid;gap:10px}
+    .pad-tools{display:flex;gap:10px;flex-wrap:wrap}
+    .pad-tools input[type=color], .pad-tools input[type=range]{accent-color:#7cffcb}
+    canvas{border-radius:14px;border:1px solid #ffffff22;background:#100b16}
+
+    /* FABs */
+    .wa{position:fixed;right:16px;bottom:86px;z-index:9998;display:inline-flex;align-items:center;gap:8px;
+        padding:12px 14px;border-radius:999px;background:linear-gradient(135deg,var(--violet),var(--mint));color:#0f0b10;font-weight:700;text-decoration:none}
+    .wa span{display:none} @media(min-width:640px){.wa span{display:inline}}
+
+    #callfab{
+      position:fixed; right:16px; bottom:150px; z-index:9999;
+      width:54px; height:54px; border:none; border-radius:999px;
+      background:linear-gradient(135deg,#c77dff,#7cffcb); color:#0f0b10;
+      font-size:20px; cursor:pointer; box-shadow:0 10px 30px #0007;
+    }
+    #call-overlay[hidden]{display:none}
+    #call-overlay{position:fixed; inset:0; background:#0008; display:grid; place-items:center; z-index:9998}
+    .call-card{
+      width:min(92vw,560px); background:#141019; color:#f7f0ff;
+      border:1px solid #ffffff22; border-radius:18px; padding:18px; box-shadow:0 20px 60px #000a
+    }
+    .call-card h3{margin:0 0 6px;background:linear-gradient(90deg,#c77dff,#7cffcb);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent}
+    .row{display:grid; gap:10px; margin-top:10px}
+    label{display:grid; gap:6px; font-size:14px}
+    input, textarea{background:#1a1323; border:1px solid #ffffff22; border-radius:10px; padding:10px; color:#f7f0ff}
+    .chips{display:flex; gap:8px; flex-wrap:wrap}
+    .chip{padding:8px 12px; border-radius:999px; border:1px solid #ffffff22; background:#1a1323; color:#f7f0ff; cursor:pointer}
+    .chip.active{border-color:#7cffcb; box-shadow:0 0 0 2px #7cffcb33 inset}
+    .call-actions{display:flex; gap:10px; justify-content:flex-end; margin-top:12px}
   </style>
 </head>
 <body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="brand">Likelandi</div>
+    <a href="/">Home</a>
+    <a href="/consultorio-terapias.html">Consultorio</a>
+    <a href="/programas.html">Programas</a>
+    <a href="/landias-musik.html">Landia’s Musik</a>
+    <button class="theme-btn" id="themeToggle">☀️/🌙</button>
+  </nav>
+
+  <!-- HERO -->
   <header class="hero" role="banner">
     <div class="hero-txt">
       <h1>Landia’s Musik</h1>
-      <p>Selección curada para acompañar con calma, color y respiración</p>
+      <p class="muted">Selección curada para acompañar con calma, color y respiración</p>
     </div>
   </header>
 
+  <!-- CONTENIDO -->
   <main class="wrap">
-    <h2>Prueba</h2>
-    <p>Ahora el hero debería mostrar <strong>landias-musik-profile-fiesta.png</strong>.</p>
-    <p>Si no la ves, probá refrescar con <kbd>Ctrl/Cmd + Shift + R</kbd>.</p>
+    <section class="grid">
+      <article class="card">
+        <h2>Sobre la selección</h2>
+        <p class="muted">Temas que favorecen foco, regulación emocional y pausas conscientes. Ideal para sesiones breves de arte y respiración.</p>
+        <p class="muted">*Pasame tu lista real y la actualizo.</p>
+      </article>
+
+      <article class="card">
+        <h2>Listado del iPod</h2>
+        <ul class="tracks" id="ipodList">
+          <li><span class="n">1.</span> Justice — D.A.N.C.E</li>
+          <li><span class="n">2.</span> Daft Punk — Something About Us</li>
+          <li><span class="n">3.</span> The Weeknd — Out of Time</li>
+          <li><span class="n">4.</span> Lady Gaga — Replay</li>
+          <li><span class="n">5.</span> Arca — Nonbinary</li>
+          <li><span class="n">6.</span> Florence + the Machine — Cosmic Love</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- 🎬 Video del día -->
+    <section class="card" style="margin-top:20px">
+      <div class="video-wrap">
+        <div class="video-header">
+          <div class="video-title">🎬 Video del día: <span id="videoName" class="muted"></span></div>
+          <div class="video-controls">
+            <button class="btn" id="prevVid">Anterior</button>
+            <button class="btn" id="nextVid">Siguiente</button>
+            <a class="btn primary" id="openYT" target="_blank" rel="noopener">Abrir en YouTube</a>
+          </div>
+        </div>
+        <iframe id="ytDaily" class="video-frame" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen title="YouTube"></iframe>
+        <p id="ytFallback" class="muted" style="margin:0;display:none">Si el video no carga, abrilo aquí: <a id="ytFallbackLink" target="_blank" rel="noopener">YouTube - búsqueda del tema</a></p>
+      </div>
+    </section>
+
+    <!-- 🎨 Color Pad -->
+    <section class="card" style="margin-top:20px">
+      <h2>Color Pad (arteterapia)</h2>
+      <div class="pad-wrap">
+        <div class="pad-tools">
+          <label>Color <input id="cpColor" type="color" value="#7cffcb"></label>
+          <label>Grosor <input id="cpSize" type="range" min="2" max="48" value="8"></label>
+          <button id="cpClear" class="theme-btn">Limpiar</button>
+          <button id="cpSave" class="theme-btn">Descargar PNG</button>
+        </div>
+        <canvas id="cpCanvas" width="900" height="420"></canvas>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:20px">
+      <h2>Contacto</h2>
+      <p class="muted">
+        Correo: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a> ·
+        WhatsApp: <a href="https://wa.me/5491124605401" target="_blank" rel="noopener">+54 9 11 2460 5401</a>
+      </p>
+      <p><a href="/" class="muted">← Volver a Home</a></p>
+    </section>
   </main>
+
+  <!-- WhatsApp flotante -->
+  <a class="wa" href="https://wa.me/5491124605401?text=Hola%20Juan%20Pablo%2C%20quiero%20coordinar%20una%20consulta%20por%20Landia%E2%80%99s%20Musik." target="_blank" rel="noopener">💬 <span>Agendar por WhatsApp</span></a>
+
+  <!-- Footer compartido -->
+  <footer data-include></footer>
+  <script src="/footer.js"></script>
+
+  <!-- FAB: Solicitar llamada -->
+  <button id="callfab" aria-label="Solicitar llamada">📞</button>
+  <div id="call-overlay" hidden>
+    <div class="call-card">
+      <h3>Solicitar llamada</h3>
+      <p class="muted">Dejame tus datos y un horario posible. Te respondo para coordinar.</p>
+      <div class="row">
+        <label>Nombre y apellido<input id="call-name" placeholder="Ej: Ana López"></label>
+        <label>Teléfono<input id="call-phone" placeholder="+54 9 11 1234 5678"></label>
+        <label>Horario<input id="call-free" placeholder="Ej: Jueves 16:30"></label>
+      </div>
+      <div class="call-actions">
+        <button id="call-cancel" class="btn">Cancelar</button>
+        <button id="call-send" class="btn primary">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calma Mode (botón) -->
+  <button id="calma-btn" aria-label="Calma Mode" style="position:fixed;right:16px;bottom:16px;z-index:9997;width:54px;height:54px;border:none;border-radius:999px;background:linear-gradient(135deg,#c77dff,#7cffcb);color:#0f0b10;font-size:20px;cursor:pointer;box-shadow:0 10px 30px #0007">🫧</button>
+  <div id="calma-overlay" hidden>
+    <div class="calma-card" style="width:min(92vw,460px);background:#141019;color:#f7f0ff;border:1px solid #ffffff1a;border-radius:18px;padding:18px;text-align:center;box-shadow:0 20px 60px #000a">
+      <h3 style="margin:4px 0 6px 0;background:linear-gradient(90deg,#c77dff,#7cffcb);-webkit-background-clip:text;-webkit-text-fill-color:transparent">Calma Mode</h3>
+      <p class="muted">Seguí el orbe: inhalá cuando crece, exhalá cuando baja.</p>
+      <div class="orb" aria-hidden="true" style="--s:160px;width:var(--s);height:var(--s);margin:14px auto;border-radius:50%;background:radial-gradient(closest-side,#7cffcb55,#c77dff33,#0000);box-shadow:0 0 80px #7cffcb33,0 0 40px #c77dff22 inset;animation:breathe 8s ease-in-out infinite"></div>
+      <div class="controls" style="display:flex;gap:10px;justify-content:center;margin-top:10px">
+        <button id="calma-toggle" class="btn">Pausar</button>
+        <button id="calma-close" class="btn">Cerrar</button>
+      </div>
+    </div>
+  </div>
+  <style>
+    #calma-overlay[hidden]{display:none}
+    #calma-overlay{position:fixed;inset:0;background:#0008;display:grid;place-items:center;z-index:9996}
+    @keyframes breathe{0%{transform:scale(.85);filter:brightness(.9)}50%{transform:scale(1.08);filter:brightness(1.05)}100%{transform:scale(.85);filter:brightness(.9)}}
+  </style>
+
+  <script>
+    // Switch tema
+    document.getElementById('themeToggle').addEventListener('click',()=>{
+      const r=document.documentElement; const next=r.dataset.theme==='dark'?'light':'dark';
+      r.dataset.theme=next; localStorage.setItem('theme',next);
+    });
+
+    // 🎬 Video del día (con fallback)
+    (function(){
+      const tracks = [
+        "Justice D.A.N.C.E",
+        "Daft Punk Something About Us",
+        "The Weeknd Out of Time",
+        "Lady Gaga Replay",
+        "Arca Nonbinary",
+        "Florence and the Machine Cosmic Love"
+      ];
+      const iframe = document.getElementById('ytDaily');
+      const titleEl = document.getElementById('videoName');
+      const openYT = document.getElementById('openYT');
+      const prev = document.getElementById('prevVid');
+      const next = document.getElementById('nextVid');
+      const fb = document.getElementById('ytFallback');
+      const fbLink = document.getElementById('ytFallbackLink');
+
+      let idx = Math.floor(Date.now() / 86400000) % tracks.length; // cambia cada día
+
+      function setVideo(i){
+        idx = (i + tracks.length) % tracks.length;
+        const q = encodeURIComponent(tracks[idx] + " official audio");
+        const embed = `https://www.youtube.com/embed?rel=0&modestbranding=1&listType=search&list=${q}`;
+        const searchUrl = `https://www.youtube.com/results?search_query=${q}`;
+        iframe.src = embed;
+        titleEl.textContent = tracks[idx];
+        openYT.href = searchUrl;
+        fbLink.href = searchUrl;
+        // mostrar fallback si el iframe no puede cargar (timeout simple)
+        fb.style.display = "none";
+        setTimeout(()=>{ 
+          // Si el iframe quedó vacío (algunos navegadores bloquean), mostramos fallback
+          try { if(!iframe.contentWindow) fb.style.display = "block"; } catch(e){ fb.style.display = "block"; }
+        }, 2000);
+      }
+
+      prev.addEventListener('click', ()=> setVideo(idx-1));
+      next.addEventListener('click', ()=> setVideo(idx+1));
+      setVideo(idx);
+    })();
+
+    // 🎨 Color Pad
+    (function(){
+      const c=document.getElementById('cpCanvas'), ctx=c.getContext('2d');
+      const color=document.getElementById('cpColor'), size=document.getElementById('cpSize');
+      const clear=document.getElementById('cpClear'), save=document.getElementById('cpSave');
+      let drawing=false, last=null;
+      function stroke(x,y){
+        if(!last){ last={x,y}; return; }
+        ctx.strokeStyle=color.value; ctx.lineWidth=size.value; ctx.lineCap='round';
+        ctx.beginPath(); ctx.moveTo(last.x,last.y); ctx.lineTo(x,y); ctx.stroke();
+        last={x,y};
+      }
+      c.addEventListener('mousedown',e=>{drawing=true; last=null; stroke(e.offsetX,e.offsetY);});
+      c.addEventListener('mousemove',e=>{ if(drawing) stroke(e.offsetX,e.offsetY);});
+      ['mouseup','mouseleave'].forEach(ev=>c.addEventListener(ev,()=>{drawing=false; last=null;}));
+      clear.addEventListener('click',()=>{ctx.clearRect(0,0,c.width,c.height);});
+      save.addEventListener('click',()=>{const a=document.createElement('a');a.download='landias-color-pad.png';a.href=c.toDataURL('image/png');a.click();});
+    })();
+
+    // 📞 Solicitar llamada
+    (function(){
+      const fab=document.getElementById('callfab'),ov=document.getElementById('call-overlay');
+      const cancel=document.getElementById('call-cancel'), send=document.getElementById('call-send');
+      fab.addEventListener('click',()=>ov.hidden=false);
+      cancel.addEventListener('click',()=>ov.hidden=true);
+      document.addEventListener('keydown',e=>{if(e.key==='Escape')ov.hidden=true;});
+      send.addEventListener('click',()=>{
+        const n=(document.getElementById('call-name').value||'').trim();
+        const p=(document.getElementById('call-phone').value||'').trim();
+        const h=(document.getElementById('call-free').value||'').trim();
+        const subj=encodeURIComponent(`Solicitud de llamada — ${n||'Paciente'}`);
+        const body=encodeURIComponent(`Nombre: ${n}\nTeléfono: ${p}\nDisponibilidad: ${h}\n\nEnviado desde likelandi.github.io`);
+        window.location.href=`mailto:jprebosio@proton.me?subject=${subj}&body=${body}`;
+        ov.hidden=true;
+      });
+    })();
+
+    // 🫧 Calma Mode
+    (function(){
+      const b=document.getElementById('calma-btn');
+      const o=document.getElementById('calma-overlay');
+      const t=document.getElementById('calma-toggle');
+      const c=document.getElementById('calma-close');
+      const orb=document.querySelector('.orb');
+      let paused=false;
+      b.addEventListener('click',()=>o.hidden=false);
+      c.addEventListener('click',()=>o.hidden=true);
+      t.addEventListener('click',()=>{paused=!paused;orb.style.animationPlayState=paused?'paused':'running';t.textContent=paused?'Reanudar':'Pausar';});
+      document.addEventListener('keydown',e=>{if(e.key==='Escape')o.hidden=true});
+    })();
+  </script>
 </body>
 </html>
