@@ -1,64 +1,58 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Likelandi — Landia’s Musik</title>
-  <meta name="description" content="Selección musical curada para acompañar procesos con calma, color y respiración.">
-  <script>(function(){const s=localStorage.getItem('theme');const p=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=s||(p?'dark':'dark');})();</script>
-  <style>
-    :root{--bg:#0f0b10;--fg:#f7f0ff;--violet:#c77dff;--mint:#7cffcb;--muted:#ffffffb3}
-    :root[data-theme="light"]{--bg:#faf7ff;--fg:#1a1323}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif;transition:.2s}
-    a{color:var(--mint);text-decoration:none} a:hover{opacity:.85}
-    .nav{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:12px;justify-content:flex-end;align-items:center}
-    .brand{margin-right:auto;font-weight:700}
-    .theme-btn{border:1px solid #ffffff30;padding:6px 10px;border-radius:10px;background:transparent;color:inherit;cursor:pointer}
+<script>
+/* Autodetector de imagen para el hero (Landia’s Party) */
+(function(){
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
 
-    /* 🔥 Aquí cambiamos la imagen por Landia’s Party */
-    .hero{
-      position:relative;width:100%;height:60vh;min-height:360px;overflow:hidden;
-      background-image:url("https://likelandi.github.io/assets/landias-party.jpg");
-      background-size:cover;background-position:center
-    }
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#00000055 0%,#0f0b10 80%)}
-    .hero-txt{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 16px}
-    .hero-txt h1{margin:0;font-size:clamp(28px,4vw,48px);background:linear-gradient(90deg,var(--violet),var(--mint));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .hero-txt p{margin-top:12px;opacity:.9}
+  // POSIBLES rutas (agregá o quitá si sabés la tuya exacta)
+  const candidates = [
+    "/assets/landias-party.jpg",
+    "/assets/landias-party.jpeg",
+    "/assets/landias-party.png",
+    "/assets/Landias-party.jpg",
+    "/assets/Landias-party.jpeg",
+    "/assets/Landias-party.png",
+    "/assets/landias_party.jpg",
+    "/assets/landias%20party.jpg",
+    "/assets/Landias%20Party.jpg",
+    "/landias-party.jpg",
+    "/landias-party.jpeg",
+    "/landias-party.png"
+  ];
 
-    .wrap{max-width:980px;margin:-24px auto 80px;padding:0 16px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-    .card{background:#141019;border:1px solid #ffffff14;border-radius:18px;padding:20px;box-shadow:0 10px 30px #00000033}
-    h2{margin:0 0 10px;font-size:clamp(20px,3.2vw,28px)}
-    .muted{color:var(--muted)}
+  function trySrcs(srcs){
+    return new Promise((resolve, reject) => {
+      let i = 0, errors = [];
+      const tryNext = () => {
+        if (i >= srcs.length) return reject(errors);
+        const url = srcs[i++];
+        const img = new Image();
+        img.onload = () => resolve(url);
+        img.onerror = () => { errors.push(url); tryNext(); };
+        img.src = url + "?v=" + Date.now(); // bust cache
+      };
+      tryNext();
+    });
+  }
 
-    .tracks{list-style:none;padding:0;margin:12px 0}
-    .tracks li{display:flex;gap:10px;align-items:baseline;padding:10px 0;border-bottom:1px solid #ffffff17}
-    .n{width:28px;opacity:.65;text-align:right}
-  </style>
-</head>
-<body>
-  <nav class="nav">
-    <div class="brand">Likelandi</div>
-    <a href="/">Home</a>
-    <a href="/consultorio-terapias.html">Consultorio</a>
-    <a href="/programas.html">Programas</a>
-    <a href="/landias-musik.html">Landia’s Musik</a>
-    <button class="theme-btn" id="themeToggle">☀️/🌙</button>
-  </nav>
-
-  <header class="hero" role="banner">
-    <div class="hero-txt">
-      <h1>Landia’s Musik</h1>
-      <p class="muted">Selección curada para acompañar con calma, color y respiración</p>
-    </div>
-  </header>
-
-  <main class="wrap">
-    <!-- … resto de tu contenido (tracks, video del día, color pad, etc.) … -->
-  </main>
-
-  <footer data-include></footer>
-  <script src="/footer.js"></script>
-</body>
-</html>
+  trySrcs(candidates)
+    .then((url) => {
+      hero.style.backgroundImage = `url("${url}")`;
+      hero.style.backgroundSize = "cover";
+      hero.style.backgroundPosition = "center";
+      hero.style.backgroundRepeat = "no-repeat";
+      console.log("Hero OK:", url);
+      // Quita cualquier fondo anterior si lo hubiera
+    })
+    .catch((failed) => {
+      console.warn("No encontré la imagen. Probé:", failed);
+      // Muestra un aviso visible en la página para que veas qué intentó
+      const note = document.createElement('div');
+      note.style.cssText = "max-width:980px;margin:12px auto;padding:10px 14px;border-radius:12px;background:#2a1f33;color:#fff;border:1px solid #ffffff22;font:14px/1.4 system-ui";
+      note.innerHTML = "⚠️ No pude cargar la imagen de Landia’s Party. Probé estas rutas y fallaron:<br>" +
+                       failed.map(u=>`<code>${u}</code>`).join("<br>") +
+                       "<br><br>👉 Solución rápida: entrá a tu repo en GitHub, abrí la imagen, tocá en “View raw” y copiá la URL exacta; luego reemplazá la línea <code>background-image</code> del hero con esa URL.";
+      document.body.prepend(note);
+    });
+})();
+</script>
