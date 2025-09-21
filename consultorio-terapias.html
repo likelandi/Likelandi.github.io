@@ -5,12 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Likelandi — Consultorio</title>
   <meta name="description" content="Consultorio psiquiátrico con enfoque en arteterapia, musicoterapia y nuevas tecnologías.">
+  <script>
+    /* Theme persistente */
+    (function(){
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = saved || (prefersDark ? 'dark' : 'dark');
+    })();
+  </script>
   <style>
     :root{--bg:#0f0b10;--fg:#f7f0ff;--violet:#c77dff;--mint:#7cffcb;--muted:#ffffffb3}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+    :root[data-theme="light"]{--bg:#faf7ff;--fg:#1a1323}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif;transition:.2s}
     a{color:var(--mint);text-decoration:none} a:hover{opacity:.85}
-    .nav{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;justify-content:flex-end;align-items:center}
-    .brand{margin-right:auto;font-weight:700;color:var(--fg)}
+    .nav{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:12px;justify-content:flex-end;align-items:center}
+    .brand{margin-right:auto;font-weight:700}
+    .theme-btn,.turno-btn{border:1px solid #ffffff30;padding:6px 10px;border-radius:10px;background:transparent;color:inherit;cursor:pointer}
     .hero{
       position:relative;width:100%;height:60vh;min-height:360px;overflow:hidden;
       background-image:url("https://likelandi.github.io/Consultorio-hero.jpg");
@@ -20,10 +30,27 @@
     .hero-txt{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 16px}
     .hero-txt h1{margin:0;font-size:clamp(28px,4vw,48px);background:linear-gradient(90deg,var(--violet),var(--mint));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .hero-txt p{margin-top:12px;opacity:.9}
-    .wrap{max-width:900px;margin:-24px auto 60px;padding:0 16px}
+    .wrap{max-width:900px;margin:-24px auto 80px;padding:0 16px}
     .card{background:#141019;border:1px solid #ffffff14;border-radius:18px;padding:20px;box-shadow:0 10px 30px #00000033;margin-bottom:20px}
     h2{margin:0 0 10px;font-size:clamp(20px,3.2vw,28px)}
     .muted{color:var(--muted)}
+    /* WhatsApp flotante */
+    .wa{position:fixed;right:16px;bottom:86px;z-index:9999;display:inline-flex;align-items:center;gap:8px;
+        padding:12px 14px;border-radius:999px;background:linear-gradient(135deg,var(--violet),var(--mint));color:#0f0b10;font-weight:700}
+    .wa span{display:none} @media(min-width:640px){.wa span{display:block}}
+    /* Modal turno */
+    #turnoModal[hidden]{display:none}
+    #turnoModal{position:fixed;inset:0;z-index:9998;background:#0008;display:grid;place-items:center}
+    .modal{width:min(92vw,520px);background:#141019;border:1px solid #ffffff22;border-radius:18px;padding:18px;box-shadow:0 20px 60px #000a}
+    .modal h3{margin:0 0 6px;background:linear-gradient(90deg,var(--violet),var(--mint));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .row{display:grid;gap:10px;margin-top:8px}
+    input,textarea{background:#1a1323;border:1px solid #ffffff22;border-radius:10px;padding:10px;color:var(--fg)}
+    .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:10px}
+    .btn{padding:10px 14px;border-radius:10px;border:1px solid #ffffff33;background:#1a1323;color:var(--fg);cursor:pointer}
+    .btn.primary{background:linear-gradient(135deg,var(--violet),var(--mint));color:#0f0b10;border:none;font-weight:700}
+    /* Temporizador */
+    .timer{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .pill{padding:8px 12px;border-radius:999px;border:1px solid #ffffff22;cursor:pointer}
   </style>
 </head>
 <body>
@@ -33,6 +60,8 @@
     <a href="/consultorio-terapias.html">Consultorio</a>
     <a href="/programas.html">Programas</a>
     <a href="/landias-musik.html">Landia’s Musik</a>
+    <button class="theme-btn" id="themeToggle">☀️/🌙</button>
+    <button class="turno-btn" id="openTurno">Turno rápido</button>
   </nav>
 
   <header class="hero" role="banner">
@@ -45,10 +74,13 @@
   <main class="wrap">
     <section class="card">
       <h2>Servicios</h2>
-      <p class="muted">
-        Atención individual, terapia grupal, arteterapia, musicoterapia y reinserción psicosocial
-        apoyada en nuevas tecnologías.
-      </p>
+      <p class="muted">Atención individual, terapia grupal, arteterapia, musicoterapia y reinserción psicosocial apoyada en nuevas tecnologías.</p>
+      <div class="timer">
+        <span class="pill" data-min="3">Respiración 3 min</span>
+        <span class="pill" data-min="5">Respiración 5 min</span>
+        <span class="pill" data-min="10">Respiración 10 min</span>
+        <span id="timerStatus" class="muted"></span>
+      </div>
     </section>
 
     <section class="card">
@@ -61,9 +93,84 @@
     </section>
   </main>
 
+  <!-- WhatsApp flotante -->
+  <a class="wa" href="https://wa.me/5491124605401?text=Hola%20Juan%20Pablo%2C%20quiero%20coordinar%20una%20consulta." target="_blank" rel="noopener">💬 <span>Agendar por WhatsApp</span></a>
+
+  <!-- Footer compartido -->
   <footer data-include></footer>
   <script src="/footer.js"></script>
 
-  <!-- Calma Mode — (copiá el bloque común aquí, antes de cerrar body) -->
+  <!-- Modal Turno Rápido -->
+  <div id="turnoModal" hidden>
+    <div class="modal">
+      <h3>Turno rápido</h3>
+      <div class="row">
+        <input id="nombre" placeholder="Nombre y apellido">
+        <input id="email" placeholder="Email (opcional)">
+        <textarea id="msg" rows="4" placeholder="Motivo de consulta (opcional)"></textarea>
+      </div>
+      <div class="modal-actions">
+        <button class="btn" id="closeTurno">Cancelar</button>
+        <button class="btn primary" id="sendTurno">Enviar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calma Mode -->
+  <button id="calma-btn" aria-label="Calma Mode">🫧</button>
+  <div id="calma-overlay" hidden>
+    <div class="calma-card">
+      <h3>Calma Mode</h3>
+      <p class="muted">Seguí el orbe: inhalá cuando crece, exhalá cuando baja.</p>
+      <div class="orb" aria-hidden="true"></div>
+      <div class="controls">
+        <button id="calma-toggle">Pausar</button>
+        <button id="calma-close">Cerrar</button>
+      </div>
+    </div>
+  </div>
+  <style>
+    #calma-btn{position:fixed;right:16px;bottom:16px;z-index:9999;width:54px;height:54px;border:none;border-radius:999px;background:linear-gradient(135deg,#c77dff,#7cffcb);color:#0f0b10;font-size:20px;cursor:pointer;box-shadow:0 10px 30px #0007}
+    #calma-overlay[hidden]{display:none} #calma-overlay{position:fixed;inset:0;background:#0008;display:grid;place-items:center;z-index:9998}
+    .calma-card{width:min(92vw,460px);background:#141019;color:#f7f0ff;border:1px solid #ffffff1a;border-radius:18px;padding:18px;text-align:center;box-shadow:0 20px 60px #000a}
+    .calma-card h3{margin:4px 0 6px 0;background:linear-gradient(90deg,#c77dff,#7cffcb);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .muted{opacity:.85}
+    .orb{--s:160px;width:var(--s);height:var(--s);margin:14px auto;border-radius:50%;background:radial-gradient(closest-side,#7cffcb55,#c77dff33,#0000);box-shadow:0 0 80px #7cffcb33,0 0 40px #c77dff22 inset;animation:breathe 8s ease-in-out infinite}
+    @keyframes breathe{0%{transform:scale(.85);filter:brightness(.9)}50%{transform:scale(1.08);filter:brightness(1.05)}100%{transform:scale(.85);filter:brightness(.9)}}
+  </style>
+
+  <script>
+    // theme
+    document.getElementById('themeToggle').addEventListener('click',()=>{
+      const r=document.documentElement; const next=r.dataset.theme==='dark'?'light':'dark';
+      r.dataset.theme=next; localStorage.setItem('theme',next);
+    });
+    // Turno modal
+    const openT=document.getElementById('openTurno'), closeT=document.getElementById('closeTurno'), modal=document.getElementById('turnoModal');
+    openT.addEventListener('click',()=>modal.hidden=false); closeT.addEventListener('click',()=>modal.hidden=true);
+    document.getElementById('sendTurno').addEventListener('click',()=>{
+      const n=encodeURIComponent(document.getElementById('nombre').value||''); 
+      const e=encodeURIComponent(document.getElementById('email').value||'');
+      const m=encodeURIComponent(document.getElementById('msg').value||'');
+      const subject=`Turno desde la web - ${n}`;
+      const body=`Nombre: ${n}%0AEmail: ${e}%0AMotivo: ${m}`;
+      window.location.href=`mailto:jprebosio@proton.me?subject=${subject}&body=${body}`;
+      modal.hidden=true;
+    });
+    // Temporizador
+    const statusEl=document.getElementById('timerStatus');
+    document.querySelectorAll('.pill[data-min]').forEach(p=>{
+      p.addEventListener('click',()=>{
+        const mins=Number(p.dataset.min); const end=Date.now()+mins*60000;
+        const t=setInterval(()=>{
+          const left=end-Date.now(); if(left<=0){clearInterval(t); statusEl.textContent='✔ Sesión finalizada'; return;}
+          const mm=Math.floor(left/60000), ss=Math.floor((left%60000)/1000);
+          statusEl.textContent=`⏳ ${mm}m ${ss}s restantes`;
+        },250);
+      });
+    });
+    // Calma Mode
+    (()=>{const btn=document.getElementById('calma-btn');const overlay=document.getElementById('calma-overlay');const orb=document.querySelector('.orb');const toggle=document.getElementById('calma-toggle');const close=document.getElementById('calma-close');let paused=false;btn.addEventListener('click',()=>overlay.hidden=false);close.addEventListener('click',()=>overlay.hidden=true);toggle.addEventListener('click',()=>{paused=!paused;orb.style.animationPlayState=paused?'paused':'running';toggle.textContent=paused?'Reanudar':'Pausar'});document.addEventListener('keydown',e=>{if(e.key==='Escape')overlay.hidden=true});})();
+  </script>
 </body>
 </html>
