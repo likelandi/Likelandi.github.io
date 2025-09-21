@@ -91,5 +91,121 @@
     .controls button:hover{border-color:#ffffff55}
   </style>
   <script>(()=>{const b=document.getElementById('calma-btn');const o=document.getElementById('calma-overlay');const orb=document.querySelector('.orb');const t=document.getElementById('calma-toggle');const c=document.getElementById('calma-close');let p=false;b.addEventListener('click',()=>o.hidden=false);c.addEventListener('click',()=>o.hidden=true);t.addEventListener('click',()=>{p=!p;orb.style.animationPlayState=p?'paused':'running';t.textContent=p?'Reanudar':'Pausar'});document.addEventListener('keydown',e=>{if(e.key==='Escape')o.hidden=true});})();</script>
+<!-- FAB: Solicitar llamada -->
+<button id="callfab" aria-label="Solicitar llamada">📞</button>
+
+<!-- Modal Solicitar llamada -->
+<div id="call-overlay" hidden>
+  <div class="call-card">
+    <h3>Solicitar llamada</h3>
+    <p class="muted">Dejame tus datos y un horario posible. Te respondo para coordinar.</p>
+
+    <div class="row">
+      <label>Nombre y apellido
+        <input id="call-name" placeholder="Ej: Ana López">
+      </label>
+      <label>Teléfono
+        <input id="call-phone" placeholder="+54 9 11 1234 5678">
+      </label>
+      <label>Disponibilidad (elegí o escribí)
+        <div class="chips">
+          <button type="button" class="chip" data-slot="Hoy 10:00">Hoy 10:00</button>
+          <button type="button" class="chip" data-slot="Hoy 14:00">Hoy 14:00</button>
+          <button type="button" class="chip" data-slot="Hoy 18:00">Hoy 18:00</button>
+          <button type="button" class="chip" data-slot="Mañana 10:00">Mañana 10:00</button>
+          <button type="button" class="chip" data-slot="Mañana 14:00">Mañana 14:00</button>
+          <button type="button" class="chip" data-slot="Mañana 18:00">Mañana 18:00</button>
+        </div>
+        <input id="call-free" placeholder="Otro horario (ej: Jueves 16:30)">
+      </label>
+      <label>Comentario (opcional)
+        <textarea id="call-note" rows="3" placeholder="Motivo de la llamada, preferencia de app/voz, etc."></textarea>
+      </label>
+    </div>
+
+    <div class="call-actions">
+      <button id="call-cancel" class="btn">Cancelar</button>
+      <button id="call-send" class="btn primary">Enviar</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* FAB */
+  #callfab{
+    position:fixed; right:16px; bottom:150px; z-index:9999; /* encima del WhatsApp y Calma Mode */
+    width:54px; height:54px; border:none; border-radius:999px;
+    background:linear-gradient(135deg,#c77dff,#7cffcb); color:#0f0b10;
+    font-size:20px; cursor:pointer; box-shadow:0 10px 30px #0007;
+  }
+  /* Modal */
+  #call-overlay[hidden]{display:none}
+  #call-overlay{position:fixed; inset:0; background:#0008; display:grid; place-items:center; z-index:9998}
+  .call-card{
+    width:min(92vw,560px); background:#141019; color:#f7f0ff;
+    border:1px solid #ffffff22; border-radius:18px; padding:18px; box-shadow:0 20px 60px #000a
+  }
+  .call-card h3{
+    margin:0 0 6px; background:linear-gradient(90deg,#c77dff,#7cffcb);
+    -webkit-background-clip:text; -webkit-text-fill-color:transparent
+  }
+  .muted{opacity:.85}
+  .row{display:grid; gap:10px; margin-top:10px}
+  label{display:grid; gap:6px; font-size:14px}
+  input, textarea{background:#1a1323; border:1px solid #ffffff22; border-radius:10px; padding:10px; color:#f7f0ff}
+  .chips{display:flex; gap:8px; flex-wrap:wrap}
+  .chip{
+    padding:8px 12px; border-radius:999px; border:1px solid #ffffff22;
+    background:#1a1323; color:#f7f0ff; cursor:pointer
+  }
+  .chip.active{border-color:#7cffcb; box-shadow:0 0 0 2px #7cffcb33 inset}
+  .call-actions{display:flex; gap:10px; justify-content:flex-end; margin-top:12px}
+  .btn{padding:10px 14px; border-radius:10px; border:1px solid #ffffff33; background:#1a1323; color:#f7f0ff; cursor:pointer}
+  .btn.primary{background:linear-gradient(135deg,#c77dff,#7cffcb); color:#0f0b10; border:none; font-weight:700}
+</style>
+
+<script>
+  (() => {
+    const fab = document.getElementById('callfab');
+    const overlay = document.getElementById('call-overlay');
+    const cancel = document.getElementById('call-cancel');
+    const send = document.getElementById('call-send');
+    const nameI = document.getElementById('call-name');
+    const phoneI = document.getElementById('call-phone');
+    const freeI = document.getElementById('call-free');
+    const noteI = document.getElementById('call-note');
+    let slot = '';
+
+    fab.addEventListener('click', () => overlay.hidden = false);
+    cancel.addEventListener('click', () => overlay.hidden = true);
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') overlay.hidden = true; });
+
+    document.querySelectorAll('.chip').forEach(ch => {
+      ch.addEventListener('click', () => {
+        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+        ch.classList.add('active');
+        slot = ch.dataset.slot;
+        freeI.value = '';
+      });
+    });
+    freeI.addEventListener('input', () => {
+      slot = freeI.value.trim();
+      if (slot) document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
+    });
+
+    send.addEventListener('click', () => {
+      const name = (nameI.value || '').trim();
+      const phone = (phoneI.value || '').trim();
+      const note = (noteI.value || '').trim();
+      const when = slot || 'A convenir';
+      const subject = encodeURIComponent(`Solicitud de llamada — ${name || 'Paciente'}`);
+      const body = encodeURIComponent(
+        `Nombre: ${name}\nTeléfono: ${phone}\nDisponibilidad: ${when}\n\nComentario:\n${note}\n\nEnviado desde likelandi.github.io`
+      );
+      window.location.href = `mailto:jprebosio@proton.me?subject=${subject}&body=${body}`;
+      overlay.hidden = true;
+    });
+  })();
+</script>
 </body>
 </html>
