@@ -6,67 +6,48 @@
 <title>Likelandi — Home</title>
 <meta name="description" content="Consultorio psiquiátrico, arteterapia y Landia’s Musik.">
 <style>
-  :root{
-    --bg:#0f0b10; --panel:#141019; --fg:#f7f0ff;
-    --muted:#cfc7da; --violet:#c77dff; --mint:#7cffcb;
-    --border:#ffffff22; --shadow:0 10px 30px #0006;
-  }
+  :root{--bg:#0f0b10;--panel:#141019;--fg:#f7f0ff;--muted:#cfc7da;--violet:#c77dff;--mint:#7cffcb;--border:#ffffff22;--shadow:0 10px 30px #0006}
   *{box-sizing:border-box} html,body{margin:0}
   body{background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
 
   /* NAV */
-  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);
-       background:#0f0b10cc;border-bottom:1px solid var(--border)}
+  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--border)}
   .nav .inner{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
   .brand{margin-right:auto;font-weight:800}
-  .nav a{color:var(--fg);text-decoration:none;opacity:.9}
-  .nav a:hover{opacity:1}
+  .nav a{color:var(--fg);text-decoration:none;opacity:.9}.nav a:hover{opacity:1}
 
   /* HERO (imagen completa sin recortes) */
   .hero{position:relative;display:grid;place-items:center;min-height:72vh;padding:16px}
   .hero .frame{
     width:min(1100px,92vw); height:68vh; min-height:380px;
-    display:grid;place-items:center;
-    background:linear-gradient(180deg,#000 0%,#0f0b10 100%);
-    border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); overflow:hidden;
+    display:grid;place-items:center;background:linear-gradient(180deg,#000 0%,#0f0b10 100%);
+    border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); overflow:hidden
   }
   .hero img{max-width:100%;max-height:100%;object-fit:contain;display:block;border-radius:12px;box-shadow:0 10px 40px #000a}
   .hero .title{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);text-align:center;padding:0 16px}
   .hero h1{margin:0;font-size:clamp(28px,4.5vw,52px);
-    background:linear-gradient(90deg,var(--violet),var(--mint));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    background:linear-gradient(90deg,var(--violet),var(--mint));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
   .hero p{margin:.4rem 0 0;color:var(--muted)}
 
-  /* CONTENEDOR */
+  /* CONTENIDO */
   .wrap{max-width:1100px;margin:0 auto;padding:0 16px 80px}
   .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
   .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
   .card h2{margin:0 0 8px;font-size:clamp(20px,2.8vw,26px)}
   .muted{color:var(--muted)}
 
-  /* Mini video del día */
-  .video-wrap{display:grid;gap:10px}
-  .video-frame{width:100%;aspect-ratio:16/9;border:none;border-radius:12px;box-shadow:0 8px 28px #0008}
   .btn{padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:#1a1323;color:var(--fg);cursor:pointer}
   .btn.primary{background:linear-gradient(135deg,var(--violet),var(--mint));border:none;color:#0f0b10;font-weight:700}
-
-  /* FABs */
-  .fab-wa{position:fixed;right:16px;bottom:16px;z-index:9998;display:inline-flex;align-items:center;gap:8px;padding:12px 14px;border-radius:999px;background:linear-gradient(135deg,var(--violet),var(--mint));color:#0f0b10;font-weight:700;text-decoration:none;box-shadow:var(--shadow)}
-  .fab-call{position:fixed;right:16px;bottom:86px;z-index:9999;width:54px;height:54px;border:none;border-radius:999px;background:linear-gradient(135deg,var(--violet),var(--mint));color:#0f0b10;font-size:20px;cursor:pointer;box-shadow:var(--shadow)}
-
-  /* Modal llamada */
-  #call-overlay[hidden]{display:none}
-  #call-overlay{position:fixed;inset:0;background:#0008;display:grid;place-items:center;z-index:9997}
-  .call-card{width:min(92vw,560px);background:var(--panel);color:var(--fg);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 20px 60px #000a}
-  .row{display:grid;gap:10px;margin-top:10px}
-  label{display:grid;gap:6px;font-size:14px}
-  input,textarea{background:#1a1323;border:1px solid var(--border);border-radius:10px;color:var(--fg);padding:10px}
-  .call-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
 
   footer{margin:40px 0 0;padding:18px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
 </style>
 </head>
 <body>
+
+<!-- Badge para confirmar versión -->
+<div style="position:fixed;top:8px;right:8px;z-index:99999;background:#141019;color:#7cffcb;border:1px solid #ffffff33;border-radius:8px;padding:6px 10px;font:12px system-ui">
+  Home — build v22
+</div>
 
 <nav class="nav">
   <div class="inner">
@@ -78,9 +59,11 @@
   </div>
 </nav>
 
+<!-- HERO con FOTO DEL CONSULTORIO -->
 <header class="hero" role="banner">
   <div class="frame">
-    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=21" alt="Consultorio — Likelandi">
+    <!-- 👇 ESTA es la imagen correcta para la portada -->
+    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=22" alt="Consultorio — Likelandi">
   </div>
   <div class="title">
     <h1>Likelandi</h1>
@@ -108,80 +91,8 @@
       <p><a class="btn primary" href="/landias-musik.html">Ir a la música</a></p>
     </article>
   </section>
-
-  <!-- Mini Video del día -->
-  <section class="card" style="margin-top:18px">
-    <h2>🎬 Video del día</h2>
-    <div class="video-wrap">
-      <iframe id="ytDaily" class="video-frame" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      <div style="display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap">
-        <button class="btn" id="prevVid">Anterior</button>
-        <button class="btn" id="nextVid">Siguiente</button>
-        <a class="btn primary" id="openYT" target="_blank" rel="noopener">Abrir en YouTube</a>
-      </div>
-    </div>
-  </section>
 </main>
 
 <footer>© Likelandi</footer>
-
-<!-- FABs -->
-<a class="fab-wa" href="https://wa.me/5491124605401?text=Hola%20Juan%20Pablo%2C%20quisiera%20coordinar%20consulta." target="_blank" rel="noopener">💬 WhatsApp</a>
-<button class="fab-call" id="callfab" aria-label="Solicitar llamada">📞</button>
-
-<!-- Modal llamada -->
-<div id="call-overlay" hidden>
-  <div class="call-card">
-    <h3 style="margin:0 0 6px;background:linear-gradient(90deg,var(--violet),var(--mint));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Solicitar llamada</h3>
-    <div class="row">
-      <label>Nombre y apellido<input id="call-name" placeholder="Ej: Ana López"></label>
-      <label>Teléfono<input id="call-phone" placeholder="+54 9 11 1234 5678"></label>
-      <label>Disponibilidad<input id="call-free" placeholder="Ej: Jueves 16:30"></label>
-      <label>Comentario (opcional)<textarea id="call-note" rows="3"></textarea></label>
-    </div>
-    <div class="call-actions">
-      <button id="call-cancel" class="btn">Cancelar</button>
-      <button id="call-send" class="btn primary">Enviar</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  // Video del día
-  (function(){
-    const tracks=["Justice D.A.N.C.E","Daft Punk Something About Us","The Weeknd Out of Time","Lady Gaga Replay","Arca Nonbinary","Florence and the Machine Cosmic Love"];
-    const iframe=document.getElementById('ytDaily');
-    const link=document.getElementById('openYT');
-    let idx=Math.floor(Date.now()/86400000)%tracks.length;
-    function set(i){
-      idx=(i+tracks.length)%tracks.length;
-      const q=encodeURIComponent(tracks[idx]+" official audio");
-      iframe.src=`https://www.youtube.com/embed?rel=0&modestbranding=1&listType=search&list=${q}`;
-      link.href=`https://www.youtube.com/results?search_query=${q}`;
-    }
-    document.getElementById('prevVid').onclick=()=>set(idx-1);
-    document.getElementById('nextVid').onclick=()=>set(idx+1);
-    set(idx);
-  })();
-
-  // Llamada
-  (function(){
-    const fab=document.getElementById('callfab'),ov=document.getElementById('call-overlay');
-    const cancel=document.getElementById('call-cancel'),send=document.getElementById('call-send');
-    fab.addEventListener('click',()=>ov.hidden=false);
-    cancel.addEventListener('click',()=>ov.hidden=true);
-    document.addEventListener('keydown',e=>{if(e.key==='Escape') ov.hidden=true;});
-    send.addEventListener('click',()=>{
-      const n=(document.getElementById('call-name').value||'').trim();
-      const p=(document.getElementById('call-phone').value||'').trim();
-      const h=(document.getElementById('call-free').value||'').trim();
-      const note=(document.getElementById('call-note').value||'').trim();
-      const subj=encodeURIComponent(`Solicitud de llamada — ${n||'Paciente'}`);
-      const body=encodeURIComponent(`Nombre: ${n}\nTeléfono: ${p}\nDisponibilidad: ${h}\n\nComentario:\n${note}\n\nEnviado desde likelandi.github.io`);
-      window.location.href=`mailto:jprebosio@proton.me?subject=${subj}&body=${body}`;
-      ov.hidden=true;
-    });
-  })();
-</script>
 </body>
 </html>
