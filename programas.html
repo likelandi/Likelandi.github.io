@@ -5,26 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Likelandi — Programas</title>
   <meta name="description" content="Programas terapéuticos: psiquiatría, arteterapia, musicoterapia y reinserción psicosocial.">
+  <script>(function(){const s=localStorage.getItem('theme');const p=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=s||(p?'dark':'dark');})();</script>
   <style>
     :root{--bg:#0f0b10;--fg:#f7f0ff;--violet:#c77dff;--mint:#7cffcb;--muted:#ffffffb3}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+    :root[data-theme="light"]{--bg:#faf7ff;--fg:#1a1323}
+    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif;transition:.2s}
     a{color:var(--mint);text-decoration:none} a:hover{opacity:.85}
-    .nav{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;justify-content:flex-end;align-items:center}
-    .brand{margin-right:auto;font-weight:700;color:var(--fg)}
-    .hero{
-      position:relative;width:100%;height:60vh;min-height:360px;overflow:hidden;
-      background-image:url("https://likelandi.github.io/Consultorio-hero.jpg");
-      background-size:cover;background-position:center;background-repeat:no-repeat;
-    }
+    .nav{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:12px;justify-content:flex-end;align-items:center}
+    .brand{margin-right:auto;font-weight:700}
+    .theme-btn{border:1px solid #ffffff30;padding:6px 10px;border-radius:10px;background:transparent;color:inherit;cursor:pointer}
+    .hero{position:relative;width:100%;height:60vh;min-height:360px;overflow:hidden;background-image:url("https://likelandi.github.io/Consultorio-hero.jpg");background-size:cover;background-position:center}
     .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#00000055 0%,#0f0b10 80%)}
     .hero-txt{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 16px}
     .hero-txt h1{margin:0;font-size:clamp(28px,4vw,48px);background:linear-gradient(90deg,var(--violet),var(--mint));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
     .hero-txt p{margin-top:12px;opacity:.9}
-    .wrap{max-width:980px;margin:-24px auto 60px;padding:0 16px}
+    .wrap{max-width:980px;margin:-24px auto 80px;padding:0 16px}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
     .card{background:#141019;border:1px solid #ffffff14;border-radius:18px;padding:20px;box-shadow:0 10px 30px #00000033}
     h2{margin:0 0 10px;font-size:clamp(20px,3.2vw,28px)}
     .muted{color:var(--muted)}
+    .wa{position:fixed;right:16px;bottom:86px;z-index:9999;padding:12px 14px;border-radius:999px;background:linear-gradient(135deg,var(--violet),var(--mint));color:#0f0b10;font-weight:700}
   </style>
 </head>
 <body>
@@ -34,6 +34,7 @@
     <a href="/consultorio-terapias.html">Consultorio</a>
     <a href="/programas.html">Programas</a>
     <a href="/landias-musik.html">Landia’s Musik</a>
+    <button class="theme-btn" id="themeToggle">☀️/🌙</button>
   </nav>
 
   <header class="hero" role="banner">
@@ -45,37 +46,50 @@
 
   <main class="wrap">
     <section class="grid">
-      <article class="card">
-        <h2>Atención individual</h2>
-        <p class="muted">Entrevistas clínicas, psicofarmacología cuando corresponde y herramientas de regulación emocional.</p>
-      </article>
-      <article class="card">
-        <h2>Arteterapia</h2>
-        <p class="muted">Recursos creativos (dibujo, color, collage) para simbolizar, expresar y elaborar.</p>
-      </article>
-      <article class="card">
-        <h2>Musicoterapia</h2>
-        <p class="muted">Escucha guiada, selección curada (Landia’s Musik), respiración y ritmo.</p>
-      </article>
-      <article class="card">
-        <h2>Reinserción psicosocial</h2>
-        <p class="muted">Rutinas, hábitos saludables, objetivos SMART y dispositivos comunitarios.</p>
-      </article>
+      <article class="card"><h2>Atención individual</h2><p class="muted">Entrevistas clínicas, psicofarmacología cuando corresponde y herramientas de regulación emocional.</p></article>
+      <article class="card"><h2>Arteterapia</h2><p class="muted">Recursos creativos (dibujo, color, collage) para simbolizar, expresar y elaborar.</p></article>
+      <article class="card"><h2>Musicoterapia</h2><p class="muted">Escucha guiada, selección curada (Landia’s Musik), respiración y ritmo.</p></article>
+      <article class="card"><h2>Reinserción psicosocial</h2><p class="muted">Rutinas, hábitos saludables, objetivos SMART y dispositivos comunitarios.</p></article>
     </section>
 
     <section class="card" style="margin-top:20px">
       <h2>Contacto</h2>
-      <p class="muted">
-        Correo: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a><br>
-        WhatsApp: <a href="https://wa.me/5491124605401" target="_blank" rel="noopener">+54 9 11 2460 5401</a>
-      </p>
+      <p class="muted">Correo: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a> · WhatsApp: <a href="https://wa.me/5491124605401" target="_blank" rel="noopener">+54 9 11 2460 5401</a></p>
       <p><a href="/" class="muted">← Volver a Home</a></p>
     </section>
   </main>
 
+  <a class="wa" href="https://wa.me/5491124605401?text=Hola%20Juan%20Pablo%2C%20me%20interesa%20tal%20programa." target="_blank" rel="noopener">💬 WhatsApp</a>
+
   <footer data-include></footer>
   <script src="/footer.js"></script>
+  <script>document.getElementById('themeToggle').addEventListener('click',()=>{const r=document.documentElement;const next=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=next;localStorage.setItem('theme',next);});</script>
 
-  <!-- Calma Mode — (pegá el bloque común aquí) -->
+  <!-- Calma Mode -->
+  <button id="calma-btn" aria-label="Calma Mode">🫧</button>
+  <div id="calma-overlay" hidden>
+    <div class="calma-card">
+      <h3>Calma Mode</h3>
+      <p class="muted">Seguí el orbe: inhalá cuando crece, exhalá cuando baja.</p>
+      <div class="orb" aria-hidden="true"></div>
+      <div class="controls">
+        <button id="calma-toggle">Pausar</button>
+        <button id="calma-close">Cerrar</button>
+      </div>
+    </div>
+  </div>
+  <style>
+    #calma-btn{position:fixed;right:16px;bottom:16px;z-index:9999;width:54px;height:54px;border:none;border-radius:999px;background:linear-gradient(135deg,#c77dff,#7cffcb);color:#0f0b10;font-size:20px;cursor:pointer;box-shadow:0 10px 30px #0007}
+    #calma-overlay[hidden]{display:none} #calma-overlay{position:fixed;inset:0;background:#0008;display:grid;place-items:center;z-index:9998}
+    .calma-card{width:min(92vw,460px);background:#141019;color:#f7f0ff;border:1px solid #ffffff1a;border-radius:18px;padding:18px;text-align:center;box-shadow:0 20px 60px #000a}
+    .calma-card h3{margin:4px 0 6px 0;background:linear-gradient(90deg,#c77dff,#7cffcb);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .muted{opacity:.85}
+    .orb{--s:160px;width:var(--s);height:var(--s);margin:14px auto;border-radius:50%;background:radial-gradient(closest-side,#7cffcb55,#c77dff33,#0000);box-shadow:0 0 80px #7cffcb33,0 0 40px #c77dff22 inset;animation:breathe 8s ease-in-out infinite}
+    @keyframes breathe{0%{transform:scale(.85);filter:brightness(.9)}50%{transform:scale(1.08);filter:brightness(1.05)}100%{transform:scale(.85);filter:brightness(.9)}}
+    .controls{display:flex;gap:10px;justify-content:center;margin-top:10px}
+    .controls button{padding:10px 14px;border-radius:12px;border:1px solid #ffffff22;background:#1a1323;color:#f7f0ff;cursor:pointer}
+    .controls button:hover{border-color:#ffffff55}
+  </style>
+  <script>(()=>{const b=document.getElementById('calma-btn');const o=document.getElementById('calma-overlay');const orb=document.querySelector('.orb');const t=document.getElementById('calma-toggle');const c=document.getElementById('calma-close');let p=false;b.addEventListener('click',()=>o.hidden=false);c.addEventListener('click',()=>o.hidden=true);t.addEventListener('click',()=>{p=!p;orb.style.animationPlayState=p?'paused':'running';t.textContent=p?'Reanudar':'Pausar'});document.addEventListener('keydown',e=>{if(e.key==='Escape')o.hidden=true});})();</script>
 </body>
 </html>
