@@ -5,28 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Likelandi — Consultorio</title>
 <meta name="description" content="Consultorio psiquiátrico con enfoque en arteterapia y tecnología segura.">
+<link rel="preload" as="image" href="/Consultorio-hero.jpg">
 <style>
-  :root{
-    --bg:#0f0b10; --panel:#141019; --fg:#f7f0ff;
-    --muted:#cfc7da; --violet:#c77dff; --mint:#7cffcb;
-    --border:#ffffff22; --shadow:0 10px 30px #0006;
-  }
+  :root{--bg:#0f0b10;--panel:#141019;--fg:#f7f0ff;--muted:#cfc7da;--violet:#c77dff;--mint:#7cffcb;--border:#ffffff22;--shadow:0 10px 30px #0006}
   *{box-sizing:border-box} html,body{margin:0}
   body{background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
 
   .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--border)}
   .nav .inner{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
   .brand{margin-right:auto;font-weight:800}
-  .nav a{color:var(--fg);text-decoration:none;opacity:.9}
-  .nav a:hover{opacity:1}
+  .nav a{color:var(--fg);text-decoration:none;opacity:.9}.nav a:hover{opacity:1}
 
-  /* HERO imagen completa */
   .hero{position:relative;display:grid;place-items:center;min-height:72vh;padding:16px}
   .hero .frame{
     width:min(1100px,92vw); height:68vh; min-height:380px;
-    display:grid;place-items:center;
-    background:linear-gradient(180deg,#000 0%,#0f0b10 100%);
-    border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); overflow:hidden;
+    display:grid;place-items:center;background:linear-gradient(180deg,#000 0%,#0f0b10 100%);
+    border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); overflow:hidden
   }
   .hero img{max-width:100%;max-height:100%;object-fit:contain;display:block;border-radius:12px;box-shadow:0 10px 40px #000a}
   .hero .title{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);text-align:center;padding:0 16px}
@@ -42,20 +36,27 @@
   .muted{color:var(--muted)}
   .btn{padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:#1a1323;color:var(--fg);cursor:pointer}
   .btn.primary{background:linear-gradient(135deg,var(--violet),var(--mint));border:none;color:#0f0b10;font-weight:700}
-  .list{margin:8px 0 0;padding-left:18px}
-  .list li{margin:6px 0}
-
-  /* FABs y modal */
-  .fab-wa{position:fixed;right:16px;bottom:16px;z-index:9998;display:inline-flex;align-items:center;gap:8px;padding:12px 14px;border-radius:999px;background:linear-gradient(135deg,var(--violet),var(--mint));color:#0f0b10;font-weight:700;text-decoration:none;box-shadow:var(--shadow)}
-  .fab-call{position:fixed;right:16px;bottom:86px;z-index:9999;width:54px;height:54px;border:none;border-radius:999px;background:linear-gradient(135deg,var(--violet),var(--mint));color:#0f0b10;font-size:20px;cursor:pointer;box-shadow:var(--shadow)}
-  #call-overlay[hidden]{display:none}
-  #call-overlay{position:fixed;inset:0;background:#0008;display:grid;place-items:center;z-index:9997}
-  .call-card{width:min(92vw,560px);background:var(--panel);color:var(--fg);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:0 20px 60px #000a}
-  .row{display:grid;gap:10px;margin-top:10px}
-  label{display:grid;gap:6px;font-size:14px}
-  input,textarea{background:#1a1323;border:1px solid var(--border);border-radius:10px;color:var(--fg);padding:10px}
-  .call-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
+  .list{margin:8px 0 0;padding-left:18px}.list li{margin:6px 0}
   footer{margin:40px 0 0;padding:18px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
+
+  /* Desktop polish */
+  @media (min-width:1024px){
+    .wrap{max-width:1200px}
+    .hero{min-height:78vh}
+    .hero .frame{
+      height:72vh;border-radius:20px;
+      box-shadow:0 30px 80px #00000055, 0 1px 0 #ffffff10 inset;border:1px solid #ffffff26;
+      background:linear-gradient(180deg,#0a0a0f 0%, #0f0b10 100%);
+    }
+    .hero img{filter:drop-shadow(0 12px 40px #0008)}
+    .hero .title{bottom:4%}
+    .hero h1{font-size:clamp(40px,4.2vw,64px)}
+    .grid{gap:22px;grid-template-columns:repeat(3, minmax(0, 1fr))}
+    .card{padding:22px;border-radius:20px;border:1px solid #ffffff1f;box-shadow:0 18px 60px #00000044}
+    .card h2{font-size:clamp(22px,2vw,28px)}
+  }
+  @media (min-width:1440px){.wrap{max-width:1280px}.hero .frame{height:70vh}}
+  @media (hover:hover) and (pointer:fine){.card:hover{transform:translateY(-2px);transition:transform .15s, box-shadow .15s}}
 </style>
 </head>
 <body>
@@ -72,8 +73,7 @@
 
 <header class="hero" role="banner">
   <div class="frame">
-    <!-- Usá tu imagen de consultorio. Si cambiaste el nombre, pegá la URL exacta aquí. -->
-    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=14" alt="Consultorio — Likelandi">
+    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=30" alt="Consultorio — Likelandi" decoding="async" loading="eager">
   </div>
   <div class="title">
     <h1>Consultorio</h1>
@@ -85,7 +85,7 @@
   <section class="grid">
     <article class="card">
       <h2>Enfoque</h2>
-      <p class="muted">Trabajo en regulación emocional, sueño, hábitos, reducción de ansiedad y depresión. Integro herramientas digitales y música cuando aportan al proceso.</p>
+      <p class="muted">Regulación emocional, sueño, hábitos, reducción de ansiedad y depresión. Integro herramientas digitales y música cuando aportan al proceso.</p>
       <ul class="list">
         <li>Sesiones presenciales y virtuales</li>
         <li>Psicoeducación y rutinas de cuidado</li>
@@ -114,44 +114,5 @@
 </main>
 
 <footer>© Likelandi — Consultorio</footer>
-
-<a class="fab-wa" href="https://wa.me/5491124605401?text=Hola%20Juan%20Pablo%2C%20quisiera%20coordinar%20consulta." target="_blank" rel="noopener">💬 WhatsApp</a>
-<button class="fab-call" id="callfab" aria-label="Solicitar llamada">📞</button>
-
-<div id="call-overlay" hidden>
-  <div class="call-card">
-    <h3 style="margin:0 0 6px;background:linear-gradient(90deg,var(--violet),var(--mint));-webkit-background-clip:text;-webkit-text-fill-color:transparent">Solicitar llamada</h3>
-    <div class="row">
-      <label>Nombre y apellido<input id="call-name" placeholder="Ej: Ana López"></label>
-      <label>Teléfono<input id="call-phone" placeholder="+54 9 11 1234 5678"></label>
-      <label>Disponibilidad<input id="call-free" placeholder="Ej: Jueves 16:30"></label>
-      <label>Comentario (opcional)<textarea id="call-note" rows="3"></textarea></label>
-    </div>
-    <div class="call-actions">
-      <button id="call-cancel" class="btn">Cancelar</button>
-      <button id="call-send" class="btn primary">Enviar</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  (function(){
-    const fab=document.getElementById('callfab'),ov=document.getElementById('call-overlay');
-    const cancel=document.getElementById('call-cancel'),send=document.getElementById('call-send');
-    fab.addEventListener('click',()=>ov.hidden=false);
-    cancel && cancel.addEventListener('click',()=>ov.hidden=true);
-    document.addEventListener('keydown',e=>{if(e.key==='Escape') ov.hidden=true;});
-    send.addEventListener('click',()=>{
-      const n=(document.getElementById('call-name').value||'').trim();
-      const p=(document.getElementById('call-phone').value||'').trim();
-      const h=(document.getElementById('call-free').value||'').trim();
-      const note=(document.getElementById('call-note').value||'').trim();
-      const subj=encodeURIComponent(`Solicitud de llamada — ${n||'Paciente'}`);
-      const body=encodeURIComponent(`Nombre: ${n}\nTeléfono: ${p}\nDisponibilidad: ${h}\n\nComentario:\n${note}\n\nEnviado desde likelandi.github.io`);
-      window.location.href=`mailto:jprebosio@proton.me?subject=${subj}&body=${body}`;
-      ov.hidden=true;
-    });
-  })();
-</script>
 </body>
 </html>
