@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Likelandi — Home</title>
 <meta name="description" content="Consultorio psiquiátrico, arteterapia y Landia’s Musik.">
+<!-- Preload de imagen del hero -->
+<link rel="preload" as="image" href="/Consultorio-hero.jpg">
+
 <style>
   :root{--bg:#0f0b10;--panel:#141019;--fg:#f7f0ff;--muted:#cfc7da;--violet:#c77dff;--mint:#7cffcb;--border:#ffffff22;--shadow:0 10px 30px #0006}
   *{box-sizing:border-box} html,body{margin:0}
@@ -35,19 +38,32 @@
   .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
   .card h2{margin:0 0 8px;font-size:clamp(20px,2.8vw,26px)}
   .muted{color:var(--muted)}
-
   .btn{padding:8px 12px;border-radius:10px;border:1px solid var(--border);background:#1a1323;color:var(--fg);cursor:pointer}
   .btn.primary{background:linear-gradient(135deg,var(--violet),var(--mint));border:none;color:#0f0b10;font-weight:700}
-
   footer{margin:40px 0 0;padding:18px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
+
+  /* ===== Desktop polish ===== */
+  @media (min-width: 1024px) {
+    .wrap{max-width:1200px}
+    .hero{min-height:78vh}
+    .hero .frame{
+      height:72vh;border-radius:20px;
+      box-shadow:0 30px 80px #00000055, 0 1px 0 #ffffff10 inset;
+      border:1px solid #ffffff26;background:linear-gradient(180deg,#0a0a0f 0%, #0f0b10 100%);
+    }
+    .hero img{max-height:100%;filter:drop-shadow(0 12px 40px #0008)}
+    .hero .title{bottom:4%}
+    .hero h1{font-size:clamp(40px,4.2vw,64px);letter-spacing:.2px}
+    .hero p{font-size:clamp(16px,1.4vw,20px);opacity:.92}
+    .grid{gap:22px;grid-template-columns:repeat(3, minmax(0, 1fr));align-items:stretch}
+    .card{padding:22px;border-radius:20px;border:1px solid #ffffff1f;box-shadow:0 18px 60px #00000044}
+    .card h2{font-size:clamp(22px,2vw,28px)}
+  }
+  @media (min-width: 1440px) {.wrap{max-width:1280px}.hero .frame{height:70vh}}
+  @media (hover:hover) and (pointer:fine){.card:hover{transform:translateY(-2px);transition:transform .15s, box-shadow .15s}}
 </style>
 </head>
 <body>
-
-<!-- Badge para confirmar versión -->
-<div style="position:fixed;top:8px;right:8px;z-index:99999;background:#141019;color:#7cffcb;border:1px solid #ffffff33;border-radius:8px;padding:6px 10px;font:12px system-ui">
-  Home — build v22
-</div>
 
 <nav class="nav">
   <div class="inner">
@@ -59,11 +75,9 @@
   </div>
 </nav>
 
-<!-- HERO con FOTO DEL CONSULTORIO -->
 <header class="hero" role="banner">
   <div class="frame">
-    <!-- 👇 ESTA es la imagen correcta para la portada -->
-    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=22" alt="Consultorio — Likelandi">
+    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=30" alt="Consultorio — Likelandi" decoding="async" loading="eager">
   </div>
   <div class="title">
     <h1>Likelandi</h1>
@@ -78,13 +92,11 @@
       <p class="muted">Espacio clínico con foco en regulación emocional, hábitos de sueño y herramientas digitales seguras. Modalidad presencial y virtual.</p>
       <p><a class="btn primary" href="/consultorio-terapias.html">Conocer más</a></p>
     </article>
-
     <article class="card">
       <h2>Programas</h2>
       <p class="muted">Circuitos guiados por voz para ansiedad, foco y energía. Duraciones breves y medibles.</p>
       <p><a class="btn primary" href="/programas.html">Ver programas</a></p>
     </article>
-
     <article class="card">
       <h2>Landia’s Musik</h2>
       <p class="muted">Selección musical curada para acompañar procesos con calma, color y respiración.</p>
