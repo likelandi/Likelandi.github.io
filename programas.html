@@ -1,211 +1,163 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Likelandi — Programas</title>
-  <meta name="description" content="Programas terapéuticos: psiquiatría, arteterapia, musicoterapia y reinserción psicosocial.">
-  <script>(function(){const s=localStorage.getItem('theme');const p=window.matchMedia('(prefers-color-scheme: dark)').matches;document.documentElement.dataset.theme=s||(p?'dark':'dark');})();</script>
-  <style>
-    :root{--bg:#0f0b10;--fg:#f7f0ff;--violet:#c77dff;--mint:#7cffcb;--muted:#ffffffb3}
-    :root[data-theme="light"]{--bg:#faf7ff;--fg:#1a1323}
-    body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif;transition:.2s}
-    a{color:var(--mint);text-decoration:none} a:hover{opacity:.85}
-    .nav{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:12px;justify-content:flex-end;align-items:center}
-    .brand{margin-right:auto;font-weight:700}
-    .theme-btn{border:1px solid #ffffff30;padding:6px 10px;border-radius:10px;background:transparent;color:inherit;cursor:pointer}
-    .hero{position:relative;width:100%;height:60vh;min-height:360px;overflow:hidden;background-image:url("https://likelandi.github.io/Consultorio-hero.jpg");background-size:cover;background-position:center}
-    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#00000055 0%,#0f0b10 80%)}
-    .hero-txt{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:0 16px}
-    .hero-txt h1{margin:0;font-size:clamp(28px,4vw,48px);background:linear-gradient(90deg,var(--violet),var(--mint));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .hero-txt p{margin-top:12px;opacity:.9}
-    .wrap{max-width:980px;margin:-24px auto 80px;padding:0 16px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
-    .card{background:#141019;border:1px solid #ffffff14;border-radius:18px;padding:20px;box-shadow:0 10px 30px #00000033}
-    h2{margin:0 0 10px;font-size:clamp(20px,3.2vw,28px)}
-    .muted{color:var(--muted)}
-    .wa{position:fixed;right:16px;bottom:86px;z-index:9999;padding:12px 14px;border-radius:999px;background:linear-gradient(135deg,var(--violet),var(--mint));color:#0f0b10;font-weight:700}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Likelandi — Programas</title>
+<meta name="description" content="Programas de reinserción social: objetivos, metodología, duración y cómo participar.">
+<link rel="preload" as="image" href="/Consultorio-hero.jpg">
+<style>
+  :root{--bg:#0f0b10;--panel:#141019;--fg:#f7f0ff;--muted:#cfc7da;--violet:#c77dff;--mint:#7cffcb;--border:#ffffff22;--shadow:0 10px 30px #0006}
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--border)}
+  .nav .inner{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
+  .brand{margin-right:auto;font-weight:800}
+  .nav a{color:var(--fg);text-decoration:none;opacity:.9}.nav a:hover{opacity:1}
+
+  /* HERO */
+  .hero{position:relative;display:grid;place-items:center;min-height:54vh;padding:16px}
+  .hero .frame{
+    width:min(1100px,92vw);height:46vh;min-height:280px;display:grid;place-items:center;
+    background:linear-gradient(180deg,#000 0%,#0f0b10 100%);border:1px solid var(--border);
+    border-radius:16px;box-shadow:var(--shadow);overflow:hidden
+  }
+  .hero img{max-width:100%;max-height:100%;object-fit:contain;display:block;border-radius:12px;box-shadow:0 10px 40px #000a}
+  .hero .title{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);text-align:center;padding:0 16px}
+  .hero h1{margin:0;font-size:clamp(28px,4vw,48px);
+    background:linear-gradient(90deg,var(--violet),var(--mint));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{margin:.4rem 0 0;color:var(--muted)}
+
+  /* CONTENIDO */
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px 100px}
+  .top-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:18px 0 0}
+  .btn{padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:#1a1323;color:var(--fg);cursor:pointer;text-decoration:none}
+  .btn.primary{background:linear-gradient(135deg,var(--violet),var(--mint));border:none;color:#0f0b10;font-weight:700}
+
+  /* ACCORDION (un solo programa por ahora) */
+  .acc{display:grid;gap:14px;margin-top:18px}
+  .acc-item{background:var(--panel);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+  .acc-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 18px;cursor:pointer}
+  .acc-head h3{margin:0;font-size:clamp(18px,2.2vw,22px)}
+  .acc-head small{color:var(--muted)}
+  .acc-body{display:none;padding:0 18px 18px;border-top:1px solid #ffffff17}
+  .acc-body.open{display:block}
+  .kv{display:grid;gap:6px;margin:12px 0}
+  .kv div{display:flex;gap:8px}
+  ul{margin:6px 0 0;padding-left:18px}
+  .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+
+  footer{margin:40px 0 0;padding:18px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
+
+  /* Desktop polish */
+  @media (min-width:1024px){
+    .wrap{max-width:1200px}
+    .hero .frame{height:44vh;border-radius:20px;box-shadow:0 30px 80px #0006, 0 1px 0 #ffffff10 inset;border:1px solid #ffffff26;background:linear-gradient(180deg,#0a0a0f 0%, #0f0b10 100%)}
+    .acc-item{border-radius:20px}
+  }
+  @media (min-width:1440px){.wrap{max-width:1280px}}
+  @media (hover:hover) and (pointer:fine){.acc-item:hover{transform:translateY(-1px);transition:transform .15s, box-shadow .15s}}
+
+  /* Contador (opcional; dejar visible como en el resto) */
+  .vc-badge{position:fixed;left:10px;bottom:10px;z-index:99999;display:inline-flex;align-items:center;gap:6px;padding:8px 10px;border-radius:12px;background:#141019;color:#f7f0ff;font:13px/1 system-ui;border:1px solid #ffffff22;box-shadow:0 6px 20px #0006;opacity:.92}
+  .vc-badge b{font-weight:700}
+</style>
 </head>
 <body>
-  <nav class="nav">
+
+<nav class="nav">
+  <div class="inner">
     <div class="brand">Likelandi</div>
     <a href="/">Home</a>
     <a href="/consultorio-terapias.html">Consultorio</a>
-    <a href="/programas.html">Programas</a>
+    <a href="/programas.html" style="opacity:1">Programas</a>
     <a href="/landias-musik.html">Landia’s Musik</a>
-    <button class="theme-btn" id="themeToggle">☀️/🌙</button>
-  </nav>
+  </div>
+</nav>
 
-  <header class="hero" role="banner">
-    <div class="hero-txt">
-      <h1>Programas</h1>
-      <p class="muted">Psiquiatría • Arteterapia • Musicoterapia • Reinserción psicosocial</p>
-    </div>
-  </header>
+<header class="hero" role="banner">
+  <div class="frame">
+    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=60" alt="Programas — Likelandi" decoding="async" loading="eager">
+  </div>
+  <div class="title">
+    <h1>Programas</h1>
+    <p>Reinserción social · hábitos · resiliencia · acompañamiento</p>
+  </div>
+</header>
 
-  <main class="wrap">
-    <section class="grid">
-      <article class="card"><h2>Atención individual</h2><p class="muted">Entrevistas clínicas, psicofarmacología cuando corresponde y herramientas de regulación emocional.</p></article>
-      <article class="card"><h2>Arteterapia</h2><p class="muted">Recursos creativos (dibujo, color, collage) para simbolizar, expresar y elaborar.</p></article>
-      <article class="card"><h2>Musicoterapia</h2><p class="muted">Escucha guiada, selección curada (Landia’s Musik), respiración y ritmo.</p></article>
-      <article class="card"><h2>Reinserción psicosocial</h2><p class="muted">Rutinas, hábitos saludables, objetivos SMART y dispositivos comunitarios.</p></article>
-    </section>
+<main class="wrap">
+  <!-- CTA superior simple y elegante -->
+  <div class="top-cta">
+    <a class="btn" href="mailto:jprebosio@proton.me?subject=Consulta%20Programas">Consultar por email</a>
+    <a class="btn primary" href="https://wa.me/5491124605401?text=Hola%2C%20quisiera%20inscribirme%20a%20un%20programa" target="_blank" rel="noopener">Inscribirme por WhatsApp</a>
+  </div>
 
-    <section class="card" style="margin-top:20px">
-      <h2>Contacto</h2>
-      <p class="muted">Correo: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a> · WhatsApp: <a href="https://wa.me/5491124605401" target="_blank" rel="noopener">+54 9 11 2460 5401</a></p>
-      <p><a href="/" class="muted">← Volver a Home</a></p>
-    </section>
-  </main>
-
-  <a class="wa" href="https://wa.me/5491124605401?text=Hola%20Juan%20Pablo%2C%20me%20interesa%20tal%20programa." target="_blank" rel="noopener">💬 WhatsApp</a>
-
-  <footer data-include></footer>
-  <script src="/footer.js"></script>
-  <script>document.getElementById('themeToggle').addEventListener('click',()=>{const r=document.documentElement;const next=r.dataset.theme==='dark'?'light':'dark';r.dataset.theme=next;localStorage.setItem('theme',next);});</script>
-
-  <!-- Calma Mode -->
-  <button id="calma-btn" aria-label="Calma Mode">🫧</button>
-  <div id="calma-overlay" hidden>
-    <div class="calma-card">
-      <h3>Calma Mode</h3>
-      <p class="muted">Seguí el orbe: inhalá cuando crece, exhalá cuando baja.</p>
-      <div class="orb" aria-hidden="true"></div>
-      <div class="controls">
-        <button id="calma-toggle">Pausar</button>
-        <button id="calma-close">Cerrar</button>
+  <section class="acc" id="progList">
+    <!-- ——— PROGRAMA 1: Rehabilitación Psicosocial Integral ——— -->
+    <article class="acc-item">
+      <div class="acc-head" role="button" aria-expanded="false">
+        <h3>Rehabilitación Psicosocial Integral</h3>
+        <small>Duración: largo plazo · Modalidad: grupal e individual</small>
       </div>
-    </div>
-  </div>
-  <style>
-    #calma-btn{position:fixed;right:16px;bottom:16px;z-index:9999;width:54px;height:54px;border:none;border-radius:999px;background:linear-gradient(135deg,#c77dff,#7cffcb);color:#0f0b10;font-size:20px;cursor:pointer;box-shadow:0 10px 30px #0007}
-    #calma-overlay[hidden]{display:none} #calma-overlay{position:fixed;inset:0;background:#0008;display:grid;place-items:center;z-index:9998}
-    .calma-card{width:min(92vw,460px);background:#141019;color:#f7f0ff;border:1px solid #ffffff1a;border-radius:18px;padding:18px;text-align:center;box-shadow:0 20px 60px #000a}
-    .calma-card h3{margin:4px 0 6px 0;background:linear-gradient(90deg,#c77dff,#7cffcb);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .muted{opacity:.85}
-    .orb{--s:160px;width:var(--s);height:var(--s);margin:14px auto;border-radius:50%;background:radial-gradient(closest-side,#7cffcb55,#c77dff33,#0000);box-shadow:0 0 80px #7cffcb33,0 0 40px #c77dff22 inset;animation:breathe 8s ease-in-out infinite}
-    @keyframes breathe{0%{transform:scale(.85);filter:brightness(.9)}50%{transform:scale(1.08);filter:brightness(1.05)}100%{transform:scale(.85);filter:brightness(.9)}}
-    .controls{display:flex;gap:10px;justify-content:center;margin-top:10px}
-    .controls button{padding:10px 14px;border-radius:12px;border:1px solid #ffffff22;background:#1a1323;color:#f7f0ff;cursor:pointer}
-    .controls button:hover{border-color:#ffffff55}
-  </style>
-  <script>(()=>{const b=document.getElementById('calma-btn');const o=document.getElementById('calma-overlay');const orb=document.querySelector('.orb');const t=document.getElementById('calma-toggle');const c=document.getElementById('calma-close');let p=false;b.addEventListener('click',()=>o.hidden=false);c.addEventListener('click',()=>o.hidden=true);t.addEventListener('click',()=>{p=!p;orb.style.animationPlayState=p?'paused':'running';t.textContent=p?'Reanudar':'Pausar'});document.addEventListener('keydown',e=>{if(e.key==='Escape')o.hidden=true});})();</script>
-<!-- FAB: Solicitar llamada -->
-<button id="callfab" aria-label="Solicitar llamada">📞</button>
-
-<!-- Modal Solicitar llamada -->
-<div id="call-overlay" hidden>
-  <div class="call-card">
-    <h3>Solicitar llamada</h3>
-    <p class="muted">Dejame tus datos y un horario posible. Te respondo para coordinar.</p>
-
-    <div class="row">
-      <label>Nombre y apellido
-        <input id="call-name" placeholder="Ej: Ana López">
-      </label>
-      <label>Teléfono
-        <input id="call-phone" placeholder="+54 9 11 1234 5678">
-      </label>
-      <label>Disponibilidad (elegí o escribí)
-        <div class="chips">
-          <button type="button" class="chip" data-slot="Hoy 10:00">Hoy 10:00</button>
-          <button type="button" class="chip" data-slot="Hoy 14:00">Hoy 14:00</button>
-          <button type="button" class="chip" data-slot="Hoy 18:00">Hoy 18:00</button>
-          <button type="button" class="chip" data-slot="Mañana 10:00">Mañana 10:00</button>
-          <button type="button" class="chip" data-slot="Mañana 14:00">Mañana 14:00</button>
-          <button type="button" class="chip" data-slot="Mañana 18:00">Mañana 18:00</button>
+      <div class="acc-body">
+        <div class="kv">
+          <div><strong>Objetivo:</strong> Mejorar la calidad de vida y la autonomía de personas con trastornos mentales graves.</div>
+          <div><strong>Población:</strong> Adultos con esquizofrenia u otros trastornos psicóticos crónicos, y sus familias.</div>
+          <div><strong>Duración:</strong> Intervenciones continuas de mediano y largo plazo (mínimo 5 años).</div>
+          <div><strong>Metodología:</strong> Evaluación periódica, trabajo grupal e individual, acompañamiento familiar.</div>
         </div>
-        <input id="call-free" placeholder="Otro horario (ej: Jueves 16:30)">
-      </label>
-      <label>Comentario (opcional)
-        <textarea id="call-note" rows="3" placeholder="Motivo de la llamada, preferencia de app/voz, etc."></textarea>
-      </label>
-    </div>
+        <strong>Actividades clave:</strong>
+        <ul>
+          <li>Entrenamiento en habilidades sociales y autocuidado.</li>
+          <li>Planificación de rutinas y actividades significativas.</li>
+          <li>Apoyo para integración laboral y participación social.</li>
+          <li>Psicoeducación y soporte familiar.</li>
+        </ul>
+        <strong>Resultados esperados:</strong>
+        <ul>
+          <li>Mejor funcionamiento psicosocial y autonomía.</li>
+          <li>Mayor participación social y mejor calidad de vida.</li>
+          <li>Reducción de discapacidad y recaídas.</li>
+        </ul>
+        <div class="cta">
+          <a class="btn" href="mailto:jprebosio@proton.me?subject=Programa%20Rehabilitacion%20Psicosocial">Consultar por email</a>
+          <a class="btn primary" href="https://wa.me/5491124605401?text=Quisiera%20inscribirme%20al%20programa%20de%20rehabilitacion%20psicosocial" target="_blank" rel="noopener">Inscribirme por WhatsApp</a>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>
 
-    <div class="call-actions">
-      <button id="call-cancel" class="btn">Cancelar</button>
-      <button id="call-send" class="btn primary">Enviar</button>
-    </div>
-  </div>
-</div>
+<footer>© Likelandi — Programas</footer>
 
-<style>
-  /* FAB */
-  #callfab{
-    position:fixed; right:16px; bottom:150px; z-index:9999; /* encima del WhatsApp y Calma Mode */
-    width:54px; height:54px; border:none; border-radius:999px;
-    background:linear-gradient(135deg,#c77dff,#7cffcb); color:#0f0b10;
-    font-size:20px; cursor:pointer; box-shadow:0 10px 30px #0007;
-  }
-  /* Modal */
-  #call-overlay[hidden]{display:none}
-  #call-overlay{position:fixed; inset:0; background:#0008; display:grid; place-items:center; z-index:9998}
-  .call-card{
-    width:min(92vw,560px); background:#141019; color:#f7f0ff;
-    border:1px solid #ffffff22; border-radius:18px; padding:18px; box-shadow:0 20px 60px #000a
-  }
-  .call-card h3{
-    margin:0 0 6px; background:linear-gradient(90deg,#c77dff,#7cffcb);
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent
-  }
-  .muted{opacity:.85}
-  .row{display:grid; gap:10px; margin-top:10px}
-  label{display:grid; gap:6px; font-size:14px}
-  input, textarea{background:#1a1323; border:1px solid #ffffff22; border-radius:10px; padding:10px; color:#f7f0ff}
-  .chips{display:flex; gap:8px; flex-wrap:wrap}
-  .chip{
-    padding:8px 12px; border-radius:999px; border:1px solid #ffffff22;
-    background:#1a1323; color:#f7f0ff; cursor:pointer
-  }
-  .chip.active{border-color:#7cffcb; box-shadow:0 0 0 2px #7cffcb33 inset}
-  .call-actions{display:flex; gap:10px; justify-content:flex-end; margin-top:12px}
-  .btn{padding:10px 14px; border-radius:10px; border:1px solid #ffffff33; background:#1a1323; color:#f7f0ff; cursor:pointer}
-  .btn.primary{background:linear-gradient(135deg,#c77dff,#7cffcb); color:#0f0b10; border:none; font-weight:700}
-</style>
-
+<!-- Interacción del acordeón -->
 <script>
-  (() => {
-    const fab = document.getElementById('callfab');
-    const overlay = document.getElementById('call-overlay');
-    const cancel = document.getElementById('call-cancel');
-    const send = document.getElementById('call-send');
-    const nameI = document.getElementById('call-name');
-    const phoneI = document.getElementById('call-phone');
-    const freeI = document.getElementById('call-free');
-    const noteI = document.getElementById('call-note');
-    let slot = '';
-
-    fab.addEventListener('click', () => overlay.hidden = false);
-    cancel.addEventListener('click', () => overlay.hidden = true);
-    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') overlay.hidden = true; });
-
-    document.querySelectorAll('.chip').forEach(ch => {
-      ch.addEventListener('click', () => {
-        document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-        ch.classList.add('active');
-        slot = ch.dataset.slot;
-        freeI.value = '';
-      });
+  document.querySelectorAll('.acc-head').forEach(h=>{
+    h.addEventListener('click',()=>{
+      const body = h.parentElement.querySelector('.acc-body');
+      const open = body.classList.toggle('open');
+      h.setAttribute('aria-expanded', open ? 'true' : 'false');
     });
-    freeI.addEventListener('input', () => {
-      slot = freeI.value.trim();
-      if (slot) document.querySelectorAll('.chip').forEach(c => c.classList.remove('active'));
-    });
+  });
+</script>
 
-    send.addEventListener('click', () => {
-      const name = (nameI.value || '').trim();
-      const phone = (phoneI.value || '').trim();
-      const note = (noteI.value || '').trim();
-      const when = slot || 'A convenir';
-      const subject = encodeURIComponent(`Solicitud de llamada — ${name || 'Paciente'}`);
-      const body = encodeURIComponent(
-        `Nombre: ${name}\nTeléfono: ${phone}\nDisponibilidad: ${when}\n\nComentario:\n${note}\n\nEnviado desde likelandi.github.io`
-      );
-      window.location.href = `mailto:jprebosio@proton.me?subject=${subject}&body=${body}`;
-      overlay.hidden = true;
-    });
-  })();
+<!-- 👁️ Contador de visitas (Programas) -->
+<div class="vc-badge" aria-live="polite">👁️ <b id="vc-num">—</b></div>
+<script>
+(async ()=>{
+  const NS='likelandi_github_io', PAGE_KEY='programas';
+  const today=new Date().toISOString().slice(0,10);
+  const k=`vc_hit_${PAGE_KEY}`; const shouldHit=localStorage.getItem(k)!==today;
+  const ep=shouldHit?'hit':'get';
+  try{
+    const r=await fetch(`https://api.countapi.xyz/${ep}/${NS}/${PAGE_KEY}`);
+    const d=await r.json(); const v=(d&&typeof d.value==='number')?d.value:null;
+    document.getElementById('vc-num').textContent=v!==null?v.toLocaleString('es-AR'):'—';
+    if(shouldHit) localStorage.setItem(k,today);
+  }catch(e){document.getElementById('vc-num').textContent='—'}
+})();
 </script>
 </body>
 </html>
