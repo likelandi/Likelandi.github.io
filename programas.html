@@ -4,18 +4,20 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Likelandi — Programa Integral de Rehabilitación Psicosocial</title>
-<meta name="description" content="Programa profesional de rehabilitación psicosocial, arteterapia, musicoterapia y reinserción social.">
+<meta name="description" content="Programa profesional de rehabilitación psicosocial con arteterapia, musicoterapia e integración de Inteligencia Artificial y nuevas tecnologías.">
 <link rel="preload" as="image" href="/Consultorio-hero.jpg">
 <style>
   :root{--bg:#0f0b10;--panel:#141019;--fg:#f7f0ff;--muted:#cfc7da;--violet:#c77dff;--mint:#7cffcb;--border:#ffffff22;--shadow:0 10px 30px #0006}
   *{box-sizing:border-box} html,body{margin:0}
-  body{background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+  body{background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+  a{color:var(--mint);text-decoration:none}
+  a:hover{text-decoration:underline}
 
   /* NAV */
-  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--border)}
+  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);background:#0f0b10cc;border-bottom:1px solid var(--border)}
   .nav .inner{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
   .brand{margin-right:auto;font-weight:800}
-  .nav a{color:var(--fg);text-decoration:none;opacity:.9}.nav a:hover{opacity:1}
+  .nav a{color:var(--fg);opacity:.9}.nav a:hover{opacity:1}
 
   /* HERO */
   .hero{position:relative;display:grid;place-items:center;min-height:54vh;padding:16px}
@@ -32,12 +34,20 @@
 
   /* CONTENIDO */
   .wrap{max-width:1100px;margin:0 auto;padding:0 16px 100px}
-  h2{font-size:clamp(22px,3vw,32px);margin-top:40px;margin-bottom:12px;color:var(--mint)}
-  h3{color:var(--violet);margin-top:24px}
+  h2{font-size:clamp(22px,3vw,32px);margin-top:42px;margin-bottom:14px;color:var(--mint)}
+  h3{color:var(--violet);margin-top:22px}
   p,li{color:var(--fg)}
-  ul{margin:10px 0 20px 20px}
+  ul{margin:10px 0 20px 22px}
+  .note{color:var(--muted);font-size:0.95rem}
+  .pill{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:#1a1323;margin:4px 6px 0 0}
 
-  .cta{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+  /* Tarjeta de info del segundo piso */
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+  .grid{display:grid;gap:18px;grid-template-columns:1fr}
+  @media(min-width:900px){.grid{grid-template-columns:1.2fr .8fr}}
+
+  /* CTA */
+  .cta{display:flex;gap:10px;flex-wrap:wrap;margin:22px 0}
   .btn{padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:#1a1323;color:var(--fg);cursor:pointer;text-decoration:none}
   .btn.primary{background:linear-gradient(135deg,var(--violet),var(--mint));border:none;color:#0f0b10;font-weight:700}
 
@@ -45,10 +55,7 @@
 
   /* Protección visual */
   body.nocopy {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
   }
 </style>
 </head>
@@ -66,93 +73,150 @@
 
 <header class="hero" role="banner">
   <div class="frame">
-    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=70" alt="Programas — Likelandi" decoding="async" loading="eager">
+    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=80" alt="Programa Integral — Likelandi" decoding="async" loading="eager">
   </div>
   <div class="title">
     <h1>Programa Integral de Rehabilitación Psicosocial</h1>
-    <p>Arteterapia · Musicoterapia · Reinserción social · Autonomía</p>
+    <p>Arteterapia · Musicoterapia · IA & Nuevas Tecnologías · Reinserción social</p>
   </div>
 </header>
 
 <main class="wrap">
-
-  <h2>🌿 Introducción</h2>
-  <p>El <strong>Programa Integral de Rehabilitación Psicosocial</strong> es un dispositivo terapéutico diseñado para favorecer la autonomía, la reinserción comunitaria, la funcionalidad y la calidad de vida de personas con trastornos mentales graves o persistentes. Su enfoque interdisciplinario combina psicoterapia, acompañamiento social, <strong>arteterapia</strong>, <strong>musicoterapia</strong> y actividades expresivas en un entorno humanizado, creativo y no hospitalario.</p>
-  <p>El programa se lleva a cabo en el <strong>segundo piso del centro Likelandi</strong>, un espacio especialmente diseñado para promover la creatividad, la participación activa, la regulación emocional y el desarrollo de habilidades para la vida.</p>
+  <div class="grid">
+    <section>
+      <h2>🌿 Introducción</h2>
+      <p>El <strong>Programa Integral de Rehabilitación Psicosocial</strong> de Likelandi promueve autonomía, integración comunitaria, funcionalidad y calidad de vida en personas con trastornos mentales graves o persistentes. Integra psicoterapia, acompañamiento social, <strong>arteterapia</strong>, <strong>musicoterapia</strong> y, como innovación, un módulo transversal de <strong>Inteligencia Artificial y nuevas tecnologías</strong> para entrenamiento cognitivo y preparación laboral.</p>
+    </section>
+    <aside class="card">
+      <h3>🏠 Segundo piso — Centro de Rehabilitación</h3>
+      <p>Espacio terapéutico no hospitalario con <strong>salas de talleres creativos</strong>, <strong>aula tecnológica</strong> equipada con <strong>computadoras suficientes</strong>, área de música y sala de grupos. Ambientes cálidos, luminosa, con normativa de seguridad y accesibilidad.</p>
+      <div class="note">Capacidad operativa: 12–16 participantes por franja horaria · Supervisión clínica y coordinación interdisciplinaria.</div>
+    </aside>
+  </div>
 
   <h2>🏗️ Estructura general</h2>
-  <p>El programa se organiza en <strong>7 módulos progresivos</strong>, adaptados a las necesidades individuales de cada participante. Cada módulo puede durar entre <strong>8 y 12 semanas</strong> y combinarse en un proceso continuo de hasta 2 años.</p>
+  <p>El programa se organiza en <strong>módulos progresivos</strong>. Duración sugerida por módulo: <strong>8–12 semanas</strong>. Proceso continuo recomendado: <strong>6–24 meses</strong>, con evaluación trimestral.</p>
+  <div class="pill">Derivación temprana</div><div class="pill">Plan individual</div><div class="pill">Enfoque comunitario</div><div class="pill">Objetivos medibles</div>
 
   <h3>🧩 Módulo 1 — Adaptación y diagnóstico</h3>
   <ul>
-    <li>Entrevistas clínicas y evaluación funcional integral.</li>
-    <li>Elaboración del perfil psicosocial y plan terapéutico personalizado.</li>
-    <li>Objetivos acordados con el paciente y su entorno.</li>
+    <li>Entrevistas clínicas, perfil psicosocial y riesgos/protecciones.</li>
+    <li>Instrumentos: GAF, WHO-DAS/HoNOS, objetivos SMART compartidos.</li>
+    <li>Plan terapéutico individual (PTI) y consentimiento informado.</li>
   </ul>
 
-  <h3>🎨 Módulo 2 — Arteterapia y expresión creativa</h3>
+  <h3>🎨 Módulo 2 — Arteterapia</h3>
   <ul>
-    <li>Pintura, collage, escritura creativa y creación simbólica.</li>
-    <li>Procesamiento emocional mediante el arte.</li>
-    <li>Exposiciones terapéuticas mensuales que fortalecen la autoestima.</li>
+    <li>Pintura, collage, escultura blanda, escritura creativa.</li>
+    <li>Procesamiento emocional, identidad narrativa, sentido de logro.</li>
+    <li>Exposición terapéutica mensual (con curaduría clínica).</li>
   </ul>
 
-  <h3>🎶 Módulo 3 — Musicoterapia y estimulación sensorial</h3>
+  <h3>🎶 Módulo 3 — Musicoterapia</h3>
   <ul>
-    <li>Improvisación musical, percusión corporal y canto grupal.</li>
-    <li>Creación de “bandas sonoras personales”.</li>
-    <li>Técnicas de relajación y regulación emocional con música.</li>
+    <li>Improvisación, percusión corporal, canto grupal.</li>
+    <li>“Mi historia en canciones” (playlist narrativa personal).</li>
+    <li>Relajación/respiración con paisajes sonoros y ritmos guiados.</li>
   </ul>
 
   <h3>🗣️ Módulo 4 — Habilidades sociales</h3>
   <ul>
-    <li>Entrenamiento en comunicación, empatía y asertividad.</li>
-    <li>Simulación de situaciones cotidianas y laborales.</li>
-    <li>Interacciones supervisadas con voluntarios externos.</li>
+    <li>Comunicación, escucha, asertividad, resolución de conflictos.</li>
+    <li>Role playing de entrevistas laborales y situaciones cotidianas.</li>
+    <li>Interacciones supervisadas con comunidad/voluntariado.</li>
   </ul>
 
   <h3>🏠 Módulo 5 — Autonomía y vida diaria</h3>
   <ul>
-    <li>Rutinas de higiene, alimentación, movilidad y planificación semanal.</li>
-    <li>Entrenamiento en manejo del tiempo y recursos.</li>
-    <li>“Desafíos de independencia” en la vida real.</li>
+    <li>Rutinas de higiene, alimentación, descanso y movilidad.</li>
+    <li>Gestión del tiempo y del dinero, organización doméstica.</li>
+    <li>Desafíos de independencia en entorno real (con acompañante).</li>
   </ul>
 
   <h3>🛠️ Módulo 6 — Proyecto ocupacional</h3>
   <ul>
-    <li>Orientación vocacional y talleres de empleabilidad.</li>
-    <li>Elaboración de CV y simulación de entrevistas.</li>
-    <li>Pasantías protegidas y microemprendimientos creativos.</li>
+    <li>Orientación vocacional, intereses y habilidades transferibles.</li>
+    <li>CV, simulación de entrevistas, prácticas protegidas.</li>
+    <li>Microemprendimientos creativos (arte, ferias, tienda online).</li>
   </ul>
 
-  <h3>💞 Módulo 7 — Redes comunitarias y vínculos</h3>
+  <h3>💞 Módulo 7 — Redes comunitarias y familia</h3>
   <ul>
-    <li>Participación en actividades comunitarias y voluntariado.</li>
-    <li>Fortalecimiento de vínculos familiares y sociales.</li>
-    <li>Encuentros abiertos “Comunidad Likelandi”.</li>
+    <li>Participación en eventos culturales y voluntariados.</li>
+    <li>Encuentros “Comunidad Likelandi” con familias y vecinos.</li>
+    <li>Psicoeducación familiar y protocolos de apoyo en crisis.</li>
   </ul>
+
+  <!-- ===== NUEVO MÓDULO IA Y TECNOLOGÍAS ===== -->
+  <h3>🤖 Módulo 8 — IA & Nuevas Tecnologías (aula tecnológica con computadoras suficientes)</h3>
+  <p><strong>Propósito:</strong> alfabetización digital, entrenamiento cognitivo y preparación sociolaboral mediante herramientas tecnológicas y de <strong>IA generativa</strong> (p. ej., ChatGPT), con enfoque terapéutico y de autonomía.</p>
+
+  <h4>Objetivos</h4>
+  <ul>
+    <li>Mejorar funciones ejecutivas: planificación, memoria de trabajo, atención sostenida.</li>
+    <li>Fortalecer lenguaje escrito/oral y habilidades de organización personal.</li>
+    <li>Desarrollar competencias digitales básicas-intermedias para reinserción laboral.</li>
+    <li>Promover uso <strong>ético, seguro y responsable</strong> de IA y tecnología.</li>
+  </ul>
+
+  <h4>Estructura por niveles</h4>
+  <ul>
+    <li><strong>Introductorio:</strong> uso de navegador, correo, almacenamiento en la nube, seguridad básica; pedir a ChatGPT resúmenes simples, listas de pasos, recordatorios y guiones de práctica social.</li>
+    <li><strong>Intermedio:</strong> “prompting” guiado (plantillas), agenda semanal con IA, preparación de entrevistas, redacción de mails/CV, búsqueda de recursos comunitarios; apps útiles (calendario, notas, accesibilidad).</li>
+    <li><strong>Avanzado:</strong> mini-proyectos: folleto/afiche para feria, wiki de hábitos saludables, guías de autocuidado, tablero Kanban digital; automatizaciones sencillas (formularios → plan de tareas).</li>
+  </ul>
+
+  <h4>Actividades tipo</h4>
+  <ul>
+    <li><em>Cognitivas:</em> ejercicios de atención, memoria y planificación con apoyo de IA (recordatorios, checklists, pasos).</li>
+    <li><em>Funcionales:</em> organizar una semana real (turnos, medicación, transporte) con soporte de chat y calendario.</li>
+    <li><em>Laborales:</em> simulación de entrevista (pregunta-respuesta con IA), mejora de CV y carta de presentación.</li>
+    <li><em>Creativas:</em> bitácora digital del proceso (texto/imagen/audio), diseño de afiches para la exposición terapéutica.</li>
+  </ul>
+
+  <h4>Seguridad y bienestar digital</h4>
+  <ul>
+    <li>Privacidad y datos personales: qué compartir / qué no; higiene de contraseñas.</li>
+    <li>Gestión de tiempo de pantalla y pausas activas (técnica 20-20-20, respiración guiada).</li>
+    <li>Uso responsable de IA: verificación de información, sesgos, límites y consulta clínica cuando corresponda.</li>
+  </ul>
+
+  <h4>Metodología</h4>
+  <ul>
+    <li>Grupos de 6–8 personas con facilitación clínica y tutor tecnológico.</li>
+    <li>Estaciones de trabajo (computadoras suficientes + auriculares); materiales accesibles y paso a paso impreso.</li>
+    <li>Aprendizaje por proyectos breves, con tareas transferibles a la vida diaria.</li>
+  </ul>
+
+  <h4>Indicadores de progreso</h4>
+  <ul>
+    <li>Adherencia a rutina digital (agenda/recordatorios, 2–3 semanas consecutivas).</li>
+    <li>Producto funcional (CV, afiche, lista de hábitos, cronograma de medicación).</li>
+    <li>Mejora percibida en autonomía digital y confianza (escala 1–10).</li>
+  </ul>
+
+  <!-- ===== FIN MÓDULO IA ===== -->
 
   <h2>📊 Evaluación y seguimiento</h2>
-  <p>La evolución se monitorea con instrumentos estandarizados (GAF, WHO-DAS, HoNOS), objetivos personalizados y evaluaciones subjetivas de bienestar. Se elaboran informes trimestrales y reuniones periódicas con familias y equipos tratantes.</p>
+  <p>Monitoreo continuo con GAF, WHO-DAS/HoNOS, objetivos SMART, indicadores de participación e informes trimestrales. Reuniones periódicas con familia y equipos tratantes externos.</p>
 
   <h2>📈 Resultados esperados</h2>
   <ul>
-    <li>Mayor autonomía y funcionalidad en la vida diaria.</li>
-    <li>Incremento de la calidad de vida y la participación comunitaria.</li>
-    <li>Reducción de recaídas, hospitalizaciones y crisis.</li>
-    <li>Inserción laboral o en actividades significativas.</li>
+    <li>Mayor autonomía y funcionalidad en actividades diarias.</li>
+    <li>Mejora de calidad de vida y participación social.</li>
+    <li>Reducción de recaídas, internaciones y crisis.</li>
+    <li>Inserción laboral o participación en actividades significativas.</li>
   </ul>
 
   <h2>📍 Participación</h2>
-  <p>Duración mínima recomendada: <strong>6 meses</strong> — ideal: <strong>1 a 2 años</strong>.  
-  Frecuencia: <strong>2 a 4 encuentros semanales</strong>.  
-  Modalidad: presencial en el segundo piso + actividades virtuales complementarias.</p>
+  <p>Duración mínima recomendada: <strong>6 meses</strong> (ideal 12–24 meses). Frecuencia: <strong>2 a 4 encuentros semanales</strong>. Modalidad: presencial en el <strong>segundo piso</strong> + actividades complementarias virtuales.</p>
 
   <div class="cta">
     <a class="btn" href="mailto:jprebosio@proton.me?subject=Consulta%20Programa%20Integral">Consultar por email</a>
-    <a class="btn primary" href="https://wa.me/5491124605401?text=Quisiera%20participar%20en%20el%20programa%20de%20rehabilitacion" target="_blank" rel="noopener">Inscribirme por WhatsApp</a>
+    <a class="btn primary" href="https://wa.me/5491124605401?text=Quisiera%20participar%20en%20el%20Programa%20Integral%20de%20Rehabilitaci%C3%B3n" target="_blank" rel="noopener">Inscribirme por WhatsApp</a>
   </div>
 
+  <p class="note">*Este plan puede adaptarse a derivaciones institucionales, obras sociales y convenios con organismos públicos.</p>
 </main>
 
 <footer>
@@ -161,11 +225,11 @@
 </footer>
 
 <script>
-  // Bloqueo de teclas rápidas de copiar (Ctrl+C, Ctrl+U, Ctrl+S, etc.)
+  // Bloqueo de atajos comunes de copia/inspección/guardado (Ctrl/Cmd + C, U, S, X, A, P)
   document.addEventListener('keydown', function(e) {
     if ((e.ctrlKey || e.metaKey) && ['c','u','s','x','a','p'].includes(e.key.toLowerCase())) {
       e.preventDefault();
-      alert("📜 Este contenido está protegido por derechos de autor.");
+      alert("📜 Contenido protegido por derechos de autor.");
     }
   });
 </script>
