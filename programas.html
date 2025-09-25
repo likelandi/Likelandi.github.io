@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Likelandi — Programas</title>
-<meta name="description" content="Programas de reinserción social: objetivos, metodología, duración y cómo participar.">
+<title>Likelandi — Programa Integral de Rehabilitación Psicosocial</title>
+<meta name="description" content="Programa profesional de rehabilitación psicosocial, arteterapia, musicoterapia y reinserción social.">
 <link rel="preload" as="image" href="/Consultorio-hero.jpg">
 <style>
   :root{--bg:#0f0b10;--panel:#141019;--fg:#f7f0ff;--muted:#cfc7da;--violet:#c77dff;--mint:#7cffcb;--border:#ffffff22;--shadow:0 10px 30px #0006}
@@ -32,40 +32,27 @@
 
   /* CONTENIDO */
   .wrap{max-width:1100px;margin:0 auto;padding:0 16px 100px}
-  .top-cta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:18px 0 0}
+  h2{font-size:clamp(22px,3vw,32px);margin-top:40px;margin-bottom:12px;color:var(--mint)}
+  h3{color:var(--violet);margin-top:24px}
+  p,li{color:var(--fg)}
+  ul{margin:10px 0 20px 20px}
+
+  .cta{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
   .btn{padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:#1a1323;color:var(--fg);cursor:pointer;text-decoration:none}
   .btn.primary{background:linear-gradient(135deg,var(--violet),var(--mint));border:none;color:#0f0b10;font-weight:700}
 
-  /* ACCORDION (un solo programa por ahora) */
-  .acc{display:grid;gap:14px;margin-top:18px}
-  .acc-item{background:var(--panel);border:1px solid var(--border);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
-  .acc-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:16px 18px;cursor:pointer}
-  .acc-head h3{margin:0;font-size:clamp(18px,2.2vw,22px)}
-  .acc-head small{color:var(--muted)}
-  .acc-body{display:none;padding:0 18px 18px;border-top:1px solid #ffffff17}
-  .acc-body.open{display:block}
-  .kv{display:grid;gap:6px;margin:12px 0}
-  .kv div{display:flex;gap:8px}
-  ul{margin:6px 0 0;padding-left:18px}
-  .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  footer{margin:40px 0 0;padding:18px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted);font-size:14px}
 
-  footer{margin:40px 0 0;padding:18px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
-
-  /* Desktop polish */
-  @media (min-width:1024px){
-    .wrap{max-width:1200px}
-    .hero .frame{height:44vh;border-radius:20px;box-shadow:0 30px 80px #0006, 0 1px 0 #ffffff10 inset;border:1px solid #ffffff26;background:linear-gradient(180deg,#0a0a0f 0%, #0f0b10 100%)}
-    .acc-item{border-radius:20px}
+  /* Protección visual */
+  body.nocopy {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
   }
-  @media (min-width:1440px){.wrap{max-width:1280px}}
-  @media (hover:hover) and (pointer:fine){.acc-item:hover{transform:translateY(-1px);transition:transform .15s, box-shadow .15s}}
-
-  /* Contador (opcional; dejar visible como en el resto) */
-  .vc-badge{position:fixed;left:10px;bottom:10px;z-index:99999;display:inline-flex;align-items:center;gap:6px;padding:8px 10px;border-radius:12px;background:#141019;color:#f7f0ff;font:13px/1 system-ui;border:1px solid #ffffff22;box-shadow:0 6px 20px #0006;opacity:.92}
-  .vc-badge b{font-weight:700}
 </style>
 </head>
-<body>
+<body class="nocopy" oncontextmenu="return false" oncopy="return false" oncut="return false" onpaste="return false">
 
 <nav class="nav">
   <div class="inner">
@@ -79,85 +66,109 @@
 
 <header class="hero" role="banner">
   <div class="frame">
-    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=60" alt="Programas — Likelandi" decoding="async" loading="eager">
+    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=70" alt="Programas — Likelandi" decoding="async" loading="eager">
   </div>
   <div class="title">
-    <h1>Programas</h1>
-    <p>Reinserción social · hábitos · resiliencia · acompañamiento</p>
+    <h1>Programa Integral de Rehabilitación Psicosocial</h1>
+    <p>Arteterapia · Musicoterapia · Reinserción social · Autonomía</p>
   </div>
 </header>
 
 <main class="wrap">
-  <!-- CTA superior simple y elegante -->
-  <div class="top-cta">
-    <a class="btn" href="mailto:jprebosio@proton.me?subject=Consulta%20Programas">Consultar por email</a>
-    <a class="btn primary" href="https://wa.me/5491124605401?text=Hola%2C%20quisiera%20inscribirme%20a%20un%20programa" target="_blank" rel="noopener">Inscribirme por WhatsApp</a>
+
+  <h2>🌿 Introducción</h2>
+  <p>El <strong>Programa Integral de Rehabilitación Psicosocial</strong> es un dispositivo terapéutico diseñado para favorecer la autonomía, la reinserción comunitaria, la funcionalidad y la calidad de vida de personas con trastornos mentales graves o persistentes. Su enfoque interdisciplinario combina psicoterapia, acompañamiento social, <strong>arteterapia</strong>, <strong>musicoterapia</strong> y actividades expresivas en un entorno humanizado, creativo y no hospitalario.</p>
+  <p>El programa se lleva a cabo en el <strong>segundo piso del centro Likelandi</strong>, un espacio especialmente diseñado para promover la creatividad, la participación activa, la regulación emocional y el desarrollo de habilidades para la vida.</p>
+
+  <h2>🏗️ Estructura general</h2>
+  <p>El programa se organiza en <strong>7 módulos progresivos</strong>, adaptados a las necesidades individuales de cada participante. Cada módulo puede durar entre <strong>8 y 12 semanas</strong> y combinarse en un proceso continuo de hasta 2 años.</p>
+
+  <h3>🧩 Módulo 1 — Adaptación y diagnóstico</h3>
+  <ul>
+    <li>Entrevistas clínicas y evaluación funcional integral.</li>
+    <li>Elaboración del perfil psicosocial y plan terapéutico personalizado.</li>
+    <li>Objetivos acordados con el paciente y su entorno.</li>
+  </ul>
+
+  <h3>🎨 Módulo 2 — Arteterapia y expresión creativa</h3>
+  <ul>
+    <li>Pintura, collage, escritura creativa y creación simbólica.</li>
+    <li>Procesamiento emocional mediante el arte.</li>
+    <li>Exposiciones terapéuticas mensuales que fortalecen la autoestima.</li>
+  </ul>
+
+  <h3>🎶 Módulo 3 — Musicoterapia y estimulación sensorial</h3>
+  <ul>
+    <li>Improvisación musical, percusión corporal y canto grupal.</li>
+    <li>Creación de “bandas sonoras personales”.</li>
+    <li>Técnicas de relajación y regulación emocional con música.</li>
+  </ul>
+
+  <h3>🗣️ Módulo 4 — Habilidades sociales</h3>
+  <ul>
+    <li>Entrenamiento en comunicación, empatía y asertividad.</li>
+    <li>Simulación de situaciones cotidianas y laborales.</li>
+    <li>Interacciones supervisadas con voluntarios externos.</li>
+  </ul>
+
+  <h3>🏠 Módulo 5 — Autonomía y vida diaria</h3>
+  <ul>
+    <li>Rutinas de higiene, alimentación, movilidad y planificación semanal.</li>
+    <li>Entrenamiento en manejo del tiempo y recursos.</li>
+    <li>“Desafíos de independencia” en la vida real.</li>
+  </ul>
+
+  <h3>🛠️ Módulo 6 — Proyecto ocupacional</h3>
+  <ul>
+    <li>Orientación vocacional y talleres de empleabilidad.</li>
+    <li>Elaboración de CV y simulación de entrevistas.</li>
+    <li>Pasantías protegidas y microemprendimientos creativos.</li>
+  </ul>
+
+  <h3>💞 Módulo 7 — Redes comunitarias y vínculos</h3>
+  <ul>
+    <li>Participación en actividades comunitarias y voluntariado.</li>
+    <li>Fortalecimiento de vínculos familiares y sociales.</li>
+    <li>Encuentros abiertos “Comunidad Likelandi”.</li>
+  </ul>
+
+  <h2>📊 Evaluación y seguimiento</h2>
+  <p>La evolución se monitorea con instrumentos estandarizados (GAF, WHO-DAS, HoNOS), objetivos personalizados y evaluaciones subjetivas de bienestar. Se elaboran informes trimestrales y reuniones periódicas con familias y equipos tratantes.</p>
+
+  <h2>📈 Resultados esperados</h2>
+  <ul>
+    <li>Mayor autonomía y funcionalidad en la vida diaria.</li>
+    <li>Incremento de la calidad de vida y la participación comunitaria.</li>
+    <li>Reducción de recaídas, hospitalizaciones y crisis.</li>
+    <li>Inserción laboral o en actividades significativas.</li>
+  </ul>
+
+  <h2>📍 Participación</h2>
+  <p>Duración mínima recomendada: <strong>6 meses</strong> — ideal: <strong>1 a 2 años</strong>.  
+  Frecuencia: <strong>2 a 4 encuentros semanales</strong>.  
+  Modalidad: presencial en el segundo piso + actividades virtuales complementarias.</p>
+
+  <div class="cta">
+    <a class="btn" href="mailto:jprebosio@proton.me?subject=Consulta%20Programa%20Integral">Consultar por email</a>
+    <a class="btn primary" href="https://wa.me/5491124605401?text=Quisiera%20participar%20en%20el%20programa%20de%20rehabilitacion" target="_blank" rel="noopener">Inscribirme por WhatsApp</a>
   </div>
 
-  <section class="acc" id="progList">
-    <!-- ——— PROGRAMA 1: Rehabilitación Psicosocial Integral ——— -->
-    <article class="acc-item">
-      <div class="acc-head" role="button" aria-expanded="false">
-        <h3>Rehabilitación Psicosocial Integral</h3>
-        <small>Duración: largo plazo · Modalidad: grupal e individual</small>
-      </div>
-      <div class="acc-body">
-        <div class="kv">
-          <div><strong>Objetivo:</strong> Mejorar la calidad de vida y la autonomía de personas con trastornos mentales graves.</div>
-          <div><strong>Población:</strong> Adultos con esquizofrenia u otros trastornos psicóticos crónicos, y sus familias.</div>
-          <div><strong>Duración:</strong> Intervenciones continuas de mediano y largo plazo (mínimo 5 años).</div>
-          <div><strong>Metodología:</strong> Evaluación periódica, trabajo grupal e individual, acompañamiento familiar.</div>
-        </div>
-        <strong>Actividades clave:</strong>
-        <ul>
-          <li>Entrenamiento en habilidades sociales y autocuidado.</li>
-          <li>Planificación de rutinas y actividades significativas.</li>
-          <li>Apoyo para integración laboral y participación social.</li>
-          <li>Psicoeducación y soporte familiar.</li>
-        </ul>
-        <strong>Resultados esperados:</strong>
-        <ul>
-          <li>Mejor funcionamiento psicosocial y autonomía.</li>
-          <li>Mayor participación social y mejor calidad de vida.</li>
-          <li>Reducción de discapacidad y recaídas.</li>
-        </ul>
-        <div class="cta">
-          <a class="btn" href="mailto:jprebosio@proton.me?subject=Programa%20Rehabilitacion%20Psicosocial">Consultar por email</a>
-          <a class="btn primary" href="https://wa.me/5491124605401?text=Quisiera%20inscribirme%20al%20programa%20de%20rehabilitacion%20psicosocial" target="_blank" rel="noopener">Inscribirme por WhatsApp</a>
-        </div>
-      </div>
-    </article>
-  </section>
 </main>
 
-<footer>© Likelandi — Programas</footer>
+<footer>
+  © 2025 — Contenido protegido. Creado por <strong>Juan Pablo Fernández Rebosio</strong>.  
+  Queda prohibida su reproducción total o parcial sin autorización escrita.
+</footer>
 
-<!-- Interacción del acordeón -->
 <script>
-  document.querySelectorAll('.acc-head').forEach(h=>{
-    h.addEventListener('click',()=>{
-      const body = h.parentElement.querySelector('.acc-body');
-      const open = body.classList.toggle('open');
-      h.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
+  // Bloqueo de teclas rápidas de copiar (Ctrl+C, Ctrl+U, Ctrl+S, etc.)
+  document.addEventListener('keydown', function(e) {
+    if ((e.ctrlKey || e.metaKey) && ['c','u','s','x','a','p'].includes(e.key.toLowerCase())) {
+      e.preventDefault();
+      alert("📜 Este contenido está protegido por derechos de autor.");
+    }
   });
 </script>
 
-<!-- 👁️ Contador de visitas (Programas) -->
-<div class="vc-badge" aria-live="polite">👁️ <b id="vc-num">—</b></div>
-<script>
-(async ()=>{
-  const NS='likelandi_github_io', PAGE_KEY='programas';
-  const today=new Date().toISOString().slice(0,10);
-  const k=`vc_hit_${PAGE_KEY}`; const shouldHit=localStorage.getItem(k)!==today;
-  const ep=shouldHit?'hit':'get';
-  try{
-    const r=await fetch(`https://api.countapi.xyz/${ep}/${NS}/${PAGE_KEY}`);
-    const d=await r.json(); const v=(d&&typeof d.value==='number')?d.value:null;
-    document.getElementById('vc-num').textContent=v!==null?v.toLocaleString('es-AR'):'—';
-    if(shouldHit) localStorage.setItem(k,today);
-  }catch(e){document.getElementById('vc-num').textContent='—'}
-})();
-</script>
 </body>
 </html>
