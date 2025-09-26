@@ -3,43 +3,30 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Likelandi — Programa Integral</title>
-<meta name="description" content="Programa integral de rehabilitación psicosocial con IA, arteterapia y musicoterapia.">
-<link rel="preload" as="image" href="/Consultorio-hero.jpg">
+<title>Likelandi — Programa</title>
+<meta name="description" content="Programa integral con IA, arte y música.">
 <style>
-  :root{--bg:#0f0b10;--fg:#f7f0ff;--muted:#cfc7da;--accent:#7cffcb;--accent2:#c77dff;--line:#ffffff1f;--maxw:780px}
+  :root{--bg:#0f0b10;--fg:#f7f0ff;--muted:#cfc7da;--line:#ffffff22;--accent:#7cffcb}
   *{box-sizing:border-box} html,body{margin:0}
-  body{background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+  body{background:var(--bg);color:var(--fg);font:16px/1.8 system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
   a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
-  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
+  .nav{position:sticky;top:0;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
+  .nav .inner{max-width:760px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
   .brand{margin-right:auto;font-weight:800}
-  .nav a{color:var(--fg);opacity:.9}.nav a:hover{opacity:1}.nav .hl{color:var(--accent);font-weight:700}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 16px 80px}
-  .hero{padding:20px 16px 10px}
-  .frame{display:grid;place-items:center;height:36vh;min-height:240px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#000,#0f0b10)}
-  .frame img{max-width:100%;max-height:100%;object-fit:contain}
-  h1{margin:.8rem 0 0;font-size:clamp(26px,4.5vw,40px);line-height:1.2;background:linear-gradient(90deg,var(--accent2),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center}
-  .sub{margin:.4rem 0 0;color:var(--muted);font-size:15px;text-align:center}
-  .lead{max-width:var(--maxw);margin:18px auto 0;color:var(--muted)}
-  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
-  .chip{padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-size:13px}
-  .ia{margin:26px 0;padding:18px;border-left:4px solid var(--accent);background:linear-gradient(180deg,#15121b 0%,#120e18 100%);border-radius:10px}
-  .ia h2{margin:0 0 6px;font-size:clamp(20px,3vw,28px);color:var(--accent)}
-  .grid3{display:grid;gap:10px;grid-template-columns:1fr}
-  .box{border:1px solid var(--line);border-radius:10px;padding:12px}
-  .box h3{margin:0 0 6px;font-size:16px;color:var(--accent)}
-  ul{margin:0;padding-left:18px}
+  .wrap{max-width:760px;margin:0 auto;padding:30px 16px 80px}
+  h1{margin:0 0 8px;font-size:clamp(26px,5vw,36px)}
+  p{margin:0 0 10px;color:var(--muted)}
+  .ia{margin:18px 0;padding:14px;border-left:4px solid var(--accent);background:#15121b;border-radius:10px}
+  .grid3{display:grid;gap:10px} .box{border:1px solid var(--line);border-radius:10px;padding:12px;background:#17131f}
+  .box h3{margin:0 0 4px;font-size:16px;color:var(--accent)}
   details{border-top:1px solid var(--line);padding:12px 0}
-  summary{cursor:pointer;list-style:none} summary::-webkit-details-marker{display:none}
-  summary span{font-weight:600}
-  details[open]{background:#0f0b1022;border-radius:8px}
+  summary{cursor:pointer;list-style:none;font-weight:600}
+  summary::-webkit-details-marker{display:none}
   .content{padding:6px 2px 2px;color:var(--muted)}
-  .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-  .btn{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:10px;color:var(--fg);background:#181320;text-decoration:none}
-  .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#0f0b10;border:none;font-weight:700}
-  .section-min{margin-top:28px;padding-top:10px;border-top:1px dashed var(--line)}
-  footer{margin:50px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
+  .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  .btn{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:10px;color:var(--fg);background:#181320}
+  .btn.primary{background:linear-gradient(135deg,#c77dff,#7cffcb);border:none;color:#0f0b10;font-weight:700}
+  footer{margin:40px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
   @media(min-width:860px){.grid3{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
@@ -48,91 +35,38 @@
   <div class="inner">
     <div class="brand">Likelandi</div>
     <a href="/">Inicio</a>
-    <a href="/consultorio-terapias.html">Consultorio</a>
-    <a class="hl" href="/programas.html">Programa Integral</a>
-    <a href="/landias-musik.html">Landia’s Musik</a>
+    <a href="/programas.html">Programa</a>
+    <a href="/agenda.html">Agenda & Servicios</a>
   </div>
 </nav>
 
-<header class="wrap hero" role="banner">
-  <div class="frame">
-    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=210" alt="Programa Integral — Likelandi" decoding="async" loading="eager">
-  </div>
-  <h1>Programa Integral de Rehabilitación Psicosocial</h1>
-  <p class="sub">Segundo piso: talleres creativos + aula tecnológica con estaciones de trabajo informatizadas y conectadas en red.</p>
-</header>
-
 <main class="wrap">
-  <section class="lead">
-    Plan clínico interdisciplinario orientado a autonomía y reinserción social. Ejes: psicoterapia, arte, música e <strong>IA & nuevas tecnologías</strong>.
-    <div class="chips" aria-label="Secciones">
-      <a class="chip" href="#ia">🤖 IA</a>
-      <a class="chip" href="#arte">🎨 Arte</a>
-      <a class="chip" href="#music">🎵 Música</a>
-      <a class="chip" href="#hhss">🗣️ Habilidades</a>
-      <a class="chip" href="#auto">🏠 Autonomía</a>
-      <a class="chip" href="#lab">💼 Laboral</a>
-      <a class="chip" href="#red">💞 Redes</a>
-      <a class="chip" href="#diag">🧩 Diagnóstico</a>
-    </div>
-  </section>
+  <h1>Programa Integral</h1>
+  <p>Interdisciplinario, claro y práctico. Menos densidad visual, más valor terapéutico.</p>
 
-  <!-- IA (destacado minimal) -->
-  <section id="ia" class="ia" aria-labelledby="ia-title">
-    <h2 id="ia-title">Innovación 2025 — IA & Nuevas Tecnologías</h2>
-    <p class="muted">Aula tecnológica (segundo piso), equipada con estaciones de trabajo informatizadas y conectadas en red. Uso de <strong>ChatGPT</strong> y herramientas digitales como soporte cognitivo y formativo.</p>
-    <div class="grid3" style="margin-top:10px">
-      <div class="box">
-        <h3>🧠 Cognitivo</h3>
-        <ul>
-          <li>Atención, memoria y planificación (guías paso a paso).</li>
-          <li>Agenda/recordatorios para hábitos y medicación.</li>
-          <li>Secuencias de tareas asistidas por IA.</li>
-        </ul>
-      </div>
-      <div class="box">
-        <h3>💼 Laboral</h3>
-        <ul>
-          <li>CV y mails asistidos; entrevistas simuladas.</li>
-          <li>Mini-proyectos digitales (afiches, guías, wikis).</li>
-          <li>Herramientas colaborativas y recursos locales.</li>
-        </ul>
-      </div>
-      <div class="box">
-        <h3>🔐 Seguridad</h3>
-        <ul>
-          <li>Privacidad y verificación de información.</li>
-          <li>Bienestar digital (tiempo de pantalla).</li>
-          <li>Buenas prácticas en cuentas y dispositivos.</li>
-        </ul>
-      </div>
+  <section class="ia" id="ia">
+    <h2>🤖 IA & Nuevas Tecnologías</h2>
+    <p>Aula del segundo piso, con estaciones de trabajo informatizadas y conectadas en red. Uso de ChatGPT como soporte cognitivo y formativo.</p>
+    <div class="grid3" style="margin-top:8px">
+      <div class="box"><h3>🧠 Cognitivo</h3><p>Atención, memoria, planificación. Agendas y secuencias paso a paso.</p></div>
+      <div class="box"><h3>💼 Laboral</h3><p>CV, mails, entrevistas simuladas. Mini-proyectos digitales.</p></div>
+      <div class="box"><h3>🔐 Seguridad</h3><p>Privacidad, verificación de info, bienestar digital.</p></div>
     </div>
     <div class="cta">
-      <a class="btn primary" href="https://wa.me/5491124605401?text=Quiero%20sumarme%20al%20M%C3%B3dulo%20de%20IA" target="_blank" rel="noopener">Inscribirme</a>
-      <a class="btn" href="mailto:jprebosio@proton.me?subject=Consulta%20M%C3%B3dulo%20IA">Consultar</a>
+      <a class="btn primary" href="https://wa.me/5491124605401" target="_blank">Inscribirme</a>
+      <a class="btn" href="mailto:jprebosio@proton.me?subject=Consulta%20Programa">Consultar</a>
     </div>
   </section>
 
-  <details id="arte"><summary><span>🎨 Arteterapia</span></summary><div class="content"><ul><li>Pintura, collage y escritura creativa.</li><li>Obras colectivas y muestra terapéutica.</li><li>Autoestima, regulación, sentido de logro.</li></ul></div></details>
-  <details id="music"><summary><span>🎵 Musicoterapia</span></summary><div class="content"><ul><li>Improvisación, percusión corporal, canto.</li><li>Playlist narrativa: “Mi historia en canciones”.</li><li>Paisajes sonoros para relajación.</li></ul></div></details>
-  <details id="hhss"><summary><span>🗣️ Habilidades Sociales</span></summary><div class="content"><ul><li>Role-playing y entrevistas.</li><li>Escucha activa, límites, resolución de conflictos.</li><li>Prácticas supervisadas en comunidad.</li></ul></div></details>
-  <details id="auto"><summary><span>🏠 Autonomía Personal</span></summary><div class="content"><ul><li>Higiene, alimentación, movilidad, finanzas simples.</li><li>Planificación semanal con checklists.</li><li>Desafíos de independencia en entorno real.</li></ul></div></details>
-  <details id="lab"><summary><span>💼 Reentrenamiento Laboral</span></summary><div class="content"><ul><li>Orientación vocacional.</li><li>CV, simulacros y prácticas protegidas.</li><li>Microemprendimientos creativos.</li></ul></div></details>
-  <details id="red"><summary><span>💞 Redes y Familia</span></summary><div class="content"><ul><li>Eventos culturales, voluntariado, Comunidad Likelandi.</li><li>Psicoeducación a familias; protocolos de apoyo.</li><li>Coordinación con equipos tratantes.</li></ul></div></details>
-  <details id="diag"><summary><span>🧩 Adaptación & Diagnóstico</span></summary><div class="content"><ul><li>Perfil psicosocial · GAF · WHO-DAS/HoNOS.</li><li>Objetivos SMART y plan individual.</li><li>Derivación temprana y consentimiento.</li></ul></div></details>
-
-  <!-- Agenda & Servicios (minimal + botón a página secundaria) -->
-  <section class="section-min" aria-labelledby="agenda-title">
-    <h2 id="agenda-title" style="font-size:18px;margin:0 0 6px;color:var(--accent)">Agenda & Servicios</h2>
-    <p class="muted" style="margin:0 0 8px">Para mantener esta página liviana, la agenda completa y el detalle de servicios están en una sección aparte.</p>
-    <div class="cta">
-      <a class="btn primary" href="/agenda.html">📅 Ver agenda completa</a>
-      <a class="btn" href="mailto:jprebosio@proton.me?subject=Consulta%20Agenda%20y%20Servicios">Pedir información</a>
-    </div>
-  </section>
-
+  <details><summary>🎨 Arteterapia</summary><div class="content">Expresión simbólica, proyectos breves y muestra terapéutica.</div></details>
+  <details><summary>🎵 Musicoterapia</summary><div class="content">Improvisación, playlist narrativa y respiración/relajación.</div></details>
+  <details><summary>🗣️ Habilidades Sociales</summary><div class="content">Comunicación, límites, resolución de conflictos.</div></details>
+  <details><summary>🏠 Autonomía</summary><div class="content">Rutinas, organización, movilidad y finanzas simples.</div></details>
+  <details><summary>💼 Reentrenamiento Laboral</summary><div class="content">CV, simulacros, prácticas protegidas y microemprendimientos.</div></details>
+  <details><summary>💞 Redes y Familia</summary><div class="content">Comunidad, psicoeducación y protocolos de apoyo.</div></details>
+  <details><summary>🧩 Adaptación & Diagnóstico</summary><div class="content">Perfil psicosocial, GAF/WHO-DAS/HoNOS y plan individual.</div></details>
 </main>
 
-<footer>© 2025 Likelandi — Programa Integral.</footer>
+<footer>© 2025 Likelandi</footer>
 </body>
 </html>
