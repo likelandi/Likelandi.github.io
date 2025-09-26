@@ -11,23 +11,17 @@
   body{background:var(--bg);color:var(--fg);font:16px/1.8 system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
   a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
   .nav{position:sticky;top:0;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
-  .nav .inner{max-width:760px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
+  .nav .inner{max-width:780px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
   .brand{margin-right:auto;font-weight:800}
-  .wrap{max-width:760px;margin:0 auto;padding:30px 16px 80px}
-  h1{margin:0 0 8px;font-size:clamp(26px,5vw,36px)}
-  p{margin:0 0 10px;color:var(--muted)}
+  .wrap{max-width:780px;margin:0 auto;padding:28px 16px 80px}
+  h1{margin:0 0 10px;font-size:clamp(26px,5vw,36px)}
+  p{margin:0 0 12px;color:var(--muted)}
   .ia{margin:18px 0;padding:14px;border-left:4px solid var(--accent);background:#15121b;border-radius:10px}
-  .grid3{display:grid;gap:10px} .box{border:1px solid var(--line);border-radius:10px;padding:12px;background:#17131f}
-  .box h3{margin:0 0 4px;font-size:16px;color:var(--accent)}
   details{border-top:1px solid var(--line);padding:12px 0}
   summary{cursor:pointer;list-style:none;font-weight:600}
   summary::-webkit-details-marker{display:none}
   .content{padding:6px 2px 2px;color:var(--muted)}
-  .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
-  .btn{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:10px;color:var(--fg);background:#181320}
-  .btn.primary{background:linear-gradient(135deg,#c77dff,#7cffcb);border:none;color:#0f0b10;font-weight:700}
   footer{margin:40px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
-  @media(min-width:860px){.grid3{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
@@ -36,32 +30,24 @@
     <div class="brand">Likelandi</div>
     <a href="/">Inicio</a>
     <a href="/programas.html">Programa</a>
-    <a href="/agenda.html">Agenda & Servicios</a>
+    <a href="/agenda.html">Agenda</a>
+    <a href="/landias-musik.html">Landia’s Musik</a>
   </div>
 </nav>
 
 <main class="wrap">
   <h1>Programa Integral</h1>
-  <p>Interdisciplinario, claro y práctico. Menos densidad visual, más valor terapéutico.</p>
+  <p>Interdisciplinario, simple y práctico. Ejes: IA & nuevas tecnologías, arteterapia, musicoterapia y vida autónoma.</p>
 
   <section class="ia" id="ia">
     <h2>🤖 IA & Nuevas Tecnologías</h2>
-    <p>Aula del segundo piso, con estaciones de trabajo informatizadas y conectadas en red. Uso de ChatGPT como soporte cognitivo y formativo.</p>
-    <div class="grid3" style="margin-top:8px">
-      <div class="box"><h3>🧠 Cognitivo</h3><p>Atención, memoria, planificación. Agendas y secuencias paso a paso.</p></div>
-      <div class="box"><h3>💼 Laboral</h3><p>CV, mails, entrevistas simuladas. Mini-proyectos digitales.</p></div>
-      <div class="box"><h3>🔐 Seguridad</h3><p>Privacidad, verificación de info, bienestar digital.</p></div>
-    </div>
-    <div class="cta">
-      <a class="btn primary" href="https://wa.me/5491124605401" target="_blank">Inscribirme</a>
-      <a class="btn" href="mailto:jprebosio@proton.me?subject=Consulta%20Programa">Consultar</a>
-    </div>
+    <p>Aula del segundo piso con estaciones de trabajo informatizadas y conectadas en red. Uso de ChatGPT como soporte cognitivo y formativo.</p>
   </section>
 
-  <details><summary>🎨 Arteterapia</summary><div class="content">Expresión simbólica, proyectos breves y muestra terapéutica.</div></details>
+  <details><summary>🎨 Arteterapia</summary><div class="content">Expresión simbólica y muestra terapéutica.</div></details>
   <details><summary>🎵 Musicoterapia</summary><div class="content">Improvisación, playlist narrativa y respiración/relajación.</div></details>
-  <details><summary>🗣️ Habilidades Sociales</summary><div class="content">Comunicación, límites, resolución de conflictos.</div></details>
-  <details><summary>🏠 Autonomía</summary><div class="content">Rutinas, organización, movilidad y finanzas simples.</div></details>
+  <details><summary>🗣️ Habilidades Sociales</summary><div class="content">Comunicación, límites y resolución de conflictos.</div></details>
+  <details><summary>🏠 Autonomía</summary><div class="content">Rutinas, organización, movilidad, finanzas simples.</div></details>
   <details><summary>💼 Reentrenamiento Laboral</summary><div class="content">CV, simulacros, prácticas protegidas y microemprendimientos.</div></details>
   <details><summary>💞 Redes y Familia</summary><div class="content">Comunidad, psicoeducación y protocolos de apoyo.</div></details>
   <details><summary>🧩 Adaptación & Diagnóstico</summary><div class="content">Perfil psicosocial, GAF/WHO-DAS/HoNOS y plan individual.</div></details>
