@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Likelandi — Agenda & Servicios</title>
+<meta name="description" content="Agenda de actividades y servicios de Likelandi.">
+<style>
+  :root{--bg:#0f0b10;--fg:#f7f0ff;--muted:#cfc7da;--accent:#7cffcb;--line:#ffffff1f;--maxw:780px}
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
+  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
+  .brand{margin-right:auto;font-weight:800}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:18px 16px 80px}
+  h1{margin:.2rem 0 6px;font-size:clamp(24px,4vw,32px)}
+  .muted{color:var(--muted)}
+  .sec{margin-top:18px;padding-top:10px;border-top:1px dashed var(--line)}
+  .grid{display:grid;gap:12px;grid-template-columns:1fr}
+  .card{border:1px solid var(--line);border-radius:12px;padding:12px;background:#15121a}
+  .card h3{margin:0 0 6px;font-size:18px;color:var(--accent)}
+  .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .btn{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:10px;color:var(--fg);background:#181320;text-decoration:none}
+  .btn.primary{background:linear-gradient(135deg,#c77dff,#7cffcb);color:#0f0b10;border:none;font-weight:700}
+  @media(min-width:860px){.grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="inner">
+    <div class="brand">Likelandi</div>
+    <a href="/">Inicio</a>
+    <a href="/programas.html">Programa Integral</a>
+    <a href="/landias-musik.html">Landia’s Musik</a>
+  </div>
+</nav>
+
+<main class="wrap">
+  <h1>Agenda & Servicios</h1>
+  <p class="muted">Espacio liviano y siempre actualizado. Si necesitás horarios o un turno específico, escribinos por WhatsApp o email.</p>
+
+  <!-- Próximas actividades (2–4 tarjetas máximo) -->
+  <section class="sec">
+    <h2 style="font-size:18px;margin:0 0 8px;color:var(--accent)">Próximas actividades</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>🧠 Módulo IA — Intro</h3>
+        <p>Alfabetización digital y uso de ChatGPT (cognitivo/laboral). Aula tecnológica del segundo piso.</p>
+        <div class="cta">
+          <a class="btn primary" href="https://wa.me/5491124605401?text=Quiero%20inscribirme%20al%20M%C3%B3dulo%20IA%20Intro" target="_blank">Inscribirme</a>
+          <a class="btn" href="/programas.html#ia">Ver contenido</a>
+        </div>
+      </article>
+      <article class="card">
+        <h3>🎨 Taller de Arteterapia</h3>
+        <p>Sesión grupal breve de expresión simbólica y regulación emocional.</p>
+        <div class="cta">
+          <a class="btn" href="mailto:jprebosio@proton.me?subject=Consulta%20Taller%20Arteterapia">Consultar</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Servicios (resumen) -->
+  <section class="sec">
+    <h2 style="font-size:18px;margin:0 0 8px;color:var(--accent)">Servicios</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Consultas Psiquiátricas</h3>
+        <p>Evaluación, seguimiento y ajuste terapéutico con enfoque humano.</p>
+      </article>
+      <article class="card">
+        <h3>Programa Integral</h3>
+        <p>Rehabilitación psicosocial con arte, música e IA. Plan individual.</p>
+      </article>
+      <article class="card">
+        <h3>Arteterapia / Musicoterapia</h3>
+        <p>Talleres grupales e intervenciones complementarias.</p>
+      </article>
+      <article class="card">
+        <h3>Módulo IA & Nuevas Tecnologías</h3>
+        <p>Aula tecnológica con estaciones de trabajo informatizadas y conectadas en red.</p>
+      </article>
+    </div>
+    <div class="cta">
+      <a class="btn" href="mailto:jprebosio@proton.me?subject=Consulta%20Servicios">Pedir información</a>
+      <a class="btn primary" href="https://wa.me/5491124605401?text=Quiero%20coordinar%20una%20entrevista" target="_blank">Solicitar entrevista</a>
+    </div>
+  </section>
+
+  <!-- Contacto rápido -->
+  <section class="sec">
+    <h2 style="font-size:18px;margin:0 0 8px;color:var(--accent)">Contacto</h2>
+    <p class="muted">Preferimos contacto directo para turnos y dudas específicas.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://wa.me/5491124605401" target="_blank">WhatsApp</a>
+      <a class="btn" href="mailto:jprebosio@proton.me?subject=Consulta%20Agenda%20y%20Servicios">Email</a>
+    </div>
+  </section>
+</main>
+
+<footer style="text-align:center;color:var(--muted);font-size:14px;padding:16px 0;border-top:1px solid var(--line)">
+  © 2025 Likelandi — Agenda & Servicios.
+</footer>
+</body>
+</html>
