@@ -7,16 +7,16 @@
 <meta name="description" content="Selección musical curada para foco, calma y creatividad.">
 <style>
   :root{
-    --bg:#0f0b10;--fg:#f7f0ff;--muted:#cfc7da;
-    --line:#ffffff22;--accent:#7cffcb;--accent2:#c77dff;
-    --maxw:1100px
+    --bg:#0f0b10; --fg:#f7f0ff; --muted:#cfc7da;
+    --line:#ffffff22; --accent:#7cffcb; --accent2:#c77dff;
+    --panel:#15121b; --maxw:1100px;
   }
   *{box-sizing:border-box} html,body{margin:0}
   body{background:var(--bg);color:var(--fg);font:16px/1.75 system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
   a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
 
   /* NAV */
-  .nav{position:sticky;top:0;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line);z-index:10}
+  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
   .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
   .brand{margin-right:auto;font-weight:800}
   .nav a{color:var(--fg);opacity:.9} .nav a:hover{opacity:1}
@@ -25,21 +25,25 @@
   /* WRAP */
   .wrap{max-width:var(--maxw);margin:0 auto;padding:26px 16px 80px}
 
-  /* HERO IMG + TITLES */
+  /* HERO */
+  .hero{display:grid;gap:14px}
   .frame{display:grid;place-items:center;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#000,#0f0b10)}
   .frame img{width:100%;height:auto;display:block;object-fit:cover}
-  h1{margin:14px 0 0;font-size:clamp(26px,4.6vw,40px);line-height:1.2;background:linear-gradient(90deg,var(--accent2),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-  .sub{margin:.35rem 0 8px;color:var(--muted)}
+  h1{margin:10px 0 0;font-size:clamp(28px,5vw,44px);line-height:1.2;
+     background:linear-gradient(90deg,var(--accent2),var(--accent));
+     -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{margin:.3rem 0 0;color:var(--muted)}
 
-  /* PLAYER + SIDEBAR */
-  .playerGrid{display:grid;gap:16px;margin-top:18px}
-  .player{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#15121b;aspect-ratio:16/9}
+  /* PLAYER + FAVORITOS */
+  .section-title{margin:30px 0 8px;font-size:clamp(20px,3.4vw,28px);color:var(--accent)}
+  .playerGrid{display:grid;gap:16px;margin-top:8px}
+  .player{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);aspect-ratio:16/9}
   .player iframe{width:100%;height:100%;border:0}
 
-  .sidebar{border:1px solid var(--line);border-radius:12px;background:#15121b;overflow:hidden}
-  .sideHead{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}
+  .sidebar{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
+  .sideHead{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;justify-content:space-between}
   .sideHead h2{margin:0;font-size:16px}
-  .favList{max-height:460px;overflow:auto;display:flex;flex-direction:column}
+  .favList{max-height:480px;overflow:auto;display:flex;flex-direction:column}
   .favItem{display:flex;gap:10px;align-items:center;padding:10px 12px;border-bottom:1px solid #ffffff10;cursor:pointer}
   .favItem:last-child{border-bottom:none}
   .thumb{flex:0 0 60px;height:38px;border-radius:6px;background:#0f0b10;border:1px solid #ffffff12;display:grid;place-items:center;font-size:12px;color:#cfc7da}
@@ -49,10 +53,19 @@
   .favItem:hover{background:#191526}
   .favItem.active{background:#201936;outline:1px solid #8e7cff55}
 
-  /* LAYOUT BREAKPOINT */
+  /* FORM agregar favorito */
+  .addFav{padding:12px 14px;border-top:1px solid var(--line);display:grid;gap:8px}
+  .row{display:grid;gap:8px}
+  .input{width:100%;padding:8px 10px;border-radius:10px;border:1px solid #ffffff22;background:#181320;color:var(--fg)}
+  .btn{display:inline-block;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:#181320;color:var(--fg);text-decoration:none;font-weight:600}
+  .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;color:#0f0b10}
+  .btn.muted{opacity:.8}
+  .help{font-size:12px;color:var(--muted)}
+
   @media(min-width:900px){
     .playerGrid{grid-template-columns:2fr 1fr}
-    .favList{max-height:calc(56.25vw/2 - 40px)} /* ajusta altura aprox. */
+    .favList{max-height:calc(56.25vw/2 - 40px)} /* altura aprox. desktop */
+    .row{grid-template-columns:1fr auto}
   }
 
   footer{margin:44px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
@@ -73,14 +86,16 @@
 
 <main class="wrap">
   <!-- HERO -->
-  <div class="frame">
-    <!-- Asegurate de que el archivo exista en la raíz con este nombre -->
-    <img src="/landias-musik-profile-fiesta.png?v=4" alt="Landia’s Party — portada">
-  </div>
-  <h1>Landia’s Musik</h1>
-  <p class="sub">Selección curada para foco, calma y creatividad. Elegí un tema de Favoritos o reproducí el video actual.</p>
+  <section class="hero">
+    <div class="frame">
+      <img src="/landias-musik-profile-fiesta.png?v=4" alt="Landia’s Party — portada">
+    </div>
+    <h1>Landia’s Musik</h1>
+    <p class="sub">Reproductor con tus Favoritos al lado. Sumá temas y se guardan en tu dispositivo.</p>
+  </section>
 
   <!-- PLAYER + FAVORITOS -->
+  <h2 class="section-title">Reproductor & Favoritos</h2>
   <section class="playerGrid" aria-label="Reproductor con favoritos">
     <!-- Player -->
     <div class="player">
@@ -97,41 +112,23 @@
     <aside class="sidebar">
       <div class="sideHead">
         <h2>⭐ Favoritos</h2>
-        <!-- Si más adelante tenés una PLAYLIST pública, podés linkearla aquí -->
+        <!-- Link opcional a tu playlist pública cuando la tengas -->
         <!-- <a href="https://www.youtube.com/playlist?list=PL_TU_ID" target="_blank" rel="noopener">Ver en YouTube</a> -->
       </div>
-      <div class="favList" id="favList">
-        <!-- EJEMPLOS: reemplazá data-video-id y títulos por los tuyos -->
-        <div class="favItem active" data-video-id="HcX1GpMR9n4">
-          <div class="thumb">YT</div>
-          <div class="meta">
-            <p class="title">Video actual</p>
-            <p class="chan">Fuente: tu selección</p>
-          </div>
-        </div>
 
-        <div class="favItem" data-video-id="dQw4w9WgXcQ">
-          <div class="thumb">YT</div>
-          <div class="meta">
-            <p class="title">Tema favorito 1</p>
-            <p class="chan">Canal ejemplo</p>
-          </div>
-        </div>
+      <!-- Lista -->
+      <div class="favList" id="favList"></div>
 
-        <div class="favItem" data-video-id="J---aiyznGQ">
-          <div class="thumb">YT</div>
-          <div class="meta">
-            <p class="title">Tema favorito 2</p>
-            <p class="chan">Canal ejemplo</p>
-          </div>
+      <!-- Agregar favorito -->
+      <div class="addFav">
+        <div class="row">
+          <input id="favTitle" class="input" type="text" placeholder="Título del tema (ej.: Focus — Ambient Mix)">
+          <input id="favUrl" class="input" type="url" placeholder="URL de YouTube (https://www.youtube.com/watch?v=...)">
+          <button id="btnAddFav" class="btn primary" type="button">Agregar</button>
         </div>
-
-        <div class="favItem" data-video-id="Zi_XLOBDo_Y">
-          <div class="thumb">YT</div>
-          <div class="meta">
-            <p class="title">Tema favorito 3</p>
-            <p class="chan">Canal ejemplo</p>
-          </div>
+        <div class="row" style="gap:8px;grid-template-columns:auto auto">
+          <button id="btnResetFavs" class="btn muted" type="button">Restablecer lista</button>
+          <span class="help">Guardado local en tu dispositivo (no requiere login).</span>
         </div>
       </div>
     </aside>
@@ -141,24 +138,97 @@
 <footer>© 2025 Likelandi — Landia’s Musik</footer>
 
 <script>
-  // Cambiar video al hacer clic en un favorito
-  const favList = document.getElementById('favList');
-  const player = document.getElementById('ytPlayer');
-  favList.addEventListener('click', (e) => {
-    const item = e.target.closest('.favItem');
-    if (!item) return;
-    // UI: marcar activo
-    favList.querySelectorAll('.favItem').forEach(n => n.classList.remove('active'));
-    item.classList.add('active');
-    // Cambiar el video
-    const vid = item.getAttribute('data-video-id');
-    const params = 'rel=0'; // agrega aquí más parámetros si querés (autoplay=1, etc.)
-    player.src = `https://www.youtube.com/embed/${vid}?${params}`;
-    // Scroll suave al player en móvil
-    if (window.innerWidth < 900) {
-      player.scrollIntoView({behavior:'smooth', block:'start'});
-    }
+/* ========= Playlist de Favoritos con localStorage ========= */
+
+const LS_KEY = 'likelandi_favs_v1';
+const favListEl = document.getElementById('favList');
+const playerEl  = document.getElementById('ytPlayer');
+const btnAdd    = document.getElementById('btnAddFav');
+const btnReset  = document.getElementById('btnResetFavs');
+const inputTitle= document.getElementById('favTitle');
+const inputUrl  = document.getElementById('favUrl');
+
+// 1) Favs iniciales (editables)
+const initialFavs = [
+  { id:'HcX1GpMR9n4', title:'Video actual', chan:'Tu selección' },
+  { id:'dQw4w9WgXcQ', title:'Tema favorito 1', chan:'Canal ejemplo' },
+  { id:'J---aiyznGQ', title:'Tema favorito 2', chan:'Canal ejemplo' },
+  { id:'Zi_XLOBDo_Y', title:'Tema favorito 3', chan:'Canal ejemplo' },
+];
+
+// Utilidad: extraer ID desde varias URLs de YouTube
+function extractYouTubeId(url){
+  try{
+    const u = new URL(url);
+    if (u.hostname.includes('youtu.be')) return u.pathname.slice(1); // /VIDEOID
+    if (u.searchParams.get('v')) return u.searchParams.get('v');
+    const path = u.pathname.split('/');
+    const idx = path.findIndex(p => ['embed','shorts'].includes(p));
+    if (idx !== -1 && path[idx+1]) return path[idx+1];
+  }catch(e){ /* no válida */ }
+  return '';
+}
+
+function loadFavs(){
+  const raw = localStorage.getItem(LS_KEY);
+  if (!raw) return initialFavs.slice();
+  try { return JSON.parse(raw); } catch(e){ return initialFavs.slice(); }
+}
+function saveFavs(favs){ localStorage.setItem(LS_KEY, JSON.stringify(favs)); }
+
+function renderFavs(favs){
+  favListEl.innerHTML = '';
+  favs.forEach((f, idx) => {
+    const item = document.createElement('div');
+    item.className = 'favItem' + (idx===0 ? ' active' : '');
+    item.setAttribute('data-video-id', f.id);
+    item.innerHTML = `
+      <div class="thumb">YT</div>
+      <div class="meta">
+        <p class="title">${f.title || 'Sin título'}</p>
+        <p class="chan">${f.chan || ''}</p>
+      </div>`;
+    favListEl.appendChild(item);
   });
+}
+
+// Cambiar video al click
+favListEl.addEventListener('click',(e)=>{
+  const item = e.target.closest('.favItem');
+  if(!item) return;
+  favListEl.querySelectorAll('.favItem').forEach(n=>n.classList.remove('active'));
+  item.classList.add('active');
+  const vid = item.getAttribute('data-video-id');
+  const params = 'rel=0&autoplay=1';
+  playerEl.src = `https://www.youtube.com/embed/${vid}?${params}`;
+  if (window.innerWidth < 900) playerEl.scrollIntoView({behavior:'smooth', block:'start'});
+});
+
+// Agregar favorito
+btnAdd.addEventListener('click',()=>{
+  const title = (inputTitle.value || '').trim();
+  const url   = (inputUrl.value || '').trim();
+  const vid   = extractYouTubeId(url);
+  if(!vid){ alert('Pegá una URL válida de YouTube.'); return; }
+  const favs = loadFavs();
+  favs.push({ id: vid, title: title || 'Favorito', chan: 'YouTube' });
+  saveFavs(favs);
+  renderFavs(favs);
+  inputTitle.value = ''; inputUrl.value = '';
+});
+
+// Restablecer lista
+btnReset.addEventListener('click',()=>{
+  if(!confirm('¿Restablecer la lista de favoritos?')) return;
+  saveFavs(initialFavs.slice());
+  renderFavs(loadFavs());
+});
+
+// Init
+(function init(){
+  const favs = loadFavs();
+  renderFavs(favs);
+})();
 </script>
 
 </body>
