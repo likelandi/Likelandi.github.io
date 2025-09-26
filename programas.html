@@ -7,81 +7,43 @@
 <meta name="description" content="Programa integral de rehabilitación psicosocial con IA, arteterapia y musicoterapia.">
 <link rel="preload" as="image" href="/Consultorio-hero.jpg">
 <style>
-  :root{
-    --bg:#0f0b10; --fg:#f7f0ff; --muted:#cfc7da;
-    --accent:#7cffcb; --accent2:#c77dff; --line:#ffffff1f;
-    --maxw: 780px;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0}
-  body{
-    background:var(--bg); color:var(--fg);
-    font:16px/1.7 -apple-system, system-ui, Segoe UI, Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-  }
-  a{color:var(--accent); text-decoration:none}
-  a:hover{text-decoration:underline}
-
-  /* NAV (sencillo) */
-  .nav{position:sticky; top:0; z-index:10; backdrop-filter:blur(6px);
-       background:#0f0b10cc; border-bottom:1px solid var(--line)}
-  .nav .inner{max-width:var(--maxw); margin:0 auto; padding:12px 16px; display:flex; gap:16px; align-items:center}
-  .brand{margin-right:auto; font-weight:800}
-  .nav a{color:var(--fg); opacity:.9}
-  .nav a:hover{opacity:1}
-  .nav .hl{color:var(--accent); font-weight:700}
-
-  /* LAYOUT */
-  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 16px 90px}
+  :root{--bg:#0f0b10;--fg:#f7f0ff;--muted:#cfc7da;--accent:#7cffcb;--accent2:#c77dff;--line:#ffffff1f;--maxw:780px}
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--bg);color:var(--fg);font:16px/1.7 -apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
+  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
+  .brand{margin-right:auto;font-weight:800}
+  .nav a{color:var(--fg);opacity:.9}.nav a:hover{opacity:1}.nav .hl{color:var(--accent);font-weight:700}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 16px 80px}
   .hero{padding:20px 16px 10px}
-  .hero .frame{
-    display:grid; place-items:center; height:36vh; min-height:240px;
-    border:1px solid var(--line); border-radius:14px; overflow:hidden;
-    background:linear-gradient(180deg,#000,#0f0b10)
-  }
-  .hero img{max-width:100%; max-height:100%; object-fit:contain; display:block}
-  .hgroup{max-width:var(--maxw); margin:18px auto 0; text-align:center}
-  h1{margin:.2rem 0 0; font-size:clamp(26px,4.5vw,40px); line-height:1.2;
-     background:linear-gradient(90deg,var(--accent2),var(--accent));
-     -webkit-background-clip:text; -webkit-text-fill-color:transparent}
-  .sub{margin:.4rem 0 0; color:var(--muted); font-size:15px}
-
-  /* BLOQUES */
-  .lead{margin:24px 0 10px; color:var(--muted)}
-  .chips{display:flex; flex-wrap:wrap; gap:6px; margin:10px 0 0}
-  .chip{padding:6px 10px; border:1px solid var(--line); border-radius:999px; font-size:13px}
-
-  /* MÓDULO IA (destacado minimal) */
-  .ia{margin:26px 0; padding:18px; border-left:4px solid var(--accent);
-      background:linear-gradient(180deg, #15121b 0%, #120e18 100%);
-      border-radius:10px}
-  .ia h2{margin:0 0 6px; font-size:clamp(20px,3vw,28px); color:var(--accent)}
-  .muted{color:var(--muted)}
-  .grid3{display:grid; gap:10px; grid-template-columns:1fr}
-  .box{border:1px solid var(--line); border-radius:10px; padding:12px}
-  .box h3{margin:0 0 6px; font-size:16px; color:var(--accent)}
-  ul{margin:0; padding-left:18px}
-  .cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:12px}
-  .btn{display:inline-block; padding:8px 12px; border:1px solid var(--line);
-       border-radius:10px; color:var(--fg); background:#181320; text-decoration:none}
-  .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent)); color:#0f0b10; border:none; font-weight:700}
-
-  /* Acordeón nativo (details) para lo secundario */
-  details{border-top:1px solid var(--line); padding:12px 0}
-  summary{cursor:pointer; list-style:none; outline:none}
-  summary::-webkit-details-marker{display:none}
+  .frame{display:grid;place-items:center;height:36vh;min-height:240px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#000,#0f0b10)}
+  .frame img{max-width:100%;max-height:100%;object-fit:contain}
+  h1{margin:.8rem 0 0;font-size:clamp(26px,4.5vw,40px);line-height:1.2;background:linear-gradient(90deg,var(--accent2),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-align:center}
+  .sub{margin:.4rem 0 0;color:var(--muted);font-size:15px;text-align:center}
+  .lead{max-width:var(--maxw);margin:18px auto 0;color:var(--muted)}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 0}
+  .chip{padding:6px 10px;border:1px solid var(--line);border-radius:999px;font-size:13px}
+  .ia{margin:26px 0;padding:18px;border-left:4px solid var(--accent);background:linear-gradient(180deg,#15121b 0%,#120e18 100%);border-radius:10px}
+  .ia h2{margin:0 0 6px;font-size:clamp(20px,3vw,28px);color:var(--accent)}
+  .grid3{display:grid;gap:10px;grid-template-columns:1fr}
+  .box{border:1px solid var(--line);border-radius:10px;padding:12px}
+  .box h3{margin:0 0 6px;font-size:16px;color:var(--accent)}
+  ul{margin:0;padding-left:18px}
+  details{border-top:1px solid var(--line);padding:12px 0}
+  summary{cursor:pointer;list-style:none} summary::-webkit-details-marker{display:none}
   summary span{font-weight:600}
-  details[open]{background:#0f0b1022; border-radius:8px}
-  details .content{padding:6px 2px 2px; color:var(--muted)}
-  .sep{height:1px; background:var(--line); margin:12px 0}
-
-  footer{margin:50px 0 0; padding:16px 0; border-top:1px solid var(--line); text-align:center; color:var(--muted); font-size:14px}
-  @media(min-width:860px){ .grid3{grid-template-columns:repeat(3,1fr)} }
+  details[open]{background:#0f0b1022;border-radius:8px}
+  .content{padding:6px 2px 2px;color:var(--muted)}
+  .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .btn{display:inline-block;padding:8px 12px;border:1px solid var(--line);border-radius:10px;color:var(--fg);background:#181320;text-decoration:none}
+  .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#0f0b10;border:none;font-weight:700}
+  .section-min{margin-top:28px;padding-top:10px;border-top:1px dashed var(--line)}
+  footer{margin:50px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
+  @media(min-width:860px){.grid3{grid-template-columns:repeat(3,1fr)}}
 </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav class="nav">
   <div class="inner">
     <div class="brand">Likelandi</div>
@@ -92,23 +54,17 @@
   </div>
 </nav>
 
-<!-- HERO -->
 <header class="wrap hero" role="banner">
   <div class="frame">
-    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=200" alt="Programa Integral — Likelandi" decoding="async" loading="eager">
+    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=210" alt="Programa Integral — Likelandi" decoding="async" loading="eager">
   </div>
-  <div class="hgroup">
-    <h1>Programa Integral de Rehabilitación Psicosocial</h1>
-    <p class="sub">Segundo piso: talleres creativos + aula tecnológica con estaciones de trabajo informatizadas y conectadas en red.</p>
-  </div>
+  <h1>Programa Integral de Rehabilitación Psicosocial</h1>
+  <p class="sub">Segundo piso: talleres creativos + aula tecnológica con estaciones de trabajo informatizadas y conectadas en red.</p>
 </header>
 
 <main class="wrap">
-
-  <!-- Intro + índice mínimo -->
   <section class="lead">
-    Plan clínico interdisciplinario orientado a autonomía y reinserción social. Ejes: psicoterapia, arte, música e
-    <strong>IA & nuevas tecnologías</strong>.
+    Plan clínico interdisciplinario orientado a autonomía y reinserción social. Ejes: psicoterapia, arte, música e <strong>IA & nuevas tecnologías</strong>.
     <div class="chips" aria-label="Secciones">
       <a class="chip" href="#ia">🤖 IA</a>
       <a class="chip" href="#arte">🎨 Arte</a>
@@ -121,7 +77,7 @@
     </div>
   </section>
 
-  <!-- IA DESTACADO (breve y claro) -->
+  <!-- IA (destacado minimal) -->
   <section id="ia" class="ia" aria-labelledby="ia-title">
     <h2 id="ia-title">Innovación 2025 — IA & Nuevas Tecnologías</h2>
     <p class="muted">Aula tecnológica (segundo piso), equipada con estaciones de trabajo informatizadas y conectadas en red. Uso de <strong>ChatGPT</strong> y herramientas digitales como soporte cognitivo y formativo.</p>
@@ -157,91 +113,21 @@
     </div>
   </section>
 
-  <div class="sep" role="separator" aria-hidden="true"></div>
+  <details id="arte"><summary><span>🎨 Arteterapia</span></summary><div class="content"><ul><li>Pintura, collage y escritura creativa.</li><li>Obras colectivas y muestra terapéutica.</li><li>Autoestima, regulación, sentido de logro.</li></ul></div></details>
+  <details id="music"><summary><span>🎵 Musicoterapia</span></summary><div class="content"><ul><li>Improvisación, percusión corporal, canto.</li><li>Playlist narrativa: “Mi historia en canciones”.</li><li>Paisajes sonoros para relajación.</li></ul></div></details>
+  <details id="hhss"><summary><span>🗣️ Habilidades Sociales</span></summary><div class="content"><ul><li>Role-playing y entrevistas.</li><li>Escucha activa, límites, resolución de conflictos.</li><li>Prácticas supervisadas en comunidad.</li></ul></div></details>
+  <details id="auto"><summary><span>🏠 Autonomía Personal</span></summary><div class="content"><ul><li>Higiene, alimentación, movilidad, finanzas simples.</li><li>Planificación semanal con checklists.</li><li>Desafíos de independencia en entorno real.</li></ul></div></details>
+  <details id="lab"><summary><span>💼 Reentrenamiento Laboral</span></summary><div class="content"><ul><li>Orientación vocacional.</li><li>CV, simulacros y prácticas protegidas.</li><li>Microemprendimientos creativos.</li></ul></div></details>
+  <details id="red"><summary><span>💞 Redes y Familia</span></summary><div class="content"><ul><li>Eventos culturales, voluntariado, Comunidad Likelandi.</li><li>Psicoeducación a familias; protocolos de apoyo.</li><li>Coordinación con equipos tratantes.</li></ul></div></details>
+  <details id="diag"><summary><span>🧩 Adaptación & Diagnóstico</span></summary><div class="content"><ul><li>Perfil psicosocial · GAF · WHO-DAS/HoNOS.</li><li>Objetivos SMART y plan individual.</li><li>Derivación temprana y consentimiento.</li></ul></div></details>
 
-  <!-- Módulos secundarios: compactos con details (no cargan visualmente) -->
-  <details id="arte">
-    <summary><span>🎨 Arteterapia</span> — expresión simbólica y regulación</summary>
-    <div class="content">
-      <ul>
-        <li>Pintura, collage, escritura creativa.</li>
-        <li>Obras colectivas y muestra terapéutica.</li>
-        <li>Metas: autoestima, regulación, sentido de logro.</li>
-      </ul>
-    </div>
-  </details>
-
-  <details id="music">
-    <summary><span>🎵 Musicoterapia</span> — vínculo, emoción, respiración</summary>
-    <div class="content">
-      <ul>
-        <li>Improvisación, percusión corporal, canto grupal.</li>
-        <li>Playlist narrativa: “Mi historia en canciones”.</li>
-        <li>Paisajes sonoros para relajación.</li>
-      </ul>
-    </div>
-  </details>
-
-  <details id="hhss">
-    <summary><span>🗣️ Habilidades Sociales</span> — comunicación y asertividad</summary>
-    <div class="content">
-      <ul>
-        <li>Role-playing de situaciones cotidianas y laborales.</li>
-        <li>Escucha activa, límites y resolución de conflictos.</li>
-        <li>Prácticas supervisadas en comunidad.</li>
-      </ul>
-    </div>
-  </details>
-
-  <details id="auto">
-    <summary><span>🏠 Autonomía Personal</span> — vida diaria y organización</summary>
-    <div class="content">
-      <ul>
-        <li>Higiene, alimentación, movilidad y finanzas simples.</li>
-        <li>Planificación semanal con checklists.</li>
-        <li>Desafíos de independencia en entorno real.</li>
-      </ul>
-    </div>
-  </details>
-
-  <details id="lab">
-    <summary><span>💼 Reentrenamiento Laboral</span> — empleo protegido/competitivo</summary>
-    <div class="content">
-      <ul>
-        <li>Orientación vocacional e intereses.</li>
-        <li>CV, simulacros y prácticas protegidas.</li>
-        <li>Microemprendimientos creativos.</li>
-      </ul>
-    </div>
-  </details>
-
-  <details id="red">
-    <summary><span>💞 Redes y Familia</span> — sostén comunitario</summary>
-    <div class="content">
-      <ul>
-        <li>Eventos culturales, voluntariado, Comunidad Likelandi.</li>
-        <li>Psicoeducación a familias; protocolos de apoyo.</li>
-        <li>Coordinación con equipos tratantes.</li>
-      </ul>
-    </div>
-  </details>
-
-  <details id="diag">
-    <summary><span>🧩 Adaptación & Diagnóstico</span> — inicio del proceso</summary>
-    <div class="content">
-      <ul>
-        <li>Perfil psicosocial; GAF, WHO-DAS/HoNOS.</li>
-        <li>Objetivos SMART y plan individual.</li>
-        <li>Derivación temprana y consentimiento informado.</li>
-      </ul>
-    </div>
-  </details>
-
-  <!-- CTA simple -->
-  <section style="margin-top:18px">
+  <!-- Agenda & Servicios (minimal + botón a página secundaria) -->
+  <section class="section-min" aria-labelledby="agenda-title">
+    <h2 id="agenda-title" style="font-size:18px;margin:0 0 6px;color:var(--accent)">Agenda & Servicios</h2>
+    <p class="muted" style="margin:0 0 8px">Para mantener esta página liviana, la agenda completa y el detalle de servicios están en una sección aparte.</p>
     <div class="cta">
-      <a class="btn" href="/">Volver</a>
-      <a class="btn primary" href="https://wa.me/5491124605401?text=Quiero%20entrevista%20para%20el%20Programa%20Integral" target="_blank" rel="noopener">Solicitar entrevista</a>
+      <a class="btn primary" href="/agenda.html">📅 Ver agenda completa</a>
+      <a class="btn" href="mailto:jprebosio@proton.me?subject=Consulta%20Agenda%20y%20Servicios">Pedir información</a>
     </div>
   </section>
 
