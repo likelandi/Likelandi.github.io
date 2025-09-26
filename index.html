@@ -1,155 +1,31 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Likelandi — Home</title>
-<meta name="description" content="Consultorio psiquiátrico, arteterapia y Programa Integral con IA y nuevas tecnologías.">
-<link rel="preload" as="image" href="/Consultorio-hero.jpg">
-<style>
-  :root{
-    --bg:#0f0b10;--panel:#141019;--fg:#f7f0ff;--muted:#cfc7da;
-    --violet:#c77dff;--mint:#7cffcb;--border:#ffffff22;--shadow:0 10px 30px #0006
-  }
-  *{box-sizing:border-box} html,body{margin:0}
-  body{background:var(--bg);color:var(--fg);font:16px/1.55 -apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
-
-  /* NAV */
-  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);background:#0f0b10cc;border-bottom:1px solid var(--border)}
-  .nav .inner{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
-  .brand{margin-right:auto;font-weight:800}
-  .nav a{color:var(--fg);text-decoration:none;opacity:.9}
-  .nav a:hover{opacity:1}
-  .nav a.highlight{font-weight:700;color:var(--mint)}
-
-  /* HERO (imagen del consultorio bien grande, sin recortes) */
-  .hero{position:relative;display:grid;place-items:center;min-height:72vh;padding:16px}
-  .hero .frame{
-    width:min(1100px,92vw); height:68vh; min-height:380px;
-    display:grid;place-items:center;background:linear-gradient(180deg,#000 0%,#0f0b10 100%);
-    border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); overflow:hidden
-  }
-  .hero img{max-width:100%;max-height:100%;object-fit:contain;display:block;border-radius:12px;box-shadow:0 10px 40px #000a}
-  .hero .title{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);text-align:center;padding:0 16px}
-  .hero h1{margin:0;font-size:clamp(28px,4.5vw,52px);
-    background:linear-gradient(90deg,var(--violet),var(--mint));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-  .hero p{margin:.4rem 0 0;color:var(--muted)}
-
-  /* CONTENIDO */
-  .wrap{max-width:1100px;margin:0 auto;padding:0 16px 80px}
-  .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-  .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
-  .card h2{margin:0 0 8px;font-size:clamp(20px,2.8vw,26px)}
-  .muted{color:var(--muted)}
-  .btn{display:inline-block;padding:9px 12px;border-radius:10px;border:1px solid var(--border);background:#1a1323;color:var(--fg);text-decoration:none;cursor:pointer}
-  .btn.primary{background:linear-gradient(135deg,var(--violet),var(--mint));border:none;color:#0f0b10;font-weight:700}
-
-  /* BLOQUE DESTACADO — IA & Nuevas Tecnologías */
-  .ia-banner{
-    background:linear-gradient(145deg, #12141c 0%, #1b0f29 100%);
-    border:1px solid var(--violet); border-radius:20px; box-shadow:0 0 40px #c77dff55;
-    padding:28px; margin:36px 0
-  }
-  .ia-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0 0}
-  .ia-tags .tag{display:inline-block;padding:6px 10px;border:1px solid #ffffff22;border-radius:999px;background:#1a1323;color:#f7f0ff;font-size:13px}
-
-  footer{margin:40px 0 0;padding:18px 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
-
-  /* ===== Desktop polish ===== */
-  @media (min-width: 1024px) {
-    .wrap{max-width:1200px}
-    .hero{min-height:78vh}
-    .hero .frame{
-      height:72vh;border-radius:20px;
-      box-shadow:0 30px 80px #00000055, 0 1px 0 #ffffff10 inset;
-      border:1px solid #ffffff26;background:linear-gradient(180deg,#0a0a0f 0%, #0f0b10 100%);
-    }
-    .hero img{max-height:100%;filter:drop-shadow(0 12px 40px #0008)}
-    .hero .title{bottom:4%}
-    .hero h1{font-size:clamp(40px,4.2vw,64px)}
-    .grid{gap:22px;grid-template-columns:repeat(3, minmax(0, 1fr));align-items:stretch}
-    .card{padding:22px;border-radius:20px;border:1px solid #ffffff1f;box-shadow:0 18px 60px #00000044}
-    .card h2{font-size:clamp(22px,2vw,28px)}
-  }
-  @media (min-width: 1440px) {.wrap{max-width:1280px}.hero .frame{height:70vh}}
-  @media (hover:hover) and (pointer:fine){.card:hover{transform:translateY(-2px); transition:transform .15s ease, box-shadow .15s ease}}
-</style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav class="nav">
-  <div class="inner">
-    <div class="brand">Likelandi</div>
-    <a href="/" style="opacity:1">Inicio</a>
-    <a href="/consultorio-terapias.html">Consultorio</a>
-    <a class="highlight" href="/programas.html">Programa Integral</a>
-    <a href="/landias-musik.html">Landia’s Musik</a>
+<article class="acc-item">
+  <div class="acc-head" role="button" aria-expanded="false">
+    <h3>Rehabilitación Psicosocial Integral</h3>
+    <small>Duración: largo plazo · Modalidad: grupal e individual</small>
   </div>
-</nav>
-
-<!-- HERO con FOTO DEL CONSULTORIO -->
-<header class="hero" role="banner">
-  <div class="frame">
-    <!-- asegurate de que el archivo exista con este nombre exacto -->
-    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=90" alt="Consultorio — Likelandi" decoding="async" loading="eager">
-  </div>
-  <div class="title">
-    <h1>Likelandi</h1>
-    <p>Psiquiatría · Arteterapia · IA & Nuevas Tecnologías · Música</p>
-  </div>
-</header>
-
-<main class="wrap">
-
-  <!-- BLOQUE DESTACADO: IA & NUEVAS TECNOLOGÍAS -->
-  <section class="ia-banner">
-    <h2 style="text-align:center;font-size:clamp(26px,4vw,40px);margin:0 0 6px;color:#7cffcb;letter-spacing:.3px; text-transform:uppercase;">
-      🚀 Innovación 2025 — IA & Nuevas Tecnologías
-    </h2>
-    <p style="text-align:center;margin:0 0 14px;color:#cfc7da;">
-      Un módulo pionero que integra <strong>ChatGPT</strong> y herramientas digitales a la rehabilitación psicosocial:
-      entrenamiento cognitivo, autonomía digital y preparación sociolaboral en nuestra <strong>aula tecnológica</strong>
-      del segundo piso (con computadoras suficientes).
-    </p>
-    <div class="ia-tags">
-      <span class="tag">🧠 Rehabilitación cognitiva</span>
-      <span class="tag">💼 Inserción laboral digital</span>
-      <span class="tag">🤖 Asistentes personalizados</span>
-      <span class="tag">🔐 Uso responsable y seguro</span>
+  <div class="acc-body">
+    <div class="kv">
+      <div><strong>Objetivo:</strong> Mejorar la calidad de vida y la autonomía de personas con trastornos mentales graves.</div>
+      <div><strong>Población:</strong> Adultos con esquizofrenia u otros trastornos psicóticos crónicos, y sus familias.</div>
+      <div><strong>Duración:</strong> Intervenciones continuas de mediano y largo plazo (mínimo 5 años).</div>
+      <div><strong>Metodología:</strong> Evaluación periódica, trabajo grupal e individual, acompañamiento familiar.</div>
     </div>
-    <div style="text-align:center;margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
-      <!-- si en programas.html agregaste id="mod-ia" al módulo, este ancla te lleva directo -->
-      <a class="btn primary" href="/programas.html#mod-ia">Conocer el Módulo de IA</a>
-      <a class="btn" href="https://wa.me/5491124605401?text=Quiero%20sumarme%20al%20m%C3%B3dulo%20de%20IA" target="_blank" rel="noopener">Inscribirme por WhatsApp</a>
+    <strong>Actividades clave:</strong>
+    <ul>
+      <li>Entrenamiento en habilidades sociales y autocuidado.</li>
+      <li>Planificación de rutinas y actividades significativas.</li>
+      <li>Apoyo para integración laboral y participación social.</li>
+      <li>Psicoeducación y soporte familiar.</li>
+    </ul>
+    <strong>Resultados esperados:</strong>
+    <ul>
+      <li>Mejor funcionamiento psicosocial y autonomía.</li>
+      <li>Mayor participación social y mejor calidad de vida.</li>
+      <li>Reducción de discapacidad y recaídas.</li>
+    </ul>
+    <div class="cta">
+      <a class="btn" href="mailto:jprebosio@proton.me?subject=Programa%20Rehabilitacion%20Psicosocial">Consultar por email</a>
+      <a class="btn primary" href="https://wa.me/5491124605401?text=Quisiera%20inscribirme%20al%20programa%20de%20rehabilitacion%20psicosocial" target="_blank" rel="noopener">Inscribirme por WhatsApp</a>
     </div>
-  </section>
-
-  <!-- TARJETAS PRINCIPALES -->
-  <section class="grid">
-    <article class="card">
-      <h2>Consultorio</h2>
-      <p class="muted">Atención clínica con enfoque humano. Regulación emocional, hábitos de sueño y herramientas digitales seguras. Presencial y virtual.</p>
-      <p><a class="btn primary" href="/consultorio-terapias.html">Conocer más</a></p>
-    </article>
-
-    <article class="card">
-      <h2>Programa Integral</h2>
-      <p class="muted">Rehabilitación psicosocial con arteterapia, musicoterapia y <strong>IA & nuevas tecnologías</strong>. Segundo piso diseñado para talleres y aula tecnológica.</p>
-      <p>
-        <a class="btn" href="/programas.html">Ver el Plan Completo</a>
-        <a class="btn primary" href="/programas.html#mod-ia">Ir al módulo de IA</a>
-      </p>
-    </article>
-
-    <article class="card">
-      <h2>Landia’s Musik</h2>
-      <p class="muted">Selección musical curada para foco, calma y respiración. Acompañamiento creativo a los procesos terapéuticos.</p>
-      <p><a class="btn primary" href="/landias-musik.html">Ir a la música</a></p>
-    </article>
-  </section>
-</main>
-
-<footer>© Likelandi</footer>
-</body>
-</html>
+  </div>
+</article>
