@@ -3,112 +3,60 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Likelandi — Espacio Integral</title>
-<meta name="description" content="Espacio terapéutico, creativo y tecnológico para la salud mental. Rehabilitación psicosocial, arteterapia, musicoterapia e inteligencia artificial.">
+<title>Likelandi — Home</title>
+<meta name="description" content="Espacio terapéutico, creativo y tecnológico.">
 <style>
-  :root{
-    --bg:#0f0b10; --fg:#f7f0ff; --muted:#cfc7da;
-    --accent:#7cffcb; --accent2:#c77dff; --line:#ffffff1f;
-    --maxw:880px;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0}
-  body{
-    background:var(--bg);
-    color:var(--fg);
-    font:16px/1.7 -apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif;
-  }
+  :root{--bg:#0f0b10;--fg:#f7f0ff;--muted:#cfc7da;--line:#ffffff22;--accent:#7cffcb}
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--bg);color:var(--fg);font:16px/1.7 system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif}
   a{color:var(--accent);text-decoration:none}
   a:hover{text-decoration:underline}
-
-  /* NAV */
-  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
-  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
+  .nav{position:sticky;top:0;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
+  .nav .inner{max-width:760px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
   .brand{margin-right:auto;font-weight:800}
-  .nav a{color:var(--fg);opacity:.9} .nav a:hover{opacity:1}
-  .nav .hl{color:var(--accent);font-weight:700}
-
-  /* HERO */
-  .hero{padding:40px 16px 20px;text-align:center}
-  .hero img{max-width:220px;margin:0 auto 20px;display:block;filter:drop-shadow(0 0 20px #7cffcb33)}
-  .hero h1{margin:0;font-size:clamp(32px,5vw,54px);background:linear-gradient(90deg,var(--accent2),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-  .hero p{margin:12px auto 0;max-width:620px;color:var(--muted);font-size:17px}
-
-  /* BLOQUES */
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 16px 80px}
-  .section{margin-top:40px;padding:20px;border-top:1px solid var(--line)}
-  h2{margin:0 0 8px;font-size:clamp(22px,3vw,30px);color:var(--accent)}
-  .muted{color:var(--muted)}
-  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:20px}
-  .btn{display:inline-block;padding:10px 18px;border:1px solid var(--line);border-radius:10px;background:#181320;color:var(--fg);text-decoration:none;font-weight:600}
-  .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#0f0b10;border:none}
-  .grid{display:grid;gap:18px;margin-top:16px}
-  .card{border:1px solid var(--line);border-radius:14px;padding:20px;background:#15121b;box-shadow:0 10px 30px #0004}
-  .card h3{margin:0 0 6px;font-size:20px;color:var(--accent)}
-  .card p{margin:0;color:var(--muted);font-size:15px}
-
-  footer{margin:50px 0 0;padding:20px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
+  .wrap{max-width:760px;margin:0 auto;padding:38px 16px 64px}
+  h1{margin:0 0 6px;font-size:clamp(28px,5vw,40px)}
+  p{margin:0 0 10px;color:var(--muted)}
+  .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+  .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:#17131f;color:var(--fg)}
+  .btn.primary{background:linear-gradient(135deg,#c77dff,#7cffcb);border:none;color:#0f0b10;font-weight:700}
+  .cards{display:grid;gap:14px;margin-top:26px}
+  .card{border:1px solid var(--line);border-radius:12px;padding:14px;background:#15121a}
+  .card h3{margin:0 0 6px;font-size:18px}
+  footer{margin:40px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav class="nav">
   <div class="inner">
     <div class="brand">Likelandi</div>
-    <a class="hl" href="/">Inicio</a>
-    <a href="/consultorio-terapias.html">Consultorio</a>
-    <a href="/programas.html">Programa Integral</a>
+    <a href="/">Inicio</a>
+    <a href="/programas.html">Programa</a>
+    <a href="/agenda.html">Agenda & Servicios</a>
     <a href="/landias-musik.html">Landia’s Musik</a>
   </div>
 </nav>
 
-<!-- HERO -->
-<header class="hero">
-  <img src="https://likelandi.github.io/Consultorio-hero.jpg" alt="Likelandi Logo" loading="eager">
-  <h1>Un nuevo modelo de salud mental</h1>
-  <p>Un espacio terapéutico y creativo donde la psiquiatría se encuentra con el arte, la música y la inteligencia artificial. Innovación, contención y autonomía en un mismo lugar.</p>
-  <div class="cta" style="justify-content:center;margin-top:20px">
-    <a class="btn primary" href="/programas.html">Explorar el Programa Integral</a>
-    <a class="btn" href="/agenda.html">📅 Ver Agenda & Servicios</a>
-  </div>
-</header>
-
-<!-- BLOQUE: ÁREAS PRINCIPALES -->
 <main class="wrap">
+  <h1>Un espacio claro y humano</h1>
+  <p>Psiquiatría + Arteterapia + Musicoterapia + <strong>IA & nuevas tecnologías</strong>. Un enfoque simple: menos ruido, más acompañamiento.</p>
+  <div class="cta">
+    <a class="btn primary" href="/programas.html">Ver Programa</a>
+    <a class="btn" href="/agenda.html">Agenda & Servicios</a>
+  </div>
 
-  <section class="section">
-    <h2>Áreas principales</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>🤖 IA & Nuevas Tecnologías</h3>
-        <p>Aula equipada con estaciones de trabajo informatizadas. Entrenamiento cognitivo, simulaciones laborales, herramientas digitales y uso terapéutico de ChatGPT.</p>
-      </div>
-      <div class="card">
-        <h3>🎨 Arteterapia</h3>
-        <p>Exploración simbólica, expresión emocional y construcción de identidad a través del arte. Procesos individuales y grupales con enfoque clínico.</p>
-      </div>
-      <div class="card">
-        <h3>🎵 Musicoterapia</h3>
-        <p>Improvisación, escucha guiada y trabajo rítmico para la regulación emocional y el fortalecimiento del vínculo.</p>
-      </div>
-    </div>
+  <section class="cards">
+    <article class="card">
+      <h3>🤖 IA & Tecnologías</h3>
+      <p>Aula con estaciones informatizadas en red. Entrenamiento cognitivo y simulaciones laborales con ChatGPT.</p>
+    </article>
+    <article class="card">
+      <h3>🎨 Arte · 🎵 Música</h3>
+      <p>Procesos creativos para regulación emocional y reconstrucción de identidad.</p>
+    </article>
   </section>
-
-  <!-- BLOQUE: EXPERIENCIA -->
-  <section class="section">
-    <h2>Una experiencia integral</h2>
-    <p class="muted">Cada módulo está diseñado para fomentar la autonomía, la creatividad y la reinserción social. El espacio cuenta con entornos flexibles, dispositivos conectados, acompañamiento profesional y un enfoque interdisciplinario.</p>
-    <div class="cta">
-      <a class="btn primary" href="/programas.html">Ver detalles del programa</a>
-    </div>
-  </section>
-
 </main>
 
-<footer>
-  © 2025 Likelandi — Creado por Juan Pablo Fernández Rebosio
-</footer>
-
+<footer>© 2025 Likelandi</footer>
 </body>
 </html>
