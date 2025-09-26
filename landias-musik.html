@@ -4,108 +4,99 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Likelandi — Landia’s Musik</title>
-<meta name="description" content="Selección musical curada para acompañar procesos con calma, color y respiración.">
-<link rel="preload" as="image" href="/landias-musik-profile-fiesta.png">
+<meta name="description" content="Selección musical curada para foco, calma y creatividad.">
 <style>
-  :root{--bg:#0f0b10;--panel:#141019;--fg:#f7f0ff;--muted:#cfc7da;--violet:#c77dff;--mint:#7cffcb;--border:#ffffff22;--shadow:0 10px 30px #0006}
+  :root{--bg:#0f0b10;--fg:#f7f0ff;--muted:#cfc7da;--line:#ffffff22;--accent:#7cffcb;--accent2:#c77dff;--maxw:820px}
   *{box-sizing:border-box} html,body{margin:0}
-  body{background:var(--bg);color:var(--fg);font:16px/1.5 -apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+  body{background:var(--bg);color:var(--fg);font:16px/1.75 system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
 
-  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--border)}
-  .nav .inner{max-width:1100px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
+  /* NAV */
+  .nav{position:sticky;top:0;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line);z-index:10}
+  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
   .brand{margin-right:auto;font-weight:800}
-  .nav a{color:var(--fg);text-decoration:none;opacity:.9}.nav a:hover{opacity:1}
+  .nav a{color:var(--fg);opacity:.9} .nav a:hover{opacity:1}
+  .nav .hl{color:var(--accent);font-weight:700}
 
-  .hero{position:relative;display:grid;place-items:center;min-height:72vh;padding:16px}
-  .hero .frame{
-    width:min(1100px,92vw); height:68vh; min-height:380px;
-    display:grid;place-items:center;background:linear-gradient(180deg,#000 0%,#0f0b10 100%);
-    border:1px solid var(--border); border-radius:16px; box-shadow:var(--shadow); overflow:hidden
-  }
-  .hero img{max-width:100%;max-height:100%;object-fit:contain;display:block;border-radius:12px;box-shadow:0 10px 40px #000a}
-  .hero .title{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);text-align:center;padding:0 16px}
-  .hero h1{margin:0;font-size:clamp(28px,4.5vw,52px);
-    background:linear-gradient(90deg,var(--violet),var(--mint));
-    -webkit-background-clip:text;-webkit-text-fill-color:transparent}
-  .hero p{margin:.4rem 0 0;color:var(--muted)}
+  /* LAYOUT */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:26px 16px 80px}
+  .hero{display:grid;gap:14px}
+  .frame{display:grid;place-items:center;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#000,#0f0b10)}
+  .frame img{width:100%;height:auto;display:block;object-fit:cover}
+  h1{margin:0;font-size:clamp(26px,5vw,38px);line-height:1.2;background:linear-gradient(90deg,var(--accent2),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{margin:.3rem 0 0;color:var(--muted)}
 
-  .wrap{max-width:1100px;margin:0 auto;padding:0 16px 80px}
-  .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-  .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
-  .card h2{margin:0 0 8px;font-size:clamp(20px,2.8vw,26px)}
-  .muted{color:var(--muted)}
+  /* VIDEO */
+  .video{margin-top:18px;aspect-ratio:16/9;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#15121b}
+  iframe{width:100%;height:100%;border:0}
 
-  /* Desktop polish */
-  @media (min-width:1024px){
-    .wrap{max-width:1200px}
-    .hero{min-height:78vh}
-    .hero .frame{
-      height:72vh;border-radius:20px;
-      box-shadow:0 30px 80px #00000055, 0 1px 0 #ffffff10 inset;border:1px solid #ffffff26;
-      background:linear-gradient(180deg,#0a0a0f 0%, #0f0b10 100%);
-    }
-    .hero img{filter:drop-shadow(0 12px 40px #0008)}
-    .hero .title{bottom:4%}
-    .hero h1{font-size:clamp(40px,4.2vw,64px)}
-    .grid{gap:22px;grid-template-columns:repeat(3, minmax(0, 1fr))}
-    .card{padding:22px;border-radius:20px;border:1px solid #ffffff1f;box-shadow:0 18px 60px #00000044}
-    .card h2{font-size:clamp(22px,2vw,28px)}
-  }
-  @media (min-width:1440px){.wrap{max-width:1280px}.hero .frame{height:70vh}}
-  @media (hover:hover) and (pointer:fine){.card:hover{transform:translateY(-2px);transition:transform .15s, box-shadow .15s}}
+  /* CTA / INFO */
+  .card{margin-top:20px;border:1px solid var(--line);border-radius:12px;padding:14px;background:#15121b}
+  .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:10px}
+  .btn{display:inline-block;padding:9px 14px;border:1px solid var(--line);border-radius:10px;background:#181320;color:var(--fg)}
+  .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));color:#0f0b10;border:none;font-weight:700}
+
+  footer{margin:44px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
 
+<!-- NAV -->
 <nav class="nav">
   <div class="inner">
     <div class="brand">Likelandi</div>
-    <a href="/">Home</a>
-    <a href="/consultorio-terapias.html">Consultorio</a>
-    <a href="/programas.html">Programas</a>
-    <a href="/landias-musik.html" style="opacity:1">Landia’s Musik</a>
+    <a href="/">Inicio</a>
+    <a href="/programas.html">Programa</a>
+    <a class="hl" href="/landias-musik.html">Landia’s Musik</a>
+    <a href="/agenda.html">Agenda & Servicios</a>
   </div>
 </nav>
 
-<header class="hero" role="banner">
-  <div class="frame">
-    <img src="https://likelandi.github.io/landias-musik-profile-fiesta.png?v=30" alt="Landia’s Party — Landia’s Musik" decoding="async" loading="eager">
-  </div>
-  <div class="title">
-    <h1>Landia’s Musik</h1>
-    <p>Selección curada para acompañar con calma, color y respiración</p>
-  </div>
-</header>
-
 <main class="wrap">
-  <section class="grid">
-    <article class="card">
-      <h2>Sobre la selección</h2>
-      <p class="muted">Música para foco, regulación emocional y pausas conscientes. Ideal para sesiones breves de arte y respiración.</p>
-    </article>
+  <!-- HERO -->
+  <section class="hero">
+    <!-- Usá el nombre exacto del archivo que subiste -->
+    <div class="frame">
+      <img src="/landias-musik-profile-fiesta.png?v=2" alt="Landia’s Party — portada">
+    </div>
+    <div>
+      <h1>Landia’s Musik</h1>
+      <p class="sub">Selección musical curada para foco, calma y creatividad. Escuchá y seguí tu propio ritmo terapéutico.</p>
+    </div>
+  </section>
 
-    <article class="card">
-      <h2>Listado del iPod</h2>
-      <ul class="muted" style="margin:8px 0 0;padding-left:18px">
-        <li>Justice — D.A.N.C.E</li>
-        <li>Daft Punk — Something About Us</li>
-        <li>The Weeknd — Out of Time</li>
-        <li>Lady Gaga — Replay</li>
-        <li>Arca — Nonbinary</li>
-        <li>Florence + the Machine — Cosmic Love</li>
-      </ul>
-    </article>
+  <!-- VIDEO DEL DÍA / PLAYLIST -->
+  <section class="video" aria-label="Reproductor">
+    <!-- Reemplazá el ID por el video o playlist que quieras destacar -->
+    <!-- Opción A: video individual -->
+    <iframe
+      src="https://www.youtube.com/embed/VIDEO_ID_AQUI?rel=0"
+      title="Landia’s Musik — Video del día"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
 
-    <article class="card">
-      <h2>Contacto</h2>
-      <p class="muted">
-        Correo: <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a><br>
-        WhatsApp: <a href="https://wa.me/5491124605401" target="_blank" rel="noopener">+54 9 11 2460 5401</a>
-      </p>
-    </article>
+    <!-- Opción B (recomendada): playlist (deja una sola de las opciones activas)
+    <iframe
+      src="https://www.youtube.com/embed/videoseries?list=PLAYLIST_ID_AQUI"
+      title="Landia’s Musik — Playlist"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+    -->
+  </section>
+
+  <!-- INFO + CTAs -->
+  <section class="card">
+    <p style="margin:0">¿Querés sugerir un tema o envío personalizado para una actividad de arteterapia/musicoterapia?</p>
+    <div class="cta">
+      <a class="btn primary" href="https://wa.me/5491124605401?text=Hola%2C%20quiero%20sugerir%20m%C3%BAsica%20para%20Landia%E2%80%99s%20Musik" target="_blank" rel="noopener">Enviar sugerencia</a>
+      <a class="btn" href="mailto:jprebosio@proton.me?subject=Sugerencia%20Landia%E2%80%99s%20Musik">Contactar por email</a>
+    </div>
   </section>
 </main>
 
-<footer>© Landia’s Musik</footer>
+<footer>© 2025 Likelandi — Landia’s Musik</footer>
+
 </body>
 </html>
