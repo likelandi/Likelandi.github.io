@@ -1,31 +1,284 @@
-<article class="acc-item">
-  <div class="acc-head" role="button" aria-expanded="false">
-    <h3>Rehabilitación Psicosocial Integral</h3>
-    <small>Duración: largo plazo · Modalidad: grupal e individual</small>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Likelandi — Innovación Terapéutica & Landia’s Musik</title>
+<meta name="description" content="Centro de innovación terapéutica: psiquiatría, arteterapia, musicoterapia, Landia’s Musik y un Programa Integral con Inteligencia Artificial y nuevas tecnologías.">
+<link rel="preload" as="image" href="/Consultorio-hero.jpg">
+<style>
+  :root{
+    --bg:#0f0b10;--panel:#141019;--fg:#f7f0ff;--muted:#cfc7da;
+    --violet:#c77dff;--mint:#7cffcb;--border:#ffffff22;--shadow:0 10px 30px #0006
+  }
+  *{box-sizing:border-box} html,body{margin:0;scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--fg);font:16px/1.6 -apple-system,system-ui,Segoe UI,Helvetica,Arial,sans-serif}
+  a{color:var(--mint);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(8px);background:#0f0b10cc;border-bottom:1px solid var(--border)}
+  .nav .inner{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+  .brand{margin-right:auto;font-weight:800;letter-spacing:.3px}
+  .nav a{color:var(--fg);opacity:.9;padding:8px 10px;border-radius:10px}
+  .nav a:hover{opacity:1;background:#1a1323}
+  .nav a.cta{background:linear-gradient(135deg,var(--violet),var(--mint));color:#0f0b10;font-weight:700}
+
+  /* HERO */
+  .hero{position:relative;display:grid;place-items:center;min-height:72vh;padding:16px}
+  .hero .frame{
+    width:min(1100px,92vw); height:68vh; min-height:360px;
+    display:grid;place-items:center;background:linear-gradient(180deg,#000 0%,#0f0b10 100%);
+    border:1px solid var(--border); border-radius:18px; box-shadow:var(--shadow); overflow:hidden
+  }
+  .hero img{max-width:100%;max-height:100%;object-fit:contain;display:block;border-radius:12px;box-shadow:0 10px 40px #000a}
+  .hero .title{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);text-align:center;padding:0 16px}
+  .hero h1{margin:0;font-size:clamp(28px,4.6vw,56px);
+    background:linear-gradient(90deg,var(--violet),var(--mint));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .hero p{margin:.4rem 0 0;color:var(--muted)}
+
+  /* SECCIONES GENERALES */
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px 90px}
+  section{margin-top:56px}
+  h2{font-size:clamp(22px,3.2vw,34px);margin:0 0 12px;color:var(--mint)}
+  h3{color:var(--violet);margin:18px 0 8px}
+  .muted{color:var(--muted)}
+  .btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid var(--border);background:#1a1323;color:var(--fg);text-decoration:none}
+  .btn.primary{background:linear-gradient(135deg,var(--violet),var(--mint));border:none;color:#0f0b10;font-weight:700}
+  .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .card{background:var(--panel);border:1px solid var(--border);border-radius:16px;padding:18px;box-shadow:var(--shadow)}
+  ul{margin:10px 0 18px 22px}
+
+  /* IA BANNER DESTACADO */
+  .ia-banner{
+    background:linear-gradient(145deg, #12141c 0%, #1b0f29 100%);
+    border:1px solid var(--violet); border-radius:20px; box-shadow:0 0 40px #c77dff55;
+    padding:28px; margin:36px 0
+  }
+  .ia-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:14px 0 0}
+  .ia-tags .tag{display:inline-block;padding:6px 10px;border:1px solid #ffffff22;border-radius:999px;background:#1a1323;color:#f7f0ff;font-size:13px}
+
+  /* LISTAS */
+  .pill{display:inline-block;padding:6px 10px;border:1px solid var(--border);border-radius:999px;background:#1a1323;margin:4px 6px 0 0}
+  .two-col{columns:1; column-gap:28px}
+  @media(min-width:900px){.two-col{columns:2}}
+
+  /* FORM */
+  .form{display:grid;gap:12px;max-width:680px}
+  .form input,.form textarea, .form select{
+    width:100%;padding:12px;border-radius:12px;border:1px solid var(--border);background:#0f0b10;color:var(--fg)
+  }
+
+  footer{margin:40px 0 0;padding:18px 16px;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
+
+  /* Desktop polish */
+  @media (min-width: 1024px) {
+    .wrap{max-width:1200px}
+    .hero{min-height:78vh}
+    .hero .frame{
+      height:72vh;border-radius:20px;
+      box-shadow:0 30px 80px #00000055, 0 1px 0 #ffffff10 inset;
+      border:1px solid #ffffff26;background:linear-gradient(180deg,#0a0a0f 0%, #0f0b10 100%);
+    }
+    .hero img{max-height:100%;filter:drop-shadow(0 12px 40px #0008)}
+    .hero .title{bottom:4%}
+    .hero h1{font-size:clamp(40px,4.2vw,64px)}
+    .card{padding:22px;border-radius:20px;border:1px solid #ffffff1f;box-shadow:0 18px 60px #00000044}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="inner">
+    <div class="brand">Likelandi</div>
+    <a href="#inicio" style="opacity:1">Inicio</a>
+    <a href="#propuesta">Propuesta</a>
+    <a href="#programa">Programa Integral</a>
+    <a href="#ia">Módulo IA</a>
+    <a href="#espacios">Espacios</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#calendario">Calendario</a>
+    <a href="#preinscripcion" class="cta">Preinscripción</a>
+    <a href="#contacto">Contacto</a>
   </div>
-  <div class="acc-body">
-    <div class="kv">
-      <div><strong>Objetivo:</strong> Mejorar la calidad de vida y la autonomía de personas con trastornos mentales graves.</div>
-      <div><strong>Población:</strong> Adultos con esquizofrenia u otros trastornos psicóticos crónicos, y sus familias.</div>
-      <div><strong>Duración:</strong> Intervenciones continuas de mediano y largo plazo (mínimo 5 años).</div>
-      <div><strong>Metodología:</strong> Evaluación periódica, trabajo grupal e individual, acompañamiento familiar.</div>
-    </div>
-    <strong>Actividades clave:</strong>
-    <ul>
-      <li>Entrenamiento en habilidades sociales y autocuidado.</li>
-      <li>Planificación de rutinas y actividades significativas.</li>
-      <li>Apoyo para integración laboral y participación social.</li>
-      <li>Psicoeducación y soporte familiar.</li>
-    </ul>
-    <strong>Resultados esperados:</strong>
-    <ul>
-      <li>Mejor funcionamiento psicosocial y autonomía.</li>
-      <li>Mayor participación social y mejor calidad de vida.</li>
-      <li>Reducción de discapacidad y recaídas.</li>
-    </ul>
-    <div class="cta">
-      <a class="btn" href="mailto:jprebosio@proton.me?subject=Programa%20Rehabilitacion%20Psicosocial">Consultar por email</a>
-      <a class="btn primary" href="https://wa.me/5491124605401?text=Quisiera%20inscribirme%20al%20programa%20de%20rehabilitacion%20psicosocial" target="_blank" rel="noopener">Inscribirme por WhatsApp</a>
-    </div>
+</nav>
+
+<!-- HERO -->
+<header id="inicio" class="hero" role="banner">
+  <div class="frame">
+    <img src="https://likelandi.github.io/Consultorio-hero.jpg?v=140" alt="Innovación Terapéutica & Landia’s Musik — Likelandi" decoding="async" loading="eager">
   </div>
-</article>
+  <div class="title">
+    <h1>Likelandi — Innovación Terapéutica & Landia’s Musik</h1>
+    <p>Psiquiatría · Arteterapia · IA & Nuevas Tecnologías · Rehabilitación Psicosocial · <strong>Landia’s Musik</strong></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- PROPUESTA DE VALOR / MANIFIESTO -->
+  <section id="propuesta">
+    <h2>Propuesta de valor</h2>
+    <p class="muted">Somos un <strong>Centro de Innovación Terapéutica</strong> que integra salud mental, creatividad y tecnología para potenciar la <strong>autonomía</strong>, la <strong>funcionalidad</strong> y la <strong>reinserción social</strong>. Nuestro diferencial:</p>
+    <div class="grid">
+      <article class="card"><h3>🧠 Psiquiatría y Clínica</h3><p>Abordaje integral, humano y basado en evidencia. Prevención de recaídas y continuidad de cuidados.</p></article>
+      <article class="card"><h3>🎨 Arteterapia & 🎶 Musicoterapia</h3><p>Herramientas expresivas para regulación emocional, identidad y sentido de logro.</p></article>
+      <article class="card"><h3>🤖 IA & Nuevas Tecnologías</h3><p>Módulo pionero con <strong>ChatGPT</strong> y alfabetización digital para autonomía y empleabilidad.</p></article>
+    </div>
+    <div style="margin-top:10px">
+      <span class="pill">Modelo híbrido Salud + Creatividad + Tecnología</span>
+      <span class="pill">Primero en Latinoamérica con IA terapéutica</span>
+      <span class="pill">Landia’s Musik como acompañamiento creativo y terapéutico</span>
+      <span class="pill">Enfoque comunitario y escalable</span>
+    </div>
+  </section>
+
+  <!-- PROGRAMA INTEGRAL (resumen) -->
+  <section id="programa">
+    <h2>Programa Integral de Rehabilitación Psicosocial</h2>
+    <p>Proceso continuo de <strong>6–24 meses</strong> con módulos de 8–12 semanas. Evaluación trimestral, objetivos SMART y participación familiar.</p>
+    <div class="grid">
+      <article class="card"><h3>🧩 Adaptación y Diagnóstico</h3><ul><li>Perfil psicosocial, GAF/WHO-DAS/HoNOS.</li><li>Plan Terapéutico Individual (PTI).</li></ul></article>
+      <article class="card"><h3>🎨 Arteterapia</h3><ul><li>Pintura, collage, escritura.</li><li>Exposición terapéutica mensual.</li></ul></article>
+      <article class="card"><h3>🎶 Musicoterapia</h3><ul><li>Improvisación, percusión, canto.</li><li>Playlist narrativa personal (Landia’s Musik).</li></ul></article>
+      <article class="card"><h3>🗣️ Habilidades Sociales</h3><ul><li>Comunicación y asertividad.</li><li>Role-playing cotidiano/laboral.</li></ul></article>
+      <article class="card"><h3>🏠 Autonomía y Vida Diaria</h3><ul><li>Rutinas, organización doméstica.</li><li>Desafíos de independencia.</li></ul></article>
+      <article class="card"><h3>🛠️ Proyecto Ocupacional</h3><ul><li>CV, entrevistas, prácticas protegidas.</li><li>Microemprendimientos creativos.</li></ul></article>
+      <article class="card"><h3>💞 Redes y Familia</h3><ul><li>Vínculos comunitarios y voluntariado.</li><li>Psicoeducación familiar.</li></ul></article>
+    </div>
+    <p style="margin-top:8px"><a class="btn primary" href="/programas.html#mod-ia">Ver el plan extendido</a></p>
+  </section>
+
+  <!-- IA DESTACADO -->
+  <section id="ia" class="ia-banner">
+    <h2 style="text-align:center;margin:0 0 6px;color:#7cffcb; text-transform:uppercase;">🚀 Innovación 2025 — IA & Nuevas Tecnologías</h2>
+    <p style="text-align:center;margin:0 0 14px;color:#cfc7da;">
+      Integramos <strong>ChatGPT</strong> y herramientas digitales a la rehabilitación: entrenamiento cognitivo, autonomía digital y preparación sociolaboral en un
+      <strong>aula tecnológica equipada con estaciones de trabajo informatizadas y conectadas en red</strong> (segundo piso).
+    </p>
+    <div class="ia-tags">
+      <span class="tag">🧠 Rehabilitación cognitiva</span>
+      <span class="tag">💼 Inserción laboral digital</span>
+      <span class="tag">🤖 Asistentes personalizados</span>
+      <span class="tag">🔐 Uso responsable y seguro</span>
+    </div>
+    <div style="text-align:center;margin-top:16px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <a class="btn primary" href="/programas.html#mod-ia">Conocer el Módulo de IA</a>
+      <a class="btn" href="https://wa.me/5491124605401?text=Quiero%20sumarme%20al%20m%C3%B3dulo%20de%20IA" target="_blank" rel="noopener">Inscribirme por WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- ESPACIOS 2º PISO -->
+  <section id="espacios">
+    <h2>Espacios terapéuticos (2.º piso)</h2>
+    <div class="grid">
+      <article class="card"><h3>🖼️ Laboratorio Creativo</h3><p>Talleres de arteterapia y proyectos colaborativos con curaduría clínica.</p></article>
+      <article class="card"><h3>🎧 Estudio Sonoro</h3><p>Musicoterapia, paisajes sonoros, respiración rítmica y registros de audio.</p></article>
+      <article class="card"><h3>💻 Aula Tecnológica</h3><p>Estaciones de trabajo informatizadas en red para el Módulo IA.</p></article>
+      <article class="card"><h3>👥 Sala de Grupos</h3><p>Habilidades sociales, psicoeducación familiar y comunidad Likelandi.</p></article>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios">
+    <h2>Servicios</h2>
+    <div class="grid">
+      <article class="card"><h3>Consultas Psiquiátricas</h3><p>Evaluación, seguimiento y coordinación interdisciplinaria.</p></article>
+      <article class="card"><h3>Programa Integral</h3><p>Plan clínico-creativo-tecnológico con módulos progresivos.</p></article>
+      <article class="card"><h3>Talleres & Seminarios</h3><p>Arteterapia, musicoterapia, alfabetización digital e IA.</p></article>
+      <article class="card"><h3>Convenios</h3><p>Instituciones, obras sociales, universidades y municipios.</p></article>
+    </div>
+  </section>
+
+  <!-- CALENDARIO SIMPLE -->
+  <section id="calendario">
+    <h2>Calendario de actividades</h2>
+    <p class="muted">Publicamos mensualmente talleres, seminarios y grupos. (Podemos integrar Google Calendar si querés.)</p>
+    <div class="grid">
+      <article class="card"><h3>Semana 1</h3><ul><li>Arteterapia: Pintura libre (Mi 18:00)</li><li>IA Intro: Organización con ChatGPT (Ju 17:00)</li></ul></article>
+      <article class="card"><h3>Semana 2</h3><ul><li>Musicoterapia: Canto grupal (Lu 18:00)</li><li>IA Intermedio: CV y carta (Ju 17:00)</li></ul></article>
+      <article class="card"><h3>Semana 3</h3><ul><li>Habilidades sociales (Ma 18:00)</li><li>IA Avanzado: Mini-proyectos (Vi 17:00)</li></ul></article>
+    </div>
+  </section>
+
+  <!-- PREINSCRIPCION -->
+  <section id="preinscripcion">
+    <h2>Preinscripción</h2>
+    <p class="muted">Completá tus datos y te contactamos para una entrevista inicial (sin costo).</p>
+    <form class="form" onsubmit="sendForm(event)">
+      <div class="grid">
+        <div><label>Nombre y apellido<br><input required name="nombre" placeholder="Tu nombre"></label></div>
+        <div><label>Correo<br><input required type="email" name="email" placeholder="tunombre@email.com"></label></div>
+      </div>
+      <div class="grid">
+        <div><label>Teléfono / WhatsApp<br><input required name="tel" placeholder="+54 9 ..."></label></div>
+        <div><label>Interés principal<br>
+          <select name="interes">
+            <option>Programa Integral</option>
+            <option>Módulo IA</option>
+            <option>Arteterapia / Musicoterapia</option>
+            <option>Consulta Psiquiátrica</option>
+          </select></label>
+        </div>
+      </div>
+      <label>Mensaje (opcional)<br><textarea name="mensaje" rows="4" placeholder="Contame brevemente tu consulta"></textarea></label>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:6px">
+        <button class="btn primary" type="submit">Enviar</button>
+        <a class="btn" target="_blank" rel="noopener"
+           href="https://wa.me/5491124605401?text=Hola%2C%20quiero%20preinscribirme%20al%20Programa%20Integral">Enviar por WhatsApp</a>
+      </div>
+    </form>
+  </section>
+
+  <!-- BLOG / NOVEDADES -->
+  <section id="blog">
+    <h2>Novedades</h2>
+    <div class="grid">
+      <article class="card"><h3>IA en salud mental</h3><p>3 usos responsables de ChatGPT para organización y autocuidado.</p></article>
+      <article class="card"><h3>Arteterapia</h3><p>Por qué crear imágenes y relatos facilita la regulación emocional.</p></article>
+      <article class="card"><h3>Musicoterapia</h3><p>Playlist narrativa: tu historia en canciones (Landia’s Musik).</p></article>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Datos</h3>
+        <p>📧 <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a><br>
+           📱 <a href="https://wa.me/5491124605401" target="_blank" rel="noopener">+54 9 11 2460 5401</a></p>
+        <p class="muted">Luján · Buenos Aires · Argentina</p>
+      </article>
+      <article class="card">
+        <h3>Redes</h3>
+        <p><a href="/landias-musik.html">Landia’s Musik</a> · <a href="/programas.html#mod-ia">Módulo IA</a></p>
+        <p class="muted">Próximamente: canal de YouTube y calendario público.</p>
+      </article>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2025 Likelandi — Innovación Terapéutica & Landia’s Musik</footer>
+
+<script>
+  // Envío de preinscripción por mailto (simple y sin servidor)
+  function sendForm(e){
+    e.preventDefault();
+    const f = new FormData(e.target);
+    const asunto = encodeURIComponent("Preinscripción — Likelandi");
+    const cuerpo = encodeURIComponent(
+`Nombre: ${f.get('nombre')}
+Email: ${f.get('email')}
+Tel/WA: ${f.get('tel')}
+Interés: ${f.get('interes')}
+Mensaje: ${f.get('mensaje') || ''}`);
+    location.href = `mailto:jprebosio@proton.me?subject=${asunto}&body=${cuerpo}`;
+  }
+</script>
+
+</body>
+</html>
