@@ -4,33 +4,57 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Likelandi — Home</title>
-<meta name="description" content="Espacio terapéutico, creativo y tecnológico.">
+<meta name="description" content="Espacio terapéutico, creativo y tecnológico: psiquiatría, arteterapia, musicoterapia e IA.">
 <style>
-  :root{--bg:#0f0b10;--fg:#f7f0ff;--muted:#cfc7da;--line:#ffffff22;--accent:#7cffcb}
+  :root{
+    --bg:#0f0b10; --fg:#f7f0ff; --muted:#cfc7da;
+    --line:#ffffff22; --accent:#7cffcb; --accent2:#c77dff;
+    --maxw: 820px;
+  }
   *{box-sizing:border-box} html,body{margin:0}
-  body{background:var(--bg);color:var(--fg);font:16px/1.7 system-ui, -apple-system, Segoe UI, Helvetica, Arial, sans-serif}
-  a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .nav{position:sticky;top:0;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
-  .nav .inner{max-width:760px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
+  body{background:var(--bg);color:var(--fg);font:16px/1.7 system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
+
+  /* NAV minimal */
+  .nav{position:sticky;top:0;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line);z-index:10}
+  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
   .brand{margin-right:auto;font-weight:800}
-  .wrap{max-width:760px;margin:0 auto;padding:38px 16px 64px}
-  h1{margin:0 0 6px;font-size:clamp(28px,5vw,40px)}
-  p{margin:0 0 10px;color:var(--muted)}
-  .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
-  .btn{display:inline-block;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:#17131f;color:var(--fg)}
-  .btn.primary{background:linear-gradient(135deg,#c77dff,#7cffcb);border:none;color:#0f0b10;font-weight:700}
-  .cards{display:grid;gap:14px;margin-top:26px}
-  .card{border:1px solid var(--line);border-radius:12px;padding:14px;background:#15121a}
-  .card h3{margin:0 0 6px;font-size:18px}
-  footer{margin:40px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
+  .nav a{color:var(--fg);opacity:.9;text-decoration:none}
+  .nav a:hover{opacity:1}
+  .nav .hl{color:var(--accent);font-weight:700}
+
+  /* LAYOUT */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:28px 16px 72px}
+
+  /* HERO con imagen del sillón */
+  .hero{display:grid;gap:16px}
+  .frame{display:grid;place-items:center;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#000,#0f0b10)}
+  .frame img{width:100%;height:auto;display:block;object-fit:cover}
+  h1{margin:0;font-size:clamp(28px,5vw,44px);line-height:1.2;
+     background:linear-gradient(90deg,var(--accent2),var(--accent));
+     -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{margin:.4rem 0 0;color:var(--muted)}
+
+  /* CTA */
+  .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+  .btn{display:inline-block;padding:10px 16px;border:1px solid var(--line);border-radius:10px;background:#181320;color:#f7f0ff;text-decoration:none;font-weight:600}
+  .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;color:#0f0b10}
+
+  /* TARJETAS (breves) */
+  .cards{display:grid;gap:14px;margin-top:24px}
+  .card{border:1px solid var(--line);border-radius:12px;padding:14px;background:#15121b}
+  .card h3{margin:0 0 6px;font-size:18px;color:var(--accent)}
+  .muted{color:var(--muted)}
+
+  footer{margin:44px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
+
+<!-- NAV -->
 <nav class="nav">
   <div class="inner">
     <div class="brand">Likelandi</div>
-    <a href="/">Inicio</a>
+    <a class="hl" href="/">Inicio</a>
     <a href="/programas.html">Programa</a>
     <a href="/agenda.html">Agenda & Servicios</a>
     <a href="/landias-musik.html">Landia’s Musik</a>
@@ -38,23 +62,36 @@
 </nav>
 
 <main class="wrap">
-  <h1>Un espacio claro y humano</h1>
-  <p>Psiquiatría + Arteterapia + Musicoterapia + <strong>IA & nuevas tecnologías</strong>. Un enfoque simple: menos ruido, más acompañamiento.</p>
-  <div class="cta">
-    <a class="btn primary" href="/programas.html">Ver Programa</a>
-    <a class="btn" href="/agenda.html">Agenda & Servicios</a>
-  </div>
 
+  <!-- HERO con la imagen del sillón -->
+  <section class="hero" role="banner">
+    <div class="frame">
+      <!-- Asegurate de tener este archivo en la RAÍZ del repo -->
+      <img src="/Consultorio-hero.jpg?v=1" alt="Consultorio — Likelandi" loading="eager" decoding="async">
+    </div>
+    <div>
+      <h1>Un espacio claro y humano</h1>
+      <p class="sub">Psiquiatría + Arteterapia + Musicoterapia + <strong>IA & nuevas tecnologías</strong>. Menos ruido visual, más acompañamiento.</p>
+      <div class="cta">
+        <a class="btn primary" href="/programas.html">Ver Programa</a>
+        <a class="btn" href="/agenda.html">Agenda & Servicios</a>
+        <a class="btn" href="/landias-musik.html">Escuchar Landia’s Musik</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tarjetas breves (sin densidad) -->
   <section class="cards">
     <article class="card">
       <h3>🤖 IA & Tecnologías</h3>
-      <p>Aula con estaciones informatizadas en red. Entrenamiento cognitivo y simulaciones laborales con ChatGPT.</p>
+      <p class="muted">Aula con estaciones de trabajo informatizadas y conectadas en red. Entrenamiento cognitivo y simulaciones laborales con ChatGPT.</p>
     </article>
     <article class="card">
       <h3>🎨 Arte · 🎵 Música</h3>
-      <p>Procesos creativos para regulación emocional y reconstrucción de identidad.</p>
+      <p class="muted">Procesos creativos para regulación emocional y construcción de identidad, individuales y grupales.</p>
     </article>
   </section>
+
 </main>
 
 <footer>© 2025 Likelandi</footer>
