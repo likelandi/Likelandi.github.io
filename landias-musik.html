@@ -4,113 +4,66 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Landia’s Musik — Likelandi</title>
-<meta name="description" content="Selección musical curada desde el universo Landia.">
+<meta name="description" content="Selección musical curada para foco, calma y creatividad.">
 <style>
-  :root {
-    --bg:#0f0b10; --fg:#f7f0ff; --muted:#cfc7da;
-    --accent:#7cffcb; --accent2:#c77dff; --line:#ffffff22;
-  }
-  * { box-sizing:border-box; }
-  html,body { margin:0; background:var(--bg); color:var(--fg); font:17px/1.7 system-ui, -apple-system, sans-serif; }
-  a { color:var(--accent); text-decoration:none; }
-  a:hover { text-decoration:underline; }
-
-  /* NAV */
-  nav {
-    position:sticky; top:0; z-index:10;
-    backdrop-filter:blur(6px); background:#0f0b10cc; border-bottom:1px solid var(--line);
-  }
-  nav .inner {
-    max-width:800px; margin:0 auto; padding:12px 16px;
-    display:flex; align-items:center; gap:20px;
-  }
-  .brand { margin-right:auto; font-weight:700; font-size:18px; }
-  nav a { opacity:.9; }
-  nav a:hover { opacity:1; }
-  nav .active { color:var(--accent); font-weight:600; }
-
-  /* HERO */
-  header {
-    text-align:center; padding:40px 16px 20px;
-    max-width:800px; margin:0 auto;
-  }
-  header img {
-    width:100%; max-width:720px; border-radius:16px;
-    box-shadow:0 8px 30px #0008; margin-bottom:24px;
-  }
-  header h1 {
-    margin:0; font-size:clamp(30px,6vw,46px);
-    background:linear-gradient(90deg,var(--accent2),var(--accent));
-    -webkit-background-clip:text; -webkit-text-fill-color:transparent;
-  }
-  header p { color:var(--muted); max-width:600px; margin:12px auto 0; }
-
-  /* PLAYLIST */
-  .playlist {
-    max-width:800px; margin:40px auto; padding:0 16px;
-  }
-  iframe {
-    width:100%; aspect-ratio:16/9;
-    border:1px solid var(--line); border-radius:16px;
-    box-shadow:0 8px 30px #0004;
-  }
-
-  /* CTA */
-  .cta {
-    text-align:center; margin:40px auto;
-  }
-  .btn {
-    display:inline-block; padding:12px 24px;
-    background:linear-gradient(135deg,var(--accent2),var(--accent));
-    color:#0f0b10; border:none; border-radius:12px;
-    font-weight:700; font-size:16px;
-  }
-  .btn:hover { filter:brightness(1.1); }
-
-  footer {
-    text-align:center; color:var(--muted);
-    font-size:14px; padding:20px 0; border-top:1px solid var(--line);
-    margin-top:60px;
-  }
+  :root{--bg:#0f0b10;--fg:#f7f0ff;--muted:#cfc7da;--line:#ffffff22;--accent:#7cffcb;--accent2:#c77dff}
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--bg);color:var(--fg);font:16px/1.75 system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  nav{position:sticky;top:0;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line);z-index:10}
+  nav .inner{max-width:820px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
+  .brand{margin-right:auto;font-weight:800}
+  .wrap{max-width:820px;margin:0 auto;padding:26px 16px 80px}
+  .frame{display:grid;place-items:center;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#000,#0f0b10)}
+  .frame img{width:100%;height:auto;display:block;object-fit:cover}
+  h1{margin:14px 0 0;font-size:clamp(26px,5vw,38px);line-height:1.2;background:linear-gradient(90deg,var(--accent2),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{margin:.3rem 0 0;color:var(--muted)}
+  .video{margin-top:18px;aspect-ratio:16/9;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#15121b}
+  iframe{width:100%;height:100%;border:0}
+  footer{margin:44px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
-
 <nav>
   <div class="inner">
     <div class="brand">Likelandi</div>
     <a href="/">Inicio</a>
     <a href="/programas.html">Programa</a>
     <a href="/agenda.html">Agenda</a>
-    <a href="/landias-musik.html" class="active">Landia’s Musik</a>
+    <a href="/landias-musik.html">Landia’s Musik</a>
   </div>
 </nav>
 
-<header>
-  <img src="/landias-musik-profile-fiesta.png" alt="Landia’s Musik">
+<main class="wrap">
+  <div class="frame">
+    <img src="/landias-musik-profile-fiesta.png?v=2" alt="Landia’s Party — portada">
+  </div>
   <h1>Landia’s Musik</h1>
-  <p>Una selección musical curada para acompañar procesos terapéuticos, estimular la creatividad y mejorar el estado emocional.</p>
-</header>
+  <p class="sub">Escucha curada para foco, calma y creatividad.</p>
 
-<section class="playlist">
-  <!-- Playlist oficial -->
-  <iframe 
-    src="https://www.youtube.com/embed/videoseries?list=FL92EDyyzXI-lr7uurd7n1Nw" 
-    title="Landia’s Musik Playlist"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-    allowfullscreen>
-  </iframe>
-</section>
+  <!-- Video individual (funciona ya) -->
+  <section class="video" aria-label="Reproductor">
+    <iframe
+      src="https://www.youtube.com/embed/HcX1GpMR9n4?rel=0"
+      title="Landia’s Musik — Video"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </section>
 
-<div class="cta">
-  <a class="btn" href="https://wa.me/5491124605401?text=Hola%20Likelandi%2C%20quiero%20sugerir%20m%C3%BAsica%20para%20Landia%E2%80%99s%20Musik" target="_blank">
-    📩 Sugerir canción
-  </a>
-</div>
+  <!-- Cuando tengas una PLAYLIST PÚBLICA (ID empieza con PL...), sustituí el iframe de arriba por éste:
+  <section class="video" aria-label="Playlist">
+    <iframe
+      src="https://www.youtube.com/embed/videoseries?list=PLAYLIST_ID_PUBLICA_AQUI"
+      title="Landia’s Musik — Playlist"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+    ></iframe>
+  </section>
+  -->
+</main>
 
-<footer>
-  © 2025 Likelandi — Landia’s Musik
-</footer>
-
+<footer>© 2025 Likelandi — Landia’s Musik</footer>
 </body>
 </html>
