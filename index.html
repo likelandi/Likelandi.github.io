@@ -1,98 +1,28 @@
-<script>
-/* ===== Apple Music (principal) + Spotify (opcional) ===== */
-(function(){
-  const PRINCIPAL_APPLE = 'https://music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en';
+<!-- === APPLE MUSIC PRINCIPAL (FIJO) === -->
+<section id="apple-principal" style="margin-top:28px">
+  <style>
+    #apple-principal .wrap{border:1px solid #ffffff22;border-radius:12px;background:#15121b}
+    #apple-principal .head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid #ffffff22;flex-wrap:wrap}
+    #apple-principal h2{margin:0;font-size:16px}
+    #apple-principal .btn{display:inline-block;padding:8px 12px;border-radius:10px;border:1px solid #ffffff22;background:#181320;color:#f7f0ff;text-decoration:none;font-weight:600}
+    #apple-principal iframe{width:100%;min-height:420px;border:0;border-radius:12px;background:#0f0b10;display:block}
+    #apple-principal .body{padding:12px}
+  </style>
 
-  const tabs = document.querySelectorAll('#music-services .tab');
-  const spotifyPane = document.getElementById('spotifyPane');
-  const applePane   = document.getElementById('applePane');
-  const spotifyEmbed= document.getElementById('spotifyEmbed');
-  const appleEmbed  = document.getElementById('appleEmbed');
-  const spotifyUrlI = document.getElementById('spotifyUrl');
-  const appleUrlI   = document.getElementById('appleUrl');
-  const btnSave     = document.getElementById('svcSave');
-  const btnDemo     = document.getElementById('svcDemo');
-
-  const LS_KEY = 'likelandi_music_services_v2';
-
-  function loadState(){
-    try{ return JSON.parse(localStorage.getItem(LS_KEY)) || {}; }catch(e){ return {}; }
-  }
-  function saveState(s){ localStorage.setItem(LS_KEY, JSON.stringify(s)); }
-
-  function toSpotifyEmbed(url){
-    try{
-      const u = new URL(url);
-      if (!u.hostname.includes('open.spotify.com')) return '';
-      const parts = u.pathname.split('/').filter(Boolean); // ['playlist','ID']
-      if (parts.length >= 2){
-        return `https://open.spotify.com/embed/${parts[0]}/${parts[1]}`;
-      }
-    }catch(e){}
-    return '';
-  }
-  function toAppleEmbed(url){
-    try{
-      const u = new URL(url);
-      if (u.hostname.startsWith('embed.music.apple.com')) return u.toString();
-      if (u.hostname.startsWith('music.apple.com')){
-        return `https://embed.${u.hostname}${u.pathname}${u.search}`;
-      }
-    }catch(e){}
-    return '';
-  }
-
-  // Fuerzo tu playlist como PRINCIPAL (global). Si había algo guardado, se respeta Spotify, pero Apple se fija a tu link.
-  function render(state){
-    // Apple principal fija
-    state.apple = PRINCIPAL_APPLE;
-    appleUrlI.value = state.apple;
-    const ap = toAppleEmbed(state.apple);
-    if (ap) appleEmbed.src = ap;
-
-    // Spotify opcional (si pegás link, se muestra; si no, queda vacío)
-    spotifyUrlI.value = state.spotify || '';
-    const sp = state.spotify ? toSpotifyEmbed(state.spotify) : '';
-    if (sp) spotifyEmbed.src = sp; else spotifyEmbed.removeAttribute('src');
-
-    // Guardar estado consolidado
-    saveState(state);
-
-    // Dejar APPLE como pestaña activa por defecto
-    setActiveTab('apple');
-  }
-
-  // Tabs
-  function setActiveTab(tab){
-    tabs.forEach(n=>n.classList.remove('active'));
-    const btn = Array.from(tabs).find(t=>t.dataset.tab===tab);
-    if (btn) btn.classList.add('active');
-    spotifyPane.style.display = (tab==='spotify') ? 'block' : 'none';
-    applePane.style.display   = (tab==='apple')   ? 'block' : 'none';
-  }
-  tabs.forEach(t => {
-    t.addEventListener('click', ()=> setActiveTab(t.getAttribute('data-tab')));
-  });
-
-  // Guardar (solo afecta Spotify; Apple queda fija a tu link)
-  btnSave.addEventListener('click', ()=>{
-    const state = loadState();
-    state.spotify = spotifyUrlI.value.trim();
-    // Apple se fuerza al principal
-    state.apple = PRINCIPAL_APPLE;
-    render(state);
-    alert('Guardado. Apple quedó fijo como principal; Spotify actualizado si pegaste un link público.');
-  });
-
-  // DEMO: solo rellena Spotify si querés probar rápido
-  btnDemo.addEventListener('click', ()=>{
-    const state = loadState();
-    state.spotify = 'https://open.spotify.com/playlist/37i9dQZF1DX4sWSpwq3LiO';
-    render(state);
-  });
-
-  // Init
-  const current = loadState();
-  render(current);
-})();
-</script>
+  <div class="wrap">
+    <div class="head">
+      <h2>🎧 Landia’s Musik — Apple Music (principal)</h2>
+      <a class="btn" href="https://music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en" target="_blank" rel="noopener">Abrir en Apple Music</a>
+    </div>
+    <div class="body">
+      <!-- EMBED FIJO: si el link cambia, solo sustituí la URL debajo -->
+      <iframe
+        title="Landia’s Musik — Apple Music"
+        allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+        src="https://embed.music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en">
+      </iframe>
+    </div>
+  </div>
+</section>
+<!-- === FIN APPLE MUSIC PRINCIPAL === -->
