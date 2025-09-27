@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Likelandi — Home</title>
-<meta name="description" content="Espacio terapéutico, creativo y tecnológico. Psiquiatría, arte, música e IA.">
+<meta name="description" content="Espacio terapéutico, creativo y tecnológico. Psiquiatría, arteterapia, musicoterapia e IA.">
 <style>
   :root{
     --bg:#0f0b10; --fg:#f7f0ff; --muted:#cfc7da;
@@ -15,9 +15,12 @@
   html,body{margin:0}
   body{background:var(--bg);color:var(--fg);font:16px/1.75 system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
   a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  .btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#171320;color:var(--fg);font-weight:700;text-decoration:none}
+  .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;color:#0f0b10}
+  .kicker{font-size:12px;letter-spacing:.12em;color:#b9b0c9;text-transform:uppercase}
 
   /* NAV */
-  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
+  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
   .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
   .brand{margin-right:auto;font-weight:800}
   .nav a{color:var(--fg);opacity:.9} .nav a:hover{opacity:1}
@@ -34,17 +37,57 @@
       background:linear-gradient(90deg,var(--accent2),var(--accent));
       -webkit-background-clip:text;-webkit-text-fill-color:transparent}
   .sub{margin:.3rem 0 0;color:var(--muted)}
-  .btn{display:inline-block;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:#181320;color:var(--fg);text-decoration:none;font-weight:600}
-  .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;color:#0f0b10}
 
-  /* APPLE BLOCK */
+  /* SECCIÓN GENÉRICA */
+  section{scroll-margin-top:80px}
+  .section-title{margin:34px 0 12px;font-size:clamp(20px,3.4vw,28px);color:var(--accent)}
+  .cards{display:grid;gap:14px}
+  .card{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--panel)}
+  .card h3{margin:0 0 6px;font-size:18px}
+  .grid2{display:grid;gap:14px}
+  .split{display:grid;gap:16px}
+
+  /* PLAYER GRID */
+  .playerGrid{display:grid;gap:16px;margin-top:8px}
+  .player{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);aspect-ratio:16/9}
+  .player iframe{width:100%;height:100%;border:0}
+
+  /* Sidebar favoritos YT */
+  .sidebar{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
+  .sideHead{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+  .sideHead h2{margin:0;font-size:16px}
+  .favList{max-height:480px;overflow:auto;display:flex;flex-direction:column}
+  .favItem{display:flex;gap:10px;align-items:center;padding:10px 12px;border-bottom:1px solid #ffffff10;cursor:pointer}
+  .favItem:last-child{border-bottom:none}
+  .thumb{flex:0 0 60px;height:38px;border-radius:6px;background:#0f0b10;border:1px solid #ffffff12;display:grid;place-items:center;font-size:12px;color:#cfc7da}
+  .meta{min-width:0}
+  .title{font-size:14px;margin:0 0 2px}
+  .chan{font-size:12px;color:var(--muted);margin:0}
+  .favItem:hover{background:#191526}
+  .favItem.active{background:#201936;outline:1px solid #8e7cff55}
+  .btnRow{display:flex;gap:8px;flex-wrap:wrap}
+
+  /* APPLE */
   #apple-principal .wrap2{border:1px solid var(--line);border-radius:12px;background:var(--panel);margin-top:28px}
   #apple-principal .head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
   #apple-principal h2{margin:0;font-size:16px}
-  #apple-principal .btn{display:inline-block;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:#181320;color:#f7f0ff;text-decoration:none;font-weight:600}
-  #apple-principal .body{padding:12px}
   #apple-principal iframe{width:100%;min-height:420px;border:0;border-radius:12px;background:#0f0b10;display:block}
 
+  /* TESTIMONIOS */
+  .quote{font-size:15px;color:#eae2ff}
+  .who{font-size:12px;color:#b7aec9}
+
+  /* CONTACTO */
+  .contactBox{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:16px}
+  .stack{display:grid;gap:10px}
+
+  /* Responsive */
+  @media(min-width:900px){
+    .playerGrid{grid-template-columns:2fr 1fr}
+    .favList{max-height:calc(56.25vw/2 - 40px)}
+    .grid2{grid-template-columns:1fr 1fr}
+    .split{grid-template-columns:1.2fr .8fr}
+  }
   footer{margin:44px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
 </style>
 </head>
@@ -54,34 +97,102 @@
 <nav class="nav">
   <div class="inner">
     <div class="brand">Likelandi</div>
-    <a class="hl" href="index.html">Inicio</a>
+    <a class="hl" href="#inicio">Inicio</a>
     <a href="programas.html">Programa</a>
     <a href="agenda.html">Agenda</a>
     <a href="landias-musik.html">Landia’s Musik</a>
   </div>
 </nav>
 
-<main class="wrap">
+<main id="inicio" class="wrap">
 
-  <!-- HERO (imagen del consultorio) -->
+  <!-- HERO -->
   <section class="hero">
+    <span class="kicker">Consultorio · Buenos Aires</span>
     <div class="frame">
-      <!-- Asegurate que el archivo exista en la raíz y con este nombre exacto -->
+      <!-- Asegurate que exista en la raíz con ese nombre exacto -->
       <img src="Consultorio-hero.jpg?v=3" alt="Consultorio — Likelandi" loading="eager" decoding="async">
     </div>
     <h1 class="h1">Un espacio claro y humano</h1>
     <p class="sub">Psiquiatría + Arteterapia + Musicoterapia + <strong>IA & nuevas tecnologías</strong>.</p>
-    <p class="sub" style="margin-top:6px">
+    <p class="sub" style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
       <a class="btn primary" href="programas.html">Ver Programa</a>
       <a class="btn" href="agenda.html">Agenda & Servicios</a>
+      <a class="btn" href="#contacto">Contacto</a>
     </p>
   </section>
 
-  <!-- APPLE MUSIC PRINCIPAL (FIJO) -->
+  <!-- SOBRE EL CONSULTORIO -->
+  <section id="sobre">
+    <h2 class="section-title">Sobre el consultorio</h2>
+    <div class="split">
+      <div class="card">
+        <h3>Enfoque</h3>
+        <p>Atención psiquiátrica con abordaje interdisciplinario. Integración de psicoterapia breve, arteterapia y musicoterapia, con módulos de entrenamiento cognitivo asistidos por IA.</p>
+        <p>Trabajo por objetivos clínicos claros y medibles, priorizando adherencia, funcionalidad e integración social.</p>
+      </div>
+      <div class="card">
+        <h3>Espacios</h3>
+        <ul>
+          <li>Consultorio principal (entrevistas y seguimiento).</li>
+          <li>Planta alta: talleres de arteterapia y musicoterapia.</li>
+          <li>Aula tecnológica: estaciones de trabajo en red para módulos de IA.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROGRAMAS DESTACADOS -->
+  <section id="programas">
+    <h2 class="section-title">Programas destacados</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Rehabilitación Psicosocial</h3>
+        <p>Entrenamiento en habilidades sociales, autocuidado, hábitos y preparación para reinserción.</p>
+        <a class="btn" href="programas.html#rehabilitacion">Ver detalle</a>
+      </article>
+      <article class="card">
+        <h3>IA & Nuevas Tecnologías</h3>
+        <p>Uso seguro y guiado de asistentes (ChatGPT) y herramientas digitales para foco, memoria y organización.</p>
+        <a class="btn" href="programas.html#ia">Ver detalle</a>
+      </article>
+      <article class="card">
+        <h3>Arte & Música</h3>
+        <p>Procesos creativos para regulación emocional, identidad y sentido de propósito.</p>
+        <a class="btn" href="programas.html#arte">Ver detalle</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- SERVICIOS RÁPIDOS -->
+  <section id="servicios">
+    <h2 class="section-title">Servicios</h2>
+    <div class="grid2">
+      <div class="card">
+        <h3>Consultas psiquiátricas</h3>
+        <p>Evaluación diagnóstica, planificación terapéutica y seguimiento integral.</p>
+      </div>
+      <div class="card">
+        <h3>Terapias combinadas</h3>
+        <p>Arteterapia, musicoterapia y módulos de entrenamiento cognitivo con IA.</p>
+      </div>
+      <div class="card">
+        <h3>Talleres y grupos</h3>
+        <p>Habilidades sociales, hábitos saludables, creatividad y foco.</p>
+      </div>
+      <div class="card">
+        <h3>Orientación a familias</h3>
+        <p>Pautas de acompañamiento, comunicación y red de apoyo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOQUE APPLE MUSIC -->
   <section id="apple-principal">
+    <h2 class="section-title">Landia’s Musik — Apple Music</h2>
     <div class="wrap2">
       <div class="head">
-        <h2>🎧 Landia’s Musik — Apple Music (principal)</h2>
+        <span>🎧 Playlist principal</span>
         <a class="btn" href="https://music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en" target="_blank" rel="noopener">Abrir en Apple Music</a>
       </div>
       <div class="body">
@@ -95,8 +206,170 @@
     </div>
   </section>
 
+  <!-- YOUTUBE + LISTA (SIN JSON) -->
+  <section id="yt">
+    <h2 class="section-title">Landia’s Musik — YouTube</h2>
+    <section class="playerGrid" aria-label="Reproductor con favoritos">
+      <div class="player">
+        <iframe
+          id="ytPlayer"
+          src="https://www.youtube.com/embed/HcX1GpMR9n4?rel=0"
+          title="Landia’s Musik — Reproductor"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <aside class="sidebar">
+        <div class="sideHead">
+          <h2>⭐ Favoritos</h2>
+          <div class="btnRow">
+            <button id="btnExpand" class="btn" type="button">Ver más ⤵</button>
+            <button id="btnPrev" class="btn" type="button">◀ Anterior</button>
+            <button id="btnNext" class="btn" type="button">Siguiente ▶</button>
+          </div>
+        </div>
+        <div class="favList" id="favList"></div>
+      </aside>
+    </section>
+  </section>
+
+  <!-- IA & TECNOLOGÍAS -->
+  <section id="ia">
+    <h2 class="section-title">IA & Nuevas Tecnologías</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Entrenamiento cognitivo asistido</h3>
+        <p>Protocolos guiados con asistentes conversacionales para memoria de trabajo, funciones ejecutivas y organización cotidiana.</p>
+      </article>
+      <article class="card">
+        <h3>Simulaciones laborales</h3>
+        <p>Prácticas de CV, entrevistas y tareas tipo oficina con retroalimentación inmediata, seguras y en entorno controlado.</p>
+      </article>
+      <article class="card">
+        <h3>Alfabetización digital</h3>
+        <p>Uso seguro de herramientas web, privacidad, hábitos de foco y minimización de distractores.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section id="testimonios">
+    <h2 class="section-title">Testimonios</h2>
+    <div class="cards">
+      <article class="card">
+        <p class="quote">“Me ayudó a volver a organizar mi día y recuperar el estudio. La música y los módulos de IA fueron clave.”</p>
+        <p class="who">— Paciente, 28 años</p>
+      </article>
+      <article class="card">
+        <p class="quote">“La estructura del programa y el acompañamiento semanal mejoraron nuestra dinámica familiar.”</p>
+        <p class="who">— Familiar</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2 class="section-title">Contacto</h2>
+    <div class="grid2">
+      <div class="contactBox stack">
+        <div><strong>Ubicación:</strong> Buenos Aires, Argentina</div>
+        <div><strong>Email:</strong> <a href="mailto:info@likelandi.com">info@likelandi.com</a></div>
+        <div><strong>Turnos:</strong> <a class="btn primary" href="mailto:info@likelandi.com?subject=Turno%20Likelandi">Solicitar por email</a></div>
+      </div>
+      <div class="contactBox">
+        <p class="kicker">Nota</p>
+        <p>También podés escribir desde el formulario de <a href="agenda.html">Agenda</a> o consultar el detalle completo en <a href="programas.html">Programa</a>.</p>
+      </div>
+    </div>
+  </section>
+
 </main>
 
-<footer>© 2025 Likelandi</footer>
+<footer>
+  © 2025 Likelandi · Hecho con cariño en Buenos Aires
+  <br>
+  <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=likelandi.github.io&count_bg=%237CFFCB&title_bg=%23221C2E&icon=&icon_color=%23E7E7E7&title=visitas&edge_flat=true" alt="contador de visitas" style="margin-top:6px">
+</footer>
+
+<!-- ====== JS YouTube (lista interna sin dependencias) ====== -->
+<script>
+(function(){
+  const LIST = [
+    { id:'HcX1GpMR9n4', title:'Video actual', chan:'Tu selección' },
+    { id:'jfKfPfyJRdk', title:'lofi hip hop radio', chan:'Lofi Girl' },
+    { id:'5qap5aO4i9A', title:'Chillhop Radio', chan:'Chillhop' },
+    { id:'DWcJFNfaw9c', title:'Lo-fi Focus', chan:'Lofi Girl' },
+    { id:'2OEL4P1Rz04', title:'Deep Focus', chan:'Relaxing' },
+    { id:'lTRiuFIWV54', title:'Coding Music', chan:'Playlist' },
+    { id:'hHW1oY26kxQ', title:'Jazz for Study', chan:'Cafe' },
+    { id:'Dx5qFachd3A', title:'Piano Calm', chan:'Relax' },
+    { id:'J---aiyznGQ', title:'Clásico 2', chan:'Ejemplo' },
+    { id:'Zi_XLOBDo_Y', title:'Clásico 3', chan:'Ejemplo' }
+  ];
+
+  const favListEl = document.getElementById('favList');
+  const playerEl  = document.getElementById('ytPlayer');
+  const btnNext   = document.getElementById('btnNext');
+  const btnPrev   = document.getElementById('btnPrev');
+  const btnExpand = document.getElementById('btnExpand');
+
+  function render(list){
+    favListEl.innerHTML = '';
+    list.forEach((f, idx) => {
+      const item = document.createElement('div');
+      item.className = 'favItem' + (idx===0 ? ' active':'' );
+      item.setAttribute('data-video-id', f.id);
+      item.innerHTML = `
+        <div class="thumb">YT</div>
+        <div class="meta">
+          <p class="title">${f.title}</p>
+          <p class="chan">${f.chan}</p>
+        </div>`;
+      favListEl.appendChild(item);
+    });
+  }
+  function setPlayer(vid, autoplay=true){
+    const params = 'rel=0' + (autoplay ? '&autoplay=1':'');
+    playerEl.src = `https://www.youtube.com/embed/${vid}?${params}`;
+  }
+  function items(){ return Array.from(favListEl.querySelectorAll('.favItem')); }
+  function activeIndex(){ return items().findIndex(n=>n.classList.contains('active')); }
+  function setActive(i){
+    const arr = items();
+    arr.forEach(n=>n.classList.remove('active'));
+    if(arr[i]) arr[i].classList.add('active');
+    const vid = arr[i]?.getAttribute('data-video-id');
+    if (vid) setPlayer(vid);
+    if (window.innerWidth < 900) playerEl.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  favListEl.addEventListener('click', (e)=>{
+    const it = e.target.closest('.favItem'); if(!it) return;
+    items().forEach(n=>n.classList.remove('active'));
+    it.classList.add('active');
+    setPlayer(it.getAttribute('data-video-id'));
+  });
+  btnNext?.addEventListener('click', ()=>{
+    const arr = items(); if(!arr.length) return;
+    let i = activeIndex(); i = (i+1) % arr.length; setActive(i);
+  });
+  btnPrev?.addEventListener('click', ()=>{
+    const arr = items(); if(!arr.length) return;
+    let i = activeIndex(); i = (i-1+arr.length) % arr.length; setActive(i);
+  });
+  btnExpand?.addEventListener('click', ()=>{
+    const list = document.querySelector('.favList');
+    if(!list) return;
+    if(list.style.maxHeight){ list.style.maxHeight=''; btnExpand.textContent='Ver más ⤵'; }
+    else { list.style.maxHeight='none'; btnExpand.textContent='Ver menos ⤴'; }
+  });
+
+  // Init
+  render(LIST);
+  setPlayer(LIST[0].id, false); // sin autoplay para evitar bloqueo en iPhone
+})();
+</script>
+
 </body>
 </html>
