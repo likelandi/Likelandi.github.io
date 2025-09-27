@@ -11,12 +11,16 @@
     --line:#ffffff22; --accent:#7cffcb; --accent2:#c77dff;
     --panel:#15121b; --maxw:1100px;
   }
-  *{box-sizing:border-box} html,body{margin:0}
+  *{box-sizing:border-box}
+  html,body{margin:0}
   body{background:var(--bg);color:var(--fg);font:16px/1.75 system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
   a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+  .btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#171320;color:var(--fg);font-weight:700;text-decoration:none}
+  .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;color:#0f0b10}
+  .kicker{font-size:12px;letter-spacing:.12em;color:#b9b0c9;text-transform:uppercase}
 
   /* NAV */
-  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
+  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
   .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
   .brand{margin-right:auto;font-weight:800}
   .nav a{color:var(--fg);opacity:.9} .nav a:hover{opacity:1}
@@ -34,14 +38,20 @@
      -webkit-background-clip:text;-webkit-text-fill-color:transparent}
   .sub{margin:.3rem 0 0;color:var(--muted)}
 
-  /* PLAYER + FAVORITOS */
-  .section-title{margin:30px 0 8px;font-size:clamp(20px,3.4vw,28px);color:var(--accent)}
+  /* APPLE */
+  #apple .wrap2{border:1px solid var(--line);border-radius:12px;background:var(--panel);margin-top:20px}
+  #apple .head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  #apple iframe{width:100%;min-height:420px;border:0;border-radius:12px;background:#0f0b10;display:block}
+  #apple .body{padding:12px}
+
+  /* YOUTUBE */
+  .section-title{margin:34px 0 12px;font-size:clamp(20px,3.4vw,28px);color:var(--accent)}
   .playerGrid{display:grid;gap:16px;margin-top:8px}
   .player{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);aspect-ratio:16/9}
   .player iframe{width:100%;height:100%;border:0}
 
   .sidebar{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
-  .sideHead{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;justify-content:space-between}
+  .sideHead{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
   .sideHead h2{margin:0;font-size:16px}
   .favList{max-height:480px;overflow:auto;display:flex;flex-direction:column}
   .favItem{display:flex;gap:10px;align-items:center;padding:10px 12px;border-bottom:1px solid #ffffff10;cursor:pointer}
@@ -52,20 +62,18 @@
   .chan{font-size:12px;color:var(--muted);margin:0}
   .favItem:hover{background:#191526}
   .favItem.active{background:#201936;outline:1px solid #8e7cff55}
+  .btnRow{display:flex;gap:8px;flex-wrap:wrap}
 
-  /* FORM agregar favorito */
-  .addFav{padding:12px 14px;border-top:1px solid var(--line);display:grid;gap:8px}
-  .row{display:grid;gap:8px}
-  .input{width:100%;padding:8px 10px;border-radius:10px;border:1px solid #ffffff22;background:#181320;color:var(--fg)}
-  .btn{display:inline-block;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:#181320;color:var(--fg);text-decoration:none;font-weight:600}
-  .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;color:#0f0b10}
-  .btn.muted{opacity:.8}
-  .help{font-size:12px;color:var(--muted)}
+  /* CURADURÍA */
+  .cards{display:grid;gap:14px;margin-top:10px}
+  .card{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--panel)}
+  .card h3{margin:0 0 6px;font-size:18px}
 
+  /* Responsive */
   @media(min-width:900px){
     .playerGrid{grid-template-columns:2fr 1fr}
-    .favList{max-height:calc(56.25vw/2 - 40px)} /* altura aprox. desktop */
-    .row{grid-template-columns:1fr auto}
+    .favList{max-height:calc(56.25vw/2 - 40px)}
+    .cards{grid-template-columns:1fr 1fr 1fr}
   }
 
   footer{margin:44px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
@@ -77,157 +85,176 @@
 <nav class="nav">
   <div class="inner">
     <div class="brand">Likelandi</div>
-    <a href="/">Inicio</a>
-    <a href="/programas.html">Programa</a>
-    <a href="/agenda.html">Agenda</a>
-    <a class="hl" href="/landias-musik.html">Landia’s Musik</a>
+    <a href="index.html">Inicio</a>
+    <a href="programas.html">Programa</a>
+    <a href="agenda.html">Agenda</a>
+    <a class="hl" href="landias-musik.html">Landia’s Musik</a>
   </div>
 </nav>
 
 <main class="wrap">
   <!-- HERO -->
   <section class="hero">
+    <span class="kicker">Selección musical curada</span>
     <div class="frame">
-      <img src="/landias-musik-profile-fiesta.png?v=4" alt="Landia’s Party — portada">
+      <img src="landias-musik-profile-fiesta.png?v=4" alt="Landia’s Party — portada">
     </div>
     <h1>Landia’s Musik</h1>
-    <p class="sub">Reproductor con tus Favoritos al lado. Sumá temas y se guardan en tu dispositivo.</p>
+    <p class="sub">Música para foco, calma y creatividad. Curaduría clínica + arte.</p>
+    <p class="sub" style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn" href="index.html">Volver a Inicio</a>
+      <a class="btn primary" href="programas.html#ia">Ver módulo de IA</a>
+    </p>
   </section>
 
-  <!-- PLAYER + FAVORITOS -->
-  <h2 class="section-title">Reproductor & Favoritos</h2>
-  <section class="playerGrid" aria-label="Reproductor con favoritos">
-    <!-- Player -->
-    <div class="player">
-      <iframe
-        id="ytPlayer"
-        src="https://www.youtube.com/embed/HcX1GpMR9n4?rel=0"
-        title="Landia’s Musik — Reproductor"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
+  <!-- APPLE MUSIC PRINCIPAL -->
+  <section id="apple">
+    <h2 class="section-title">Apple Music — Playlist Principal</h2>
+    <div class="wrap2">
+      <div class="head">
+        <span>🎧 Reproducción directa desde Apple Music</span>
+        <a class="btn" href="https://music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en" target="_blank" rel="noopener">Abrir en Apple Music</a>
+      </div>
+      <div class="body">
+        <iframe
+          title="Landia’s Musik — Apple Music"
+          allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+          sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+          src="https://embed.music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en">
+        </iframe>
+      </div>
     </div>
+  </section>
 
-    <!-- Sidebar Favoritos -->
-    <aside class="sidebar">
-      <div class="sideHead">
-        <h2>⭐ Favoritos</h2>
-        <!-- Link opcional a tu playlist pública cuando la tengas -->
-        <!-- <a href="https://www.youtube.com/playlist?list=PL_TU_ID" target="_blank" rel="noopener">Ver en YouTube</a> -->
+  <!-- YOUTUBE + LISTA (sin dependencias) -->
+  <section id="yt">
+    <h2 class="section-title">YouTube — Reproductor & Favoritos</h2>
+    <section class="playerGrid" aria-label="Reproductor con favoritos">
+      <div class="player">
+        <iframe
+          id="ytPlayer"
+          src="https://www.youtube.com/embed/HcX1GpMR9n4?rel=0"
+          title="Landia’s Musik — Reproductor"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
       </div>
 
-      <!-- Lista -->
-      <div class="favList" id="favList"></div>
+      <aside class="sidebar">
+        <div class="sideHead">
+          <h2>⭐ Favoritos</h2>
+          <div class="btnRow">
+            <button id="btnExpand" class="btn" type="button">Ver más ⤵</button>
+            <button id="btnPrev" class="btn" type="button">◀ Anterior</button>
+            <button id="btnNext" class="btn" type="button">Siguiente ▶</button>
+          </div>
+        </div>
+        <div class="favList" id="favList"></div>
+      </aside>
+    </section>
+  </section>
 
-      <!-- Agregar favorito -->
-      <div class="addFav">
-        <div class="row">
-          <input id="favTitle" class="input" type="text" placeholder="Título del tema (ej.: Focus — Ambient Mix)">
-          <input id="favUrl" class="input" type="url" placeholder="URL de YouTube (https://www.youtube.com/watch?v=...)">
-          <button id="btnAddFav" class="btn primary" type="button">Agregar</button>
-        </div>
-        <div class="row" style="gap:8px;grid-template-columns:auto auto">
-          <button id="btnResetFavs" class="btn muted" type="button">Restablecer lista</button>
-          <span class="help">Guardado local en tu dispositivo (no requiere login).</span>
-        </div>
-      </div>
-    </aside>
+  <!-- CURADURÍA (bloques) -->
+  <section id="curaduria">
+    <h2 class="section-title">Curaduría</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Calma</h3>
+        <p>Ambient, piano y texturas suaves para bajar ansiedad y facilitar el descanso.</p>
+      </article>
+      <article class="card">
+        <h3>Foco</h3>
+        <p>Lo-fi e instrumentales continuos para tareas prolongadas y lectura profunda.</p>
+      </article>
+      <article class="card">
+        <h3>Energía</h3>
+        <p>Selecciones con pulso moderado para activación y tareas domésticas.</p>
+      </article>
+    </div>
   </section>
 </main>
 
-<footer>© 2025 Likelandi — Landia’s Musik</footer>
+<footer>
+  © 2025 Likelandi · Landia’s Musik
+</footer>
 
+<!-- ====== JS YouTube (lista interna) ====== -->
 <script>
-/* ========= Playlist de Favoritos con localStorage ========= */
+(function(){
+  const LIST = [
+    { id:'HcX1GpMR9n4', title:'Video actual', chan:'Tu selección' },
+    { id:'jfKfPfyJRdk', title:'lofi hip hop radio', chan:'Lofi Girl' },
+    { id:'5qap5aO4i9A', title:'Chillhop Radio', chan:'Chillhop' },
+    { id:'DWcJFNfaw9c', title:'Lo-fi Focus', chan:'Lofi Girl' },
+    { id:'2OEL4P1Rz04', title:'Deep Focus', chan:'Relaxing' },
+    { id:'lTRiuFIWV54', title:'Coding Music', chan:'Playlist' },
+    { id:'hHW1oY26kxQ', title:'Jazz for Study', chan:'Cafe' },
+    { id:'Dx5qFachd3A', title:'Piano Calm', chan:'Relax' },
+    { id:'J---aiyznGQ', title:'Clásico 2', chan:'Ejemplo' },
+    { id:'Zi_XLOBDo_Y', title:'Clásico 3', chan:'Ejemplo' }
+  ];
 
-const LS_KEY = 'likelandi_favs_v1';
-const favListEl = document.getElementById('favList');
-const playerEl  = document.getElementById('ytPlayer');
-const btnAdd    = document.getElementById('btnAddFav');
-const btnReset  = document.getElementById('btnResetFavs');
-const inputTitle= document.getElementById('favTitle');
-const inputUrl  = document.getElementById('favUrl');
+  const favListEl = document.getElementById('favList');
+  const playerEl  = document.getElementById('ytPlayer');
+  const btnNext   = document.getElementById('btnNext');
+  const btnPrev   = document.getElementById('btnPrev');
+  const btnExpand = document.getElementById('btnExpand');
 
-// 1) Favs iniciales (editables)
-const initialFavs = [
-  { id:'HcX1GpMR9n4', title:'Video actual', chan:'Tu selección' },
-  { id:'dQw4w9WgXcQ', title:'Tema favorito 1', chan:'Canal ejemplo' },
-  { id:'J---aiyznGQ', title:'Tema favorito 2', chan:'Canal ejemplo' },
-  { id:'Zi_XLOBDo_Y', title:'Tema favorito 3', chan:'Canal ejemplo' },
-];
+  function render(list){
+    favListEl.innerHTML = '';
+    list.forEach((f, idx) => {
+      const item = document.createElement('div');
+      item.className = 'favItem' + (idx===0 ? ' active':'' );
+      item.setAttribute('data-video-id', f.id);
+      item.innerHTML = `
+        <div class="thumb">YT</div>
+        <div class="meta">
+          <p class="title">${f.title}</p>
+          <p class="chan">${f.chan}</p>
+        </div>`;
+      favListEl.appendChild(item);
+    });
+  }
 
-// Utilidad: extraer ID desde varias URLs de YouTube
-function extractYouTubeId(url){
-  try{
-    const u = new URL(url);
-    if (u.hostname.includes('youtu.be')) return u.pathname.slice(1); // /VIDEOID
-    if (u.searchParams.get('v')) return u.searchParams.get('v');
-    const path = u.pathname.split('/');
-    const idx = path.findIndex(p => ['embed','shorts'].includes(p));
-    if (idx !== -1 && path[idx+1]) return path[idx+1];
-  }catch(e){ /* no válida */ }
-  return '';
-}
+  function setPlayer(vid, autoplay=true){
+    const params = 'rel=0' + (autoplay ? '&autoplay=1':'');
+    playerEl.src = `https://www.youtube.com/embed/${vid}?${params}`;
+  }
+  function items(){ return Array.from(favListEl.querySelectorAll('.favItem')); }
+  function activeIndex(){ return items().findIndex(n=>n.classList.contains('active')); }
+  function setActive(i){
+    const arr = items();
+    arr.forEach(n=>n.classList.remove('active'));
+    if(arr[i]) arr[i].classList.add('active');
+    const vid = arr[i]?.getAttribute('data-video-id');
+    if (vid) setPlayer(vid);
+    if (window.innerWidth < 900) playerEl.scrollIntoView({behavior:'smooth', block:'start'});
+  }
 
-function loadFavs(){
-  const raw = localStorage.getItem(LS_KEY);
-  if (!raw) return initialFavs.slice();
-  try { return JSON.parse(raw); } catch(e){ return initialFavs.slice(); }
-}
-function saveFavs(favs){ localStorage.setItem(LS_KEY, JSON.stringify(favs)); }
-
-function renderFavs(favs){
-  favListEl.innerHTML = '';
-  favs.forEach((f, idx) => {
-    const item = document.createElement('div');
-    item.className = 'favItem' + (idx===0 ? ' active' : '');
-    item.setAttribute('data-video-id', f.id);
-    item.innerHTML = `
-      <div class="thumb">YT</div>
-      <div class="meta">
-        <p class="title">${f.title || 'Sin título'}</p>
-        <p class="chan">${f.chan || ''}</p>
-      </div>`;
-    favListEl.appendChild(item);
+  favListEl.addEventListener('click', (e)=>{
+    const it = e.target.closest('.favItem'); if(!it) return;
+    items().forEach(n=>n.classList.remove('active'));
+    it.classList.add('active');
+    setPlayer(it.getAttribute('data-video-id'));
   });
-}
+  btnNext?.addEventListener('click', ()=>{
+    const arr = items(); if(!arr.length) return;
+    let i = activeIndex(); i = (i+1) % arr.length; setActive(i);
+  });
+  btnPrev?.addEventListener('click', ()=>{
+    const arr = items(); if(!arr.length) return;
+    let i = activeIndex(); i = (i-1+arr.length) % arr.length; setActive(i);
+  });
+  btnExpand?.addEventListener('click', ()=>{
+    const list = document.querySelector('.favList');
+    if(!list) return;
+    if(list.style.maxHeight){ list.style.maxHeight=''; btnExpand.textContent='Ver más ⤵'; }
+    else { list.style.maxHeight='none'; btnExpand.textContent='Ver menos ⤴'; }
+  });
 
-// Cambiar video al click
-favListEl.addEventListener('click',(e)=>{
-  const item = e.target.closest('.favItem');
-  if(!item) return;
-  favListEl.querySelectorAll('.favItem').forEach(n=>n.classList.remove('active'));
-  item.classList.add('active');
-  const vid = item.getAttribute('data-video-id');
-  const params = 'rel=0&autoplay=1';
-  playerEl.src = `https://www.youtube.com/embed/${vid}?${params}`;
-  if (window.innerWidth < 900) playerEl.scrollIntoView({behavior:'smooth', block:'start'});
-});
-
-// Agregar favorito
-btnAdd.addEventListener('click',()=>{
-  const title = (inputTitle.value || '').trim();
-  const url   = (inputUrl.value || '').trim();
-  const vid   = extractYouTubeId(url);
-  if(!vid){ alert('Pegá una URL válida de YouTube.'); return; }
-  const favs = loadFavs();
-  favs.push({ id: vid, title: title || 'Favorito', chan: 'YouTube' });
-  saveFavs(favs);
-  renderFavs(favs);
-  inputTitle.value = ''; inputUrl.value = '';
-});
-
-// Restablecer lista
-btnReset.addEventListener('click',()=>{
-  if(!confirm('¿Restablecer la lista de favoritos?')) return;
-  saveFavs(initialFavs.slice());
-  renderFavs(loadFavs());
-});
-
-// Init
-(function init(){
-  const favs = loadFavs();
-  renderFavs(favs);
+  // Init
+  render(LIST);
+  setPlayer(LIST[0].id, false); // sin autoplay para evitar bloqueo en iPhone
 })();
 </script>
 
