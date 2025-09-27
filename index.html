@@ -1,345 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Likelandi — Home</title>
-<meta name="description" content="Espacio terapéutico, creativo y tecnológico. Psiquiatría, arte, música e IA.">
-<style>
-  :root{
-    --bg:#0f0b10; --fg:#f7f0ff; --muted:#cfc7da;
-    --line:#ffffff22; --accent:#7cffcb; --accent2:#c77dff;
-    --panel:#15121b; --maxw:1100px;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0}
-  body{background:var(--bg);color:var(--fg);font:16px/1.75 system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
-  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-
-  /* NAV */
-  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
-  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
-  .brand{margin-right:auto;font-weight:800}
-  .nav a{color:var(--fg);opacity:.9} .nav a:hover{opacity:1}
-  .nav .hl{color:var(--accent);font-weight:700}
-
-  /* WRAP */
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:26px 16px 80px}
-
-  /* HERO */
-  .hero{display:grid;gap:14px}
-  .frame{display:grid;place-items:center;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#000,#0f0b10)}
-  .frame img{width:100%;height:auto;display:block;object-fit:cover}
-  .h1{margin:10px 0 0;font-size:clamp(28px,5vw,44px);line-height:1.2;
-      background:linear-gradient(90deg,var(--accent2),var(--accent));
-      -webkit-background-clip:text;-webkit-text-fill-color:transparent}
-  .sub{margin:.3rem 0 0;color:var(--muted)}
-  .btn{display:inline-block;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:#181320;color:var(--fg);text-decoration:none;font-weight:600}
-  .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;color:#0f0b10}
-
-  /* PLAYER + FAVORITOS */
-  .section-title{margin:30px 0 8px;font-size:clamp(20px,3.4vw,28px);color:var(--accent)}
-  .playerGrid{display:grid;gap:16px;margin-top:8px}
-  .player{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);aspect-ratio:16/9}
-  .player iframe{width:100%;height:100%;border:0}
-
-  .sidebar{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
-  .sideHead{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-  .sideHead h2{margin:0;font-size:16px}
-  .favList{max-height:480px;overflow:auto;display:flex;flex-direction:column}
-  .favItem{display:flex;gap:10px;align-items:center;padding:10px 12px;border-bottom:1px solid #ffffff10;cursor:pointer}
-  .favItem:last-child{border-bottom:none}
-  .thumb{flex:0 0 60px;height:38px;border-radius:6px;background:#0f0b10;border:1px solid #ffffff12;display:grid;place-items:center;font-size:12px;color:#cfc7da}
-  .meta{min-width:0}
-  .title{font-size:14px;margin:0 0 2px}
-  .chan{font-size:12px;color:var(--muted);margin:0}
-  .favItem:hover{background:#191526}
-  .favItem.active{background:#201936;outline:1px solid #8e7cff55}
-
-  .addFav{padding:12px 14px;border-top:1px solid var(--line);display:grid;gap:8px}
-  .row{display:grid;gap:8px}
-  .input{width:100%;padding:8px 10px;border-radius:10px;border:1px solid #ffffff22;background:#181320;color:#f7f0ff}
-
-  /* MUSIC SERVICES (Spotify + Apple) */
-  #music-services .svc {border:1px solid #ffffff22;border-radius:12px;background:#15121b;margin-top:28px}
-  #music-services .svcHead{display:flex;align-items:center;gap:10px;justify-content:space-between;border-bottom:1px solid #ffffff22;padding:10px 12px;flex-wrap:wrap}
-  #music-services .tabs{display:flex;gap:6px;flex-wrap:wrap}
-  #music-services .tab{border:1px solid #ffffff22;border-radius:10px;background:#181320;color:#f7f0ff;padding:6px 10px;cursor:pointer}
-  #music-services .tab.active{background:linear-gradient(135deg,#c77dff,#7cffcb);color:#0f0b10;border:none;font-weight:700}
-  #music-services .svcBody{padding:12px}
-  #music-services .grid{display:grid;gap:12px}
-  #music-services iframe{width:100%;border:0;border-radius:12px;min-height:420px;background:#0f0b10}
-  #music-services .row{display:grid;gap:8px}
-  #music-services .input{width:100%;padding:8px 10px;border-radius:10px;border:1px solid #ffffff22;background:#181320;color:#f7f0ff}
-  #music-services .btn{display:inline-block;padding:8px 12px;border-radius:10px;border:1px solid #ffffff22;background:#181320;color:#f7f0ff;text-decoration:none;font-weight:600}
-  #music-services .btn.primary{background:linear-gradient(135deg,#c77dff,#7cffcb);border:none;color:#0f0b10}
-  #music-services .help{font-size:12px;color:#cfc7da}
-  @media(min-width:900px){
-    .playerGrid{grid-template-columns:2fr 1fr}
-    .favList{max-height:calc(56.25vw/2 - 40px)}
-    .row{grid-template-columns:1fr auto}
-    #music-services .grid{grid-template-columns:1fr 1fr}
-  }
-
-  footer{margin:44px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
-</style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav class="nav">
-  <div class="inner">
-    <div class="brand">Likelandi</div>
-    <a class="hl" href="index.html">Inicio</a>
-    <a href="programas.html">Programa</a>
-    <a href="agenda.html">Agenda</a>
-    <a href="landias-musik.html">Landia’s Musik</a>
-  </div>
-</nav>
-
-<main class="wrap">
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="frame">
-      <img src="Consultorio-hero.jpg?v=3" alt="Consultorio — Likelandi" loading="eager" decoding="async">
-    </div>
-    <h1 class="h1">Un espacio claro y humano</h1>
-    <p class="sub">Psiquiatría + Arteterapia + Musicoterapia + <strong>IA & nuevas tecnologías</strong>.</p>
-    <p class="sub" style="margin-top:6px">
-      <a class="btn primary" href="programas.html">Ver Programa</a>
-      <a class="btn" href="agenda.html">Agenda & Servicios</a>
-    </p>
-  </section>
-
-  <!-- YOUTUBE + FAVORITOS -->
-  <h2 class="section-title">Landia’s Musik — Reproductor & Favoritos</h2>
-  <section class="playerGrid" aria-label="Reproductor con favoritos">
-    <div class="player">
-      <iframe
-        id="ytPlayer"
-        src="https://www.youtube.com/embed/HcX1GpMR9n4?rel=0"
-        title="Landia’s Musik — Reproductor"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-    </div>
-
-    <aside class="sidebar">
-      <div class="sideHead">
-        <h2>⭐ Favoritos <span id="favCount" style="font-size:12px;opacity:.7"></span></h2>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button id="btnReload" class="btn" type="button">Actualizar ⟳</button>
-          <button id="btnExpand" class="btn" type="button">Ver más ⤵</button>
-          <button id="btnNext" class="btn" type="button">Siguiente ▶</button>
-        </div>
-      </div>
-
-      <div class="favList" id="favList"></div>
-
-      <div class="addFav">
-        <div class="row">
-          <input id="favTitle" class="input" type="text" placeholder="Título del tema">
-          <input id="favUrl" class="input" type="url" placeholder="URL de YouTube (https://www.youtube.com/watch?v=...)">
-          <button id="btnAddFav" class="btn primary" type="button">Agregar</button>
-        </div>
-        <div class="row" style="gap:8px;grid-template-columns:auto auto">
-          <button id="btnResetFavs" class="btn" type="button">Restablecer lista</button>
-          <span class="help">Guardado local en este dispositivo. Lista global desde <code>musik-favs.json</code>.</span>
-        </div>
-      </div>
-    </aside>
-  </section>
-
-  <!-- SPOTIFY + APPLE MUSIC -->
-  <section id="music-services">
-    <div class="svc">
-      <div class="svcHead">
-        <div class="tabs" role="tablist" aria-label="Servicios de música">
-          <button class="tab active" data-tab="spotify" role="tab" aria-selected="true">Spotify</button>
-          <button class="tab" data-tab="apple" role="tab" aria-selected="false">Apple Music</button>
-        </div>
-        <div style="display:flex;gap:8px;flex-wrap:wrap">
-          <button id="svcSave" class="btn primary" type="button">Guardar enlaces</button>
-          <button id="svcDemo" class="btn" type="button">Usar demo</button>
-        </div>
-      </div>
-
-      <div class="svcBody">
-        <div class="grid">
-          <!-- Player -->
-          <div>
-            <div id="spotifyPane" class="pane" role="tabpanel" aria-labelledby="spotify" style="display:block">
-              <iframe id="spotifyEmbed" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-            </div>
-            <div id="applePane" class="pane" role="tabpanel" aria-labelledby="apple" style="display:none">
-              <iframe id="appleEmbed" sandbox="allow-scripts allow-same-origin allow-forms allow-popups"></iframe>
-            </div>
-          </div>
-
-          <!-- Config -->
-          <div class="config">
-            <div class="row">
-              <label class="help">Enlace público de tu playlist de <strong>Spotify</strong>:</label>
-              <input id="spotifyUrl" class="input" type="url" placeholder="https://open.spotify.com/playlist/...">
-            </div>
-            <div class="row" style="margin-top:10px">
-              <label class="help">Enlace público/EMBED de tu playlist de <strong>Apple Music</strong>:</label>
-              <input id="appleUrl" class="input" type="url" placeholder="https://music.apple.com/... o https://embed.music.apple.com/...">
-            </div>
-            <p class="help" style="margin-top:10px">
-              • Asegurate que las playlists estén <strong>Públicas</strong> (no “Liked/Favoritos”).<br>
-              • Si pegás <code>music.apple.com</code>, convierto automáticamente a <code>embed.music.apple.com</code>.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-</main>
-
-<footer>© 2025 Likelandi</footer>
-
-<!-- ========= JS FAVORITOS (musik-favs.json + localStorage) ========= -->
 <script>
-const JSON_URL = 'musik-favs.json';  // sin barra inicial
-const LS_KEY   = 'likelandi_favs_v3';
-
-const favListEl= document.getElementById('favList');
-const playerEl = document.getElementById('ytPlayer');
-const btnAdd   = document.getElementById('btnAddFav');
-const btnReset = document.getElementById('btnResetFavs');
-const btnNext  = document.getElementById('btnNext');
-const btnReload= document.getElementById('btnReload');
-const btnExpand= document.getElementById('btnExpand');
-const favCount = document.getElementById('favCount');
-const inputTitle= document.getElementById('favTitle');
-const inputUrl  = document.getElementById('favUrl');
-
-function extractYouTubeId(url){
-  try{
-    const u = new URL(url);
-    if (u.hostname.includes('youtu.be')) return u.pathname.slice(1);
-    if (u.searchParams.get('v')) return u.searchParams.get('v');
-    const p = u.pathname.split('/');
-    const i = p.findIndex(x=>['embed','shorts'].includes(x));
-    if (i!==-1 && p[i+1]) return p[i+1];
-  }catch(e){}
-  return '';
-}
-function dedup(arr){
-  const seen=new Set(), out=[];
-  for(const it of arr){ if(!it||!it.id) continue; if(seen.has(it.id)) continue; seen.add(it.id); out.push(it); }
-  return out;
-}
-function loadLocal(){ try{ const raw=localStorage.getItem(LS_KEY); return raw?JSON.parse(raw):[] }catch(e){ return [] } }
-function saveLocal(f){ localStorage.setItem(LS_KEY, JSON.stringify(f)); }
-function setPlayer(vid, autoplay=true){
-  const params='rel=0'+(autoplay?'&autoplay=1':'');
-  playerEl.src=`https://www.youtube.com/embed/${vid}?${params}`;
-}
-function getFavItems(){ return Array.from(favListEl.querySelectorAll('.favItem')); }
-function getActiveIndex(){ return getFavItems().findIndex(n=>n.classList.contains('active')); }
-function setActiveIndex(i){
-  const items=getFavItems();
-  items.forEach(n=>n.classList.remove('active'));
-  if(items[i]) items[i].classList.add('active');
-  const vid=items[i]?.getAttribute('data-video-id');
-  if(vid) setPlayer(vid);
-  if(window.innerWidth<900) playerEl.scrollIntoView({behavior:'smooth', block:'start'});
-}
-function showCount(n, err=false){
-  if(!favCount) return;
-  favCount.textContent = err ? '· sin conexión al JSON' : `· ${n} temas`;
-}
-async function loadRemote(){
-  try{
-    const url = `${JSON_URL}?t=${Date.now()}`; // no-cache
-    const res = await fetch(url, { cache:'no-store' });
-    if(!res.ok) throw new Error('HTTP '+res.status);
-    const data = await res.json();
-    if(!Array.isArray(data)) throw new Error('JSON inválido');
-    showCount(data.length);
-    return data;
-  }catch(e){
-    console.warn('No se pudo leer musik-favs.json:', e);
-    showCount(0, true);
-    return [];
-  }
-}
-function renderFavs(favs, makeFirstActive=true){
-  favListEl.innerHTML='';
-  favs.forEach((f,idx)=>{
-    const item=document.createElement('div');
-    item.className='favItem'+((idx===0&&makeFirstActive)?' active':'');
-    item.setAttribute('data-video-id', f.id);
-    item.innerHTML=`<div class="thumb">YT</div>
-      <div class="meta"><p class="title">${f.title||'Sin título'}</p><p class="chan">${f.chan||''}</p></div>`;
-    favListEl.appendChild(item);
-  });
-}
-
-/* Estado global */
-let currentFavs = [];
-
-/* Eventos */
-favListEl?.addEventListener('click',(e)=>{
-  const item=e.target.closest('.favItem'); if(!item) return;
-  getFavItems().forEach(n=>n.classList.remove('active'));
-  item.classList.add('active');
-  const vid=item.getAttribute('data-video-id');
-  setPlayer(vid);
-});
-btnNext?.addEventListener('click',()=>{
-  const items=getFavItems(); if(!items.length) return;
-  let i=getActiveIndex(); i=(i+1)%items.length; setActiveIndex(i);
-});
-btnReload?.addEventListener('click', async ()=>{
-  const remote = await loadRemote();
-  const local  = loadLocal();
-  currentFavs  = dedup([...local, ...remote]);
-  renderFavs(currentFavs, false);
-});
-btnExpand?.addEventListener('click',()=>{
-  const list = document.querySelector('.favList');
-  if(!list) return;
-  if(list.style.maxHeight){
-    list.style.maxHeight = '';
-    btnExpand.textContent = 'Ver más ⤵';
-  }else{
-    list.style.maxHeight = 'none';
-    btnExpand.textContent = 'Ver menos ⤴';
-  }
-});
-btnAdd?.addEventListener('click',()=>{
-  const title=(inputTitle?.value||'').trim();
-  const url=(inputUrl?.value||'').trim();
-  const vid=extractYouTubeId(url);
-  if(!vid){ alert('Pegá una URL válida de YouTube.'); return; }
-  const loc=loadLocal(); loc.push({id:vid,title:title||'Favorito',chan:'YouTube'}); saveLocal(dedup(loc));
-  currentFavs = dedup([...loadLocal(), ...currentFavs.filter(x=>x.from!=='local')]);
-  renderFavs(currentFavs, false);
-  inputTitle.value=''; inputUrl.value='';
-});
-btnReset?.addEventListener('click',()=>{
-  if(!confirm('¿Restablecer tus favoritos locales? (No borra los del sitio)')) return;
-  saveLocal([]); init();
-});
-
-/* Init */
-async function init(makeFirstActive=true){
-  const [remote, local] = await Promise.all([loadRemote(), Promise.resolve(loadLocal())]);
-  currentFavs = dedup([...local, ...remote]);
-  renderFavs(currentFavs, makeFirstActive);
-  if(makeFirstActive && currentFavs[0]) setPlayer(currentFavs[0].id, false);
-}
-init();
-</script>
-
-<!-- ========= JS Spotify + Apple (sin claves, con demos por defecto) ========= -->
-<script>
+/* ===== Apple Music (principal) + Spotify (opcional) ===== */
 (function(){
+  const PRINCIPAL_APPLE = 'https://music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en';
+
   const tabs = document.querySelectorAll('#music-services .tab');
   const spotifyPane = document.getElementById('spotifyPane');
   const applePane   = document.getElementById('applePane');
@@ -350,7 +13,7 @@ init();
   const btnSave     = document.getElementById('svcSave');
   const btnDemo     = document.getElementById('svcDemo');
 
-  const LS_KEY = 'likelandi_music_services_v1';
+  const LS_KEY = 'likelandi_music_services_v2';
 
   function loadState(){
     try{ return JSON.parse(localStorage.getItem(LS_KEY)) || {}; }catch(e){ return {}; }
@@ -379,57 +42,57 @@ init();
     return '';
   }
 
+  // Fuerzo tu playlist como PRINCIPAL (global). Si había algo guardado, se respeta Spotify, pero Apple se fija a tu link.
   function render(state){
+    // Apple principal fija
+    state.apple = PRINCIPAL_APPLE;
+    appleUrlI.value = state.apple;
+    const ap = toAppleEmbed(state.apple);
+    if (ap) appleEmbed.src = ap;
+
+    // Spotify opcional (si pegás link, se muestra; si no, queda vacío)
     spotifyUrlI.value = state.spotify || '';
-    appleUrlI.value   = state.apple   || '';
-
     const sp = state.spotify ? toSpotifyEmbed(state.spotify) : '';
-    const ap = state.apple   ? toAppleEmbed(state.apple)     : '';
-
     if (sp) spotifyEmbed.src = sp; else spotifyEmbed.removeAttribute('src');
-    if (ap) appleEmbed.src   = ap; else appleEmbed.removeAttribute('src');
+
+    // Guardar estado consolidado
+    saveState(state);
+
+    // Dejar APPLE como pestaña activa por defecto
+    setActiveTab('apple');
   }
 
   // Tabs
+  function setActiveTab(tab){
+    tabs.forEach(n=>n.classList.remove('active'));
+    const btn = Array.from(tabs).find(t=>t.dataset.tab===tab);
+    if (btn) btn.classList.add('active');
+    spotifyPane.style.display = (tab==='spotify') ? 'block' : 'none';
+    applePane.style.display   = (tab==='apple')   ? 'block' : 'none';
+  }
   tabs.forEach(t => {
-    t.addEventListener('click', ()=>{
-      tabs.forEach(n=>n.classList.remove('active'));
-      t.classList.add('active');
-      const tab = t.getAttribute('data-tab');
-      spotifyPane.style.display = (tab==='spotify') ? 'block' : 'none';
-      applePane.style.display   = (tab==='apple')   ? 'block' : 'none';
-    });
+    t.addEventListener('click', ()=> setActiveTab(t.getAttribute('data-tab')));
   });
 
-  // Guardar
+  // Guardar (solo afecta Spotify; Apple queda fija a tu link)
   btnSave.addEventListener('click', ()=>{
     const state = loadState();
     state.spotify = spotifyUrlI.value.trim();
-    state.apple   = appleUrlI.value.trim();
-    saveState(state);
+    // Apple se fuerza al principal
+    state.apple = PRINCIPAL_APPLE;
     render(state);
-    alert('Guardado. Verificá que las playlists sean Públicas.');
+    alert('Guardado. Apple quedó fijo como principal; Spotify actualizado si pegaste un link público.');
   });
 
-  // DEMO por defecto (si no hay nada guardado)
-  const demoState = {
-    // Spotify editorial pública (funciona en todo el mundo)
-    spotify: 'https://open.spotify.com/playlist/37i9dQZF1DX4sWSpwq3LiO',
-    // Apple playlist pública de ejemplo (puede variar por región; se convierte a embed)
-    apple:   'https://music.apple.com/us/playlist/office-dj/pl.8b0a6ab8a9e241e0b5a9b8d2f1b3b8f6'
-  };
-  btnDemo.addEventListener('click', ()=>{ saveState(demoState); render(demoState); });
+  // DEMO: solo rellena Spotify si querés probar rápido
+  btnDemo.addEventListener('click', ()=>{
+    const state = loadState();
+    state.spotify = 'https://open.spotify.com/playlist/37i9dQZF1DX4sWSpwq3LiO';
+    render(state);
+  });
 
-  // Si no hay nada guardado, usar DEMO automáticamente
+  // Init
   const current = loadState();
-  if (!current.spotify && !current.apple) {
-    saveState(demoState);
-    render(demoState);
-  } else {
-    render(current);
-  }
+  render(current);
 })();
 </script>
-
-</body>
-</html>
