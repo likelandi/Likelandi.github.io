@@ -1,28 +1,102 @@
-<!-- === APPLE MUSIC PRINCIPAL (FIJO) === -->
-<section id="apple-principal" style="margin-top:28px">
-  <style>
-    #apple-principal .wrap{border:1px solid #ffffff22;border-radius:12px;background:#15121b}
-    #apple-principal .head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid #ffffff22;flex-wrap:wrap}
-    #apple-principal h2{margin:0;font-size:16px}
-    #apple-principal .btn{display:inline-block;padding:8px 12px;border-radius:10px;border:1px solid #ffffff22;background:#181320;color:#f7f0ff;text-decoration:none;font-weight:600}
-    #apple-principal iframe{width:100%;min-height:420px;border:0;border-radius:12px;background:#0f0b10;display:block}
-    #apple-principal .body{padding:12px}
-  </style>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Likelandi — Home</title>
+<meta name="description" content="Espacio terapéutico, creativo y tecnológico. Psiquiatría, arte, música e IA.">
+<style>
+  :root{
+    --bg:#0f0b10; --fg:#f7f0ff; --muted:#cfc7da;
+    --line:#ffffff22; --accent:#7cffcb; --accent2:#c77dff;
+    --panel:#15121b; --maxw:1100px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--fg);font:16px/1.75 system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
+  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
 
-  <div class="wrap">
-    <div class="head">
-      <h2>🎧 Landia’s Musik — Apple Music (principal)</h2>
-      <a class="btn" href="https://music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en" target="_blank" rel="noopener">Abrir en Apple Music</a>
-    </div>
-    <div class="body">
-      <!-- EMBED FIJO: si el link cambia, solo sustituí la URL debajo -->
-      <iframe
-        title="Landia’s Musik — Apple Music"
-        allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
-        sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
-        src="https://embed.music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en">
-      </iframe>
-    </div>
+  /* NAV */
+  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
+  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
+  .brand{margin-right:auto;font-weight:800}
+  .nav a{color:var(--fg);opacity:.9} .nav a:hover{opacity:1}
+  .nav .hl{color:var(--accent);font-weight:700}
+
+  /* WRAP */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:26px 16px 80px}
+
+  /* HERO */
+  .hero{display:grid;gap:14px}
+  .frame{display:grid;place-items:center;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#000,#0f0b10)}
+  .frame img{width:100%;height:auto;display:block;object-fit:cover}
+  .h1{margin:10px 0 0;font-size:clamp(28px,5vw,44px);line-height:1.2;
+      background:linear-gradient(90deg,var(--accent2),var(--accent));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .sub{margin:.3rem 0 0;color:var(--muted)}
+  .btn{display:inline-block;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:#181320;color:var(--fg);text-decoration:none;font-weight:600}
+  .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;color:#0f0b10}
+
+  /* APPLE BLOCK */
+  #apple-principal .wrap2{border:1px solid var(--line);border-radius:12px;background:var(--panel);margin-top:28px}
+  #apple-principal .head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  #apple-principal h2{margin:0;font-size:16px}
+  #apple-principal .btn{display:inline-block;padding:8px 12px;border-radius:10px;border:1px solid var(--line);background:#181320;color:#f7f0ff;text-decoration:none;font-weight:600}
+  #apple-principal .body{padding:12px}
+  #apple-principal iframe{width:100%;min-height:420px;border:0;border-radius:12px;background:#0f0b10;display:block}
+
+  footer{margin:44px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="inner">
+    <div class="brand">Likelandi</div>
+    <a class="hl" href="index.html">Inicio</a>
+    <a href="programas.html">Programa</a>
+    <a href="agenda.html">Agenda</a>
+    <a href="landias-musik.html">Landia’s Musik</a>
   </div>
-</section>
-<!-- === FIN APPLE MUSIC PRINCIPAL === -->
+</nav>
+
+<main class="wrap">
+
+  <!-- HERO (imagen del consultorio) -->
+  <section class="hero">
+    <div class="frame">
+      <!-- Asegurate que el archivo exista en la raíz y con este nombre exacto -->
+      <img src="Consultorio-hero.jpg?v=3" alt="Consultorio — Likelandi" loading="eager" decoding="async">
+    </div>
+    <h1 class="h1">Un espacio claro y humano</h1>
+    <p class="sub">Psiquiatría + Arteterapia + Musicoterapia + <strong>IA & nuevas tecnologías</strong>.</p>
+    <p class="sub" style="margin-top:6px">
+      <a class="btn primary" href="programas.html">Ver Programa</a>
+      <a class="btn" href="agenda.html">Agenda & Servicios</a>
+    </p>
+  </section>
+
+  <!-- APPLE MUSIC PRINCIPAL (FIJO) -->
+  <section id="apple-principal">
+    <div class="wrap2">
+      <div class="head">
+        <h2>🎧 Landia’s Musik — Apple Music (principal)</h2>
+        <a class="btn" href="https://music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en" target="_blank" rel="noopener">Abrir en Apple Music</a>
+      </div>
+      <div class="body">
+        <iframe
+          title="Landia’s Musik — Apple Music"
+          allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+          sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+          src="https://embed.music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2025 Likelandi</footer>
+</body>
+</html>
