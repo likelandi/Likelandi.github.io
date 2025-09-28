@@ -3,56 +3,163 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Likelandi — Programa</title>
-<meta name="description" content="Programa integral con IA, arte y música.">
+<title>Programa — Likelandi</title>
+<meta name="description" content="Módulos terapéuticos con arte, música e IA.">
 <style>
-  :root{--bg:#0f0b10;--fg:#f7f0ff;--muted:#cfc7da;--line:#ffffff22;--accent:#7cffcb}
+  :root{
+    --ink:#0b0a0f; --paper:#0a0812; --fg:#f8f7ff; --muted:#d8d2e9; --line:#ffffff22;
+    --vio1:#a78bfa; --vio2:#7c3aed; --cy1:#67e8f9; --cy2:#06b6d4; --pk1:#f472b6;
+    --radius:16px; --maxw:1100px;
+  }
   *{box-sizing:border-box} html,body{margin:0}
-  body{background:var(--bg);color:var(--fg);font:16px/1.8 system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
-  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-  .nav{position:sticky;top:0;backdrop-filter:blur(6px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
-  .nav .inner{max-width:780px;margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
-  .brand{margin-right:auto;font-weight:800}
-  .wrap{max-width:780px;margin:0 auto;padding:28px 16px 80px}
-  h1{margin:0 0 10px;font-size:clamp(26px,5vw,36px)}
-  p{margin:0 0 12px;color:var(--muted)}
-  .ia{margin:18px 0;padding:14px;border-left:4px solid var(--accent);background:#15121b;border-radius:10px}
-  details{border-top:1px solid var(--line);padding:12px 0}
-  summary{cursor:pointer;list-style:none;font-weight:600}
-  summary::-webkit-details-marker{display:none}
-  .content{padding:6px 2px 2px;color:var(--muted)}
-  footer{margin:40px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
+  body{background:var(--paper);color:var(--fg);font:16px/1.7 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial}
+  a{color:var(--cy1);text-decoration:none} a:focus-visible,button:focus-visible{outline:3px solid var(--cy1);outline-offset:2px;border-radius:10px}
+
+  .nav{position:sticky;top:0;z-index:10;background:rgba(10,8,18,.7);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:14px;align-items:center}
+  .brand{margin-right:auto;font-weight:800;background:linear-gradient(90deg,var(--vio1),var(--cy1));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .nav a{color:var(--fg);opacity:.9;padding:6px 10px;border-radius:10px}
+  .nav a:hover{background:#1a1527}
+  .nav .hl{background:linear-gradient(135deg,var(--vio1),var(--cy1));color:#0a0812;font-weight:800}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:26px 16px 70px}
+  .band{padding:34px 0}
+  .band--head{background: radial-gradient(1200px 500px at 20% 0%, #2d1b64 0%, transparent 60%), radial-gradient(1000px 600px at 100% 0%, #0a6abf33 0%, transparent 60%)}
+  .band--mods{background: linear-gradient(180deg,#0f0b1f 0%, #0e0a1a 100%)}
+  .band--div{background: radial-gradient(900px 450px at 90% 0%, #22d3ee33 0%, transparent 70%), linear-gradient(180deg,#0a0812 0%, #0a0812 100%)}
+
+  .section-title{display:flex;align-items:center;gap:10px;margin:0 0 14px}
+  .badge{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#0a0812;background:linear-gradient(135deg,var(--cy1),var(--vio1));border-radius:999px;padding:6px 10px;font-weight:900}
+  h1{margin:10px 0 0;font-size:clamp(28px,5vw,44px);line-height:1.2;background:linear-gradient(90deg,var(--vio1),var(--cy1));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  h2{font-size:clamp(22px,3.6vw,30px);margin:8px 0}
+  .lede{color:var(--muted);margin:.3rem 0 0}
+
+  .cards{display:grid;gap:14px}
+  .card{border:1px solid var(--line);border-radius:16px;padding:16px;background:#151228cc}
+  .card h3{margin:0 0 6px;font-size:18px}
+  .grid2{display:grid;gap:14px}
+
+  details{border:1px dashed #ffffff33;border-radius:12px;padding:10px 12px;background:#120f22}
+  summary{cursor:pointer;font-weight:700}
+  details[open]{background:#17132b}
+
+  @media(min-width:900px){.grid2{grid-template-columns:1fr 1fr}.cards.cols-3{grid-template-columns:repeat(3,1fr)}}
+  footer{margin:24px 0 0;padding:24px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
+  .btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#17132b;color:var(--fg);font-weight:700;text-decoration:none}
+  .btn.primary{background:linear-gradient(135deg,var(--vio1),var(--cy1));border:none;color:#0b0a10}
 </style>
 </head>
 <body>
+
 <nav class="nav">
   <div class="inner">
     <div class="brand">Likelandi</div>
-    <a href="/">Inicio</a>
-    <a href="/programas.html">Programa</a>
-    <a href="/agenda.html">Agenda</a>
-    <a href="/landias-musik.html">Landia’s Musik</a>
+    <a href="index.html">Inicio</a>
+    <a class="hl" href="programas.html">Programa</a>
+    <a href="landias-musik.html">Landia’s Musik</a>
+    <a href="#diversidad">Diversidad</a>
   </div>
 </nav>
 
-<main class="wrap">
-  <h1>Programa Integral</h1>
-  <p>Interdisciplinario, simple y práctico. Ejes: IA & nuevas tecnologías, arteterapia, musicoterapia y vida autónoma.</p>
+<!-- CABECERA -->
+<section class="band band--head">
+  <main class="wrap">
+    <h1>Programa terapéutico</h1>
+    <p class="lede">Itinerarios claros y medibles con arte, música e IA. Diseño modular, accesible y humano.</p>
+  </main>
+</section>
 
-  <section class="ia" id="ia">
-    <h2>🤖 IA & Nuevas Tecnologías</h2>
-    <p>Aula del segundo piso con estaciones de trabajo informatizadas y conectadas en red. Uso de ChatGPT como soporte cognitivo y formativo.</p>
-  </section>
+<!-- MODULOS -->
+<section class="band band--mods" id="modulos">
+  <main class="wrap">
+    <div class="section-title"><span class="badge">Módulos</span><h2>Qué trabajamos</h2></div>
 
-  <details><summary>🎨 Arteterapia</summary><div class="content">Expresión simbólica y muestra terapéutica.</div></details>
-  <details><summary>🎵 Musicoterapia</summary><div class="content">Improvisación, playlist narrativa y respiración/relajación.</div></details>
-  <details><summary>🗣️ Habilidades Sociales</summary><div class="content">Comunicación, límites y resolución de conflictos.</div></details>
-  <details><summary>🏠 Autonomía</summary><div class="content">Rutinas, organización, movilidad, finanzas simples.</div></details>
-  <details><summary>💼 Reentrenamiento Laboral</summary><div class="content">CV, simulacros, prácticas protegidas y microemprendimientos.</div></details>
-  <details><summary>💞 Redes y Familia</summary><div class="content">Comunidad, psicoeducación y protocolos de apoyo.</div></details>
-  <details><summary>🧩 Adaptación & Diagnóstico</summary><div class="content">Perfil psicosocial, GAF/WHO-DAS/HoNOS y plan individual.</div></details>
-</main>
+    <div class="cards cols-3">
+      <!-- REHABILITACIÓN -->
+      <article class="card" id="rehabilitacion">
+        <h3>🧩 Rehabilitación Psicosocial</h3>
+        <ul style="margin:8px 0 0 18px">
+          <li>Habilidades sociales</li><li>Autocuidado</li><li>Rutinas & hábitos</li>
+        </ul>
+        <details style="margin-top:10px">
+          <summary>Plan detallado</summary>
+          <p>Sesiones semanales, objetivos clínicos, seguimiento funcional y coordinación con familia/red. Actividades en planta alta con talleres complementarios de arteterapia y musicoterapia.</p>
+        </details>
+      </article>
 
-<footer>© 2025 Likelandi</footer>
+      <!-- IA -->
+      <article class="card" id="ia">
+        <h3>🤖 IA & Nuevas Tecnologías</h3>
+        <ul style="margin:8px 0 0 18px">
+          <li>Agenda asistida y memoria de trabajo</li>
+          <li>Mapas mentales y resúmenes</li>
+          <li>Proyecto final con rúbrica</li>
+        </ul>
+        <details style="margin-top:10px">
+          <summary>Metodología</summary>
+          <p>Estaciones de trabajo en red (parque de PCs y tablets), pautas de privacidad (sin datos sensibles), descansos, y acompañamiento no patologizante.</p>
+        </details>
+      </article>
+
+      <!-- ARTE -->
+      <article class="card" id="arte">
+        <h3>🎨 Arte & Música</h3>
+        <ul style="margin:8px 0 0 18px">
+          <li>Regulación emocional</li><li>Identidad y propósito</li><li>Grupos seguros</li>
+        </ul>
+        <details style="margin-top:10px">
+          <summary>Talleres</summary>
+          <p>Procesos creativos guiados, sesiones sonoras, y presentaciones internas tipo “vitrina”.</p>
+        </details>
+      </article>
+    </div>
+
+    <div class="grid2" style="margin-top:16px">
+      <article class="card">
+        <h3>Itinerarios por niveles</h3>
+        <ul style="margin:8px 0 0 18px">
+          <li><strong>Nivel 1</strong>: alfabetización digital/creativa</li>
+          <li><strong>Nivel 2</strong>: foco, planificación, lectura profunda</li>
+          <li><strong>Nivel 3</strong>: creatividad guiada (texto/imagen/audio)</li>
+          <li><strong>Nivel 4</strong>: proyecto final (podcast, fanzine, playlist)</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Inscripción</h3>
+        <p>Grupos reducidos, objetivos personalizados y evaluación continua.</p>
+        <p><a class="btn primary" href="mailto:info@likelandi.com?subject=Inscripci%C3%B3n%20Programa%20Likelandi">Quiero sumarme</a></p>
+      </article>
+    </div>
+  </main>
+</section>
+
+<!-- DIVERSIDAD -->
+<section class="band band--div" id="diversidad">
+  <main class="wrap">
+    <div class="section-title"><span class="badge">Diversidad</span><h2>Inclusión & Perspectiva de Género</h2></div>
+    <div class="cards cols-3">
+      <article class="card">
+        <h3>Compromiso activo</h3>
+        <p>Política de inclusión de <strong>todas</strong> las identidades y expresiones de género, orientaciones e intersexualidades.</p>
+      </article>
+      <article class="card">
+        <h3>Prácticas</h3>
+        <ul style="margin:8px 0 0 18px">
+          <li>Nombre elegido y pronombres</li>
+          <li>Lenguaje inclusivo</li>
+          <li>Red trans-afirmativa</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Marco ético</h3>
+        <p>No patologización, confidencialidad y autonomía, con consentimiento informado.</p>
+      </article>
+    </div>
+  </main>
+</section>
+
+<footer>
+  © 2025 Likelandi · Programa
+</footer>
 </body>
 </html>
