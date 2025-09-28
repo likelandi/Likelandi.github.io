@@ -7,178 +7,139 @@
 <meta name="description" content="Selección musical curada para foco, calma y creatividad.">
 <style>
   :root{
-    --bg:#0f0b10; --fg:#f7f0ff; --muted:#cfc7da;
-    --line:#ffffff22; --accent:#7cffcb; --accent2:#c77dff;
-    --panel:#15121b; --maxw:1100px;
+    --ink:#0b0a0f; --paper:#0a0812; --fg:#f8f7ff; --muted:#d8d2e9; --line:#ffffff22;
+    --vio1:#a78bfa; --vio2:#7c3aed; --cy1:#67e8f9; --cy2:#06b6d4; --pk1:#f472b6;
+    --radius:16px; --maxw:1100px;
   }
-  *{box-sizing:border-box}
-  html,body{margin:0}
-  body{background:var(--bg);color:var(--fg);font:16px/1.75 system-ui,-apple-system,Segoe UI,Helvetica,Arial,sans-serif}
-  a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
-  .btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#171320;color:var(--fg);font-weight:700;text-decoration:none}
-  .btn.primary{background:linear-gradient(135deg,var(--accent2),var(--accent));border:none;color:#0f0b10}
-  .kicker{font-size:12px;letter-spacing:.12em;color:#b9b0c9;text-transform:uppercase}
+  *{box-sizing:border-box} html,body{margin:0}
+  body{background:var(--paper);color:var(--fg);font:16px/1.7 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial}
+  a{color:var(--cy1);text-decoration:none} a:focus-visible,button:focus-visible{outline:3px solid var(--cy1);outline-offset:2px;border-radius:10px}
 
   /* NAV */
-  .nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(8px);background:#0f0b10cc;border-bottom:1px solid var(--line)}
-  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:16px;align-items:center}
-  .brand{margin-right:auto;font-weight:800}
-  .nav a{color:var(--fg);opacity:.9} .nav a:hover{opacity:1}
-  .nav .hl{color:var(--accent);font-weight:700}
+  .nav{position:sticky;top:0;z-index:10;background:rgba(10,8,18,.7);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:14px;align-items:center}
+  .brand{margin-right:auto;font-weight:800;background:linear-gradient(90deg,var(--vio1),var(--cy1));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .nav a{color:var(--fg);opacity:.9;padding:6px 10px;border-radius:10px}
+  .nav a:hover{background:#1a1527}
+  .nav .hl{background:linear-gradient(135deg,var(--vio1),var(--cy1));color:#0a0812;font-weight:800}
 
-  /* WRAP */
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:26px 16px 80px}
+  /* BANDS / LAYOUT */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:26px 16px 70px}
+  .band{padding:34px 0}
+  .band--hero{background: radial-gradient(1200px 500px at 20% 0%, #2d1b64 0%, transparent 60%), radial-gradient(1000px 600px at 100% 0%, #0a6abf33 0%, transparent 60%)}
+  .band--musik{background: radial-gradient(800px 400px at 85% 10%, #0ea5e966 0%, transparent 70%), linear-gradient(180deg,#0f0b1f 0%, #0e0a1a 100%)}
+  .band--yt{background: radial-gradient(900px 450px at 10% 0%, #8b5cf633 0%, transparent 70%), linear-gradient(180deg,#0e0a1a 0%, #0a0812 100%)}
 
-  /* HERO */
-  .hero{display:grid;gap:14px}
-  .frame{display:grid;place-items:center;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:linear-gradient(180deg,#000,#0f0b10)}
+  .frame{display:grid;place-items:center;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:linear-gradient(180deg,#000,#0f0b10)}
   .frame img{width:100%;height:auto;display:block;object-fit:cover}
-  h1{margin:10px 0 0;font-size:clamp(28px,5vw,44px);line-height:1.2;
-     background:linear-gradient(90deg,var(--accent2),var(--accent));
-     -webkit-background-clip:text;-webkit-text-fill-color:transparent}
-  .sub{margin:.3rem 0 0;color:var(--muted)}
+  h1{margin:10px 0 0;font-size:clamp(28px,5vw,44px);line-height:1.2;background:linear-gradient(90deg,var(--vio1),var(--cy1));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{color:var(--muted);margin:.3rem 0 0}
 
-  /* APPLE */
-  #apple .wrap2{border:1px solid var(--line);border-radius:12px;background:var(--panel);margin-top:20px}
-  #apple .head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-  #apple iframe{width:100%;min-height:420px;border:0;border-radius:12px;background:#0f0b10;display:block}
-  #apple .body{padding:12px}
+  .section-title{display:flex;align-items:center;gap:10px;margin:0 0 14px}
+  .badge{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#0a0812;background:linear-gradient(135deg,var(--cy1),var(--vio1));border-radius:999px;padding:6px 10px;font-weight:900}
+  h2{font-size:clamp(22px,3.6vw,30px);margin:8px 0}
 
-  /* YOUTUBE */
-  .section-title{margin:34px 0 12px;font-size:clamp(20px,3.4vw,28px);color:var(--accent)}
   .playerGrid{display:grid;gap:16px;margin-top:8px}
-  .player{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);aspect-ratio:16/9}
+  .player{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#141127;aspect-ratio:16/9}
   .player iframe{width:100%;height:100%;border:0}
-
-  .sidebar{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
+  .sidebar{border:1px solid var(--line);border-radius:var(--radius);background:#141127;overflow:hidden}
   .sideHead{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-  .sideHead h2{margin:0;font-size:16px}
+  .sideHead h3{margin:0;font-size:16px}
   .favList{max-height:480px;overflow:auto;display:flex;flex-direction:column}
   .favItem{display:flex;gap:10px;align-items:center;padding:10px 12px;border-bottom:1px solid #ffffff10;cursor:pointer}
   .favItem:last-child{border-bottom:none}
-  .thumb{flex:0 0 60px;height:38px;border-radius:6px;background:#0f0b10;border:1px solid #ffffff12;display:grid;place-items:center;font-size:12px;color:#cfc7da}
+  .thumb{flex:0 0 60px;height:38px;border-radius:10px;background:#0f0b10;border:1px solid #ffffff12;display:grid;place-items:center;font-size:12px;color:#cfc7da}
   .meta{min-width:0}
   .title{font-size:14px;margin:0 0 2px}
-  .chan{font-size:12px;color:var(--muted);margin:0}
-  .favItem:hover{background:#191526}
-  .favItem.active{background:#201936;outline:1px solid #8e7cff55}
+  .chan{font-size:12px;color:#cfc7da;margin:0}
+  .favItem:hover{background:#1b1531}
+  .favItem.active{background:#221a3e;outline:1px solid #8e7cff66}
+  .btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#17132b;color:var(--fg);font-weight:700;text-decoration:none}
+  .btn.primary{background:linear-gradient(135deg,var(--vio1),var(--cy1));border:none;color:#0b0a10}
   .btnRow{display:flex;gap:8px;flex-wrap:wrap}
 
-  /* CURADURÍA */
-  .cards{display:grid;gap:14px;margin-top:10px}
-  .card{border:1px solid var(--line);border-radius:12px;padding:16px;background:var(--panel)}
-  .card h3{margin:0 0 6px;font-size:18px}
+  #apple .wrap2{border:1px solid var(--line);border-radius:var(--radius);background:#141127cc;margin-top:10px}
+  #apple .head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+  #apple iframe{width:100%;min-height:420px;border:0;border-radius:var(--radius);background:#0f0b10;display:block}
+  #apple .body{padding:12px}
 
-  /* Responsive */
-  @media(min-width:900px){
-    .playerGrid{grid-template-columns:2fr 1fr}
-    .favList{max-height:calc(56.25vw/2 - 40px)}
-    .cards{grid-template-columns:1fr 1fr 1fr}
-  }
-
-  footer{margin:44px 0 0;padding:16px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
+  @media(min-width:900px){.playerGrid{grid-template-columns:2fr 1fr}.favList{max-height:calc(56.25vw/2 - 40px)}}
+  footer{margin:24px 0 0;padding:24px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav class="nav">
   <div class="inner">
     <div class="brand">Likelandi</div>
     <a href="index.html">Inicio</a>
-    <a href="programas.html">Programa</a>
-    <a href="agenda.html">Agenda</a>
     <a class="hl" href="landias-musik.html">Landia’s Musik</a>
+    <a href="programas.html">Programa</a>
+    <a href="#yt">YouTube</a>
   </div>
 </nav>
 
-<main class="wrap">
-  <!-- HERO -->
-  <section class="hero">
-    <span class="kicker">Selección musical curada</span>
+<!-- HERO -->
+<section class="band band--hero">
+  <main class="wrap">
     <div class="frame">
       <img src="landias-musik-profile-fiesta.png?v=4" alt="Landia’s Party — portada">
     </div>
     <h1>Landia’s Musik</h1>
-    <p class="sub">Música para foco, calma y creatividad. Curaduría clínica + arte.</p>
-    <p class="sub" style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
-      <a class="btn" href="index.html">Volver a Inicio</a>
-      <a class="btn primary" href="programas.html#ia">Ver módulo de IA</a>
+    <p class="lede">Música para foco, calma y creatividad. Curaduría clínica + arte.</p>
+    <p style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
+      <a class="btn" href="#apple">Ir a Apple Music</a>
+      <a class="btn primary" href="#yt">Abrir YouTube</a>
     </p>
-  </section>
+  </main>
+</section>
 
-  <!-- APPLE MUSIC PRINCIPAL -->
-  <section id="apple">
-    <h2 class="section-title">Apple Music — Playlist Principal</h2>
+<!-- APPLE MUSIC -->
+<section class="band band--musik" id="apple">
+  <main class="wrap">
+    <div class="section-title"><span class="badge">Apple Music</span><h2>Playlist principal</h2></div>
     <div class="wrap2">
       <div class="head">
-        <span>🎧 Reproducción directa desde Apple Music</span>
-        <a class="btn" href="https://music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en" target="_blank" rel="noopener">Abrir en Apple Music</a>
+        <strong>🎧 Reproducción directa desde Apple Music</strong>
+        <a class="btn" href="https://music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en" target="_blank" rel="noopener">Abrir en Apple</a>
       </div>
       <div class="body">
-        <iframe
-          title="Landia’s Musik — Apple Music"
-          allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
-          sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
-          src="https://embed.music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en">
-        </iframe>
+        <iframe title="Landia’s Musik — Apple Music"
+                allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+                src="https://embed.music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en"></iframe>
       </div>
     </div>
-  </section>
+  </main>
+</section>
 
-  <!-- YOUTUBE + LISTA (sin dependencias) -->
-  <section id="yt">
-    <h2 class="section-title">YouTube — Reproductor & Favoritos</h2>
+<!-- YOUTUBE -->
+<section class="band band--yt" id="yt">
+  <main class="wrap">
+    <div class="section-title"><span class="badge">YouTube</span><h2>Reproductor & Favoritos</h2></div>
     <section class="playerGrid" aria-label="Reproductor con favoritos">
       <div class="player">
-        <iframe
-          id="ytPlayer"
-          src="https://www.youtube.com/embed/HcX1GpMR9n4?rel=0"
+        <iframe id="ytPlayer" src="https://www.youtube.com/embed/HcX1GpMR9n4?rel=0"
           title="Landia’s Musik — Reproductor"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
       </div>
-
       <aside class="sidebar">
         <div class="sideHead">
-          <h2>⭐ Favoritos</h2>
+          <h3>⭐ Lista rápida</h3>
           <div class="btnRow">
-            <button id="btnExpand" class="btn" type="button">Ver más ⤵</button>
-            <button id="btnPrev" class="btn" type="button">◀ Anterior</button>
-            <button id="btnNext" class="btn" type="button">Siguiente ▶</button>
+            <button id="btnPrev" class="btn" type="button">◀</button>
+            <button id="btnNext" class="btn primary" type="button">▶</button>
           </div>
         </div>
         <div class="favList" id="favList"></div>
       </aside>
     </section>
-  </section>
+  </main>
+</section>
 
-  <!-- CURADURÍA (bloques) -->
-  <section id="curaduria">
-    <h2 class="section-title">Curaduría</h2>
-    <div class="cards">
-      <article class="card">
-        <h3>Calma</h3>
-        <p>Ambient, piano y texturas suaves para bajar ansiedad y facilitar el descanso.</p>
-      </article>
-      <article class="card">
-        <h3>Foco</h3>
-        <p>Lo-fi e instrumentales continuos para tareas prolongadas y lectura profunda.</p>
-      </article>
-      <article class="card">
-        <h3>Energía</h3>
-        <p>Selecciones con pulso moderado para activación y tareas domésticas.</p>
-      </article>
-    </div>
-  </section>
-</main>
+<footer>© 2025 Likelandi · Landia’s Musik</footer>
 
-<footer>
-  © 2025 Likelandi · Landia’s Musik
-</footer>
-
-<!-- ====== JS YouTube (lista interna) ====== -->
+<!-- JS YouTube (lista interna) -->
 <script>
 (function(){
   const LIST = [
@@ -188,75 +149,36 @@
     { id:'DWcJFNfaw9c', title:'Lo-fi Focus', chan:'Lofi Girl' },
     { id:'2OEL4P1Rz04', title:'Deep Focus', chan:'Relaxing' },
     { id:'lTRiuFIWV54', title:'Coding Music', chan:'Playlist' },
-    { id:'hHW1oY26kxQ', title:'Jazz for Study', chan:'Cafe' },
-    { id:'Dx5qFachd3A', title:'Piano Calm', chan:'Relax' },
-    { id:'J---aiyznGQ', title:'Clásico 2', chan:'Ejemplo' },
-    { id:'Zi_XLOBDo_Y', title:'Clásico 3', chan:'Ejemplo' }
+    { id:'hHW1oY26kxQ', title:'Jazz for Study', chan:'Cafe' }
   ];
-
   const favListEl = document.getElementById('favList');
   const playerEl  = document.getElementById('ytPlayer');
   const btnNext   = document.getElementById('btnNext');
   const btnPrev   = document.getElementById('btnPrev');
-  const btnExpand = document.getElementById('btnExpand');
 
   function render(list){
-    favListEl.innerHTML = '';
-    list.forEach((f, idx) => {
-      const item = document.createElement('div');
-      item.className = 'favItem' + (idx===0 ? ' active':'' );
-      item.setAttribute('data-video-id', f.id);
-      item.innerHTML = `
-        <div class="thumb">YT</div>
-        <div class="meta">
-          <p class="title">${f.title}</p>
-          <p class="chan">${f.chan}</p>
-        </div>`;
-      favListEl.appendChild(item);
+    favListEl.innerHTML='';
+    list.forEach((f,i)=>{
+      const el=document.createElement('div');
+      el.className='favItem'+(i===0?' active':'');
+      el.setAttribute('data-video-id', f.id);
+      el.innerHTML=`<div class="thumb">YT</div><div class="meta"><p class="title">${f.title}</p><p class="chan">${f.chan}</p></div>`;
+      favListEl.appendChild(el);
     });
   }
-
-  function setPlayer(vid, autoplay=true){
-    const params = 'rel=0' + (autoplay ? '&autoplay=1':'');
-    playerEl.src = `https://www.youtube.com/embed/${vid}?${params}`;
-  }
+  function setPlayer(id,auto=true){ playerEl.src=`https://www.youtube.com/embed/${id}?rel=0${auto?'&autoplay=1':''}`; }
   function items(){ return Array.from(favListEl.querySelectorAll('.favItem')); }
   function activeIndex(){ return items().findIndex(n=>n.classList.contains('active')); }
   function setActive(i){
-    const arr = items();
-    arr.forEach(n=>n.classList.remove('active'));
-    if(arr[i]) arr[i].classList.add('active');
-    const vid = arr[i]?.getAttribute('data-video-id');
-    if (vid) setPlayer(vid);
-    if (window.innerWidth < 900) playerEl.scrollIntoView({behavior:'smooth', block:'start'});
+    const arr=items(); arr.forEach(n=>n.classList.remove('active'));
+    if(arr[i]){ arr[i].classList.add('active'); setPlayer(arr[i].getAttribute('data-video-id')); }
   }
+  favListEl.addEventListener('click',(e)=>{ const it=e.target.closest('.favItem'); if(!it) return; items().forEach(n=>n.classList.remove('active')); it.classList.add('active'); setPlayer(it.getAttribute('data-video-id')); });
+  btnNext?.addEventListener('click',()=>{ const arr=items(); if(!arr.length) return; let i=activeIndex(); i=(i+1)%arr.length; setActive(i); });
+  btnPrev?.addEventListener('click',()=>{ const arr=items(); if(!arr.length) return; let i=activeIndex(); i=(i-1+arr.length)%arr.length; setActive(i); });
 
-  favListEl.addEventListener('click', (e)=>{
-    const it = e.target.closest('.favItem'); if(!it) return;
-    items().forEach(n=>n.classList.remove('active'));
-    it.classList.add('active');
-    setPlayer(it.getAttribute('data-video-id'));
-  });
-  btnNext?.addEventListener('click', ()=>{
-    const arr = items(); if(!arr.length) return;
-    let i = activeIndex(); i = (i+1) % arr.length; setActive(i);
-  });
-  btnPrev?.addEventListener('click', ()=>{
-    const arr = items(); if(!arr.length) return;
-    let i = activeIndex(); i = (i-1+arr.length) % arr.length; setActive(i);
-  });
-  btnExpand?.addEventListener('click', ()=>{
-    const list = document.querySelector('.favList');
-    if(!list) return;
-    if(list.style.maxHeight){ list.style.maxHeight=''; btnExpand.textContent='Ver más ⤵'; }
-    else { list.style.maxHeight='none'; btnExpand.textContent='Ver menos ⤴'; }
-  });
-
-  // Init
-  render(LIST);
-  setPlayer(LIST[0].id, false); // sin autoplay para evitar bloqueo en iPhone
+  render(LIST); setPlayer(LIST[0].id,false);
 })();
 </script>
-
 </body>
 </html>
