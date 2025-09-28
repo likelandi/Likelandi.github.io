@@ -7,46 +7,55 @@
 <meta name="description" content="Módulos terapéuticos con arte, música e IA.">
 <style>
   :root{
-    --ink:#0b0a0f; --paper:#0a0812; --fg:#f8f7ff; --muted:#d8d2e9; --line:#ffffff22;
-    --vio1:#a78bfa; --vio2:#7c3aed; --cy1:#67e8f9; --cy2:#06b6d4; --pk1:#f472b6;
-    --radius:16px; --maxw:1100px;
+    --bg:#07060c; --fg:#f7f5ff; --muted:#cfc7e5; --line:#ffffff26;
+    --vioA:#c4b5fd; --vioB:#8b5cf6; --cyA:#67e8f9; --cyB:#22d3ee;
+    --glass:rgba(19,16,35,.55); --glass2:rgba(19,16,35,.72);
+    --rad:18px; --blur:14px; --maxw:1120px;
   }
   *{box-sizing:border-box} html,body{margin:0}
-  body{background:var(--paper);color:var(--fg);font:16px/1.7 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial}
-  a{color:var(--cy1);text-decoration:none} a:focus-visible,button:focus-visible{outline:3px solid var(--cy1);outline-offset:2px;border-radius:10px}
+  body{
+    background:
+      radial-gradient(900px 500px at 15% -5%, #1b1250 0%, transparent 55%),
+      radial-gradient(700px 420px at 90% -10%, #0b3c66 0%, transparent 55%),
+      linear-gradient(180deg,#07060c 0%, #090815 100%);
+    color:var(--fg);font:16px/1.75 ui-sans-serif,system-ui,-apple-system,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial
+  }
+  a{color:var(--cyA);text-decoration:none} a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--cyA);outline-offset:2px;border-radius:12px}
 
-  .nav{position:sticky;top:0;z-index:10;background:rgba(10,8,18,.7);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:14px;align-items:center}
-  .brand{margin-right:auto;font-weight:800;background:linear-gradient(90deg,var(--vio1),var(--cy1));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-  .nav a{color:var(--fg);opacity:.9;padding:6px 10px;border-radius:10px}
-  .nav a:hover{background:#1a1527}
-  .nav .hl{background:linear-gradient(135deg,var(--vio1),var(--cy1));color:#0a0812;font-weight:800}
+  .nav{position:sticky;top:0;z-index:20;background:var(--glass);backdrop-filter:blur(var(--blur));border-bottom:1px solid var(--line)}
+  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:10px 16px;display:flex;gap:10px;align-items:center}
+  .brand{margin-right:auto;font-weight:900;background:linear-gradient(90deg,var(--vioA),var(--cyA));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .nav a{color:var(--fg);opacity:.9;padding:8px 12px;border-radius:12px}
+  .nav a:hover{background:rgba(255,255,255,.06)}
+  .nav .hl{background:linear-gradient(135deg,var(--vioA),var(--cyA));color:#061017;font-weight:800;border:0}
 
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:26px 16px 70px}
-  .band{padding:34px 0}
-  .band--head{background: radial-gradient(1200px 500px at 20% 0%, #2d1b64 0%, transparent 60%), radial-gradient(1000px 600px at 100% 0%, #0a6abf33 0%, transparent 60%)}
-  .band--mods{background: linear-gradient(180deg,#0f0b1f 0%, #0e0a1a 100%)}
-  .band--div{background: radial-gradient(900px 450px at 90% 0%, #22d3ee33 0%, transparent 70%), linear-gradient(180deg,#0a0812 0%, #0a0812 100%)}
+  .band{padding:40px 0}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:26px 16px 80px}
+  .glass{background:var(--glass);backdrop-filter:blur(var(--blur));border-radius:var(--rad);border:1px solid var(--line);position:relative}
+  .glow{position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;background:
+        linear-gradient(120deg,transparent 0 10%,#ffffff08 15%,transparent 30%),
+        conic-gradient(from 180deg at 50% 50%, var(--vioA), var(--cyA), var(--vioB), var(--cyB), var(--vioA));
+        filter:blur(18px);opacity:.18;mask:linear-gradient(#000,transparent 60%)}
+
+  .band--head{padding-top:28px}
+  .band--mods{background:radial-gradient(800px 420px at 85% 5%, #0ea5e966 0%, transparent 65%),linear-gradient(180deg,transparent 0%, #0a0917 100%)}
+  .band--div{background:radial-gradient(720px 420px at 90% 0%, #22d3ee33 0%, transparent 70%),linear-gradient(180deg,transparent 0%, #0a0812 100%)}
 
   .section-title{display:flex;align-items:center;gap:10px;margin:0 0 14px}
-  .badge{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#0a0812;background:linear-gradient(135deg,var(--cy1),var(--vio1));border-radius:999px;padding:6px 10px;font-weight:900}
-  h1{margin:10px 0 0;font-size:clamp(28px,5vw,44px);line-height:1.2;background:linear-gradient(90deg,var(--vio1),var(--cy1));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .badge{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#061018;background:linear-gradient(135deg,var(--cyA),var(--vioA));border-radius:999px;padding:6px 10px;font-weight:900}
+  h1{margin:12px 0 0;font-size:clamp(28px,5vw,48px);line-height:1.15;background:linear-gradient(90deg,var(--vioA),var(--cyA));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
   h2{font-size:clamp(22px,3.6vw,30px);margin:8px 0}
-  .lede{color:var(--muted);margin:.3rem 0 0}
 
-  .cards{display:grid;gap:14px}
-  .card{border:1px solid var(--line);border-radius:16px;padding:16px;background:#151228cc}
-  .card h3{margin:0 0 6px;font-size:18px}
-  .grid2{display:grid;gap:14px}
+  .cards{display:grid;gap:16px}
+  .card{padding:16px}
+  .grid2{display:grid;gap:16px}
+  @media(min-width:900px){.cards.cols-3{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:1fr 1fr}}
 
-  details{border:1px dashed #ffffff33;border-radius:12px;padding:10px 12px;background:#120f22}
-  summary{cursor:pointer;font-weight:700}
-  details[open]{background:#17132b}
+  .btn{display:inline-block;padding:10px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--fg);font-weight:800;text-decoration:none}
+  .btn.primary{background:linear-gradient(135deg,var(--vioA),var(--cyA));color:#081018;border:none}
 
-  @media(min-width:900px){.grid2{grid-template-columns:1fr 1fr}.cards.cols-3{grid-template-columns:repeat(3,1fr)}}
-  footer{margin:24px 0 0;padding:24px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
-  .btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#17132b;color:var(--fg);font-weight:700;text-decoration:none}
-  .btn.primary{background:linear-gradient(135deg,var(--vio1),var(--cy1));border:none;color:#0b0a10}
+  footer{margin:24px 0 0;padding:20px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
@@ -57,38 +66,35 @@
     <a href="index.html">Inicio</a>
     <a class="hl" href="programas.html">Programa</a>
     <a href="landias-musik.html">Landia’s Musik</a>
-    <a href="#diversidad">Diversidad</a>
   </div>
 </nav>
 
-<!-- CABECERA -->
 <section class="band band--head">
   <main class="wrap">
-    <h1>Programa terapéutico</h1>
-    <p class="lede">Itinerarios claros y medibles con arte, música e IA. Diseño modular, accesible y humano.</p>
+    <div class="glass" style="padding:16px"><span class="glow"></span>
+      <h1>Programa terapéutico</h1>
+      <p style="color:#cfc7e5;margin:.4rem 0 0">Itinerarios claros y medibles con arte, música e IA. Diseño modular, accesible y humano.</p>
+    </div>
   </main>
 </section>
 
-<!-- MODULOS -->
 <section class="band band--mods" id="modulos">
   <main class="wrap">
     <div class="section-title"><span class="badge">Módulos</span><h2>Qué trabajamos</h2></div>
 
     <div class="cards cols-3">
-      <!-- REHABILITACIÓN -->
-      <article class="card" id="rehabilitacion">
+      <article class="glass card" id="rehabilitacion"><span class="glow"></span>
         <h3>🧩 Rehabilitación Psicosocial</h3>
         <ul style="margin:8px 0 0 18px">
           <li>Habilidades sociales</li><li>Autocuidado</li><li>Rutinas & hábitos</li>
         </ul>
         <details style="margin-top:10px">
-          <summary>Plan detallado</summary>
-          <p>Sesiones semanales, objetivos clínicos, seguimiento funcional y coordinación con familia/red. Actividades en planta alta con talleres complementarios de arteterapia y musicoterapia.</p>
+          <summary style="cursor:pointer;font-weight:800">Plan detallado</summary>
+          <p style="margin:.6rem 0 0">Sesiones semanales, objetivos clínicos, seguimiento funcional y coordinación con familia/red. Actividades en planta alta con talleres complementarios de arteterapia y musicoterapia.</p>
         </details>
       </article>
 
-      <!-- IA -->
-      <article class="card" id="ia">
+      <article class="glass card" id="ia"><span class="glow"></span>
         <h3>🤖 IA & Nuevas Tecnologías</h3>
         <ul style="margin:8px 0 0 18px">
           <li>Agenda asistida y memoria de trabajo</li>
@@ -96,26 +102,25 @@
           <li>Proyecto final con rúbrica</li>
         </ul>
         <details style="margin-top:10px">
-          <summary>Metodología</summary>
-          <p>Estaciones de trabajo en red (parque de PCs y tablets), pautas de privacidad (sin datos sensibles), descansos, y acompañamiento no patologizante.</p>
+          <summary style="cursor:pointer;font-weight:800">Metodología</summary>
+          <p style="margin:.6rem 0 0">Parque informático (PCs y tablets) en red, pautas de privacidad (sin datos sensibles), descansos pautados y acompañamiento no patologizante.</p>
         </details>
       </article>
 
-      <!-- ARTE -->
-      <article class="card" id="arte">
+      <article class="glass card" id="arte"><span class="glow"></span>
         <h3>🎨 Arte & Música</h3>
         <ul style="margin:8px 0 0 18px">
           <li>Regulación emocional</li><li>Identidad y propósito</li><li>Grupos seguros</li>
         </ul>
         <details style="margin-top:10px">
-          <summary>Talleres</summary>
-          <p>Procesos creativos guiados, sesiones sonoras, y presentaciones internas tipo “vitrina”.</p>
+          <summary style="cursor:pointer;font-weight:800">Talleres</summary>
+          <p style="margin:.6rem 0 0">Procesos creativos guiados, sesiones sonoras y presentaciones internas tipo “vitrina”.</p>
         </details>
       </article>
     </div>
 
     <div class="grid2" style="margin-top:16px">
-      <article class="card">
+      <article class="glass card"><span class="glow"></span>
         <h3>Itinerarios por niveles</h3>
         <ul style="margin:8px 0 0 18px">
           <li><strong>Nivel 1</strong>: alfabetización digital/creativa</li>
@@ -124,7 +129,7 @@
           <li><strong>Nivel 4</strong>: proyecto final (podcast, fanzine, playlist)</li>
         </ul>
       </article>
-      <article class="card">
+      <article class="glass card"><span class="glow"></span>
         <h3>Inscripción</h3>
         <p>Grupos reducidos, objetivos personalizados y evaluación continua.</p>
         <p><a class="btn primary" href="mailto:info@likelandi.com?subject=Inscripci%C3%B3n%20Programa%20Likelandi">Quiero sumarme</a></p>
@@ -133,16 +138,15 @@
   </main>
 </section>
 
-<!-- DIVERSIDAD -->
 <section class="band band--div" id="diversidad">
   <main class="wrap">
     <div class="section-title"><span class="badge">Diversidad</span><h2>Inclusión & Perspectiva de Género</h2></div>
-    <div class="cards cols-3">
-      <article class="card">
+    <div class="cards" style="display:grid;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr))">
+      <article class="glass card"><span class="glow"></span>
         <h3>Compromiso activo</h3>
         <p>Política de inclusión de <strong>todas</strong> las identidades y expresiones de género, orientaciones e intersexualidades.</p>
       </article>
-      <article class="card">
+      <article class="glass card"><span class="glow"></span>
         <h3>Prácticas</h3>
         <ul style="margin:8px 0 0 18px">
           <li>Nombre elegido y pronombres</li>
@@ -150,7 +154,7 @@
           <li>Red trans-afirmativa</li>
         </ul>
       </article>
-      <article class="card">
+      <article class="glass card"><span class="glow"></span>
         <h3>Marco ético</h3>
         <p>No patologización, confidencialidad y autonomía, con consentimiento informado.</p>
       </article>
@@ -158,8 +162,6 @@
   </main>
 </section>
 
-<footer>
-  © 2025 Likelandi · Programa
-</footer>
+<footer>© 2025 Likelandi · Programa</footer>
 </body>
 </html>
