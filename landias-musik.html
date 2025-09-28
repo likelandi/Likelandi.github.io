@@ -7,64 +7,66 @@
 <meta name="description" content="Selección musical curada para foco, calma y creatividad.">
 <style>
   :root{
-    --ink:#0b0a0f; --paper:#0a0812; --fg:#f8f7ff; --muted:#d8d2e9; --line:#ffffff22;
-    --vio1:#a78bfa; --vio2:#7c3aed; --cy1:#67e8f9; --cy2:#06b6d4; --pk1:#f472b6;
-    --radius:16px; --maxw:1100px;
+    --bg:#07060c; --fg:#f7f5ff; --muted:#cfc7e5; --line:#ffffff26;
+    --vioA:#c4b5fd; --vioB:#8b5cf6; --cyA:#67e8f9; --cyB:#22d3ee;
+    --glass:rgba(19,16,35,.55); --glass2:rgba(19,16,35,.72);
+    --rad:18px; --blur:14px; --maxw:1120px;
   }
   *{box-sizing:border-box} html,body{margin:0}
-  body{background:var(--paper);color:var(--fg);font:16px/1.7 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial}
-  a{color:var(--cy1);text-decoration:none} a:focus-visible,button:focus-visible{outline:3px solid var(--cy1);outline-offset:2px;border-radius:10px}
+  body{
+    background:
+      radial-gradient(900px 500px at 15% -5%, #1b1250 0%, transparent 55%),
+      radial-gradient(700px 420px at 90% -10%, #0b3c66 0%, transparent 55%),
+      linear-gradient(180deg,#07060c 0%, #090815 100%);
+    color:var(--fg);font:16px/1.75 ui-sans-serif,system-ui,-apple-system,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial
+  }
+  a{color:var(--cyA);text-decoration:none} a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--cyA);outline-offset:2px;border-radius:12px}
 
-  /* NAV */
-  .nav{position:sticky;top:0;z-index:10;background:rgba(10,8,18,.7);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:14px;align-items:center}
-  .brand{margin-right:auto;font-weight:800;background:linear-gradient(90deg,var(--vio1),var(--cy1));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-  .nav a{color:var(--fg);opacity:.9;padding:6px 10px;border-radius:10px}
-  .nav a:hover{background:#1a1527}
-  .nav .hl{background:linear-gradient(135deg,var(--vio1),var(--cy1));color:#0a0812;font-weight:800}
+  .nav{position:sticky;top:0;z-index:20;background:var(--glass);backdrop-filter:blur(var(--blur));border-bottom:1px solid var(--line)}
+  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:10px 16px;display:flex;gap:10px;align-items:center}
+  .brand{margin-right:auto;font-weight:900;background:linear-gradient(90deg,var(--vioA),var(--cyA));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .nav a{color:var(--fg);opacity:.9;padding:8px 12px;border-radius:12px}
+  .nav a:hover{background:rgba(255,255,255,.06)}
+  .nav .hl{background:linear-gradient(135deg,var(--vioA),var(--cyA));color:#061017;font-weight:800;border:0}
 
-  /* BANDS / LAYOUT */
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:26px 16px 70px}
-  .band{padding:34px 0}
-  .band--hero{background: radial-gradient(1200px 500px at 20% 0%, #2d1b64 0%, transparent 60%), radial-gradient(1000px 600px at 100% 0%, #0a6abf33 0%, transparent 60%)}
-  .band--musik{background: radial-gradient(800px 400px at 85% 10%, #0ea5e966 0%, transparent 70%), linear-gradient(180deg,#0f0b1f 0%, #0e0a1a 100%)}
-  .band--yt{background: radial-gradient(900px 450px at 10% 0%, #8b5cf633 0%, transparent 70%), linear-gradient(180deg,#0e0a1a 0%, #0a0812 100%)}
+  .band{padding:40px 0}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:26px 16px 80px}
+  .glass{background:var(--glass);backdrop-filter:blur(var(--blur));border-radius:var(--rad);border:1px solid var(--line);position:relative}
+  .glow{position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;background:
+        linear-gradient(120deg,transparent 0 10%,#ffffff08 15%,transparent 30%),
+        conic-gradient(from 180deg at 50% 50%, var(--vioA), var(--cyA), var(--vioB), var(--cyB), var(--vioA));
+        filter:blur(18px);opacity:.18;mask:linear-gradient(#000,transparent 60%)}
 
-  .frame{display:grid;place-items:center;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:linear-gradient(180deg,#000,#0f0b10)}
-  .frame img{width:100%;height:auto;display:block;object-fit:cover}
-  h1{margin:10px 0 0;font-size:clamp(28px,5vw,44px);line-height:1.2;background:linear-gradient(90deg,var(--vio1),var(--cy1));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .band--hero{padding-top:28px}
+  .band--musik{background:radial-gradient(800px 420px at 85% 5%, #0ea5e966 0%, transparent 65%),linear-gradient(180deg,transparent 0%, #0a0917 100%)}
+  .band--yt{background:radial-gradient(750px 420px at 10% 0%, #8b5cf633 0%, transparent 70%),linear-gradient(180deg,transparent 0%, #0a0814 100%)}
+
+  .frame{overflow:hidden;border-radius:var(--rad);border:1px solid var(--line)}
+  .frame img{width:100%;display:block;object-fit:cover}
+  h1{margin:12px 0 0;font-size:clamp(28px,5vw,48px);line-height:1.15;background:linear-gradient(90deg,var(--vioA),var(--cyA));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
   .lede{color:var(--muted);margin:.3rem 0 0}
+  .btn{display:inline-block;padding:10px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--fg);font-weight:800;text-decoration:none}
+  .btn.primary{background:linear-gradient(135deg,var(--vioA),var(--cyA));color:#081018;border:none}
 
   .section-title{display:flex;align-items:center;gap:10px;margin:0 0 14px}
-  .badge{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#0a0812;background:linear-gradient(135deg,var(--cy1),var(--vio1));border-radius:999px;padding:6px 10px;font-weight:900}
+  .badge{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#061018;background:linear-gradient(135deg,var(--cyA),var(--vioA));border-radius:999px;padding:6px 10px;font-weight:900}
   h2{font-size:clamp(22px,3.6vw,30px);margin:8px 0}
 
-  .playerGrid{display:grid;gap:16px;margin-top:8px}
-  .player{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#141127;aspect-ratio:16/9}
+  .playerGrid{display:grid;gap:16px}
+  @media(min-width:900px){.playerGrid{grid-template-columns:2fr 1fr}}
+  .player{aspect-ratio:16/9;overflow:hidden}
   .player iframe{width:100%;height:100%;border:0}
-  .sidebar{border:1px solid var(--line);border-radius:var(--radius);background:#141127;overflow:hidden}
-  .sideHead{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-  .sideHead h3{margin:0;font-size:16px}
-  .favList{max-height:480px;overflow:auto;display:flex;flex-direction:column}
-  .favItem{display:flex;gap:10px;align-items:center;padding:10px 12px;border-bottom:1px solid #ffffff10;cursor:pointer}
-  .favItem:last-child{border-bottom:none}
-  .thumb{flex:0 0 60px;height:38px;border-radius:10px;background:#0f0b10;border:1px solid #ffffff12;display:grid;place-items:center;font-size:12px;color:#cfc7da}
-  .meta{min-width:0}
-  .title{font-size:14px;margin:0 0 2px}
-  .chan{font-size:12px;color:#cfc7da;margin:0}
-  .favItem:hover{background:#1b1531}
-  .favItem.active{background:#221a3e;outline:1px solid #8e7cff66}
-  .btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#17132b;color:var(--fg);font-weight:700;text-decoration:none}
-  .btn.primary{background:linear-gradient(135deg,var(--vio1),var(--cy1));border:none;color:#0b0a10}
-  .btnRow{display:flex;gap:8px;flex-wrap:wrap}
+  .side{max-height:480px;overflow:auto}
+  .item{display:flex;gap:10px;align-items:center;padding:10px 12px;border-bottom:1px solid #ffffff1a;cursor:pointer}
+  .item:last-child{border-bottom:none}
+  .thumb{flex:0 0 56px;height:36px;border-radius:10px;background:#0b0a12;border:1px solid #ffffff18;display:grid;place-items:center;font-size:12px;color:#cfc7da}
+  .t{font-size:14px;margin:0 0 2px}
+  .c{font-size:12px;color:#cfc7e5;margin:0}
+  .item:hover{background:#1a1430}
+  .item.active{background:#221a3e;outline:1px solid #8e7cff66}
 
-  #apple .wrap2{border:1px solid var(--line);border-radius:var(--radius);background:#141127cc;margin-top:10px}
-  #apple .head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-  #apple iframe{width:100%;min-height:420px;border:0;border-radius:var(--radius);background:#0f0b10;display:block}
-  #apple .body{padding:12px}
-
-  @media(min-width:900px){.playerGrid{grid-template-columns:2fr 1fr}.favList{max-height:calc(56.25vw/2 - 40px)}}
-  footer{margin:24px 0 0;padding:24px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
+  footer{margin:24px 0 0;padding:20px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
@@ -75,109 +77,102 @@
     <a href="index.html">Inicio</a>
     <a class="hl" href="landias-musik.html">Landia’s Musik</a>
     <a href="programas.html">Programa</a>
-    <a href="#yt">YouTube</a>
   </div>
 </nav>
 
-<!-- HERO -->
 <section class="band band--hero">
   <main class="wrap">
-    <div class="frame">
-      <img src="landias-musik-profile-fiesta.png?v=4" alt="Landia’s Party — portada">
+    <div class="glass" style="padding:14px">
+      <span class="glow"></span>
+      <div class="frame"><img src="landias-musik-profile-fiesta.png?v=6" alt="Landia’s Party — portada"></div>
+      <h1>Landia’s Musik</h1>
+      <p class="lede">Música para foco, calma y creatividad. Curaduría clínica + arte.</p>
+      <p style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="btn" href="#apple">Ir a Apple Music</a>
+        <a class="btn primary" href="#yt">Abrir YouTube</a>
+      </p>
     </div>
-    <h1>Landia’s Musik</h1>
-    <p class="lede">Música para foco, calma y creatividad. Curaduría clínica + arte.</p>
-    <p style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
-      <a class="btn" href="#apple">Ir a Apple Music</a>
-      <a class="btn primary" href="#yt">Abrir YouTube</a>
-    </p>
   </main>
 </section>
 
-<!-- APPLE MUSIC -->
-<section class="band band--musik" id="apple">
+<section id="apple" class="band band--musik">
   <main class="wrap">
     <div class="section-title"><span class="badge">Apple Music</span><h2>Playlist principal</h2></div>
-    <div class="wrap2">
-      <div class="head">
-        <strong>🎧 Reproducción directa desde Apple Music</strong>
-        <a class="btn" href="https://music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en" target="_blank" rel="noopener">Abrir en Apple</a>
-      </div>
-      <div class="body">
-        <iframe title="Landia’s Musik — Apple Music"
-                allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
-                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
-                src="https://embed.music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en"></iframe>
-      </div>
+    <div class="glass" style="padding:12px;background:var(--glass2)">
+      <span class="glow"></span>
+      <iframe title="Landia’s Musik — Apple Music"
+              allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+              sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+              style="width:100%;min-height:420px;border:0;border-radius:16px;background:#0f0b10"
+              src="https://embed.music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en"></iframe>
     </div>
   </main>
 </section>
 
-<!-- YOUTUBE -->
-<section class="band band--yt" id="yt">
+<section id="yt" class="band band--yt">
   <main class="wrap">
     <div class="section-title"><span class="badge">YouTube</span><h2>Reproductor & Favoritos</h2></div>
-    <section class="playerGrid" aria-label="Reproductor con favoritos">
-      <div class="player">
+    <div class="playerGrid">
+      <div class="glass player"><span class="glow"></span>
         <iframe id="ytPlayer" src="https://www.youtube.com/embed/HcX1GpMR9n4?rel=0"
           title="Landia’s Musik — Reproductor"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
       </div>
-      <aside class="sidebar">
-        <div class="sideHead">
-          <h3>⭐ Lista rápida</h3>
-          <div class="btnRow">
-            <button id="btnPrev" class="btn" type="button">◀</button>
-            <button id="btnNext" class="btn primary" type="button">▶</button>
+      <aside class="glass" style="overflow:hidden"><span class="glow"></span>
+        <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:10px 12px">
+          <strong>⭐ Lista rápida</strong>
+          <div>
+            <button id="prev" class="btn" type="button">◀</button>
+            <button id="next" class="btn" type="button">▶</button>
           </div>
         </div>
-        <div class="favList" id="favList"></div>
+        <div id="list" class="side" role="list" aria-label="videos favoritos"></div>
       </aside>
-    </section>
+    </div>
   </main>
 </section>
 
 <footer>© 2025 Likelandi · Landia’s Musik</footer>
 
-<!-- JS YouTube (lista interna) -->
 <script>
 (function(){
   const LIST = [
     { id:'HcX1GpMR9n4', title:'Video actual', chan:'Tu selección' },
     { id:'jfKfPfyJRdk', title:'lofi hip hop radio', chan:'Lofi Girl' },
-    { id:'5qap5aO4i9A', title:'Chillhop Radio', chan:'Chillhop' },
-    { id:'DWcJFNfaw9c', title:'Lo-fi Focus', chan:'Lofi Girl' },
-    { id:'2OEL4P1Rz04', title:'Deep Focus', chan:'Relaxing' },
-    { id:'lTRiuFIWV54', title:'Coding Music', chan:'Playlist' },
-    { id:'hHW1oY26kxQ', title:'Jazz for Study', chan:'Cafe' }
+    { id:'5qap5aO4i9A', title:'Chillhop Radio',  chan:'Chillhop' },
+    { id:'DWcJFNfaw9c', title:'Lo-fi Focus',     chan:'Lofi Girl' },
+    { id:'2OEL4P1Rz04', title:'Deep Focus',      chan:'Relaxing' },
+    { id:'lTRiuFIWV54', title:'Coding Music',    chan:'Playlist' }
   ];
-  const favListEl = document.getElementById('favList');
-  const playerEl  = document.getElementById('ytPlayer');
-  const btnNext   = document.getElementById('btnNext');
-  const btnPrev   = document.getElementById('btnPrev');
+  const list=document.getElementById('list');
+  const player=document.getElementById('ytPlayer');
+  const prev=document.getElementById('prev');
+  const next=document.getElementById('next');
 
-  function render(list){
-    favListEl.innerHTML='';
-    list.forEach((f,i)=>{
+  function render(){
+    list.innerHTML='';
+    LIST.forEach((v,i)=>{
       const el=document.createElement('div');
-      el.className='favItem'+(i===0?' active':'');
-      el.setAttribute('data-video-id', f.id);
-      el.innerHTML=`<div class="thumb">YT</div><div class="meta"><p class="title">${f.title}</p><p class="chan">${f.chan}</p></div>`;
-      favListEl.appendChild(el);
+      el.className='item'+(i===0?' active':'');
+      el.dataset.id=v.id;
+      el.innerHTML=`<div class="thumb">YT</div><div class="meta"><p class="t">${v.title}</p><p class="c">${v.chan}</p></div>`;
+      list.appendChild(el);
     });
   }
-  function setPlayer(id,auto=true){ playerEl.src=`https://www.youtube.com/embed/${id}?rel=0${auto?'&autoplay=1':''}`; }
-  function items(){ return Array.from(favListEl.querySelectorAll('.favItem')); }
+  function setPlayer(id,auto=true){ player.src=`https://www.youtube.com/embed/${id}?rel=0${auto?'&autoplay=1':''}`; }
+  function items(){ return Array.from(list.querySelectorAll('.item')); }
   function activeIndex(){ return items().findIndex(n=>n.classList.contains('active')); }
   function setActive(i){
     const arr=items(); arr.forEach(n=>n.classList.remove('active'));
-    if(arr[i]){ arr[i].classList.add('active'); setPlayer(arr[i].getAttribute('data-video-id')); }
+    if(arr[i]){ arr[i].classList.add('active'); setPlayer(arr[i].dataset.id); }
+    if(window.innerWidth<900) player.scrollIntoView({behavior:'smooth',block:'start'});
   }
-  favListEl.addEventListener('click',(e)=>{ const it=e.target.closest('.favItem'); if(!it) return; items().forEach(n=>n.classList.remove('active')); it.classList.add('active'); setPlayer(it.getAttribute('data-video-id')); });
-  btnNext?.addEventListener('click',()=>{ const arr=items(); if(!arr.length) return; let i=activeIndex(); i=(i+1)%arr.length; setActive(i); });
-  btnPrev?.addEventListener('click',()=>{ const arr=items(); if(!arr.length) return; let i=activeIndex(); i=(i-1+arr.length)%arr.length; setActive(i); });
+  list.addEventListener('click',e=>{const it=e.target.closest('.item'); if(!it) return; items().forEach(n=>n.classList.remove('active')); it.classList.add('active'); setPlayer(it.dataset.id);});
+  next?.addEventListener('click',()=>{const arr=items(); if(!arr.length) return; let i=activeIndex(); i=(i+1)%arr.length; setActive(i);});
+  prev?.addEventListener('click',()=>{const arr=items(); if(!arr.length) return; let i=activeIndex(); i=(i-1+arr.length)%arr.length; setActive(i);});
 
-  render(LIST); setPlayer(LIST[0].id,false);
+  render(); setPlayer(LIST[0].id,false);
 })();
 </script>
 </body>
