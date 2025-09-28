@@ -1,29 +1,221 @@
-<section id="playlist-madonna" style="max-width:1100px;margin:auto;padding:1rem;">
-  <h2 style="font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;margin:0 0 12px;">Playlist – Madonna (estudio/HD)</h2>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;">
-    <!-- Like A Prayer (Official Video) -->
-    <iframe width="100%" height="158" src="https://www.youtube.com/embed/79fzeNUqQbQ"
-      title="Madonna - Like A Prayer (Official Video)" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Juan Pablo — Sitio Personal</title>
+  <meta name="description" content="Sitio personal de Juan Pablo Fernández Rebosio — proyectos, servicios, música y contacto." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg-1:#0b0b12;           /* fondo base muy oscuro */
+      --bg-2:#111123;           /* tarjetas */
+      --violet:#7a5cff;         /* violeta principal */
+      --violet-2:#a88cff;       /* violeta claro */
+      --blue:#22a2ff;           /* acento azul */
+      --text:#eef1ff;           /* texto principal */
+      --muted:#b8c1ffcc;       /* texto secundario */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+      color:var(--text); background:
+        radial-gradient(1000px 600px at 10% -10%, rgba(122,92,255,.25), transparent 60%),
+        radial-gradient(800px 500px at 90% -10%, rgba(34,162,255,.2), transparent 60%),
+        var(--bg-1);
+      line-height:1.6;
+    }
+    a{color:var(--violet-2); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1080px; margin:0 auto; padding:24px}
 
-    <!-- Like A Prayer (12'' Dance Mix) [Official Audio] -->
-    <iframe width="100%" height="158" src="https://www.youtube.com/embed/vOqtir8MDi8"
-      title="Madonna - Like A Prayer (12'' Dance Mix) [Official Audio]" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    /* Header */
+    header{position:sticky; top:0; z-index:10; backdrop-filter: blur(8px);
+      background: linear-gradient(to right, rgba(17,17,35,.85), rgba(17,17,35,.6));
+      border-bottom:1px solid rgba(122,92,255,.15)}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.3px}
+    .badge{font-size:12px; padding:4px 10px; border-radius:999px; background:linear-gradient(90deg, var(--violet), var(--blue)); box-shadow:var(--shadow)}
+    .links{display:flex; gap:14px; flex-wrap:wrap}
+    .links a{padding:10px 14px; border-radius:12px; background:rgba(122,92,255,.12); border:1px solid rgba(122,92,255,.18)}
+    .links a:hover{background:rgba(122,92,255,.2)}
 
-    <!-- Erotica (Official Video) [HD] -->
-    <iframe width="100%" height="158" src="https://www.youtube.com/embed/WyhdvRWEWRw"
-      title="Madonna - Erotica (Official Video) [HD]" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    /* Hero */
+    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center; padding:48px 0}
+    .card{background:linear-gradient(180deg, rgba(17,17,35,.9), rgba(17,17,35,.7)); border:1px solid rgba(122,92,255,.2); border-radius:var(--radius); box-shadow:var(--shadow)}
+    .card>.p{padding:28px}
+    h1{font-size:clamp(28px, 4.2vw, 44px); line-height:1.15; margin:0 0 14px}
+    .sub{color:var(--muted); font-size:clamp(14px, 2.2vw, 18px)}
+    .cta-row{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:14px; font-weight:600; border:1px solid transparent}
+    .btn-primary{background:linear-gradient(90deg, var(--violet), var(--blue)); color:#0b0b12}
+    .btn-primary:hover{filter:brightness(1.05)}
+    .btn-ghost{background:rgba(122,92,255,.12); color:var(--text); border-color:rgba(122,92,255,.3)}
+    .btn-ghost:hover{background:rgba(122,92,255,.2)}
 
-    <!-- Vogue (Official Video) -->
-    <iframe width="100%" height="158" src="https://www.youtube.com/embed/GuJQSAiODqI"
-      title="Madonna - Vogue (Official Video)" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    .hero-media{min-height:260px; border-radius:var(--radius); overflow:hidden; border:1px solid rgba(122,92,255,.2); background:
+      linear-gradient(135deg, rgba(122,92,255,.25), rgba(34,162,255,.15)),
+      url('portada.jpg') center/cover no-repeat; box-shadow:var(--shadow)}
+    .hero-media.fallback{display:grid; place-items:center; font-weight:600; color:#0b0b12; background:linear-gradient(135deg, var(--violet-2), var(--blue))}
 
-    <!-- Deeper And Deeper (Official Video) [HD] -->
-    <iframe width="100%" height="158" src="https://www.youtube.com/embed/sJV29ZQIUhs"
-      title="Madonna - Deeper And Deeper (Official Video) [HD]" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
-</section>
+    /* Sections */
+    section{margin:38px 0}
+    .section-title{font-size:22px; font-weight:800; margin:0 0 14px}
+    .grid{display:grid; gap:16px}
+    .grid.cols-3{grid-template-columns:repeat(3, 1fr)}
+    .tile{background:var(--bg-2); border:1px solid rgba(122,92,255,.14); border-radius:16px; padding:18px}
+    .kicker{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+
+    /* Landia's Musik Party section */
+    .musik{position:relative; border-radius:var(--radius); overflow:hidden; border:1px solid rgba(122,92,255,.18); box-shadow:var(--shadow)}
+    .musik::before{content:""; position:absolute; inset:0; background:url('landias-musik-party.jpg') center/cover no-repeat; filter:brightness(.55) saturate(1.1);}
+    .musik-inner{position:relative; padding:28px}
+    .musik h3{margin:0 0 10px}
+    .player{display:flex; gap:12px; align-items:center; background:rgba(17,17,35,.75); border:1px solid rgba(122,92,255,.25); padding:12px 14px; border-radius:14px}
+    .track{display:flex; flex-direction:column; gap:6px}
+    .track small{color:var(--muted)}
+
+    /* Contacto */
+    .contact{display:grid; gap:16px}
+    .contact .item{display:flex; gap:10px; align-items:center; background:var(--bg-2); border:1px solid rgba(122,92,255,.14); padding:14px 16px; border-radius:14px}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size:14px}
+
+    /* Footer */
+    footer{margin:32px 0 12px; color:var(--muted); font-size:13px}
+
+    /* Responsive */
+    @media (max-width: 880px){.hero{grid-template-columns:1fr}}
+    @media (max-width:640px){.grid.cols-3{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><span class="badge" aria-hidden="true">JP</span><span>Juan Pablo — Personal</span></div>
+      <nav class="links" aria-label="Principal">
+        <a href="#proyectos">Proyectos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#musik">Reproductores</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero" aria-label="Portada">
+      <div class="card">
+        <div class="p">
+          <h1>Psiquiatría, tecnología y proyectos creativos</h1>
+          <p class="sub">Estilo violeta–azulado legible, con foco en claridad y accesibilidad. Portada activa y sección musical con fondo de Landia’s Musik Party.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#contacto">Solicitar turno</a>
+            <a class="btn btn-ghost" href="#musik">Escuchar ahora</a>
+          </div>
+        </div>
+      </div>
+      <div id="heroMedia" class="hero-media" role="img" aria-label="Imagen de portada"></div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos" aria-labelledby="titulo-proyectos">
+      <h2 id="titulo-proyectos" class="section-title">Proyectos</h2>
+      <div class="grid cols-3">
+        <article class="tile"><div class="kicker">Landia’s World</div><div>Identidad creativa y ecosistema de experiencias físicas + digitales.</div></article>
+        <article class="tile"><div class="kicker">Landia’s Musik</div><div>Acceso rápido a playlists y catálogo propio con foco en privacidad.</div></article>
+        <article class="tile"><div class="kicker">Likelandii</div><div>Community building y tecnología aplicada al bienestar.</div></article>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" aria-labelledby="titulo-servicios">
+      <h2 id="titulo-servicios" class="section-title">Servicios</h2>
+      <div class="grid cols-3">
+        <div class="tile"><div class="kicker">Psiquiatría</div><div>Evaluación clínica y acompañamiento terapéutico con enfoque humano.</div></div>
+        <div class="tile"><div class="kicker">Tecnología</div><div>Integración Apple, automatizaciones y privacidad de datos.</div></div>
+        <div class="tile"><div class="kicker">Creativo</div><div>Diseño de identidades y contenidos para marcas personales.</div></div>
+      </div>
+    </section>
+
+    <!-- LANDIA’S MUSIK PARTY / REPRODUCTORES -->
+    <section id="musik" class="musik" aria-labelledby="titulo-musik">
+      <div class="musik-inner">
+        <h2 id="titulo-musik" class="section-title" style="margin-top:0">Landia’s Musik Party</h2>
+        <h3 style="margin:0 0 12px">Reproductores</h3>
+        <div class="player" role="region" aria-label="Reproductor principal">
+          <div class="track">
+            <strong>Playlist Landia — Demo</strong>
+            <small>Reemplazá los archivos <code>audio/track-01.mp3</code> y <code>audio/track-01.ogg</code> por los tuyos.</small>
+          </div>
+          <audio controls preload="none" style="width:100%">
+            <source src="audio/track-01.mp3" type="audio/mpeg" />
+            <source src="audio/track-01.ogg" type="audio/ogg" />
+            Tu navegador no soporta audio HTML5.
+          </audio>
+        </div>
+        <div class="player" role="region" aria-label="Reproductor secundario" style="margin-top:10px">
+          <div class="track">
+            <strong>Mix Party — Demo</strong>
+            <small>Reemplazá <code>audio/mix-party.mp3</code> por tu mezcla.</small>
+          </div>
+          <audio controls preload="none" style="width:100%">
+            <source src="audio/mix-party.mp3" type="audio/mpeg" />
+          </audio>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO (exacto como pediste) -->
+    <section id="contacto" class="contact" aria-labelledby="titulo-contacto">
+      <h2 id="titulo-contacto" class="section-title">Contacto</h2>
+
+      <div class="item"><strong>Ubicación:</strong> <span class="mono">Buenos Aires, Argentina</span></div>
+      <div class="item"><strong>Email:</strong> <a class="mono" href="mailto:likelandi@proton.me">likelandi@proton.me</a></div>
+
+      <div class="item">
+        <strong>Solicitar turno</strong>
+        <div class="cta-row" style="margin:0 0 0 8px">
+          <a class="btn btn-primary" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Por Email</a>
+        </div>
+      </div>
+
+      <div class="item" aria-live="polite" aria-atomic="true">
+        <strong>Contador de visitas</strong>
+        <span id="visitCounter" class="mono" style="margin-left:8px">—</span>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Juan Pablo — Todos los derechos reservados.
+    </footer>
+  </main>
+
+  <script>
+    // Año dinámico
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Fallback si no carga la imagen del hero
+    (function(){
+      const m = document.getElementById('heroMedia');
+      const test = new Image();
+      test.onerror = () => { m.classList.add('fallback'); m.textContent = 'Imagen de portada'; };
+      test.src = 'portada.jpg';
+    })();
+
+    // Contador de visitas (por dispositivo/navegador)
+    (function(){
+      const KEY = 'jp_visit_counter_v1';
+      let n = 0;
+      try{ n = parseInt(localStorage.getItem(KEY) || '0', 10) || 0; }catch(_){ }
+      n++;
+      try{ localStorage.setItem(KEY, String(n)); }catch(_){ }
+      const el = document.getElementById('visitCounter');
+      if(el){ el.textContent = n.toLocaleString('es-AR'); }
+    })();
+  </script>
+</body>
+</html>
