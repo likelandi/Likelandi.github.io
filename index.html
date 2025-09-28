@@ -9,21 +9,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg-1:#0b0b12;           /* fondo base muy oscuro */
-      --bg-2:#111123;           /* tarjetas */
-      --violet:#7a5cff;         /* violeta principal */
-      --violet-2:#a88cff;       /* violeta claro */
-      --blue:#22a2ff;           /* acento azul */
-      --text:#eef1ff;           /* texto principal */
-      --muted:#b8c1ffcc;       /* texto secundario */
-      --ok:#4ade80;            /* verde accesible */
+      --bg-1:#0b0b12;
+      --bg-2:#111123;
+      --violet:#7a5cff;
+      --violet-2:#a88cff;
+      --blue:#22a2ff;
+      --text:#eef1ff;
+      --muted:#b8c1ffcc;
+      --ok:#4ade80;
       --shadow: 0 10px 30px rgba(0,0,0,.35);
       --radius: 18px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
-      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
       color:var(--text); background: radial-gradient(1000px 600px at 10% -10%, rgba(122,92,255,.25), transparent 60%),
                          radial-gradient(800px 500px at 90% -10%, rgba(34,162,255,.2), transparent 60%),
                          var(--bg-1);
@@ -31,10 +31,7 @@
     }
     a{color:var(--violet-2); text-decoration:none}
     a:hover{text-decoration:underline}
-
     .wrap{max-width:1080px; margin:0 auto; padding:24px}
-
-    /* Header */
     header{
       position:sticky; top:0; z-index:10; backdrop-filter: blur(8px);
       background: linear-gradient(to right, rgba(17,17,35,.85), rgba(17,17,35,.6));
@@ -46,8 +43,6 @@
     .links{display:flex; gap:14px; flex-wrap:wrap}
     .links a{padding:10px 14px; border-radius:12px; background:rgba(122,92,255,.12); border:1px solid rgba(122,92,255,.18)}
     .links a:hover{background:rgba(122,92,255,.2)}
-
-    /* Hero */
     .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center; padding:48px 0}
     .card{background:linear-gradient(180deg, rgba(17,17,35,.9), rgba(17,17,35,.7)); border:1px solid rgba(122,92,255,.2); border-radius:var(--radius); box-shadow:var(--shadow)}
     .card>.p{padding:28px}
@@ -59,166 +54,73 @@
     .btn-primary:hover{filter:brightness(1.05)}
     .btn-ghost{background:rgba(122,92,255,.12); color:var(--text); border-color:rgba(122,92,255,.3)}
     .btn-ghost:hover{background:rgba(122,92,255,.2)}
-
-    .hero-media{min-height:260px; border-radius:var(--radius); overflow:hidden; border:1px solid rgba(122,92,255,.2); background:
-      linear-gradient(135deg, rgba(122,92,255,.35), rgba(34,162,255,.25)),
-      url('consutorio-hero.jpg') center/cover no-repeat;
-      box-shadow:var(--shadow)
-    }
+    .hero-media{min-height:260px; border-radius:var(--radius); overflow:hidden; border:1px solid rgba(122,92,255,.2); background:url('portada.jpg') center/cover no-repeat; box-shadow:var(--shadow)}
     .hero-media.fallback{display:grid; place-items:center; font-weight:600; color:#0b0b12; background:linear-gradient(135deg, var(--violet-2), var(--blue))}
-
-    /* Sections */
     section{margin:38px 0}
     .section-title{font-size:22px; font-weight:800; margin:0 0 14px}
     .grid{display:grid; gap:16px}
     .grid.cols-3{grid-template-columns:repeat(3, 1fr)}
     .tile{background:var(--bg-2); border:1px solid rgba(122,92,255,.14); border-radius:16px; padding:18px}
     .kicker{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
-
-    /* Contacto */
+    .music-bg{background:url('landias-musik-party.jpg') center/cover no-repeat; border-radius:var(--radius); padding:24px; color:white; box-shadow:var(--shadow)}
     .contact{display:grid; gap:16px}
     .contact .item{display:flex; gap:10px; align-items:center; background:var(--bg-2); border:1px solid rgba(122,92,255,.14); padding:14px 16px; border-radius:14px}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size:14px}
-
-    /* Footer */
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size:14px}
     footer{margin:32px 0 12px; color:var(--muted); font-size:13px}
-
-    /* Responsive */
-    @media (max-width: 880px){
-      .hero{grid-template-columns:1fr;}
-    }
-    @media (max-width:640px){
-      .grid.cols-3{grid-template-columns:1fr}
-    }
+    @media (max-width: 880px){.hero{grid-template-columns:1fr;}}
+    @media (max-width:640px){.grid.cols-3{grid-template-columns:1fr}}
   </style>
 </head>
 <body>
   <header>
     <div class="wrap nav">
-      <div class="brand">
-        <span class="badge" aria-hidden="true">JP</span>
-        <span>Juan Pablo — Personal</span>
-      </div>
-      <nav class="links" aria-label="Principal">
-        <a href="#proyectos">Proyectos</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+      <div class="brand"><span class="badge">JP</span><span>Juan Pablo — Personal</span></div>
+      <nav class="links"><a href="#proyectos">Proyectos</a><a href="#servicios">Servicios</a><a href="#contacto">Contacto</a></nav>
     </div>
   </header>
-
   <main class="wrap">
-    <!-- HERO -->
-    <section class="hero" aria-label="Portada">
+    <section class="hero">
       <div class="card">
         <div class="p">
           <h1>Psiquiatría, tecnología y proyectos creativos</h1>
-          <p class="sub">Trabajo con salud mental, diseño de experiencias y productos digitales. En esta versión priorizamos <strong>claridad</strong>, <strong>accesibilidad</strong> y un estilo <strong>violeta–azulado</strong> más vibrante pero legible.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#contacto">Solicitar turno</a>
-            <a class="btn btn-ghost" href="#proyectos">Ver proyectos</a>
-          </div>
+          <p class="sub">Trabajo con salud mental, diseño de experiencias y productos digitales. En esta versión priorizamos claridad, accesibilidad y un estilo violeta–azulado vibrante.</p>
+          <div class="cta-row"><a class="btn btn-primary" href="#contacto">Solicitar turno</a><a class="btn btn-ghost" href="#proyectos">Ver proyectos</a></div>
         </div>
       </div>
-      <div id="heroMedia" class="hero-media" role="img" aria-label="Imagen del consultorio"></div>
+      <div id="heroMedia" class="hero-media"></div>
     </section>
-
-    <!-- PROYECTOS (compacto) -->
-    <section id="proyectos" aria-labelledby="titulo-proyectos">
-      <h2 id="titulo-proyectos" class="section-title">Proyectos</h2>
+    <section id="proyectos">
+      <h2 class="section-title">Proyectos</h2>
       <div class="grid cols-3">
-        <article class="tile">
-          <div class="kicker">Landia’s World</div>
-          <div>Identidad creativa y ecosistema de experiencias físicas + digitales.</div>
-        </article>
-        <article class="tile">
-          <div class="kicker">Landia’s Musik</div>
-          <div>Acceso rápido a playlists y catálogo propio con foco en privacidad.</div>
-        </article>
-        <article class="tile">
-          <div class="kicker">Likelandii</div>
-          <div>Community building y tecnología aplicada al bienestar.</div>
-        </article>
+        <article class="tile"><div class="kicker">Landia’s World</div><div>Identidad creativa y ecosistema de experiencias físicas + digitales.</div></article>
+        <article class="tile"><div class="kicker">Landia’s Musik</div><div>Acceso rápido a playlists y catálogo propio con foco en privacidad.</div></article>
+        <article class="tile"><div class="kicker">Likelandii</div><div>Community building y tecnología aplicada al bienestar.</div></article>
       </div>
     </section>
-
-    <!-- SERVICIOS (compacto) -->
-    <section id="servicios" aria-labelledby="titulo-servicios">
-      <h2 id="titulo-servicios" class="section-title">Servicios</h2>
+    <section id="servicios">
+      <h2 class="section-title">Servicios</h2>
       <div class="grid cols-3">
-        <div class="tile">
-          <div class="kicker">Psiquiatría</div>
-          <div>Evaluación clínica y acompañamiento terapéutico con enfoque humano.</div>
-        </div>
-        <div class="tile">
-          <div class="kicker">Tecnología</div>
-          <div>Integración Apple, automatizaciones y privacidad de datos.</div>
-        </div>
-        <div class="tile">
-          <div class="kicker">Creativo</div>
-          <div>Diseño de identidades y contenidos para marcas personales.</div>
-        </div>
+        <div class="tile"><div class="kicker">Psiquiatría</div><div>Evaluación clínica y acompañamiento terapéutico con enfoque humano.</div></div>
+        <div class="tile"><div class="kicker">Tecnología</div><div>Integración Apple, automatizaciones y privacidad de datos.</div></div>
+        <div class="tile music-bg"><div class="kicker">Landia’s Musik Party</div><div>Explorá las playlists y mezclas con fondo visual dinámico que te acompaña mientras escuchás.</div></div>
       </div>
     </section>
-
-    <!-- CONTACTO (tal como lo pediste) -->
-    <section id="contacto" class="contact" aria-labelledby="titulo-contacto">
-      <h2 id="titulo-contacto" class="section-title">Contacto</h2>
-
+    <section id="contacto" class="contact">
+      <h2 class="section-title">Contacto</h2>
       <div class="item"><strong>Ubicación:</strong> <span class="mono">Buenos Aires, Argentina</span></div>
       <div class="item"><strong>Email:</strong> <a class="mono" href="mailto:likelandi@proton.me">likelandi@proton.me</a></div>
-
-      <div class="item">
-        <strong>Solicitar turno:</strong>
-        <div class="cta-row" style="margin:0 0 0 8px">
-          <a class="btn btn-primary" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Por Email</a>
-          <a class="btn btn-ghost" href="#" aria-disabled="true" title="Opcional: enlazar WhatsApp o formulario más adelante">Más opciones</a>
-        </div>
-      </div>
-
-      <div class="item" aria-live="polite" aria-atomic="true">
-        <strong>Contador de visitas:</strong>
-        <span id="visitCounter" class="mono" style="margin-left:8px">—</span>
-        <span class="mono" style="margin-left:8px; opacity:.8">(este dispositivo)</span>
-      </div>
+      <div class="item"><strong>Solicitar turno:</strong><div class="cta-row" style="margin:0 0 0 8px"><a class="btn btn-primary" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Por Email</a></div></div>
+      <div class="item"><strong>Contador de visitas:</strong> <span id="visitCounter" class="mono" style="margin-left:8px">—</span></div>
     </section>
-
-    <footer>
-      © <span id="year"></span> Juan Pablo — Todos los derechos reservados.
-    </footer>
+    <footer>© <span id="year"></span> Juan Pablo — Todos los derechos reservados.</footer>
   </main>
-
   <script>
-    // Año dinámico
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Fallback si no carga la imagen del hero
-    (function(){
-      const m = document.getElementById('heroMedia');
-      // Intento rápido de carga para detectar error (no bloqueante en producción)
-      const test = new Image();
-      test.onload = () => {/* ok, no hacemos nada */};
-      test.onerror = () => {
-        m.classList.add('fallback');
-        m.textContent = 'Imagen de portada';
-      };
-      test.src = 'consutorio-hero.jpg';
-    })();
-
-    // Contador de visitas (sin servidor): por dispositivo/navegador
-    (function(){
-      const KEY = 'jp_visit_counter_v1';
-      let n = 0;
-      try{
-        n = parseInt(localStorage.getItem(KEY) || '0', 10) || 0;
-      }catch(e){
-        // Si el navegador bloquea localStorage, mantenemos en memoria
-      }
-      n++;
-      try{ localStorage.setItem(KEY, String(n)); }catch(e){}
-      const el = document.getElementById('visitCounter');
-      if(el){ el.textContent = n.toLocaleString('es-AR'); }
-    })();
+    const KEY = 'jp_visit_counter_v1';
+    let n = parseInt(localStorage.getItem(KEY) || '0', 10) || 0;
+    n++;
+    localStorage.setItem(KEY, String(n));
+    document.getElementById('visitCounter').textContent = n.toLocaleString('es-AR');
   </script>
 </body>
 </html>
