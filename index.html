@@ -38,7 +38,7 @@
       -webkit-background-clip:text;-webkit-text-fill-color:transparent}
   .sub{margin:.3rem 0 0;color:var(--muted)}
 
-  /* SECCIÓN GENÉRICA */
+  /* SECCIONES */
   section{scroll-margin-top:80px}
   .section-title{margin:34px 0 12px;font-size:clamp(20px,3.4vw,28px);color:var(--accent)}
   .cards{display:grid;gap:14px}
@@ -52,7 +52,7 @@
   .player{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--panel);aspect-ratio:16/9}
   .player iframe{width:100%;height:100%;border:0}
 
-  /* Sidebar favoritos YT */
+  /* Sidebar YT */
   .sidebar{border:1px solid var(--line);border-radius:12px;background:var(--panel);overflow:hidden}
   .sideHead{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
   .sideHead h2{margin:0;font-size:16px}
@@ -68,16 +68,13 @@
   .btnRow{display:flex;gap:8px;flex-wrap:wrap}
 
   /* APPLE */
-  #apple-principal .wrap2{border:1px solid var(--line);border-radius:12px;background:var(--panel);margin-top:28px}
+  #apple-principal .wrap2{border:1px solid var(--line);border-radius:12px;background:var(--panel);margin-top:20px}
   #apple-principal .head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-  #apple-principal h2{margin:0;font-size:16px}
   #apple-principal iframe{width:100%;min-height:420px;border:0;border-radius:12px;background:#0f0b10;display:block}
 
-  /* TESTIMONIOS */
+  /* TESTIMONIOS / CONTACTO */
   .quote{font-size:15px;color:#eae2ff}
   .who{font-size:12px;color:#b7aec9}
-
-  /* CONTACTO */
   .contactBox{border:1px solid var(--line);border-radius:12px;background:var(--panel);padding:16px}
   .stack{display:grid;gap:10px}
 
@@ -98,9 +95,11 @@
   <div class="inner">
     <div class="brand">Likelandi</div>
     <a class="hl" href="#inicio">Inicio</a>
-    <a href="programas.html">Programa</a>
-    <a href="agenda.html">Agenda</a>
-    <a href="landias-musik.html">Landia’s Musik</a>
+    <a href="#programas">Programa</a>
+    <a href="#apple-principal">Música</a>
+    <a href="#lab-ia">Lab de IA</a>
+    <a href="#inclusion">Inclusión</a>
+    <a href="#contacto">Contacto</a>
   </div>
 </nav>
 
@@ -116,78 +115,32 @@
     <h1 class="h1">Un espacio claro y humano</h1>
     <p class="sub">Psiquiatría + Arteterapia + Musicoterapia + <strong>IA & nuevas tecnologías</strong>.</p>
     <p class="sub" style="margin-top:10px;display:flex;gap:10px;flex-wrap:wrap">
-      <a class="btn primary" href="programas.html">Ver Programa</a>
-      <a class="btn" href="agenda.html">Agenda & Servicios</a>
+      <a class="btn primary" href="#programas">Ver Programa</a>
+      <a class="btn" href="#apple-principal">Playlist</a>
       <a class="btn" href="#contacto">Contacto</a>
     </p>
   </section>
 
-  <!-- SOBRE EL CONSULTORIO -->
-  <section id="sobre">
-    <h2 class="section-title">Sobre el consultorio</h2>
-    <div class="split">
-      <div class="card">
-        <h3>Enfoque</h3>
-        <p>Atención psiquiátrica con abordaje interdisciplinario. Integración de psicoterapia breve, arteterapia y musicoterapia, con módulos de entrenamiento cognitivo asistidos por IA.</p>
-        <p>Trabajo por objetivos clínicos claros y medibles, priorizando adherencia, funcionalidad e integración social.</p>
-      </div>
-      <div class="card">
-        <h3>Espacios</h3>
-        <ul>
-          <li>Consultorio principal (entrevistas y seguimiento).</li>
-          <li>Planta alta: talleres de arteterapia y musicoterapia.</li>
-          <li>Aula tecnológica: estaciones de trabajo en red para módulos de IA.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
   <!-- PROGRAMAS DESTACADOS -->
   <section id="programas">
-    <h2 class="section-title">Programas destacados</h2>
+    <h2 class="section-title">Programas</h2>
     <div class="cards">
       <article class="card">
         <h3>Rehabilitación Psicosocial</h3>
-        <p>Entrenamiento en habilidades sociales, autocuidado, hábitos y preparación para reinserción.</p>
-        <a class="btn" href="programas.html#rehabilitacion">Ver detalle</a>
+        <p>Habilidades sociales, autocuidado, hábitos y reinserción; objetivos clínicos claros y medibles.</p>
       </article>
       <article class="card">
         <h3>IA & Nuevas Tecnologías</h3>
-        <p>Uso seguro y guiado de asistentes (ChatGPT) y herramientas digitales para foco, memoria y organización.</p>
-        <a class="btn" href="programas.html#ia">Ver detalle</a>
+        <p>Uso guiado de asistentes (ChatGPT) para foco, memoria, organización y autonomía cotidiana.</p>
       </article>
       <article class="card">
         <h3>Arte & Música</h3>
         <p>Procesos creativos para regulación emocional, identidad y sentido de propósito.</p>
-        <a class="btn" href="programas.html#arte">Ver detalle</a>
       </article>
     </div>
   </section>
 
-  <!-- SERVICIOS RÁPIDOS -->
-  <section id="servicios">
-    <h2 class="section-title">Servicios</h2>
-    <div class="grid2">
-      <div class="card">
-        <h3>Consultas psiquiátricas</h3>
-        <p>Evaluación diagnóstica, planificación terapéutica y seguimiento integral.</p>
-      </div>
-      <div class="card">
-        <h3>Terapias combinadas</h3>
-        <p>Arteterapia, musicoterapia y módulos de entrenamiento cognitivo con IA.</p>
-      </div>
-      <div class="card">
-        <h3>Talleres y grupos</h3>
-        <p>Habilidades sociales, hábitos saludables, creatividad y foco.</p>
-      </div>
-      <div class="card">
-        <h3>Orientación a familias</h3>
-        <p>Pautas de acompañamiento, comunicación y red de apoyo.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOQUE APPLE MUSIC -->
+  <!-- APPLE MUSIC PRINCIPAL -->
   <section id="apple-principal">
     <h2 class="section-title">Landia’s Musik — Apple Music</h2>
     <div class="wrap2">
@@ -206,7 +159,7 @@
     </div>
   </section>
 
-  <!-- YOUTUBE + LISTA (SIN JSON) -->
+  <!-- YOUTUBE + FAVORITOS (simple, sin dependencias) -->
   <section id="yt">
     <h2 class="section-title">Landia’s Musik — YouTube</h2>
     <section class="playerGrid" aria-label="Reproductor con favoritos">
@@ -234,21 +187,62 @@
     </section>
   </section>
 
-  <!-- IA & TECNOLOGÍAS -->
-  <section id="ia">
-    <h2 class="section-title">IA & Nuevas Tecnologías</h2>
+  <!-- LABORATORIO DE IA & CREATIVIDAD -->
+  <section id="lab-ia">
+    <h2 class="section-title">Laboratorio de IA & Creatividad</h2>
     <div class="cards">
       <article class="card">
-        <h3>Entrenamiento cognitivo asistido</h3>
-        <p>Protocolos guiados con asistentes conversacionales para memoria de trabajo, funciones ejecutivas y organización cotidiana.</p>
+        <h3>¿Qué es?</h3>
+        <p>Entrenamiento práctico y seguro para <strong>memoria de trabajo, foco, funciones ejecutivas y creatividad</strong> con asistentes conversacionales e IA generativa (texto, imagen, audio).</p>
       </article>
       <article class="card">
-        <h3>Simulaciones laborales</h3>
-        <p>Prácticas de CV, entrevistas y tareas tipo oficina con retroalimentación inmediata, seguras y en entorno controlado.</p>
+        <h3>Marco ético</h3>
+        <ul style="margin:0 0 0 18px">
+          <li><strong>Consentimiento informado</strong> y uso responsable.</li>
+          <li><strong>Privacidad</strong>: sin datos sensibles; anonimización por defecto.</li>
+          <li><strong>Prevención de sobreuso</strong>: descansos pautados y “modo foco”.</li>
+          <li><strong>No patologizante</strong> y centrado en la persona.</li>
+        </ul>
+      </article>
+    </div>
+    <div class="grid2" style="margin-top:14px">
+      <article class="card">
+        <h3>Trayectos</h3>
+        <ul style="margin:0 0 0 18px">
+          <li><strong>Nivel 1</strong>: prompts básicos, agenda, listas, recordatorios.</li>
+          <li><strong>Nivel 2</strong>: Pomodoro guiado, resúmenes, mapas mentales.</li>
+          <li><strong>Nivel 3</strong>: diarios terapéuticos, guiones sonoros, visualizaciones.</li>
+          <li><strong>Nivel 4</strong>: proyecto final (podcast, fanzine o playlist comentada).</li>
+        </ul>
       </article>
       <article class="card">
-        <h3>Alfabetización digital</h3>
-        <p>Uso seguro de herramientas web, privacidad, hábitos de foco y minimización de distractores.</p>
+        <h3>Sumarte</h3>
+        <p>Grupos reducidos y objetivos personalizados.</p>
+        <p><a class="btn primary" href="mailto:info@likelandi.com?subject=Inscripci%C3%B3n%20Laboratorio%20IA&body=Hola%2C%20quiero%20sumarme%20al%20Lab%20de%20IA.%20Mi%20disponibilidad%20es...">Quiero sumarme</a></p>
+      </article>
+    </div>
+  </section>
+
+  <!-- INCLUSIÓN, DIVERSIDAD Y GÉNERO -->
+  <section id="inclusion">
+    <h2 class="section-title">Inclusión, Diversidad & Perspectiva de Género</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Compromiso activo</h3>
+        <p>Política de <strong>inclusión</strong> y respeto por <strong>todas las identidades y expresiones de género</strong>, orientaciones e intersexualidades. Acompañamos <strong>nuevas denominaciones</strong> y categorías emergentes desde un marco clínico, ético y culturalmente informado.</p>
+      </article>
+      <article class="card">
+        <h3>Prácticas concretas</h3>
+        <ul style="margin:0 0 0 18px">
+          <li>Registro de <strong>nombre elegido</strong> y <strong>pronombres</strong>.</li>
+          <li><strong>Lenguaje inclusivo</strong> en entrevistas y materiales.</li>
+          <li>Derivaciones a <strong>atención trans-afirmativa</strong> cuando se requiera.</li>
+          <li>Talleres psicoeducativos sobre <strong>derechos y bienestar</strong>.</li>
+        </ul>
+      </article>
+      <article class="card">
+        <h3>Marco ético</h3>
+        <p><strong>No patologización</strong>, confidencialidad estricta y práctica centrada en la persona, con consentimiento informado y participación activa.</p>
       </article>
     </div>
   </section>
@@ -258,11 +252,11 @@
     <h2 class="section-title">Testimonios</h2>
     <div class="cards">
       <article class="card">
-        <p class="quote">“Me ayudó a volver a organizar mi día y recuperar el estudio. La música y los módulos de IA fueron clave.”</p>
+        <p class="quote">“Recuperé foco y estudio. La música y el módulo de IA me ordenaron el día.”</p>
         <p class="who">— Paciente, 28 años</p>
       </article>
       <article class="card">
-        <p class="quote">“La estructura del programa y el acompañamiento semanal mejoraron nuestra dinámica familiar.”</p>
+        <p class="quote">“La estructura del programa y el acompañamiento mejoraron nuestra dinámica familiar.”</p>
         <p class="who">— Familiar</p>
       </article>
     </div>
@@ -279,14 +273,14 @@
       </div>
       <div class="contactBox">
         <p class="kicker">Nota</p>
-        <p>También podés escribir desde el formulario de <a href="agenda.html">Agenda</a> o consultar el detalle completo en <a href="programas.html">Programa</a>.</p>
+        <p>Si necesitás adaptar documentación, pronombres o recursos, escribinos. Queremos que tu experiencia sea segura, respetuosa y afirmativa.</p>
       </div>
     </div>
   </section>
 
 </main>
 
-<footer>
+<footer style="text-align:center">
   © 2025 Likelandi · Hecho con cariño en Buenos Aires
   <br>
   <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=likelandi.github.io&count_bg=%237CFFCB&title_bg=%23221C2E&icon=&icon_color=%23E7E7E7&title=visitas&edge_flat=true" alt="contador de visitas" style="margin-top:6px">
@@ -365,7 +359,6 @@
     else { list.style.maxHeight='none'; btnExpand.textContent='Ver menos ⤴'; }
   });
 
-  // Init
   render(LIST);
   setPlayer(LIST[0].id, false); // sin autoplay para evitar bloqueo en iPhone
 })();
