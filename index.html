@@ -4,177 +4,183 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Likelandi — Home</title>
-<meta name="description" content="Espacio terapéutico, creativo y tecnológico. Psiquiatría, arteterapia, musicoterapia e IA.">
+<meta name="description" content="Psiquiatría, arteterapia, musicoterapia e IA — en un espacio claro, creativo y tecnológico.">
 <style>
-  /* ====== Paleta y tokens accesibles ====== */
+  /* ===== Paleta premium accesible ===== */
   :root{
-    --ink:#0b0a0f;
-    --paper:#0a0812;
-    --fg:#f8f7ff;
-    --muted:#d8d2e9;
-    --line:#ffffff22;
+    --bg:#07060c;            /* base más profunda */
+    --ink:#0b0a10;
+    --fg:#f7f5ff;            /* texto principal */
+    --muted:#cfc7e5;         /* texto secundario */
+    --line:#ffffff26;        /* líneas suaves */
 
-    /* Violeta/Azul llamativos con buen contraste */
-    --vio1:#a78bfa; /* violeta */
-    --vio2:#7c3aed; /* violeta oscuro */
-    --cy1:#67e8f9; /* cian suave */
-    --cy2:#06b6d4; /* cian fuerte */
-    --pk1:#f472b6; /* rosa */
+    /* Violeta/Azul sofisticados */
+    --vioA:#c4b5fd;  /* violeta claro */
+    --vioB:#8b5cf6;  /* violeta medio */
+    --vioC:#6d28d9;  /* violeta oscuro */
+    --cyA:#67e8f9;   /* cian claro */
+    --cyB:#22d3ee;   /* cian medio */
+    --cyC:#0891b2;   /* cian oscuro */
 
-    --radius:16px;
-    --maxw:1100px;
+    --glass: rgba(19,16,35,.55);            /* panel translúcido */
+    --glass-strong: rgba(19,16,35,.72);     /* panel más sólido */
+    --blur: 14px;                           /* blur glass */
+    --rad: 18px;                            /* radio */
+    --maxw: 1120px;
   }
 
   *{box-sizing:border-box}
   html,body{margin:0}
   body{
-    background: var(--paper);
-    color: var(--fg);
-    font: 16px/1.7 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji";
-    -webkit-font-smoothing: antialiased;
-    text-rendering: optimizeLegibility;
+    background:
+      radial-gradient(900px 500px at 15% -5%, #1b1250 0%, transparent 55%),
+      radial-gradient(700px 420px at 90% -10%, #0b3c66 0%, transparent 55%),
+      linear-gradient(180deg,#07060c 0%, #090815 100%);
+    color:var(--fg);
+    font: 16px/1.75 ui-sans-serif, system-ui, -apple-system, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
   }
-  a{color:var(--cy1);text-decoration:none}
-  a:focus-visible, button:focus-visible{outline:3px solid var(--cy1);outline-offset:2px;border-radius:10px}
+  a{color:var(--cyA);text-decoration:none}
+  a:hover{text-decoration:underline}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--cyA);outline-offset:2px;border-radius:12px}
 
-  /* ====== Nav ====== */
+  /* ===== Nav con glass y borde iridiscente ===== */
   .nav{
-    position:sticky;top:0;z-index:10;
-    background: rgba(10,8,18,.7);
-    backdrop-filter: blur(10px);
-    border-bottom:1px solid var(--line);
+    position:sticky;top:0;z-index:20;
+    background:var(--glass);
+    backdrop-filter: blur(var(--blur));
+    border-bottom: 1px solid var(--line);
   }
-  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:12px 16px;display:flex;gap:14px;align-items:center}
+  .nav .inner{
+    max-width:var(--maxw);margin:0 auto;
+    padding:10px 16px;display:flex;gap:10px;align-items:center
+  }
   .brand{
-    margin-right:auto;font-weight:800;
-    background:linear-gradient(90deg,var(--vio1),var(--cy1));
+    margin-right:auto;font-weight:900;letter-spacing:.2px;
+    background:linear-gradient(90deg,var(--vioA),var(--cyA));
     -webkit-background-clip:text;-webkit-text-fill-color:transparent
   }
-  .nav a{color:var(--fg);opacity:.9;padding:6px 10px;border-radius:10px}
-  .nav a:hover{background:#1a1527}
-  .nav .hl{background:linear-gradient(135deg,var(--vio1),var(--cy1));color:#0a0812;font-weight:800}
-
-  /* ====== Layout ====== */
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:26px 16px 70px}
-
-  /* ====== Bandas (fondos por sección) ====== */
-  .band{padding:34px 0}
-  .band--hero{
-    background: radial-gradient(1200px 500px at 20% 0%, #2d1b64 0%, transparent 60%),
-                radial-gradient(1000px 600px at 100% 0%, #0a6abf33 0%, transparent 60%);
+  .nav a{color:var(--fg);opacity:.9;padding:8px 12px;border-radius:12px}
+  .nav a:hover{background:rgba(255,255,255,.06)}
+  .nav .hl{
+    background:linear-gradient(135deg,var(--vioA),var(--cyA));
+    color:#061017;font-weight:800;border:0;
   }
-  .band--programas{
-    background: linear-gradient(180deg, #14102a 0%, #0f0b1f 100%);
+
+  /* ===== Contenedor ===== */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:26px 16px 80px}
+
+  /* ===== Tarjeta con borde “neón” suave ===== */
+  .glass{
+    background:var(--glass);
+    backdrop-filter: blur(var(--blur));
+    border-radius:var(--rad);
+    border:1px solid var(--line);
+    position:relative;
   }
+  .glow{
+    position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;
+    background:
+      linear-gradient(120deg, transparent 0 10%, #ffffff08 15%, transparent 30%),
+      conic-gradient(from 180deg at 50% 50%, var(--vioA), var(--cyA), var(--vioB), var(--cyB), var(--vioA));
+    filter: blur(18px); opacity:.18; mask:linear-gradient(#000,transparent 60%);
+  }
+
+  /* ===== Bandas por sección (para ritmo visual) ===== */
+  .band{padding:40px 0}
+  .band--hero{padding-top:28px}
   .band--musik{
-    background: radial-gradient(800px 400px at 85% 10%, #0ea5e966 0%, transparent 70%),
-                linear-gradient(180deg,#0f0b1f 0%, #0e0a1a 100%);
+    background:
+      radial-gradient(680px 380px at 85% 5%, #0ea5e966 0%, transparent 65%),
+      linear-gradient(180deg, transparent 0%, #0a0917 100%);
   }
   .band--ia{
-    background: radial-gradient(900px 450px at 10% 0%, #8b5cf633 0%, transparent 70%),
-                linear-gradient(180deg,#0e0a1a 0%, #0a0812 100%);
+    background:
+      radial-gradient(750px 420px at 10% 0%, #8b5cf633 0%, transparent 70%),
+      linear-gradient(180deg, transparent 0%, #0a0814 100%);
   }
-  .band--inclusion{
-    background: radial-gradient(900px 450px at 90% 0%, #22d3ee33 0%, transparent 70%),
-                linear-gradient(180deg,#0a0812 0%, #0a0812 100%);
-  }
-  .band--contacto{
-    background: linear-gradient(180deg,#0a0812 0%, #0b0a10 100%);
+  .band--inc{
+    background:
+      radial-gradient(720px 420px at 90% 0%, #22d3ee33 0%, transparent 70%),
+      linear-gradient(180deg, transparent 0%, #0a0812 100%);
   }
 
-  /* ====== Héroe ====== */
-  .hero{display:grid;gap:14px}
-  .frame{
-    display:grid;place-items:center;
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    overflow:hidden;
-    background:linear-gradient(180deg,#000,#0f0b10)
-  }
+  /* ===== Hero ===== */
+  .hero{display:grid;gap:16px}
+  .frame{overflow:hidden}
   .frame img{width:100%;height:auto;display:block;object-fit:cover}
-  .h1{
-    margin:10px 0 0;
-    font-size:clamp(28px,5vw,44px);
-    line-height:1.2;
-    letter-spacing:.2px;
-    background:linear-gradient(90deg,var(--vio1),var(--cy1));
+  .title{
+    font-size:clamp(28px,5vw,48px);line-height:1.15;margin:0;
+    letter-spacing:.3px;
+    background:linear-gradient(90deg,var(--vioA),var(--cyA));
     -webkit-background-clip:text;-webkit-text-fill-color:transparent
   }
-  .lede{color:var(--muted);margin:2px 0 0}
+  .lede{color:var(--muted);margin:.2rem 0 0}
   .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
   .chip{
-    font-size:13px;padding:6px 10px;border-radius:999px;border:1px solid var(--line);
-    background:#151226;color:#f4f3ff
+    font-size:13px;padding:6px 10px;border-radius:999px;
+    background:rgba(255,255,255,.06);border:1px solid var(--line)
   }
-  .btn{display:inline-block;padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#17132b;color:var(--fg);font-weight:700;text-decoration:none}
-  .btn.primary{background:linear-gradient(135deg,var(--vio1),var(--cy1));color:#0b0a10;border:none}
+  .btn{display:inline-block;padding:10px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--fg);font-weight:800;text-decoration:none}
+  .btn.primary{
+    background:linear-gradient(135deg,var(--vioA),var(--cyA));
+    color:#081018;border:none
+  }
 
-  /* ====== Títulos y tarjetas ====== */
+  /* ===== Titulares compactos ===== */
   .section-title{display:flex;align-items:center;gap:10px;margin:0 0 14px}
   .badge{
-    font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#0a0812;
-    background:linear-gradient(135deg,var(--cy1),var(--vio1));
+    font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#061018;
+    background:linear-gradient(135deg,var(--cyA),var(--vioA));
     border-radius:999px;padding:6px 10px;font-weight:900
   }
   h2{font-size:clamp(22px,3.6vw,30px);margin:8px 0}
+
+  /* ===== Grillas ===== */
   .cards{display:grid;gap:14px}
-  .card{
-    border:1px solid var(--line);border-radius:var(--radius);padding:16px;background:#151228cc
-  }
+  .card{padding:16px;position:relative}
   .card h3{margin:0 0 6px;font-size:18px}
-  .icon{font-size:20px;margin-right:6px}
-
-  /* ====== Player grid ====== */
-  .playerGrid{display:grid;gap:16px;margin-top:8px}
-  .player{
-    border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#141127;aspect-ratio:16/9
-  }
-  .player iframe{width:100%;height:100%;border:0}
-
-  /* ====== Sidebar YT ====== */
-  .sidebar{border:1px solid var(--line);border-radius:var(--radius);background:#141127;overflow:hidden}
-  .sideHead{padding:12px 14px;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-  .sideHead h3{margin:0;font-size:16px}
-  .favList{max-height:480px;overflow:auto;display:flex;flex-direction:column}
-  .favItem{display:flex;gap:10px;align-items:center;padding:10px 12px;border-bottom:1px solid #ffffff10;cursor:pointer}
-  .favItem:last-child{border-bottom:none}
-  .thumb{flex:0 0 60px;height:38px;border-radius:10px;background:#0f0b10;border:1px solid #ffffff12;display:grid;place-items:center;font-size:12px;color:#cfc7da}
-  .meta{min-width:0}
-  .title{font-size:14px;margin:0 0 2px}
-  .chan{font-size:12px;color:var(--muted);margin:0}
-  .favItem:hover{background:#1b1531}
-  .favItem.active{background:#221a3e;outline:1px solid #8e7cff66}
-  .btnRow{display:flex;gap:8px;flex-wrap:wrap}
-
-  /* ====== Apple embed ====== */
-  #apple .wrap2{border:1px solid var(--line);border-radius:var(--radius);background:#141127cc;margin-top:10px}
-  #apple .head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line);flex-wrap:wrap}
-  #apple iframe{width:100%;min-height:420px;border:0;border-radius:var(--radius);background:#0f0b10;display:block}
-  #apple .body{padding:12px}
-
-  /* ====== Plegables (detalles) ====== */
-  details{border:1px dashed #ffffff33;border-radius:12px;padding:10px 12px;background:#120f22}
-  summary{cursor:pointer;font-weight:700}
-  details[open]{background:#17132b}
-
-  /* ====== Grids responsivos ====== */
+  .icon{font-size:18px;margin-right:6px}
+  .grid2{display:grid;gap:16px}
+  .playerGrid{display:grid;gap:16px}
   @media(min-width:900px){
-    .playerGrid{grid-template-columns:2fr 1fr}
-    .favList{max-height:calc(56.25vw/2 - 40px)}
     .cards.cols-3{grid-template-columns:repeat(3,1fr)}
-    .cards.cols-2{grid-template-columns:repeat(2,1fr)}
+    .grid2{grid-template-columns:1.3fr .7fr}
+    .playerGrid{grid-template-columns:2fr 1fr}
   }
 
-  footer{margin:20px 0 0;padding:24px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
+  /* ===== Embeds ===== */
+  .player, .apple{
+    overflow:hidden;position:relative
+  }
+  .player iframe, .apple iframe{width:100%;height:100%;border:0;display:block}
+  .player{aspect-ratio:16/9}
+  .apple{min-height:420px}
+
+  /* ===== Sidebar YT ===== */
+  .side{max-height:480px;overflow:auto}
+  .item{display:flex;gap:10px;align-items:center;padding:10px 12px;border-bottom:1px solid #ffffff1a;cursor:pointer}
+  .item:last-child{border-bottom:none}
+  .thumb{flex:0 0 56px;height:36px;border-radius:10px;background:#0b0a12;border:1px solid #ffffff18;display:grid;place-items:center;font-size:12px;color:#cfc7da}
+  .meta{min-width:0}
+  .t{font-size:14px;margin:0 0 2px}
+  .c{font-size:12px;color:var(--muted);margin:0}
+  .item:hover{background:#1a1430}
+  .item.active{background:#221a3e;outline:1px solid #8e7cff66}
+
+  /* ===== Accesibilidad motion ===== */
   @media (prefers-reduced-motion: reduce){
     *{scroll-behavior:auto}
+    .glow{display:none}
   }
+
+  footer{margin:30px 0 0;padding:20px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
 </style>
 </head>
 <body>
 
-<!-- ========= NAV ========= -->
-<nav class="nav">
+<!-- NAV -->
+<nav class="nav" aria-label="principal">
   <div class="inner">
     <div class="brand">Likelandi</div>
     <a class="hl" href="#inicio">Inicio</a>
@@ -186,23 +192,18 @@
   </div>
 </nav>
 
-<!-- ========= HERO ========= -->
+<!-- HERO -->
 <section class="band band--hero">
   <main id="inicio" class="wrap">
-    <div class="hero">
-      <div class="frame">
-        <img src="Consultorio-hero.jpg?v=4" alt="Consultorio — Likelandi" loading="eager" decoding="async">
-      </div>
-      <h1 class="h1">Un espacio claro, creativo y tecnológico</h1>
-      <p class="lede">Psiquiatría • Arteterapia • Musicoterapia • <strong>IA & nuevas tecnologías</strong></p>
+    <div class="glass hero">
+      <span class="glow"></span>
+      <div class="frame"><img src="Consultorio-hero.jpg?v=6" alt="Consultorio — Likelandi" loading="eager" decoding="async"></div>
+      <h1 class="title">Un espacio claro, creativo y tecnológico</h1>
+      <p class="lede">Psiquiatría · Arteterapia · Musicoterapia · <strong>IA & nuevas tecnologías</strong></p>
       <div class="chips" aria-label="áreas">
-        <span class="chip">🧠 Clínica</span>
-        <span class="chip">🎨 Arte</span>
-        <span class="chip">🎧 Música</span>
-        <span class="chip">🤖 IA</span>
-        <span class="chip">🏳️‍🌈 Inclusión</span>
+        <span class="chip">🧠 Clínica</span><span class="chip">🎨 Arte</span><span class="chip">🎧 Música</span><span class="chip">🤖 IA</span><span class="chip">🏳️‍🌈 Inclusión</span>
       </div>
-      <p style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+      <p style="margin:12px 16px 16px">
         <a class="btn primary" href="#programas">Ver Programa</a>
         <a class="btn" href="#musik">Escuchar ahora</a>
       </p>
@@ -210,122 +211,96 @@
   </main>
 </section>
 
-<!-- ========= PROGRAMAS (band violeta oscuro) ========= -->
-<section class="band band--programas" id="programas">
-  <main class="wrap">
-    <div class="section-title">
-      <span class="badge">Programas</span><h2>Itinerarios claros y medibles</h2>
-    </div>
+<!-- PROGRAMAS (compacto y elegante) -->
+<section class="band">
+  <main id="programas" class="wrap">
+    <div class="section-title"><span class="badge">Programas</span><h2>Itinerarios claros y medibles</h2></div>
     <div class="cards cols-3">
-      <article class="card">
+      <article class="glass card"><span class="glow"></span>
         <h3><span class="icon">🧩</span>Rehabilitación Psicosocial</h3>
         <ul style="margin:8px 0 0 18px">
           <li>Habilidades sociales & autocuidado</li>
           <li>Rutinas y hábitos sostenibles</li>
           <li>Preparación para reinserción</li>
         </ul>
-        <details style="margin-top:10px"><summary>Ver más</summary>
-          <p>Objetivos clínicos, plan semanal y métricas simples para seguir avances.</p>
-        </details>
       </article>
-
-      <article class="card">
+      <article class="glass card"><span class="glow"></span>
         <h3><span class="icon">🤖</span>IA & Nuevas Tecnologías</h3>
         <ul style="margin:8px 0 0 18px">
-          <li>Agenda asistida y memoria de trabajo</li>
-          <li>Mapas mentales y resúmenes guiados</li>
+          <li>Agenda asistida, memoria de trabajo</li>
+          <li>Mapas mentales y resúmenes</li>
           <li>Proyecto final con rúbrica</li>
         </ul>
-        <details style="margin-top:10px"><summary>Ver más</summary>
-          <p>Uso responsable y no patologizante, con pausas y soporte del equipo.</p>
-        </details>
       </article>
-
-      <article class="card">
+      <article class="glass card"><span class="glow"></span>
         <h3><span class="icon">🎨</span>Arte & Música</h3>
         <ul style="margin:8px 0 0 18px">
           <li>Regulación emocional creativa</li>
-          <li>Identidad y sentido de propósito</li>
+          <li>Identidad y propósito</li>
           <li>Experiencias grupales seguras</li>
         </ul>
-        <details style="margin-top:10px"><summary>Ver más</summary>
-          <p>Talleres en planta alta y prácticas sonoras enfocadas en bienestar.</p>
-        </details>
       </article>
     </div>
   </main>
 </section>
 
-<!-- ========= MÚSICA (Apple + YouTube) ========= -->
+<!-- MÚSICA: Apple + YouTube con glass pro -->
 <section class="band band--musik" id="musik">
   <main class="wrap">
-    <div class="section-title">
-      <span class="badge">Landia’s Musik</span><h2>Escuchá y enfocá</h2>
+    <div class="section-title"><span class="badge">Landia’s Musik</span><h2>Escuchá y enfocá</h2></div>
+
+    <!-- Apple Music -->
+    <div class="glass" style="padding:14px">
+      <span class="glow"></span>
+      <div class="glass" style="padding:10px;background:var(--glass-strong)">
+        <div class="glow"></div>
+        <div class="apple">
+          <iframe title="Landia’s Musik — Apple Music"
+                  allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
+                  sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+                  src="https://embed.music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en"></iframe>
+        </div>
+      </div>
     </div>
 
-    <!-- Apple Music fijo -->
-    <section id="apple">
-      <div class="wrap2">
-        <div class="head">
-          <strong>🎧 Playlist principal (Apple Music)</strong>
-          <a class="btn" href="https://music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en" target="_blank" rel="noopener">Abrir en Apple Music</a>
-        </div>
-        <div class="body">
-          <iframe
-            title="Landia’s Musik — Apple Music"
-            allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
-            sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
-            src="https://embed.music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en">
-          </iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- YouTube simple y colorido -->
-    <h3 style="margin:18px 0 8px">YouTube — Favoritos</h3>
-    <section class="playerGrid" aria-label="Reproductor con favoritos">
-      <div class="player">
-        <iframe
-          id="ytPlayer"
-          src="https://www.youtube.com/embed/HcX1GpMR9n4?rel=0"
+    <!-- YouTube -->
+    <div class="playerGrid" style="margin-top:16px">
+      <div class="glass player"><span class="glow"></span>
+        <iframe id="ytPlayer" src="https://www.youtube.com/embed/HcX1GpMR9n4?rel=0"
           title="Landia’s Musik — Reproductor"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-        ></iframe>
+          allowfullscreen></iframe>
       </div>
 
-      <aside class="sidebar">
-        <div class="sideHead">
-          <h3>⭐ Lista rápida</h3>
-          <div class="btnRow">
-            <button id="btnExpand" class="btn" type="button">Ver más ⤵</button>
-            <button id="btnPrev" class="btn" type="button">◀</button>
-            <button id="btnNext" class="btn primary" type="button">▶</button>
+      <aside class="glass" style="overflow:hidden"><span class="glow"></span>
+        <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:10px 12px">
+          <strong>⭐ Favoritos</strong>
+          <div>
+            <button id="prev" class="btn" type="button">◀</button>
+            <button id="next" class="btn" type="button">▶</button>
           </div>
         </div>
-        <div class="favList" id="favList"></div>
+        <div id="list" class="side" role="list" aria-label="videos favoritos"></div>
       </aside>
-    </section>
+    </div>
   </main>
 </section>
 
-<!-- ========= LAB DE IA ========= -->
+<!-- LAB DE IA (con glass) -->
 <section class="band band--ia" id="lab-ia">
   <main class="wrap">
-    <div class="section-title">
-      <span class="badge">Laboratorio de IA</span><h2>Entrenamiento práctico y seguro</h2>
-    </div>
-    <div class="cards cols-2">
-      <article class="card">
-        <h3><span class="icon">⚙️</span>Lo esencial</h3>
+    <div class="section-title"><span class="badge">Laboratorio de IA</span><h2>Entrenamiento práctico y seguro</h2></div>
+    <div class="grid2">
+      <article class="glass card"><span class="glow"></span>
+        <h3>Lo esencial</h3>
         <ul style="margin:8px 0 0 18px">
           <li>Memoria de trabajo y funciones ejecutivas</li>
           <li>Mapas mentales, resúmenes y “modo foco”</li>
           <li>Proyecto final (podcast, fanzine o playlist)</li>
         </ul>
       </article>
-      <article class="card">
-        <h3><span class="icon">🛡️</span>Ética & seguridad</h3>
+      <article class="glass card"><span class="glow"></span>
+        <h3>Ética & seguridad</h3>
         <ul style="margin:8px 0 0 18px">
           <li>Consentimiento informado y privacidad</li>
           <li>Pausas pautadas y prevención de sobreuso</li>
@@ -336,132 +311,98 @@
   </main>
 </section>
 
-<!-- ========= INCLUSIÓN ========= -->
-<section class="band band--inclusion" id="inclusion">
+<!-- INCLUSIÓN (compacto, de alto contraste) -->
+<section class="band band--inc" id="inclusion">
   <main class="wrap">
-    <div class="section-title">
-      <span class="badge">Inclusión</span><h2>Diversidad & Perspectiva de Género</h2>
-    </div>
+    <div class="section-title"><span class="badge">Inclusión</span><h2>Diversidad & Perspectiva de Género</h2></div>
     <div class="cards cols-3">
-      <article class="card">
+      <article class="glass card"><span class="glow"></span>
         <h3>Compromiso activo</h3>
         <p>Política de inclusión de <strong>todas</strong> las identidades y expresiones de género, orientaciones e intersexualidades.</p>
       </article>
-      <article class="card">
-        <h3>Prácticas concretas</h3>
+      <article class="glass card"><span class="glow"></span>
+        <h3>Prácticas</h3>
         <ul style="margin:8px 0 0 18px">
           <li>Nombre elegido y pronombres</li>
           <li>Lenguaje inclusivo</li>
           <li>Red trans-afirmativa</li>
         </ul>
       </article>
-      <article class="card">
+      <article class="glass card"><span class="glow"></span>
         <h3>Marco ético</h3>
-        <p>No patologización, confidencialidad y autonomía de cada consultante.</p>
+        <p>No patologización, confidencialidad y autonomía, con consentimiento informado.</p>
       </article>
     </div>
   </main>
 </section>
 
-<!-- ========= CONTACTO ========= -->
-<section class="band band--contacto" id="contacto">
+<!-- CONTACTO -->
+<section class="band" id="contacto">
   <main class="wrap">
-    <div class="section-title">
-      <span class="badge">Contacto</span><h2>Hablemos</h2>
-    </div>
-    <div class="cards cols-2">
-      <article class="card">
-        <h3>Datos</h3>
-        <p><strong>Ubicación:</strong> Buenos Aires, Argentina</p>
-        <p><strong>Email:</strong> <a href="mailto:info@likelandi.com">info@likelandi.com</a></p>
-        <p><a class="btn primary" href="mailto:info@likelandi.com?subject=Turno%20Likelandi">Solicitar turno</a></p>
-      </article>
-      <article class="card">
-        <h3>Nota</h3>
-        <p>Si necesitás adaptar documentación, pronombres o materiales, escribinos. Queremos una experiencia segura, respetuosa y afirmativa.</p>
-      </article>
+    <div class="glass card" style="padding:18px"><span class="glow"></span>
+      <h2 style="margin:0 0 10px">Contacto</h2>
+      <div style="display:grid;gap:10px">
+        <div><strong>Ubicación:</strong> Buenos Aires, Argentina</div>
+        <div><strong>Email:</strong> <a href="mailto:info@likelandi.com">info@likelandi.com</a></div>
+        <div><a class="btn primary" href="mailto:info@likelandi.com?subject=Turno%20Likelandi">Solicitar turno</a></div>
+      </div>
     </div>
     <footer style="text-align:center;margin-top:18px">
-      <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=likelandi.github.io&count_bg=%237CFFCB&title_bg=%23221C2E&icon=&icon_color=%23E7E7E7&title=visitas&edge_flat=true" alt="contador de visitas">
+      <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=likelandi.github.io&count_bg=%2367E8F9&title_bg=%230E0C18&icon=&icon_color=%23E7E7E7&title=visitas&edge_flat=true" alt="contador de visitas">
     </footer>
   </main>
 </section>
 
-<!-- ====== JS YouTube (lista interna, minimal) ====== -->
+<footer>© 2025 Likelandi · Hecho en Buenos Aires</footer>
+
+<!-- ===== JS YouTube (minimal y accesible) ===== -->
 <script>
 (function(){
   const LIST = [
     { id:'HcX1GpMR9n4', title:'Video actual', chan:'Tu selección' },
     { id:'jfKfPfyJRdk', title:'lofi hip hop radio', chan:'Lofi Girl' },
-    { id:'5qap5aO4i9A', title:'Chillhop Radio', chan:'Chillhop' },
-    { id:'DWcJFNfaw9c', title:'Lo-fi Focus', chan:'Lofi Girl' },
-    { id:'2OEL4P1Rz04', title:'Deep Focus', chan:'Relaxing' },
-    { id:'lTRiuFIWV54', title:'Coding Music', chan:'Playlist' },
-    { id:'hHW1oY26kxQ', title:'Jazz for Study', chan:'Cafe' },
-    { id:'Dx5qFachd3A', title:'Piano Calm', chan:'Relax' }
+    { id:'5qap5aO4i9A', title:'Chillhop Radio',  chan:'Chillhop' },
+    { id:'DWcJFNfaw9c', title:'Lo-fi Focus',     chan:'Lofi Girl' },
+    { id:'2OEL4P1Rz04', title:'Deep Focus',      chan:'Relaxing' },
+    { id:'lTRiuFIWV54', title:'Coding Music',    chan:'Playlist' }
   ];
+  const listEl=document.getElementById('list');
+  const player=document.getElementById('ytPlayer');
+  const btnPrev=document.getElementById('prev');
+  const btnNext=document.getElementById('next');
 
-  const favListEl = document.getElementById('favList');
-  const playerEl  = document.getElementById('ytPlayer');
-  const btnNext   = document.getElementById('btnNext');
-  const btnPrev   = document.getElementById('btnPrev');
-  const btnExpand = document.getElementById('btnExpand');
-
-  function render(list){
-    favListEl.innerHTML = '';
-    list.forEach((f, idx) => {
-      const item = document.createElement('div');
-      item.className = 'favItem' + (idx===0 ? ' active':'' );
-      item.setAttribute('data-video-id', f.id);
-      item.innerHTML = `
-        <div class="thumb">YT</div>
-        <div class="meta">
-          <p class="title">${f.title}</p>
-          <p class="chan">${f.chan}</p>
-        </div>`;
-      favListEl.appendChild(item);
+  function render(){
+    listEl.innerHTML='';
+    LIST.forEach((v,i)=>{
+      const el=document.createElement('div');
+      el.className='item'+(i===0?' active':'');
+      el.setAttribute('role','listitem');
+      el.dataset.id=v.id;
+      el.innerHTML=`<div class="thumb">YT</div>
+        <div class="meta"><p class="t">${v.title}</p><p class="c">${v.chan}</p></div>`;
+      listEl.appendChild(el);
     });
   }
-  function setPlayer(vid, autoplay=true){
-    const params = 'rel=0' + (autoplay ? '&autoplay=1':'');
-    playerEl.src = `https://www.youtube.com/embed/${vid}?${params}`;
+  function setPlayer(id,auto=true){
+    player.src=`https://www.youtube.com/embed/${id}?rel=0${auto?'&autoplay=1':''}`;
   }
-  function items(){ return Array.from(favListEl.querySelectorAll('.favItem')); }
+  function items(){ return Array.from(listEl.querySelectorAll('.item')); }
   function activeIndex(){ return items().findIndex(n=>n.classList.contains('active')); }
   function setActive(i){
-    const arr = items();
-    arr.forEach(n=>n.classList.remove('active'));
-    if(arr[i]) arr[i].classList.add('active');
-    const vid = arr[i]?.getAttribute('data-video-id');
-    if (vid) setPlayer(vid);
-    if (window.innerWidth < 900) playerEl.scrollIntoView({behavior:'smooth', block:'start'});
+    const arr=items(); arr.forEach(n=>n.classList.remove('active'));
+    if(arr[i]){ arr[i].classList.add('active'); setPlayer(arr[i].dataset.id); }
+    if(window.innerWidth<900) player.scrollIntoView({behavior:'smooth',block:'start'});
   }
-
-  favListEl.addEventListener('click', (e)=>{
-    const it = e.target.closest('.favItem'); if(!it) return;
+  listEl.addEventListener('click',e=>{
+    const it=e.target.closest('.item'); if(!it) return;
     items().forEach(n=>n.classList.remove('active'));
-    it.classList.add('active');
-    setPlayer(it.getAttribute('data-video-id'));
+    it.classList.add('active'); setPlayer(it.dataset.id);
   });
-  btnNext?.addEventListener('click', ()=>{
-    const arr = items(); if(!arr.length) return;
-    let i = activeIndex(); i = (i+1) % arr.length; setActive(i);
-  });
-  btnPrev?.addEventListener('click', ()=>{
-    const arr = items(); if(!arr.length) return;
-    let i = activeIndex(); i = (i-1+arr.length) % arr.length; setActive(i);
-  });
-  btnExpand?.addEventListener('click', ()=>{
-    const list = document.querySelector('.favList');
-    if(!list) return;
-    if(list.style.maxHeight){ list.style.maxHeight=''; btnExpand.textContent='Ver más ⤵'; }
-    else { list.style.maxHeight='none'; btnExpand.textContent='Ver menos ⤴'; }
-  });
+  btnNext?.addEventListener('click',()=>{ const arr=items(); if(!arr.length) return; let i=activeIndex(); i=(i+1)%arr.length; setActive(i); });
+  btnPrev?.addEventListener('click',()=>{ const arr=items(); if(!arr.length) return; let i=activeIndex(); i=(i-1+arr.length)%arr.length; setActive(i); });
 
-  render(LIST);
-  setPlayer(LIST[0].id, false);
+  render(); setPlayer(LIST[0].id,false);
 })();
 </script>
-
 </body>
 </html>
