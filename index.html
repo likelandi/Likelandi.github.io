@@ -155,8 +155,14 @@
           <a class="btn btn-ghost" href="https://instagram.com/likelandi" target="_blank" rel="noopener">Instagram Música</a>
         </div>
 
-        <!-- Apple Music: reemplazá la URL del src con el embed de tu playlist 'Landia’s Musik' -->
-        <iframe class="embed" allow="autoplay *; encrypted-media *; clipboard-write" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/library/playlist/p.DV7rzdqiW2pJYl"></iframe>
+        <!-- Apple Music: tu enlace actual es de Biblioteca (privado) y no se puede embeber públicamente. Dejo un botón que abre tu playlist en la app; cuando tengas un enlace público, reemplazo por iframe. -->
+        <div class="cta-row" style="margin:12px 0 18px">
+          <a class="btn btn-primary" href="https://music.apple.com/library/playlist/p.DV7rzdqiW2pJYl" target="_blank" rel="noopener">Abrir en Apple Music</a>
+        </div>
+        
+        <!-- Cuando tengas una playlist pública, descomentá y poné el src correcto:
+        <iframe class="embed" allow="autoplay *; encrypted-media *; clipboard-write" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/ar/playlist/NOMBRE/PL_PLAYLIST_ID"></iframe>
+        -->
 
         <!-- Spotify Liked Songs: abrirá tu colección de Me gusta en la app -->
         <div class="cta-row" style="margin:12px 0 18px">
@@ -168,28 +174,8 @@
 
         <!-- Spotify Playlist Embed -->
         <iframe class="embed" src="https://open.spotify.com/embed/playlist/7yAt4LZqOVi0qpJlgCfhg9" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-
-        <!-- Demos locales -->
-        <div class="player" role="region" aria-label="Reproductor principal">
-          <div class="track">
-            <strong>Playlist Landia — Demo</strong>
-            <small>Reemplazá los archivos <code>audio/track-01.mp3</code> y <code>audio/track-01.ogg</code> por los tuyos.</small>
-          </div>
-          <audio controls preload="none" style="width:100%">
-            <source src="audio/track-01.mp3" type="audio/mpeg" />
-            <source src="audio/track-01.ogg" type="audio/ogg" />
-            Tu navegador no soporta audio HTML5.
-          </audio>
-        </div>
-        <div class="player" role="region" aria-label="Reproductor secundario" style="margin-top:10px">
-          <div class="track">
-            <strong>Mix Party — Demo</strong>
-            <small>Reemplazá <code>audio/mix-party.mp3</code> por tu mezcla.</small>
-          </div>
-          <audio controls preload="none" style="width:100%">
-            <source src="audio/mix-party.mp3" type="audio/mpeg" />
-          </audio>
-        </div>
+        <!-- Reproductor Spotify (embed) -->
+        <iframe class="embed" src="https://open.spotify.com/embed/playlist/7yAt4LZqOVi0qpJlgCfhg9" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify — Landia’s Musik"></iframe>
       </div>
     </section>
 
