@@ -146,7 +146,18 @@
       <div class="musik-inner">
         $1
         <div style="display:flex; align-items:center; gap:14px; margin:12px 0 24px">
-          <img src="logo-landias-musik.png" alt="Logo Landia’s Musik" style="height:64px; width:auto; border-radius:12px; box-shadow:var(--shadow)" />
+          <img src="logo-landias-musik.png" alt="Logo Landia’s Musik" style="height:64px; width:auto; border-radius:12px; box-shadow:var(--shadow)" onerror="this.outerHTML='
+<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'64\' height=\'64\' viewBox=\'0 0 64 64\' style=\'border-radius:12px; box-shadow:var(--shadow)\'>
+  <defs>
+    <linearGradient id=\'g\' x1=\'0\' x2=\'1\'>
+      <stop offset=\'0%\' stop-color=\'#7a5cff\'/>
+      <stop offset=\'100%\' stop-color=\'#22a2ff\'/>
+    </linearGradient>
+  </defs>
+  <rect x=\'0\' y=\'0\' width=\'64\' height=\'64\' rx=\'12\' fill=\'url(#g)\'/>
+  <text x=\'50%\' y=\'54%\' text-anchor=\'middle\' font-family=\'Inter, Arial\' font-size=\'28\' fill=\'#0b0b12\' font-weight=\'800\'>LM</text>
+</svg>
+'"/>
           <div>
             <strong style="font-size:1.2rem; display:block;">Playlist curada por Juan Pablo Fernández Rebosio</strong>
             <span style="color:var(--muted); font-size:0.9rem;">Selección exclusiva de Landia’s Musik Party — lo mejor de tu universo sonoro.</span>
@@ -162,14 +173,16 @@
           <a class="btn btn-ghost" href="https://instagram.com/likelandi" target="_blank" rel="noopener">Instagram Música</a>
         </div>
 
-        <!-- Apple Music: tu enlace actual es de Biblioteca (privado) y no se puede embeber públicamente. Dejo un botón que abre tu playlist en la app; cuando tengas un enlace público, reemplazo por iframe. -->
+        <!-- Apple Music (embed público) -->
+        <!-- Apple Music (embed público): pega aquí el código obtenido en Apple Music → Compartir → Copiar código para insertar. -->
+        <!-- Ejemplo de src: https://embed.music.apple.com/ar/playlist/NOMBRE/PL_PLAYLIST_ID -->
         <div class="cta-row" style="margin:12px 0 18px">
           <a class="btn btn-primary" href="https://music.apple.com/library/playlist/p.DV7rzdqiW2pJYl" target="_blank" rel="noopener">Abrir en Apple Music</a>
+          <span style="opacity:.8; font-size:.9rem">(Para ver el reproductor aquí, compartí la playlist como pública y usá “Copiar código para insertar”.)</span>
         </div>
-        
-        <!-- Cuando tengas una playlist pública, descomentá y poné el src correcto:
-        <iframe class="embed" allow="autoplay *; encrypted-media *; clipboard-write" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/ar/playlist/NOMBRE/PL_PLAYLIST_ID"></iframe>
-        -->
+        <div class="cta-row"> style="margin:12px 0 18px">
+          <a class="btn btn-primary" href="https://music.apple.com/library/playlist/p.DV7rzdqiW2pJYl" target="_blank" rel="noopener">Abrir en Apple Music</a>
+        </div>
 
         <!-- Spotify Liked Songs: abrirá tu colección de Me gusta en la app -->
         <div class="cta-row" style="margin:12px 0 18px">
@@ -180,7 +193,10 @@
         </div>
 
         <!-- Spotify Playlist Embed -->
-        <iframe class="embed" src="https://open.spotify.com/embed/playlist/7yAt4LZqOVi0qpJlgCfhg9" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe class="embed" src="https://open.spotify.com/embed/playlist/7yAt4LZqOVi0qpJlgCfhg9?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify — Landia’s Musik"></iframe>
+        <div class="cta-row" style="margin:8px 0 0">
+          <a class="btn btn-ghost" href="https://open.spotify.com/playlist/7yAt4LZqOVi0qpJlgCfhg9" target="_blank" rel="noopener">Abrir playlist en Spotify</a>
+        </div>
         <!-- Reproductor Spotify (embed) -->
         <iframe class="embed" src="https://open.spotify.com/embed/playlist/7yAt4LZqOVi0qpJlgCfhg9" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" title="Spotify — Landia’s Musik"></iframe>
       </div>
@@ -232,6 +248,18 @@
       try{ localStorage.setItem(KEY, String(n)); }catch(_){ }
       const el = document.getElementById('visitCounter');
       if(el){ el.textContent = n.toLocaleString('es-AR'); }
+    })();
+  </script>
+  <div id="httpWarning" style="display:none; position:fixed; left:16px; right:16px; bottom:16px; z-index:9999; background:#1f2937; color:#fff; border:1px solid rgba(122,92,255,.35); border-radius:12px; padding:12px 14px; box-shadow:0 8px 24px rgba(0,0,0,.35); font-size:14px">
+    ⚠️ Para que los reproductores web (Spotify/Apple) funcionen, abrí el sitio desde <strong>http(s)</strong> y no como archivo <code>file://</code>.<br>
+    <span style="opacity:.85">Ejemplo rápido local: <code>python3 -m http.server 8080</code> y entrar a <a href="http://localhost:8080" style="color:#a88cff">http://localhost:8080</a></span>
+  </div>
+  <script>
+    (function(){
+      if(location.protocol === 'file:'){
+        var w = document.getElementById('httpWarning');
+        if(w) w.style.display = 'block';
+      }
     })();
   </script>
 </body>
