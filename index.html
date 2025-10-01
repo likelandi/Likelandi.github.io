@@ -145,15 +145,28 @@
     <section id="musik" class="musik" aria-labelledby="titulo-musik">
       <div class="musik-inner">
         <h2 id="titulo-musik" class="section-title" style="margin-top:0">Landia’s Musik Party</h2>
-        $1
+        <h3 style="margin:0 0 12px">Reproductores</h3>
         <div class="cta-row" style="margin-bottom:12px">
-          <!-- TODO: Reemplazá el número en formato internacional, ej: 5491123456789 -->
-          <a class="btn btn-primary" href="https://wa.me/5490000000000?text=Hola%20quiero%20escuchar%20Landia%E2%80%99s%20Musik%20Party" target="_blank" rel="noopener">WhatsApp</a>
-          <!-- TODO: Reemplazá el usuario de Telegram -->
+          <a class="btn btn-primary" href="https://wa.me/5491124605401?text=Hola%20quiero%20escuchar%20Landia%E2%80%99s%20Musik%20Party" target="_blank" rel="noopener" title="Especificá tu número en formato internacional (ej.: 54911XXXXXXX)">
+            <svg class="icon" viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M19.11 17.44c-.27-.14-1.6-.79-1.84-.88-.24-.09-.42-.14-.6.14-.18.27-.69.88-.85 1.06-.16.18-.31.2-.58.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.41.12-.55.12-.12.27-.31.4-.47.13-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.6-1.44-.82-1.97-.22-.53-.44-.46-.6-.47-.16-.01-.34-.01-.52-.01-.18 0-.48.07-.74.34-.26.27-1 1-1 2.44 0 1.44 1.03 2.83 1.18 3.02.16.18 2.03 3.1 4.92 4.35.69.3 1.23.48 1.65.61.69.22 1.31.19 1.8.12.55-.08 1.6-.65 1.83-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.31z"/></svg>
+            WhatsApp
+          </a>
           <a class="btn btn-ghost" href="https://t.me/tu_usuario" target="_blank" rel="noopener">Telegram</a>
-          <!-- Podés cambiar el link si usás otra cuenta -->
           <a class="btn btn-ghost" href="https://instagram.com/likelandi" target="_blank" rel="noopener">Instagram Música</a>
         </div>
+
+        <!-- Apple Music: reemplazá la URL del src con el embed de tu playlist 'Landia’s Musik' -->
+        <iframe class="embed" allow="autoplay *; encrypted-media *; clipboard-write" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/library/playlist/p.DV7rzdqiW2pJYl"></iframe>
+
+        <!-- Spotify Liked Songs: abrirá tu colección de Me gusta en la app -->
+        <div class="cta-row" style="margin:12px 0 18px">
+          <a class="btn btn-ghost" href="https://open.spotify.com/collection/tracks" target="_blank" rel="noopener">
+            <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2m4.53 14.34a.75.75 0 0 1-1.03.26 12.7 12.7 0 0 0-6.99-1.68c-.83.05-1.66.16-2.47.32a.75.75 0 1 1-.3-1.47c.88-.18 1.77-.3 2.66-.35 2.75-.16 5.51.43 7.97 1.88.35.2.47.64.26.99m1.37-3.07a.9.9 0 0 1-1.24.31 14.93 14.93 0 0 0-8.18-2.21c-1.02.03-2.03.12-3.04.28a.9.9 0 1 1-.29-1.78 21.6 21.6 0 0 1 3.26-.3c3.31-.05 6.58.72 9.38 2.45.42.25.56.8.3 1.25m.43-3.27a1.05 1.05 0 0 1-1.45.37c-2.84-1.65-6.05-2.45-9.62-2.35-1.1.03-2.2.1-3.28.24a1.05 1.05 0 0 1-.28-2.08 30.6 30.6 0 0 1 3.55-.26c3.95-.08 7.58.78 10.77 2.64.5.28.68.93.31 1.44"/></svg>
+            Liked Songs (Spotify)
+          </a>
+        </div>
+
+        <!-- Demos locales -->
         <div class="player" role="region" aria-label="Reproductor principal">
           <div class="track">
             <strong>Playlist Landia — Demo</strong>
