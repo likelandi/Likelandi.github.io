@@ -1,1 +1,298 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Underneath Likelandi — Preview</title>
+  <meta name="description" content="Primer preview online de la novela Underneath Likelandi — una obra de ficción de Juan Pablo Fernández Rebosio. Sinopsis, fragmentos I–V y música." />
+  <meta name="theme-color" content="#0b0013" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600..900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-1:#080211;
+      --bg-2:#140a2a;
+      --violet:#6c4de6;
+      --violet-soft:#8b73ff;
+      --accent:#26ff8a; /* glow verde Landia */
+      --text:#e9e6ff;
+      --muted:#a9a3c9;
+      --card:#120a22aa;
+      --glass:rgba(20,10,42,0.55);
+      --border:rgba(151,138,255,0.18);
+      --shadow:0 10px 30px rgba(0,0,0,.45), 0 0 120px rgba(38,255,138,.08) inset;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--text); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: radial-gradient(1200px 800px at 70% -10%, rgba(38,255,138,.10), transparent 60%),
+                  radial-gradient(800px 600px at -10% 110%, rgba(108,77,230,.18), transparent 60%),
+                  linear-gradient(180deg, var(--bg-1), var(--bg-2));
+      background-attachment: fixed;
+    }
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter: blur(10px);
+      background:linear-gradient(180deg, rgba(12,4,28,.85), rgba(12,4,28,.35));
+      border-bottom:1px solid var(--border);
+    }
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 0}
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--text)}
+    .logo{width:34px; height:34px; border-radius:10px; background:radial-gradient(60% 60% at 35% 30%, var(--accent), transparent 70%), #1a0f35; box-shadow:0 0 20px rgba(38,255,138,.35) inset}
+    .title{font-family:Cinzel, serif; letter-spacing:.3px; font-weight:800}
+    nav a{color:var(--muted); text-decoration:none; margin-left:18px; font-weight:500}
+    nav a:hover{color:var(--text)}
+
+    .hero{padding:80px 0 40px}
+    .hero-grid{display:grid; grid-template-columns:1.2fr .8fr; gap:28px}
+    .book{
+      border:1px solid var(--border); background:linear-gradient(180deg, rgba(15,7,33,.75), rgba(10,5,24,.65));
+      padding:28px; border-radius:20px; box-shadow:var(--shadow);
+    }
+    .book h1{font-family:Cinzel, serif; font-size:clamp(36px, 5vw, 58px); margin:0 0 10px; line-height:1.05;
+      text-shadow:0 0 22px rgba(108,77,230,.45), 0 0 28px rgba(38,255,138,.25)}
+    .subtitle{color:var(--muted); font-size:18px}
+    .tag{display:inline-block; margin-top:14px; padding:6px 12px; border-radius:999px; border:1px solid var(--border); color:#d7d2ff; background:rgba(108,77,230,.12)}
+
+    .cover{
+      border:1px solid var(--border); border-radius:22px; overflow:hidden; position:relative; min-height:320px;
+      background:
+        radial-gradient(600px 280px at 70% 0%, rgba(38,255,138,.18), transparent 60%),
+        radial-gradient(400px 240px at 10% 90%, rgba(108,77,230,.35), transparent 60%),
+        linear-gradient(180deg, #0b061a, #0a0717);
+      box-shadow:var(--shadow);
+    }
+    .cover::after{
+      content:""; position:absolute; inset:0; background:
+        conic-gradient(from 180deg at 75% 10%, rgba(38,255,138,.2), transparent 30%),
+        radial-gradient(220px 220px at 65% 42%, rgba(38,255,138,.25), transparent 55%);
+      mix-blend-mode:screen; opacity:.6
+    }
+    .cover-inner{position:absolute; inset:0; display:grid; place-items:center; text-align:center; padding:28px}
+    .cover h2{font-family:Cinzel, serif; font-size:clamp(28px, 3.8vw, 40px); margin:0}
+    .radio{position:absolute; bottom:22px; left:22px; font-size:12px; color:#bfb9ff; opacity:.75}
+
+    .section{padding:36px 0}
+    .card{border:1px solid var(--border); background:var(--glass); border-radius:18px; padding:22px; box-shadow:var(--shadow)}
+    h3{font-family:Cinzel, serif; margin:0 0 12px; font-size:26px}
+    p{line-height:1.75}
+    .synopsis p{color:#dcd7ff}
+
+    .grid{display:grid; gap:18px}
+    .grid.two{grid-template-columns:1fr 1fr}
+    @media (max-width:900px){.hero-grid{grid-template-columns:1fr}.grid.two{grid-template-columns:1fr}}
+
+    .frg{white-space:pre-wrap}
+
+    .music-embeds{display:grid; gap:18px}
+    iframe{width:100%; border:0; border-radius:16px; min-height:352px}
+
+    .cta-row{display:flex; flex-wrap:wrap; gap:12px; margin-top:12px}
+    .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 16px; border-radius:999px; text-decoration:none; font-weight:600; border:1px solid var(--border)}
+    .btn:hover{filter:brightness(1.08)}
+    .btn-wa{background:rgba(38,255,138,.12); color:#c9ffea}
+    .btn-mail{background:rgba(108,77,230,.12); color:#eee5ff}
+    .icon{width:18px; height:18px}
+
+    footer{padding:48px 0; color:var(--muted)}
+    .small{font-size:12px}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}
+    .note{font-size:13px; color:#bdb6ea}
+    .divider{height:1px; background:linear-gradient(90deg, transparent, var(--border), transparent); margin:22px 0}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <span class="logo" aria-hidden="true"></span>
+        <span class="title">Underneath Likelandi</span>
+      </a>
+      <nav>
+        <a href="#sinopsis">Sinopsis</a>
+        <a href="#fragmentos">Fragmentos</a>
+        <a href="#musica">Música</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="book card">
+          <h1>Underneath Likelandi</h1>
+          <div class="subtitle">The hidden light within the world of Landia</div>
+          <span class="tag">Novela de verdad y ficción • Thriller psicológico • Autoficción</span>
+          <div class="divider"></div>
+          <div class="note">Una obra de ficción de <strong>Juan Pablo Fernández Rebosio</strong>. Este material es un <strong>preview</strong> con fines artísticos.
+          </div>
+        </div>
+        <div class="cover">
+          <div class="cover-inner">
+            <h2 class="glow">Debajo de Likelandi hay otra versión de vos</h2>
+            <div class="radio">▰ Radio rota emitiendo estática • Señal: <span class="mono">ESHA_GATEWAY</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SINOPSIS -->
+    <section id="sinopsis" class="section">
+      <div class="card synopsis">
+        <h3>Sinopsis</h3>
+        <p><em>Underneath Likelandi</em> es un viaje al corazón invisible de Landia. Entre arte, psiquiatría, música y memoria, el narrador —Landi— explora un territorio donde lo íntimo y lo público colisionan: una casa convertida en tablero y una identidad multiplicada en máscaras. ¿Qué pasó realmente en la propiedad? ¿Quién juega a través de las personas? ¿Qué es real y qué es programación emocional?</p>
+        <p>Esta es una obra de ficción. Cualquier parecido con personas, hechos o lugares reales es una coincidencia estética y literaria.</p>
+      </div>
+    </section>
+
+    <!-- FRAGMENTOS -->
+    <section id="fragmentos" class="section">
+      <div class="grid">
+        <div class="card">
+          <h3>Fragmento I — La tarde en que todo comenzó</h3>
+          <div class="frg">La tarde caía sobre Likelandi como una sábana mojada.
+El sol, anaranjado y enfermo, se arrastraba detrás de los muros del patio,
+donde el aire olía a polvo, electricidad y miedo antiguo.
+
+Landi abrió los ojos y no supo, al principio, dónde estaba.
+El suelo le raspaba la mejilla: cemento frío, áspero, con marcas que parecían huellas,
+como si alguien hubiera bailado ahí una danza violenta antes de desaparecer.
+
+Más lejos, su radio portátil —su inseparable radio— yacía desmembrada, rota en pedazos,
+como si hubiese estallado por dentro o hubiera querido escapar de sí misma.
+La antena seguía emitiendo un zumbido, una frecuencia mínima, como una respiración mecánica en agonía.
+
+Intentó incorporarse. El cuerpo no obedecía. Un olor metálico le inundó la boca;
+no sabía si era sangre o recuerdo. El silencio pesaba como una sentencia.
+Y ahí, mientras trataba de entender si lo habían golpeado, drogado o despertado de un sueño largo,
+comenzó a sospechar que lo que había pasado en esa propiedad no eran accidentes: era una historia oculta debajo de Likelandi.</div>
+        </div>
+
+        <div class="card">
+          <h3>Fragmento II — Las voces que viven adentro</h3>
+          <div class="frg">Del otro lado del patio, un cuaderno con una sola palabra en marcador rosa: JUAN PABLO.
+—No te levantes tan rápido, LA Juan Pablo —dijo una voz suave—. La cabeza te sangra, cariño.
+La silueta borrosa se reía con tacos plateados: llamame La JP, suena más lindo.
+
+Por la ventana, Putolandia fumaba un cigarrillo de neón: ¿otra vez desmayado, nene?
+Detrás, La Martin con una linterna; La Gadget con cables y sensores.
+Ellos hablaban entre sí como si Landi fuera la casa.
+
+Una secuencia de luces danzaba en el techo, pulsando al ritmo de una melodía sin nombre.
+> “Underneath… there’s always another version of you.”</div>
+        </div>
+
+        <div class="card">
+          <h3>Fragmento III — La llegada de La EDGE</h3>
+          <div class="frg">El aire cambió antes de que apareciera. Las luces del pasillo parpadearon tres veces.
+<strong>La EDGE</strong>. La risa detrás de cada error de sistema, la mano que abría puertas sin tocarlas.
+Decían que mezcló deseo con control y convirtió la casa en un tablero.
+—No te confundas —susurró una vez—. El infierno no existe. Lo programé yo.</div>
+        </div>
+
+        <div class="card">
+          <h3>Fragmento IV — La que nunca fue La One</h3>
+          <div class="frg">Llegó una noche de tormenta con una sonrisa prestada y un termo que llamaba “la fórmula”.
+En Likelandi tuvo muchos nombres: <em>La Lechera, La Milka, La Milking, La Saca Leche, La Saca Milk</em>…
+Todo lo exprimía hasta dejarlo sin alma. Pero nunca fue <strong>La One</strong>.
+Quería ser la luz; aprendió apenas a imitar su forma.</div>
+        </div>
+
+        <div class="card">
+          <h3>Fragmento V — El patrón oculto</h3>
+          <div class="frg">En el teléfono: veinte conversaciones distintas y la misma voz. La misma puntuación.
+Carpetas mezcladas: La Tincha, La Luciernaba, La Rodri, La Alsin (Valentín Storni), La Coordinadora Inútil.
+Todas con el mismo perfume y una palabra final: “Querido Landi”.
+
+Cámara del pasillo: una silueta sin rostro que se multiplicaba en cinco.
+Registros de red: la misma puerta oculta en cada contacto — <span class="mono">ESHA_GATEWAY</span>.
+“No las estoy investigando a ellas —pensó—. Estoy dentro de su juego”.
+En el monitor apareció una palabra que nadie había escrito: UNDERNEATH.</div>
+        </div>
+
+        <!-- Catálogo breve de personajes */ -->
+        <div class="card">
+          <h3>Personajes que emergen</h3>
+          <div class="grid two">
+            <div>
+              <p><strong>Landi</strong> — Narrador y eje del universo. Reconstruye su memoria entre signos y señales.</p>
+              <p><strong>Juan Pablo / La Juan Pablo / La JP</strong> — Identidades espejo del yo.</p>
+              <p><strong>Putolandia</strong> — Ironía y deseo como distracción.</p>
+              <p><strong>La Martin</strong> — Luz dura, orden; <strong>La Gadget</strong> — tecnología, sensores, cables.</p>
+              <p><strong>La EDGE</strong> — Antagonista secundaria recurrente. También llamada <em>La Lechera, La Milka, La Milking, La Saca Leche, La Saca Milk</em>. Nunca es La One.</p>
+            </div>
+            <div>
+              <p><strong>La Tincha</strong> — Cercanía que espía.</p>
+              <p><strong>La Luciernaba</strong> — Dulzura luminosa con curiosidad peligrosa.</p>
+              <p><strong>La Rodri</strong> — Energía ambigua y disruptiva.</p>
+              <p><strong>La Alsin</strong> (Valentín Storni) — Cheta caída en desgracia; seducción y resentimiento elegante.</p>
+              <p><strong>La Coordinadora Inútil (Barbarita)</strong> — Burocracia que promete y no llega.</p>
+            </div>
+          </div>
+          <div class="note">Todos los personajes son ficcionales y existen dentro del universo literario de la obra.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MÚSICA -->
+    <section id="musica" class="section">
+      <div class="card">
+        <h3>Soundtrack — Landia’s Musik</h3>
+        <p class="note">Usá auriculares. Este es el pulso emocional de la lectura.</p>
+        <div class="music-embeds">
+          <!-- Spotify: playlist pública provista -->
+          <iframe style="border-radius:16px" src="https://open.spotify.com/embed/playlist/7yAt4LZqOVi0qpJlgCfhg9?utm_source=generator" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+          <!-- Apple Music: si tenés el enlace público, reemplazá la URL de abajo por tu embed
+               Formato típico: https://embed.music.apple.com/ar/playlist/<slug>/<id>
+               Por ahora dejamos un botón de acceso. -->
+          <a class="btn btn-mail" href="https://music.apple.com/library/playlist/p.DV7rzdqiW2pJYl" target="_blank" rel="noopener">Abrir en Apple Music (tu playlist)</a>
+          <div class="note">Si este enlace no abre, convertí tu playlist a <strong>pública</strong> y usá el URL de <em>embed</em> de Apple Music. Puedo hacerlo por vos cuando tengas el link.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="section">
+      <div class="card">
+        <h3>Contacto</h3>
+        <p>Para prensa, derechos, colaboraciones o lectura avanzada.</p>
+        <div class="cta-row">
+          <!-- WhatsApp: reemplazá YOURNUMBER por tu número con código país, ej. 54911XXXXYYYY -->
+          <a class="btn btn-wa" href="https://wa.me/?text=Hola%20vengo%20por%20Underneath%20Likelandi" target="_blank" rel="noopener" title="Escribir por WhatsApp">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.52 3.48A11.94 11.94 0 0 0 12.02 0C5.39 0 .01 5.38.01 12.02c0 2.12.56 4.18 1.64 6.01L0 24l6.11-1.6a11.98 11.98 0 0 0 5.9 1.52h.01c6.64 0 12.02-5.38 12.02-12.02 0-3.21-1.25-6.22-3.54-8.42ZM12.01 22.1h-.01a10.1 10.1 0 0 1-5.14-1.42l-.37-.22-3.63.95.97-3.54-.24-.36a10.12 10.12 0 1 1 8.42 4.58Zm5.56-7.56c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.96-.94 1.15-.17.2-.35.22-.64.07-.3-.15-1.27-.47-2.42-1.5-.9-.8-1.5-1.77-1.67-2.07-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.48-.5-.67-.5h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.5 0 1.48 1.06 2.92 1.21 3.12.15.2 2.09 3.2 5.06 4.49.71.31 1.27.5 1.7.64.71.23 1.35.2 1.86.12.57-.08 1.77-.72 2.02-1.41.25-.69.25-1.27.18-1.41-.07-.14-.27-.22-.57-.37Z"/></svg>
+            WhatsApp
+          </a>
+
+          <a class="btn btn-mail" href="mailto:likelandi@proton.me?subject=Underneath%20Likelandi" title="Enviar correo">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"/></svg>
+            likelandi@proton.me
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="section">
+      <div class="card">
+        <div class="small">© 2025 <strong>Juan Pablo Fernández Rebosio</strong> — Landia’s World / Likelandi. Todos los derechos reservados.</div>
+        <div class="note">Este sitio es un preview de ficción. Contiene recursos artísticos, no pruebas ni denuncias.</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Suavizar desplazamiento
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+      const id=a.getAttribute('href');
+      if(id.length>1){e.preventDefault(); document.querySelector(id).scrollIntoView({behavior:'smooth'});} }
+    ));
+  </script>
+</body>
+</html>
