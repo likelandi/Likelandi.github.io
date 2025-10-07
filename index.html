@@ -4,12 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Juan Pablo — Sitio Personal</title>
-  <meta name="description" content="Sitio personal de Juan Pablo Fernández Rebosio: psiquiatría, tecnología, Landia’s Musik, servicios y contacto." />
+  <meta name="description" content="Sitio personal de Juan Pablo Fernández Rebosio: psiquiatría, tecnología, servicios y contacto." />
   <meta name="theme-color" content="#0b0b12" />
-  <meta property="og:title" content="Juan Pablo — Sitio Personal" />
-  <meta property="og:description" content="Psiquiatría, tecnología y Landia’s Musik." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="portada.jpg" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
@@ -17,151 +13,101 @@
       --bg-1:#0b0b12; --bg-2:#111123; --violet:#7a5cff; --violet-2:#a88cff; --blue:#22a2ff; --text:#eef1ff; --muted:#b8c1ffcc; --shadow:0 10px 30px rgba(0,0,0,.35); --radius:18px;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:var(--text);background:radial-gradient(1000px 600px at 10% -10%, rgba(122,92,255,.25), transparent 60%),radial-gradient(800px 500px at 90% -10%, rgba(34,162,255,.2), transparent 60%),var(--bg-1);line-height:1.6}
-    a{color:var(--violet-2);text-decoration:none} a:hover{text-decoration:underline}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:var(--text);background:var(--bg-1);line-height:1.6}
+    a{color:var(--violet-2);text-decoration:none}
+    a:hover{text-decoration:underline}
     .wrap{max-width:1080px;margin:0 auto;padding:24px}
-
-    /* Header */
     header{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);background:linear-gradient(to right, rgba(17,17,35,.85), rgba(17,17,35,.6));border-bottom:1px solid rgba(122,92,255,.15)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
-    .badge{font-size:12px;padding:4px 10px;border-radius:999px;background:linear-gradient(90deg,var(--violet),var(--blue));box-shadow:var(--shadow)}
-    .links{display:flex;gap:12px;flex-wrap:wrap}
-    .links a{padding:10px 12px;border-radius:12px;background:rgba(122,92,255,.12);border:1px solid rgba(122,92,255,.18)}
+    .nav{display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:800;font-size:1.2rem}
+    .links{display:flex;gap:16px}
+    .links a{padding:10px 12px;border-radius:12px;background:rgba(122,92,255,.12)}
     .links a:hover{background:rgba(122,92,255,.2)}
-
-    /* Hero */
-    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:48px 0}
-    .card{background:linear-gradient(180deg, rgba(17,17,35,.9), rgba(17,17,35,.7));border:1px solid rgba(122,92,255,.2);border-radius:var(--radius);box-shadow:var(--shadow)}
-    .card>.p{padding:28px}
-    h1{font-size:clamp(28px,4.2vw,44px);line-height:1.15;margin:0 0 14px}
-    .sub{color:var(--muted);font-size:clamp(14px,2.2vw,18px)}
-    .cta-row{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:12px 16px;border-radius:14px;font-weight:600;border:1px solid transparent}
-    .btn-primary{background:linear-gradient(90deg,var(--violet),var(--blue));color:#0b0b12}
-    .btn-ghost{background:rgba(122,92,255,.12);color:var(--text);border-color:rgba(122,92,255,.3)}
-    .hero-media{min-height:260px;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(122,92,255,.2);background:url('portada.jpg') center/cover no-repeat;box-shadow:var(--shadow)}
-    .hero-media.fallback{display:grid;place-items:center;font-weight:600;color:#0b0b12;background:linear-gradient(135deg,var(--violet-2),var(--blue))}
-
-    /* Sections */
-    section{margin:38px 0}
-    .section-title{font-size:22px;font-weight:800;margin:0 0 14px}
-    .grid{display:grid;gap:16px}
-    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
-    .tile{background:var(--bg-2);border:1px solid rgba(122,92,255,.14);border-radius:16px;padding:18px}
-    .kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-
-    /* Musik */
-    .musik{position:relative;border-radius:var(--radius);overflow:hidden;border:1px solid rgba(122,92,255,.18);box-shadow:var(--shadow)}
-    .musik::before{content:"";position:absolute;inset:0;background:url('landias-musik-party.jpg') center/cover no-repeat;filter:brightness(.55) saturate(1.1)}
-    .musik-inner{position:relative;padding:28px}
-    .musik h3{margin:0 0 10px}
-    .player{display:flex;gap:12px;align-items:center;background:rgba(17,17,35,.75);border:1px solid rgba(122,92,255,.25);padding:12px 14px;border-radius:14px}
-    .track{display:flex;flex-direction:column;gap:6px}
-    .track small{color:var(--muted)}
-    .embed{display:none}
-    .icon{display:inline-block;width:18px;height:18px;vertical-align:-3px}
-
-    /* Contacto */
-    .contact{display:grid;gap:16px}
-    .contact .item{display:flex;gap:10px;align-items:center;background:var(--bg-2);border:1px solid rgba(122,92,255,.14);padding:14px 16px;border-radius:14px}
-    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:14px}
-
-    footer{margin:32px 0 12px;color:var(--muted);font-size:13px}
-
-    /* Responsive */
-    @media (max-width:880px){.hero{grid-template-columns:1fr}}
-    @media (max-width:640px){.grid.cols-3{grid-template-columns:1fr}.embed{height:380px}}
+    .hero{padding:60px 0;text-align:center}
+    .hero h1{font-size:2.5rem;margin-bottom:12px}
+    .hero p{color:var(--muted);font-size:1.2rem}
+    section{margin:50px 0}
+    .section-title{font-size:2rem;margin-bottom:20px;text-align:center}
+    .grid{display:grid;gap:20px}
+    .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+    .tile{background:var(--bg-2);padding:20px;border-radius:16px;border:1px solid rgba(122,92,255,.14)}
+    .kicker{font-size:0.9rem;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+    .contact{display:grid;gap:16px;max-width:600px;margin:0 auto}
+    .contact .item{background:var(--bg-2);padding:16px;border-radius:14px;border:1px solid rgba(122,92,255,.14);display:flex;justify-content:space-between;align-items:center}
+    footer{text-align:center;color:var(--muted);font-size:0.9rem;margin:40px 0 20px}
   </style>
 </head>
 <body>
   <header>
     <div class="wrap nav">
-      <div class="brand"><span class="badge" aria-hidden="true">JP</span><span>Juan Pablo — Personal</span></div>
-      <nav class="links" aria-label="Principal">
+      <div class="brand">Juan Pablo — Personal</div>
+      <nav class="links">
         <a href="#proyectos">Proyectos</a>
         <a href="#servicios">Servicios</a>
-        <a href="#musik">Reproductores</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
   </header>
 
   <main class="wrap">
-    <!-- HERO -->
-    <section class="hero" aria-label="Portada">
-      <div class="card"><div class="p">
-        <h1>Psiquiatría, tecnología y proyectos creativos</h1>
-        <p class="sub">Estilo violeta–azulado legible, con foco en claridad y accesibilidad. Portada activa y sección musical con fondo de Landia’s Musik Party.</p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#contacto">Solicitar turno</a>
-          <a class="btn btn-ghost" href="#musik">Escuchar ahora</a>
+    <section class="hero">
+      <h1>Psiquiatría, Tecnología y Proyectos Creativos</h1>
+      <p>Bienvenido al sitio personal de Juan Pablo Fernández Rebosio. Descubrí servicios, proyectos e información de contacto.</p>
+    </section>
+
+    <section id="proyectos">
+      <h2 class="section-title">Proyectos</h2>
+      <div class="grid cols-3">
+        <div class="tile">
+          <div class="kicker">Landia’s World</div>
+          <p>Ecosistema de experiencias creativas físicas y digitales.</p>
         </div>
-      </div></div>
-      <div id="heroMedia" class="hero-media" role="img" aria-label="Imagen de portada"></div>
+        <div class="tile">
+          <div class="kicker">Likelandii</div>
+          <p>Community building y tecnología aplicada al bienestar.</p>
+        </div>
+        <div class="tile">
+          <div class="kicker">Consultorio Digital</div>
+          <p>Plataforma online de atención psiquiátrica y terapias complementarias.</p>
+        </div>
+      </div>
     </section>
 
-    <!-- PROYECTOS -->
-    <section id="proyectos" aria-labelledby="titulo-proyectos">
-      <h2 id="titulo-proyectos" class="section-title">Proyectos</h2>
+    <section id="servicios">
+      <h2 class="section-title">Servicios</h2>
       <div class="grid cols-3">
-        <article class="tile"><div class="kicker">Landia’s World</div><div>Identidad creativa y ecosistema de experiencias físicas + digitales.</div></article>
-        <article class="tile"><div class="kicker">Landia’s Musik</div><div>Acceso rápido a playlists y catálogo propio con foco en privacidad.</div></article>
-        <article class="tile"><div class="kicker">Likelandii</div><div>Community building y tecnología aplicada al bienestar.</div></article>
+        <div class="tile">
+          <div class="kicker">Psiquiatría</div>
+          <p>Evaluación clínica, tratamiento y acompañamiento terapéutico.</p>
+        </div>
+        <div class="tile">
+          <div class="kicker">Tecnología</div>
+          <p>Automatizaciones, asesoramiento digital y privacidad de datos.</p>
+        </div>
+        <div class="tile">
+          <div class="kicker">Asesoría Creativa</div>
+          <p>Desarrollo de identidades de marca, estrategias y contenidos.</p>
+        </div>
       </div>
     </section>
 
-    <!-- SERVICIOS -->
-    <section id="servicios" aria-labelledby="titulo-servicios">
-      <h2 id="titulo-servicios" class="section-title">Servicios</h2>
-      <div class="grid cols-3">
-        <div class="tile"><div class="kicker">Psiquiatría</div><div>Evaluación clínica y acompañamiento terapéutico con enfoque humano.</div></div>
-        <div class="tile"><div class="kicker">Tecnología</div><div>Integración Apple, automatizaciones y privacidad de datos.</div></div>
-        <div class="tile"><div class="kicker">Creativo</div><div>Diseño de identidades y contenidos para marcas personales.</div></div>
-      </div>
+    <section id="contacto" class="contact">
+      <h2 class="section-title">Contacto</h2>
+      <div class="item"><strong>Ubicación:</strong> <span>Buenos Aires, Argentina</span></div>
+      <div class="item"><strong>Email:</strong> <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></div>
+      <div class="item"><strong>Solicitar turno:</strong> <a href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Enviar Email</a></div>
+      <div class="item"><strong>Contador de visitas:</strong> <span id="visitCounter">—</span></div>
     </section>
-    <!-- CONTACTO (exacto) -->
-    <section id="contacto" class="contact" aria-labelledby="titulo-contacto">
-      <h2 id="titulo-contacto" class="section-title">Contacto</h2>
-      <div class="item"><strong>Ubicación:</strong> <span class="mono">Buenos Aires, Argentina</span></div>
-      <div class="item"><strong>Email:</strong> <a class="mono" href="mailto:likelandi@proton.me">likelandi@proton.me</a></div>
-      <div class="item"><strong>Solicitar turno</strong>
-        <div class="cta-row" style="margin:0 0 0 8px"><a class="btn btn-primary" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Por Email</a></div>
-      </div>
-      <div class="item" aria-live="polite" aria-atomic="true"><strong>Contador de visitas</strong> <span id="visitCounter" class="mono" style="margin-left:8px">—</span></div>
-    </section>
-
-    <footer>© <span id="year"></span> Juan Pablo — Todos los derechos reservados.</footer>
   </main>
 
-  <div id="httpWarning" style="display:none; position:fixed; left:16px; right:16px; bottom:16px; z-index:9999; background:#1f2937; color:#fff; border:1px solid rgba(122,92,255,.35); border-radius:12px; padding:12px 14px; box-shadow:0 8px 24px rgba(0,0,0,.35); font-size:14px">
-    ⚠️ Para que los reproductores web (Spotify/Apple) funcionen, abrí el sitio desde <strong>http(s)</strong> y no como archivo <code>file://</code>.
-    <span style="opacity:.85;display:block;margin-top:4px">Ejemplo rápido local: <code>python3 -m http.server 8080</code> → <a href="http://localhost:8080" style="color:#a88cff">http://localhost:8080</a></span>
-  </div>
+  <footer>© <span id="year"></span> Juan Pablo — Todos los derechos reservados.</footer>
 
   <script>
-    // Año dinámico
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Fallback si no carga la imagen del hero
-    (function(){
-      const m = document.getElementById('heroMedia');
-      const test = new Image();
-      test.onerror = () => { m.classList.add('fallback'); m.textContent = 'Imagen de portada'; };
-      test.src = 'portada.jpg';
-    })();
-
-    // Contador de visitas (por dispositivo/navegador)
-    (function(){
-      const KEY = 'jp_visit_counter_v1';
-      let n = 0; try{ n = parseInt(localStorage.getItem(KEY) || '0', 10) || 0; }catch(_){ }
-      n++; try{ localStorage.setItem(KEY, String(n)); }catch(_){ }
-      const el = document.getElementById('visitCounter'); if(el){ el.textContent = n.toLocaleString('es-AR'); }
-    })();
-
-    // Mostrar aviso si se abre como file://
-    (function(){ if(location.protocol === 'file:'){ var w = document.getElementById('httpWarning'); if(w) w.style.display = 'block'; } })();
+    const KEY = 'jp_visit_counter_v2';
+    let n = 0; try{ n = parseInt(localStorage.getItem(KEY)||'0',10) || 0; }catch(e){}
+    n++; try{ localStorage.setItem(KEY, String(n)); }catch(e){}
+    document.getElementById('visitCounter').textContent = n;
   </script>
 </body>
 </html>
