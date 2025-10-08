@@ -8,44 +8,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      /* Paleta suavizada violeta-azul */
-      --bg-1:#0c0f1a;
-      --bg-2:#12172a;
-      --violet:#9b8cff; /* más claro */
-      --violet-2:#c7bfff; /* claro */
-      --blue:#6cc3ff;   /* más claro */
-      --text:#f0f3ff;
-      --muted:#cdd6ffcc;
-      --shadow:0 18px 40px rgba(0,0,0,.35);
-      --radius:20px;
-    }
+    :root{--bg-1:#0c0f1a;--bg-2:#12172a;--violet:#9b8cff;--violet-2:#c7bfff;--blue:#6cc3ff;--text:#f0f3ff;--muted:#cdd6ffcc;--shadow:0 18px 40px rgba(0,0,0,.35);--radius:20px}
     *{box-sizing:border-box}
     html,body{height:100%}
     body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:var(--text);background:
       radial-gradient(1000px 600px at 8% -12%, rgba(155,140,255,.22), transparent 60%),
       radial-gradient(900px 520px at 92% -10%, rgba(108,195,255,.18), transparent 60%),
-      var(--bg-1);
-      line-height:1.6}
-    a{color:var(--violet-2);text-decoration:none}
-    a:hover{text-decoration:underline}
+      var(--bg-1);line-height:1.6}
+    a{color:var(--violet-2);text-decoration:none} a:hover{text-decoration:underline}
     .wrap{max-width:1100px;margin:0 auto;padding:24px}
-
-    /* Header */
     header{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);background:linear-gradient(to right, rgba(18,23,42,.9), rgba(18,23,42,.7));border-bottom:1px solid rgba(155,140,255,.25)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
     .badge{font-size:12px;padding:4px 10px;border-radius:999px;background:linear-gradient(90deg, var(--violet), var(--blue));box-shadow:var(--shadow)}
     .links{display:flex;gap:12px;flex-wrap:wrap}
     .links a{padding:10px 12px;border-radius:12px;background:rgba(155,140,255,.14);border:1px solid rgba(155,140,255,.22)}
     .links a:hover{background:rgba(155,140,255,.22)}
-
-    /* Hero */
     .hero{padding:48px 0 24px;text-align:center}
     .hero h1{font-size:clamp(28px,4.2vw,44px);margin:0 0 8px}
     .hero p{color:var(--muted);font-size:clamp(14px,2.2vw,18px)}
-
-    /* Collage portada — tarjetas superpuestas */
     .collage{position:relative;width:min(1100px,100%);height:430px;margin:24px auto 42px;border-radius:26px;overflow:visible;z-index:0}
     .collage::before{content:"";position:absolute;inset:-30px;pointer-events:none;background:
       radial-gradient(600px 280px at 14% 16%, rgba(155,140,255,.25), transparent 60%),
@@ -53,7 +34,7 @@
       radial-gradient(640px 260px at 50% 100%, rgba(255,255,255,.06), transparent 60%);
       filter:blur(12px);z-index:0}
     .c-card{position:absolute;border-radius:22px;box-shadow:var(--shadow);overflow:hidden;background:#121635;border:1px solid rgba(199,191,255,.28);z-index:1}
-    .c-media{display:none} .c-media-img{width:100%;height:100%;object-fit:cover;display:block;background:#1a1f3f} 
+    .c-media-img{width:100%;height:100%;object-fit:cover;display:block;background:#1a1f3f}
     .c1{left:4%;top:6%;width:33%;height:60%;transform:rotate(-6deg)}
     .c2{right:6%;top:8%;width:34%;height:56%;transform:rotate(7deg)}
     .c3{left:33%;top:22%;width:30%;height:52%;transform:rotate(-2deg)}
@@ -61,27 +42,20 @@
     .c5{right:10%;bottom:-10%;width:30%;height:44%;transform:rotate(-8deg)}
     @media (max-width:860px){.collage{height:360px}.c5{display:none}}
     @media (max-width:620px){.collage{height:300px}.c3{display:none}}
-
-    /* Secciones */
     section{margin:44px 0}
     .section-title{font-size:24px;font-weight:800;margin:0 0 14px;text-align:center}
     .grid{display:grid;gap:18px}
     .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
     .tile{background:var(--bg-2);border:1px solid rgba(155,140,255,.20);border-radius:18px;padding:18px}
     .kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-
-    /* Sobre mí */
     .about{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center}
     .about .photo{border-radius:18px;overflow:hidden;border:1px solid rgba(155,140,255,.22);box-shadow:var(--shadow);background:#12172a}
-    .about .photo>div{height:100%;min-height:260px;background:url('portrait.jpg') center/cover no-repeat}
+    .about .photo img{width:100%;height:100%;object-fit:cover;display:block}
     .about .text{background:var(--bg-2);border:1px solid rgba(155,140,255,.20);border-radius:18px;padding:18px}
     @media (max-width:860px){.about{grid-template-columns:1fr}}
-
-    /* Contacto */
     .contact{display:grid;gap:16px;max-width:640px;margin:0 auto}
     .contact .item{display:flex;justify-content:space-between;align-items:center;background:var(--bg-2);border:1px solid rgba(155,140,255,.20);padding:14px 16px;border-radius:14px}
     .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
-
     footer{text-align:center;color:var(--muted);font-size:13px;margin:40px 0 16px}
   </style>
 </head>
@@ -99,40 +73,21 @@
   </header>
 
   <main class="wrap">
-    <!-- HERO + COLLAGE -->
     <section class="hero" aria-label="Portada">
       <h1>Psiquiatría, tecnología y proyectos creativos</h1>
       <p>Enfoque humano + herramientas digitales. Paleta suave violeta-azul para una experiencia clara y elegante.</p>
       <div class="collage" aria-label="Collage de portada">
-        <figure class="c-card c1"><img id="img-c1" class="c-media-img" src="https://picsum.photos/seed/landia1/1200/800" alt="Collage 1"/></figure>
-        <figure class="c-card c2"><img id="img-c2" class="c-media-img" src="https://picsum.photos/seed/landia2/1200/800" alt="Collage 2"/></figure>
-        <figure class="c-card c3"><img id="img-c3" class="c-media-img" src="https://picsum.photos/seed/landia3/1200/800" alt="Collage 3"/></figure>
-        <figure class="c-card c4"><img id="img-c4" class="c-media-img" src="https://picsum.photos/seed/landia4/1200/800" alt="Collage 4"/></figure>
-        <figure class="c-card c5"><img id="img-c5" class="c-media-img" src="https://picsum.photos/seed/landia5/1200/800" alt="Collage 5"/></figure>
+        <!-- Usa imágenes LOCALES en /img/ -->
+        <figure class="c-card c1"><img class="c-media-img" src="img/collage-1.jpg" alt="Collage 1"></figure>
+        <figure class="c-card c2"><img class="c-media-img" src="img/collage-2.jpg" alt="Collage 2"></figure>
+        <figure class="c-card c3"><img class="c-media-img" src="img/collage-3.jpg" alt="Collage 3"></figure>
+        <figure class="c-card c4"><img class="c-media-img" src="img/collage-4.jpg" alt="Collage 4"></figure>
+        <figure class="c-card c5"><img class="c-media-img" src="img/collage-5.jpg" alt="Collage 5"></figure>
       </div>
-
-      <!-- Panel local para cargar imágenes sin subir al servidor -->
-      <details style="max-width:820px;margin:0 auto 8px;background:rgba(199,191,255,.08);border:1px solid rgba(199,191,255,.22);border-radius:12px;padding:12px">
-        <summary style="cursor:pointer;font-weight:700">✏️ Personalizar collage (local, sin subir archivos)</summary>
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px;margin-top:10px">
-          <label>Collage 1 <input type="file" id="up-c1" accept="image/*"></label>
-          <label>Collage 2 <input type="file" id="up-c2" accept="image/*"></label>
-          <label>Collage 3 <input type="file" id="up-c3" accept="image/*"></label>
-          <label>Collage 4 <input type="file" id="up-c4" accept="image/*"></label>
-          <label>Collage 5 <input type="file" id="up-c5" accept="image/*"></label>
-          <label>Retrato <input type="file" id="up-portrait" accept="image/*"></label>
-        </div>
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
-          <button id="btn-save" type="button" style="padding:8px 12px;border-radius:10px;border:1px solid rgba(199,191,255,.35);background:rgba(155,140,255,.25);color:#fff">Guardar en este navegador</button>
-          <button id="btn-clear" type="button" style="padding:8px 12px;border-radius:10px;border:1px solid rgba(199,191,255,.35);background:transparent;color:#fff">Restablecer</button>
-        </div>
-        <p style="margin-top:8px;color:#cdd6ffcc;font-size:.9rem">Tus imágenes se guardan solo en <strong>este dispositivo/navegador</strong> usando <code>localStorage</code>. No se suben a ningún servidor.</p>
-      </details>
     </section>
 
-    <!-- SOBRE MÍ -->
     <section id="about" class="about" aria-labelledby="titulo-about">
-      <div class="photo" role="img" aria-label="Retrato de Juan Pablo"><img id="img-portrait" src="https://picsum.photos/seed/portraitjp/900/700" alt="Retrato" style="width:100%;height:100%;object-fit:cover;display:block"/></div>
+      <div class="photo" role="img" aria-label="Retrato de Juan Pablo"><img src="img/portrait.jpg" alt="Retrato"></div>
       <div class="text">
         <h2 id="titulo-about" class="section-title" style="text-align:left">Sobre mí</h2>
         <p>Soy psiquiatra con foco en salud mental y tecnología. Exploro interfaces, automatizaciones y experiencias digitales para potenciar el bienestar, respetando siempre la privacidad de los datos.</p>
@@ -140,7 +95,6 @@
       </div>
     </section>
 
-    <!-- PROYECTOS -->
     <section id="proyectos" aria-labelledby="titulo-proyectos">
       <h2 id="titulo-proyectos" class="section-title">Proyectos</h2>
       <div class="grid cols-3">
@@ -150,7 +104,6 @@
       </div>
     </section>
 
-    <!-- SERVICIOS -->
     <section id="servicios" aria-labelledby="titulo-servicios">
       <h2 id="titulo-servicios" class="section-title">Servicios</h2>
       <div class="grid cols-3">
@@ -160,7 +113,6 @@
       </div>
     </section>
 
-    <!-- CONTACTO -->
     <section id="contacto" class="contact" aria-labelledby="titulo-contacto">
       <h2 id="titulo-contacto" class="section-title">Contacto</h2>
       <div class="item"><strong>Ubicación:</strong> <span class="mono">Buenos Aires, Argentina</span></div>
@@ -173,58 +125,12 @@
   <footer>© <span id="year"></span> Juan Pablo — Todos los derechos reservados.</footer>
 
   <script>
-    // Año dinámico
     document.getElementById('year').textContent = new Date().getFullYear();
-    // Contador local (por dispositivo)
     (function(){
-      const KEY='jp_visit_counter_final_v1';
+      const KEY='jp_visit_counter_final_localimg';
       let n=0;try{n=parseInt(localStorage.getItem(KEY)||'0',10)||0;}catch(_){ }
       n++;try{localStorage.setItem(KEY,String(n));}catch(_){ }
       var el=document.getElementById('visitCounter'); if(el) el.textContent=n.toLocaleString('es-AR');
-    })();
-    // Marcar versión con timestamp para forzar recarga visual
-    // banner de versión eliminado
-    // Cargador local: permite usar imágenes sin subir al servidor
-    (function(){
-      const ids = ['c1','c2','c3','c4','c5','portrait'];
-      const imgEl = id => document.getElementById('img-' + id);
-      const upEl  = id => document.getElementById('up-' + id);
-      // Restaurar imágenes guardadas
-      ids.forEach(id => {
-        try{
-          const data = localStorage.getItem('jp_img_' + id);
-          if(data){ imgEl(id).src = data; }
-        }catch(_){ }
-      });
-      // Leer archivos y previsualizar
-      ids.forEach(id => {
-        const input = upEl(id);
-        if(!input) return;
-        input.addEventListener('change', e => {
-          const file = e.target.files && e.target.files[0];
-          if(!file) return;
-          const reader = new FileReader();
-          reader.onload = ev => { imgEl(id).src = ev.target.result; };
-          reader.readAsDataURL(file);
-        });
-      });
-      // Guardar en localStorage
-      const save = () => {
-        ids.forEach(id => {
-          try{ localStorage.setItem('jp_img_' + id, imgEl(id).src); }catch(_){ }
-        });
-        alert('Imágenes guardadas en este navegador.');
-      };
-      const clear = () => {
-        ids.forEach(id => { try{ localStorage.removeItem('jp_img_' + id); }catch(_){ } });
-        location.reload();
-      };
-      const btnSave = document.getElementById('btn-save'); if(btnSave) btnSave.onclick = async () => {
-        try{ ids.forEach(id => localStorage.setItem(key(id), imgEl(id).src)); toast('✔ Imágenes guardadas'); }
-        catch(_){ toast('⚠️ Espacio local insuficiente'); }
-      };
-      const btnClear = document.getElementById('btn-clear'); if(btnClear) btnClear.onclick = () => { ids.forEach(id => { try{ localStorage.removeItem(key(id)); }catch(_){ } }); location.reload(); };
-
     })();
   </script>
 </body>
