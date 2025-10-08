@@ -3,78 +3,167 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Juan Pablo — Página de Prueba (DEBUG)</title>
+  <title>Juan Pablo — Sitio Personal</title>
+  <meta name="description" content="Sitio personal de Juan Pablo Fernández Rebosio: psiquiatría, tecnología, proyectos y contacto." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#0b0b12;--card:#111123;--text:#eef1ff;--muted:#b8c1ffcc;--brand:#7a5cff;--brand2:#22a2ff}
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{background:var(--bg);color:var(--text);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial;line-height:1.5}
-    .bar{position:sticky;top:0;z-index:1000;background:linear-gradient(90deg,var(--brand),var(--brand2));padding:10px 14px;font-weight:800;text-align:center}
-    .wrap{max-width:1080px;margin:0 auto;padding:20px}
-    .hero{padding:18px 0;text-align:center}
-    .hero h1{font-size:28px;margin:8px 0}
-    .hero p{color:var(--muted)}
+    :root{
+      /* Paleta suavizada violeta-azul */
+      --bg-1:#0c0f1a;
+      --bg-2:#12172a;
+      --violet:#9b8cff; /* más claro */
+      --violet-2:#c7bfff; /* claro */
+      --blue:#6cc3ff;   /* más claro */
+      --text:#f0f3ff;
+      --muted:#cdd6ffcc;
+      --shadow:0 18px 40px rgba(0,0,0,.35);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:var(--text);background:
+      radial-gradient(1000px 600px at 8% -12%, rgba(155,140,255,.22), transparent 60%),
+      radial-gradient(900px 520px at 92% -10%, rgba(108,195,255,.18), transparent 60%),
+      var(--bg-1);
+      line-height:1.6}
+    a{color:var(--violet-2);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
 
-    /* Collage (acotado y con z-index bajo para no tapar nada) */
-    .collage{position:relative;width:min(1100px,100%);height:300px;margin:18px auto 24px;border-radius:18px;overflow:visible;z-index:0}
-    .collage::before{content:"";position:absolute;inset:-20px;pointer-events:none;background:radial-gradient(400px 200px at 15% 15%, rgba(122,92,255,.25), transparent 60%),radial-gradient(360px 200px at 85% 20%, rgba(34,162,255,.18), transparent 60%);filter:blur(10px);z-index:0}
-    .c-card{position:absolute;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,.35);overflow:hidden;background:#0f1022;border:1px solid rgba(168,140,255,.25);z-index:1}
-    .c-media{width:100%;height:100%;background:#1a1b33 center/cover no-repeat}
-    .c1{left:5%;top:8%;width:30%;height:56%;transform:rotate(-5deg)}
-    .c2{right:6%;top:10%;width:32%;height:52%;transform:rotate(6deg)}
-    .c3{left:34%;top:20%;width:26%;height:48%;transform:rotate(-2deg)}
+    /* Header */
+    header{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);background:linear-gradient(to right, rgba(18,23,42,.9), rgba(18,23,42,.7));border-bottom:1px solid rgba(155,140,255,.25)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.3px}
+    .badge{font-size:12px;padding:4px 10px;border-radius:999px;background:linear-gradient(90deg, var(--violet), var(--blue));box-shadow:var(--shadow)}
+    .links{display:flex;gap:12px;flex-wrap:wrap}
+    .links a{padding:10px 12px;border-radius:12px;background:rgba(155,140,255,.14);border:1px solid rgba(155,140,255,.22)}
+    .links a:hover{background:rgba(155,140,255,.22)}
 
-    /* Secciones de prueba bien visibles */
-    .section{margin:26px 0;padding:20px;border:2px dashed rgba(255,255,255,.25);border-radius:14px;background:rgba(255,255,255,.03)}
-    .section h2{font-size:22px;margin-bottom:10px}
-    .tile{background:var(--card);border:1px solid rgba(122,92,255,.2);border-radius:12px;padding:14px;margin:6px 0}
+    /* Hero */
+    .hero{padding:48px 0 24px;text-align:center}
+    .hero h1{font-size:clamp(28px,4.2vw,44px);margin:0 0 8px}
+    .hero p{color:var(--muted);font-size:clamp(14px,2.2vw,18px)}
+
+    /* Collage portada — tarjetas superpuestas */
+    .collage{position:relative;width:min(1100px,100%);height:430px;margin:24px auto 42px;border-radius:26px;overflow:visible;z-index:0}
+    .collage::before{content:"";position:absolute;inset:-30px;pointer-events:none;background:
+      radial-gradient(600px 280px at 14% 16%, rgba(155,140,255,.25), transparent 60%),
+      radial-gradient(540px 260px at 86% 18%, rgba(108,195,255,.20), transparent 60%),
+      radial-gradient(640px 260px at 50% 100%, rgba(255,255,255,.06), transparent 60%);
+      filter:blur(12px);z-index:0}
+    .c-card{position:absolute;border-radius:22px;box-shadow:var(--shadow);overflow:hidden;background:#121635;border:1px solid rgba(199,191,255,.28);z-index:1}
+    .c-media{width:100%;height:100%;background:#1a1f3f center/cover no-repeat;filter:saturate(1.06) contrast(1.03)}
+    .c1{left:4%;top:6%;width:33%;height:60%;transform:rotate(-6deg)}
+    .c2{right:6%;top:8%;width:34%;height:56%;transform:rotate(7deg)}
+    .c3{left:33%;top:22%;width:30%;height:52%;transform:rotate(-2deg)}
+    .c4{left:8%;bottom:-8%;width:30%;height:38%;transform:rotate(8deg)}
+    .c5{right:10%;bottom:-10%;width:30%;height:44%;transform:rotate(-8deg)}
+    @media (max-width:860px){.collage{height:360px}.c5{display:none}}
+    @media (max-width:620px){.collage{height:300px}.c3{display:none}}
+
+    /* Secciones */
+    section{margin:44px 0}
+    .section-title{font-size:24px;font-weight:800;margin:0 0 14px;text-align:center}
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+    .tile{background:var(--bg-2);border:1px solid rgba(155,140,255,.20);border-radius:18px;padding:18px}
+    .kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+
+    /* Sobre mí */
+    .about{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center}
+    .about .photo{border-radius:18px;overflow:hidden;border:1px solid rgba(155,140,255,.22);box-shadow:var(--shadow);background:#12172a}
+    .about .photo>div{height:100%;min-height:260px;background:url('portrait.jpg') center/cover no-repeat}
+    .about .text{background:var(--bg-2);border:1px solid rgba(155,140,255,.20);border-radius:18px;padding:18px}
+    @media (max-width:860px){.about{grid-template-columns:1fr}}
 
     /* Contacto */
-    .contact-grid{display:grid;gap:10px;max-width:680px}
+    .contact{display:grid;gap:16px;max-width:640px;margin:0 auto}
+    .contact .item{display:flex;justify-content:space-between;align-items:center;background:var(--bg-2);border:1px solid rgba(155,140,255,.20);padding:14px 16px;border-radius:14px}
+    .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
 
-    footer{margin:26px 0 16px;text-align:center;color:var(--muted)}
+    footer{text-align:center;color:var(--muted);font-size:13px;margin:40px 0 16px}
   </style>
 </head>
 <body>
-  <div class="bar">DEBUG: Esta página incluye collage + secciones. Si solo ves el collage, algo externo está sobrescribiendo el HTML.</div>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><span class="badge" aria-hidden="true">JP</span><span>Juan Pablo — Personal</span></div>
+      <nav class="links" aria-label="Principal">
+        <a href="#about">Sobre mí</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
   <main class="wrap">
+    <!-- HERO + COLLAGE -->
     <section class="hero" aria-label="Portada">
-      <h1>Hero con Collage</h1>
-      <p>Si bajás, DEBERÍAS ver Proyectos, Servicios y Contacto.</p>
+      <h1>Psiquiatría, tecnología y proyectos creativos</h1>
+      <p>Enfoque humano + herramientas digitales. Paleta suave violeta-azul para una experiencia clara y elegante.</p>
       <div class="collage" aria-label="Collage de portada">
         <figure class="c-card c1"><div class="c-media" style="background-image:url('collage-1.jpg')"></div></figure>
         <figure class="c-card c2"><div class="c-media" style="background-image:url('collage-2.jpg')"></div></figure>
         <figure class="c-card c3"><div class="c-media" style="background-image:url('collage-3.jpg')"></div></figure>
+        <figure class="c-card c4"><div class="c-media" style="background-image:url('collage-4.jpg')"></div></figure>
+        <figure class="c-card c5"><div class="c-media" style="background-image:url('collage-5.jpg')"></div></figure>
       </div>
     </section>
 
-    <section id="proyectos" class="section">
-      <h2>Proyectos — BLOQUE 1 (de prueba)</h2>
-      <div class="tile">Landia’s World — tarjeta de prueba</div>
-      <div class="tile">Likelandii — tarjeta de prueba</div>
-      <div class="tile">Consultorio Digital — tarjeta de prueba</div>
-    </section>
-
-    <section id="servicios" class="section">
-      <h2>Servicios — BLOQUE 2 (de prueba)</h2>
-      <div class="tile">Psiquiatría</div>
-      <div class="tile">Tecnología</div>
-      <div class="tile">Asesoría Creativa</div>
-    </section>
-
-    <section id="contacto" class="section">
-      <h2>Contacto — BLOQUE 3 (de prueba)</h2>
-      <div class="contact-grid">
-        <div class="tile"><strong>Ubicación:</strong> Buenos Aires, Argentina</div>
-        <div class="tile"><strong>Email:</strong> <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></div>
-        <div class="tile"><strong>Solicitar turno:</strong> <a href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Por Email</a></div>
-        <div class="tile"><strong>Contador de visitas:</strong> <span id="visitCounter">—</span></div>
+    <!-- SOBRE MÍ -->
+    <section id="about" class="about" aria-labelledby="titulo-about">
+      <div class="photo" role="img" aria-label="Retrato de Juan Pablo"><div></div></div>
+      <div class="text">
+        <h2 id="titulo-about" class="section-title" style="text-align:left">Sobre mí</h2>
+        <p>Soy psiquiatra con foco en salud mental y tecnología. Exploro interfaces, automatizaciones y experiencias digitales para potenciar el bienestar, respetando siempre la privacidad de los datos.</p>
+        <p>Actualmente desarrollo proyectos como <strong>Landia’s World</strong> y <strong>Likelandii</strong>, integrando creatividad, música y comunidad.</p>
       </div>
+    </section>
+
+    <!-- PROYECTOS -->
+    <section id="proyectos" aria-labelledby="titulo-proyectos">
+      <h2 id="titulo-proyectos" class="section-title">Proyectos</h2>
+      <div class="grid cols-3">
+        <article class="tile"><div class="kicker">Landia’s World</div><div>Identidad creativa y ecosistema de experiencias físicas + digitales.</div></article>
+        <article class="tile"><div class="kicker">Likelandii</div><div>Community building y tecnología aplicada al bienestar.</div></article>
+        <article class="tile"><div class="kicker">Consultorio Digital</div><div>Herramientas de atención y seguimiento con enfoque humano.</div></article>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" aria-labelledby="titulo-servicios">
+      <h2 id="titulo-servicios" class="section-title">Servicios</h2>
+      <div class="grid cols-3">
+        <div class="tile"><div class="kicker">Psiquiatría</div><div>Evaluación clínica, tratamiento y acompañamiento terapéutico.</div></div>
+        <div class="tile"><div class="kicker">Tecnología</div><div>Automatizaciones Apple, asesoramiento digital y privacidad.</div></div>
+        <div class="tile"><div class="kicker">Creativo</div><div>Identidad, narrativa y contenidos para marcas personales.</div></div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="contact" aria-labelledby="titulo-contacto">
+      <h2 id="titulo-contacto" class="section-title">Contacto</h2>
+      <div class="item"><strong>Ubicación:</strong> <span class="mono">Buenos Aires, Argentina</span></div>
+      <div class="item"><strong>Email:</strong> <a class="mono" href="mailto:likelandi@proton.me">likelandi@proton.me</a></div>
+      <div class="item"><strong>Solicitar turno:</strong> <a class="mono" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Por Email</a></div>
+      <div class="item"><strong>Contador de visitas:</strong> <span id="visitCounter" class="mono">—</span></div>
     </section>
   </main>
-  <footer>© <span id="year"></span> Juan Pablo — DEBUG</footer>
+
+  <footer>© <span id="year"></span> Juan Pablo — Todos los derechos reservados.</footer>
+
   <script>
+    // Año dinámico
     document.getElementById('year').textContent = new Date().getFullYear();
-    const KEY='jp_visit_counter_debug';let n=0;try{n=parseInt(localStorage.getItem(KEY)||'0',10)||0;}catch(_){ }n++;try{localStorage.setItem(KEY,String(n));}catch(_){ }document.getElementById('visitCounter').textContent=n;
+    // Contador local (por dispositivo)
+    (function(){
+      const KEY='jp_visit_counter_final_v1';
+      let n=0;try{n=parseInt(localStorage.getItem(KEY)||'0',10)||0;}catch(_){ }
+      n++;try{localStorage.setItem(KEY,String(n));}catch(_){ }
+      var el=document.getElementById('visitCounter'); if(el) el.textContent=n.toLocaleString('es-AR');
+    })();
   </script>
 </body>
 </html>
