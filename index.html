@@ -86,6 +86,10 @@
   </style>
 </head>
 <body>
+  <!-- VERSION BANNER: ayuda a verificar que este archivo es el NUEVO -->
+  <div style="position:sticky;top:0;z-index:9999;background:linear-gradient(90deg,#9b8cff,#6cc3ff);color:#0b0b12;font-weight:800;text-align:center;padding:10px 12px;border-bottom:2px solid rgba(255,255,255,.25)">
+    ✅ VERSION FINAL — Ref: <span id="verRef">v-01</span>
+  </div>
   <header>
     <div class="wrap nav">
       <div class="brand"><span class="badge" aria-hidden="true">JP</span><span>Juan Pablo — Personal</span></div>
@@ -164,6 +168,8 @@
       n++;try{localStorage.setItem(KEY,String(n));}catch(_){ }
       var el=document.getElementById('visitCounter'); if(el) el.textContent=n.toLocaleString('es-AR');
     })();
+    // Marcar versión con timestamp para forzar recarga visual
+    document.getElementById('verRef').textContent = 'v-' + Date.now();
   </script>
 </body>
 </html>
