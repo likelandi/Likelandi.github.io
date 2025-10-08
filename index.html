@@ -219,10 +219,13 @@
         ids.forEach(id => { try{ localStorage.removeItem('jp_img_' + id); }catch(_){ } });
         location.reload();
       };
-      const btnSave = document.getElementById('btn-save'); if(btnSave) btnSave.onclick = save;
-      const btnClear = document.getElementById('btn-clear'); if(btnClear) btnClear.onclick = clear;
+      const btnSave = document.getElementById('btn-save'); if(btnSave) btnSave.onclick = async () => {
+        try{ ids.forEach(id => localStorage.setItem(key(id), imgEl(id).src)); toast('✔ Imágenes guardadas'); }
+        catch(_){ toast('⚠️ Espacio local insuficiente'); }
+      };
+      const btnClear = document.getElementById('btn-clear'); if(btnClear) btnClear.onclick = () => { ids.forEach(id => { try{ localStorage.removeItem(key(id)); }catch(_){ } }); location.reload(); };
+
     })();
   </script>
 </body>
 </html>
-
