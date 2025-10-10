@@ -1,137 +1,185 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Juan Pablo — Sitio Personal</title>
-  <meta name="description" content="Sitio personal de Juan Pablo Fernández Rebosio: psiquiatría, tecnología, proyectos y contacto." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Likelandi — Collage Oficial</title>
+  <meta name="description" content="Collage visual y emocional de Underneath Likelandi — Proyecto de Juan Pablo Fernández Rebosio">
   <style>
-    :root{--bg-1:#0c0f1a;--bg-2:#12172a;--violet:#9b8cff;--violet-2:#c7bfff;--blue:#6cc3ff;--text:#f0f3ff;--muted:#cdd6ffcc;--shadow:0 18px 40px rgba(0,0,0,.35);--radius:20px}
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;color:var(--text);background:
-      radial-gradient(1000px 600px at 8% -12%, rgba(155,140,255,.22), transparent 60%),
-      radial-gradient(900px 520px at 92% -10%, rgba(108,195,255,.18), transparent 60%),
-      var(--bg-1);line-height:1.6}
-    a{color:var(--violet-2);text-decoration:none} a:hover{text-decoration:underline}
-    .wrap{max-width:1100px;margin:0 auto;padding:24px}
-    header{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);background:linear-gradient(to right, rgba(18,23,42,.9), rgba(18,23,42,.7));border-bottom:1px solid rgba(155,140,255,.25)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
-    .badge{font-size:12px;padding:4px 10px;border-radius:999px;background:linear-gradient(90deg, var(--violet), var(--blue));box-shadow:var(--shadow)}
-    .links{display:flex;gap:12px;flex-wrap:wrap}
-    .links a{padding:10px 12px;border-radius:12px;background:rgba(155,140,255,.14);border:1px solid rgba(155,140,255,.22)}
-    .links a:hover{background:rgba(155,140,255,.22)}
-    .hero{padding:48px 0 24px;text-align:center}
-    .hero h1{font-size:clamp(28px,4.2vw,44px);margin:0 0 8px}
-    .hero p{color:var(--muted);font-size:clamp(14px,2.2vw,18px)}
-    .collage{position:relative;width:min(1100px,100%);height:430px;margin:24px auto 42px;border-radius:26px;overflow:visible;z-index:0}
-    .collage::before{content:"";position:absolute;inset:-30px;pointer-events:none;background:
-      radial-gradient(600px 280px at 14% 16%, rgba(155,140,255,.25), transparent 60%),
-      radial-gradient(540px 260px at 86% 18%, rgba(108,195,255,.20), transparent 60%),
-      radial-gradient(640px 260px at 50% 100%, rgba(255,255,255,.06), transparent 60%);
-      filter:blur(12px);z-index:0}
-    .c-card{position:absolute;border-radius:22px;box-shadow:var(--shadow);overflow:hidden;background:#121635;border:1px solid rgba(199,191,255,.28);z-index:1}
-    .c-media-img{width:100%;height:100%;object-fit:cover;display:block;background:#1a1f3f}
-    .c1{left:4%;top:6%;width:33%;height:60%;transform:rotate(-6deg)}
-    .c2{right:6%;top:8%;width:34%;height:56%;transform:rotate(7deg)}
-    .c3{left:33%;top:22%;width:30%;height:52%;transform:rotate(-2deg)}
-    .c4{left:8%;bottom:-8%;width:30%;height:38%;transform:rotate(8deg)}
-    .c5{right:10%;bottom:-10%;width:30%;height:44%;transform:rotate(-8deg)}
-    @media (max-width:860px){.collage{height:360px}.c5{display:none}}
-    @media (max-width:620px){.collage{height:300px}.c3{display:none}}
-    section{margin:44px 0}
-    .section-title{font-size:24px;font-weight:800;margin:0 0 14px;text-align:center}
-    .grid{display:grid;gap:18px}
-    .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .tile{background:var(--bg-2);border:1px solid rgba(155,140,255,.20);border-radius:18px;padding:18px}
-    .kicker{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-    .about{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center}
-    .about .photo{border-radius:18px;overflow:hidden;border:1px solid rgba(155,140,255,.22);box-shadow:var(--shadow);background:#12172a}
-    .about .photo img{width:100%;height:100%;object-fit:cover;display:block}
-    .about .text{background:var(--bg-2);border:1px solid rgba(155,140,255,.20);border-radius:18px;padding:18px}
-    @media (max-width:860px){.about{grid-template-columns:1fr}}
-    .contact{display:grid;gap:16px;max-width:640px;margin:0 auto}
-    .contact .item{display:flex;justify-content:space-between;align-items:center;background:var(--bg-2);border:1px solid rgba(155,140,255,.20);padding:14px 16px;border-radius:14px}
-    .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
-    footer{text-align:center;color:var(--muted);font-size:13px;margin:40px 0 16px}
+    body {
+      margin: 0;
+      background: #0a0a0a;
+      color: #fff;
+      font-family: "Inter", "Montserrat", system-ui, sans-serif;
+    }
+
+    header {
+      text-align: center;
+      padding: 60px 20px 20px;
+      background: radial-gradient(circle at top, #201842, #0a0a0a 60%);
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+      color: #e6e2ff;
+    }
+
+    header p {
+      color: #bfb8e6;
+      font-style: italic;
+      margin: 0 0 25px;
+    }
+
+    header a {
+      display: inline-block;
+      background: rgba(151,138,255,0.12);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 10px 22px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all .3s ease;
+    }
+    header a:hover {
+      background: rgba(151,138,255,0.3);
+      transform: scale(1.03);
+    }
+
+    /* COLLAGE PRINCIPAL */
+    #likelandi-collage {
+      padding: 56px 0;
+    }
+
+    #likelandi-collage h2 {
+      text-align: center;
+      margin-bottom: 10px;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #e8e5ff;
+    }
+
+    #likelandi-collage p {
+      text-align: center;
+      margin-bottom: 35px;
+      color: #ccc7e9;
+      font-style: italic;
+    }
+
+    #likelandi-collage .grid-main {
+      display: grid;
+      gap: 12px;
+      margin: 0 auto 18px;
+      max-width: 1100px;
+      grid-template-columns: 1.1fr .9fr;
+      grid-template-rows: auto auto;
+      grid-template-areas:
+        "hero a"
+        "hero b";
+    }
+
+    #likelandi-collage .hero { grid-area: hero; aspect-ratio: 4/5; }
+    #likelandi-collage .a    { grid-area: a;   aspect-ratio: 4/3; }
+    #likelandi-collage .b    { grid-area: b;   aspect-ratio: 4/3; }
+    #likelandi-collage .c,
+    #likelandi-collage .d    { display:none; }
+
+    #likelandi-collage .grid-gallery {
+      display:grid;
+      gap:12px;
+      max-width:1100px;
+      margin:auto;
+      grid-template-columns: repeat(4,1fr);
+    }
+
+    #likelandi-collage img {
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      border-radius:16px;
+      opacity:.86;
+      transform:translateY(2px) scale(.995);
+      box-shadow:0 10px 24px rgba(0,0,0,.35);
+      transition:opacity .25s ease,transform .25s ease,box-shadow .25s ease;
+    }
+
+    #likelandi-collage img:hover {
+      opacity:1;
+      transform:translateY(0) scale(1.01);
+      box-shadow:0 14px 36px rgba(0,0,0,.45);
+    }
+
+    @media (max-width: 980px) {
+      #likelandi-collage .grid-main {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "hero hero"
+          "a b";
+      }
+      #likelandi-collage .grid-gallery { grid-template-columns: repeat(3,1fr); }
+    }
+
+    @media (max-width: 720px) {
+      #likelandi-collage .grid-main {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "hero"
+          "a"
+          "b"
+          "c"
+          "d";
+      }
+      #likelandi-collage .c, #likelandi-collage .d { display:block; aspect-ratio:4/3; }
+      #likelandi-collage .grid-gallery { grid-template-columns: repeat(2,1fr); }
+    }
+
+    @media (max-width:480px) {
+      #likelandi-collage .grid-gallery { grid-template-columns:1fr; }
+    }
+
+    footer {
+      text-align:center;
+      padding:40px 20px;
+      font-size:13px;
+      color:#8883b9;
+      border-top:1px solid rgba(255,255,255,0.08);
+      margin-top:40px;
+    }
   </style>
 </head>
+
 <body>
   <header>
-    <div class="wrap nav">
-      <div class="brand"><span class="badge" aria-hidden="true">JP</span><span>Juan Pablo — Personal</span></div>
-      <nav class="links" aria-label="Principal">
-        <a href="#about">Sobre mí</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
+    <h1>LIKELANDI 💜</h1>
+    <p>Collage oficial del universo Underneath Likelandi</p>
+    <a href="#likelandi-collage">Ver el collage</a>
   </header>
 
-  <main class="wrap">
-    <section class="hero" aria-label="Portada">
-      <h1>Psiquiatría, tecnología y proyectos creativos</h1>
-      <p>Enfoque humano + herramientas digitales. Paleta suave violeta-azul para una experiencia clara y elegante.</p>
-      <div class="collage" aria-label="Collage de portada">
-        <!-- Usa imágenes LOCALES en /img/ -->
-        <figure class="c-card c1"><img class="c-media-img" src="img/collage-1.jpg" alt="Collage 1"></figure>
-        <figure class="c-card c2"><img class="c-media-img" src="img/collage-2.jpg" alt="Collage 2"></figure>
-        <figure class="c-card c3"><img class="c-media-img" src="img/collage-3.jpg" alt="Collage 3"></figure>
-        <figure class="c-card c4"><img class="c-media-img" src="img/collage-4.jpg" alt="Collage 4"></figure>
-        <figure class="c-card c5"><img class="c-media-img" src="img/collage-5.jpg" alt="Collage 5"></figure>
-      </div>
-    </section>
+  <section id="likelandi-collage">
+    <h2>Collage de Likelandi — Primicia</h2>
+    <p>“La casa de los ecos, donde cada rincón tiene memoria.”</p>
 
-    <section id="about" class="about" aria-labelledby="titulo-about">
-      <div class="photo" role="img" aria-label="Retrato de Juan Pablo"><img src="img/portrait.jpg" alt="Retrato"></div>
-      <div class="text">
-        <h2 id="titulo-about" class="section-title" style="text-align:left">Sobre mí</h2>
-        <p>Soy psiquiatra con foco en salud mental y tecnología. Exploro interfaces, automatizaciones y experiencias digitales para potenciar el bienestar, respetando siempre la privacidad de los datos.</p>
-        <p>Actualmente desarrollo proyectos como <strong>Landia’s World</strong> y <strong>Likelandii</strong>, integrando creatividad, música y comunidad.</p>
-      </div>
-    </section>
+    <!-- COLLAGE PRINCIPAL -->
+    <div class="grid-main">
+      <img src="collage/IMG_1959.JPG" alt="Collage central Likelandi" class="hero">
+      <img src="collage/IMG_1894.JPG" alt="Escritorio y lámpara" class="a">
+      <img src="collage/IMG_1897.JPG" alt="Sala con TV y abrigo perrito" class="b">
+      <img src="collage/IMG_1912.JPG" alt="Ladrillo visto y sofá" class="c">
+      <img src="collage/IMG_1883.JPG" alt="Escritorio con planta" class="d">
+    </div>
 
-    <section id="proyectos" aria-labelledby="titulo-proyectos">
-      <h2 id="titulo-proyectos" class="section-title">Proyectos</h2>
-      <div class="grid cols-3">
-        <article class="tile"><div class="kicker">Landia’s World</div><div>Identidad creativa y ecosistema de experiencias físicas + digitales.</div></article>
-        <article class="tile"><div class="kicker">Likelandii</div><div>Community building y tecnología aplicada al bienestar.</div></article>
-        <article class="tile"><div class="kicker">Consultorio Digital</div><div>Herramientas de atención y seguimiento con enfoque humano.</div></article>
-      </div>
-    </section>
+    <!-- GALERÍA EXTENDIDA -->
+    <div class="grid-gallery">
+      <img src="collage/IMG_1885.JPG" alt="Detalle 1885">
+      <img src="collage/IMG_1886.JPG" alt="Detalle 1886">
+      <img src="collage/IMG_1905.JPG" alt="Detalle 1905">
+      <img src="collage/IMG_1951.JPG" alt="Detalle 1951">
+    </div>
+  </section>
 
-    <section id="servicios" aria-labelledby="titulo-servicios">
-      <h2 id="titulo-servicios" class="section-title">Servicios</h2>
-      <div class="grid cols-3">
-        <div class="tile"><div class="kicker">Psiquiatría</div><div>Evaluación clínica, tratamiento y acompañamiento terapéutico.</div></div>
-        <div class="tile"><div class="kicker">Tecnología</div><div>Automatizaciones Apple, asesoramiento digital y privacidad.</div></div>
-        <div class="tile"><div class="kicker">Creativo</div><div>Identidad, narrativa y contenidos para marcas personales.</div></div>
-      </div>
-    </section>
-
-    <section id="contacto" class="contact" aria-labelledby="titulo-contacto">
-      <h2 id="titulo-contacto" class="section-title">Contacto</h2>
-      <div class="item"><strong>Ubicación:</strong> <span class="mono">Buenos Aires, Argentina</span></div>
-      <div class="item"><strong>Email:</strong> <a class="mono" href="mailto:likelandi@proton.me">likelandi@proton.me</a></div>
-      <div class="item"><strong>Solicitar turno:</strong> <a class="mono" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Por Email</a></div>
-      <div class="item"><strong>Contador de visitas:</strong> <span id="visitCounter" class="mono">—</span></div>
-    </section>
-  </main>
-
-  <footer>© <span id="year"></span> Juan Pablo — Todos los derechos reservados.</footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    (function(){
-      const KEY='jp_visit_counter_final_localimg';
-      let n=0;try{n=parseInt(localStorage.getItem(KEY)||'0',10)||0;}catch(_){ }
-      n++;try{localStorage.setItem(KEY,String(n));}catch(_){ }
-      var el=document.getElementById('visitCounter'); if(el) el.textContent=n.toLocaleString('es-AR');
-    })();
-  </script>
+  <footer>
+    © 2025 Landia’s World — Proyecto Likelandi. Todos los derechos reservados.
+  </footer>
 </body>
 </html>
