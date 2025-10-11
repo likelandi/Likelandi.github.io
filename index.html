@@ -3,173 +3,149 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Juan Pablo — Sitio Personal (BUILD v12)</title>
-  <meta name="description" content="Sitio personal de Juan Pablo Fernández Rebosio: psiquiatría, tecnología, proyectos y contacto." />
+  <title>Juan Pablo — Psiquiatría & Tecnología (BUILD v14)</title>
+  <meta name="description" content="Atención en salud mental con enfoque humano + herramientas digitales. Luján, Buenos Aires." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Juan Pablo — Psiquiatría & Tecnología">
+  <meta property="og:description" content="Atención humana + herramientas digitales. Luján, Buenos Aires.">
+  <meta property="og:type" content="website">
+  <!-- Usamos la primera imagen del collage como OG por defecto -->
+  <meta property="og:image" content="https://dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix">
+
+  <!-- JSON-LD Person -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Person",
+    "name":"Juan Pablo Fernández Rebosio",
+    "jobTitle":"Psiquiatra",
+    "address":{"@type":"PostalAddress","addressLocality":"Luján","addressRegion":"Buenos Aires","addressCountry":"AR"},
+    "email":"mailto:likelandi@proton.me",
+    "url":"https://tu-dominio.example",
+    "sameAs":["https://wa.me/541124605401"]
+  }
+  </script>
+
   <style>
     :root{
-      /* Paleta clara con toque rosado */
-      --bg-1:#0d0f19;
-      --bg-2:#12172a;
-      --violet:#cbb6ff;
-      --violet-2:#b9a5ff;
-      --pink:#ffb3de;
-      --blue:#9ee0ff;
-      --text:#f7f7ff;
-      --muted:#dfe6ffcc;
-      --ring: rgba(203,182,255,.55);
-      --ring-strong: rgba(255,179,222,.65);
-      --shadow:0 16px 36px rgba(0,0,0,.35);
-      --tile-grad: linear-gradient(180deg, rgba(203,182,255,.12), rgba(255,179,222,.10));
-      --tile-grad-hover: linear-gradient(180deg, rgba(203,182,255,.20), rgba(255,179,222,.18));
-      --link-grad: linear-gradient(180deg, rgba(203,182,255,.18), rgba(255,179,222,.12));
-      --link-grad-hover: linear-gradient(180deg, rgba(203,182,255,.26), rgba(255,179,222,.20));
-      --brand-grad: linear-gradient(90deg, var(--violet), var(--pink), var(--blue));
+      --bg-1:#0b0e19; --bg-2:#111631;
+      --violet:#b78cff; --pink:#ff7ccf; --blue:#7fd0ff;
+      --text:#f8f8ff; --muted:#dfe6ffcc;
+      --ring:rgba(183,140,255,.65); --ring-strong:rgba(255,124,207,.65);
+      --shadow:0 16px 36px rgba(0,0,0,.4);
+      --brand-grad:linear-gradient(90deg,var(--violet),var(--pink),var(--blue));
+      --link-grad:linear-gradient(180deg,rgba(183,140,255,.35),rgba(255,124,207,.25));
+      --link-grad-hover:linear-gradient(180deg,rgba(183,140,255,.55),rgba(255,124,207,.45));
+      --tile-grad:linear-gradient(180deg,rgba(183,140,255,.22),rgba(255,124,207,.18));
+      --tile-grad-hover:linear-gradient(180deg,rgba(183,140,255,.32),rgba(255,124,207,.28));
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; line-height:1.6; color:var(--text);
+      margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;color:var(--text);
       background:
-        radial-gradient(900px 520px at 8% -12%, rgba(203,182,255,.25), transparent 60%),
-        radial-gradient(900px 520px at 92% -10%, rgba(255,179,222,.18), transparent 60%),
-        radial-gradient(800px 460px at 50% 120%, rgba(158,224,255,.12), transparent 60%),
+        radial-gradient(900px 520px at 8% -12%, rgba(183,140,255,.35), transparent 60%),
+        radial-gradient(900px 520px at 92% -10%, rgba(255,124,207,.28), transparent 60%),
+        radial-gradient(800px 460px at 50% 120%, rgba(127,208,255,.20), transparent 60%),
         var(--bg-1);
     }
-    .wrap{max-width:1100px; margin:0 auto; padding:24px}
-    header{
-      position:sticky; top:0; z-index:20; backdrop-filter:blur(8px);
-      background:linear-gradient(to right, rgba(18,23,42,.86), rgba(18,23,42,.72));
-      border-bottom:1px solid rgba(203,182,255,.38)
-    }
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
-    .brand{display:flex; align-items:center; gap:12px; font-weight:800}
-    .badge{
-      font-size:12px; padding:4px 10px; border-radius:999px;
-      background:var(--brand-grad);
-      box-shadow:var(--shadow)
-    }
-    .links{display:flex; gap:12px; flex-wrap:wrap}
-    .links a{
-      padding:10px 12px; border-radius:12px; text-decoration:none; color:inherit;
-      background:var(--link-grad);
-      border:1px solid rgba(203,182,255,.35);
-      box-shadow:0 1px 0 rgba(255,255,255,.04) inset, 0 0 0 rgba(255,179,222,0);
-      transition: box-shadow .25s ease, transform .2s ease, background .25s ease, border-color .25s ease;
-    }
-    .links a:hover{
-      background:var(--link-grad-hover);
-      border-color:rgba(203,182,255,.55);
-      box-shadow:0 0 18px rgba(255,179,222,.25), 0 0 34px rgba(158,224,255,.18);
-      transform:translateY(-1px);
-    }
-    .links a:focus-visible{
-      outline:none; box-shadow:0 0 0 3px var(--ring), 0 0 0 6px rgba(255,179,222,.35);
-    }
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);
+      background:linear-gradient(to right, rgba(17,22,49,.92), rgba(17,22,49,.78));
+      border-bottom:2px solid rgba(183,140,255,.55)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
+    .badge{font-size:12px;padding:6px 12px;border-radius:999px;background:var(--brand-grad);color:#0b0b0b;box-shadow:var(--shadow)}
+    .links{display:flex;gap:12px;flex-wrap:wrap}
+    .links a{padding:10px 12px;border-radius:12px;text-decoration:none;color:inherit;background:var(--link-grad);
+      border:1px solid rgba(183,140,255,.6);transition:.25s}
+    .links a:hover{background:var(--link-grad-hover);border-color:rgba(183,140,255,.9);box-shadow:0 0 24px rgba(255,124,207,.35), 0 0 44px rgba(127,208,255,.25);transform:translateY(-1px)}
+    .links a:focus-visible{outline:none;box-shadow:0 0 0 3px var(--ring),0 0 0 6px var(--ring-strong)}
+    .theme-check{display:flex;gap:8px;align-items:center;justify-content:center;padding:8px 12px;background:#0f1533;border:1px solid rgba(183,140,255,.6);border-left:4px solid var(--pink);border-right:4px solid var(--violet);margin:10px auto 0;max-width:1100px;border-radius:10px;color:var(--muted);font-size:14px}
+    .chip{width:16px;height:16px;border-radius:4px;display:inline-block}.chip.v{background:var(--violet)}.chip.p{background:var(--pink)}.chip.b{background:var(--blue)}
 
-    .hero{padding:48px 0 24px; text-align:center}
-    .hero h1{font-size:clamp(28px,4.2vw,44px); margin:0 0 8px}
-    .hero p{color:var(--muted)}
+    .hero{padding:38px 0 0;text-align:center}
+    .hero h1{font-size:clamp(28px,4.2vw,46px);margin:0 0 8px;background:var(--brand-grad);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 18px rgba(183,140,255,.25)}
+    .hero p{color:var(--muted);margin-bottom:10px}
 
-    /* Collage */
-    .collage{
-      position:relative; width:min(1100px,100%); height:430px; margin:24px auto 42px;
-      border-radius:26px; overflow:visible; z-index:0;
-      border:1px solid rgba(203,182,255,.30);
-      box-shadow:var(--shadow);
-      background:linear-gradient(180deg, rgba(203,182,255,.10), rgba(255,179,222,.08));
-    }
-    .collage::before{
-      content:""; position:absolute; inset:-30px; pointer-events:none; filter:blur(12px); z-index:0;
-      background:
-        radial-gradient(600px 280px at 14% 16%, rgba(203,182,255,.28), transparent 60%),
-        radial-gradient(540px 260px at 86% 18%, rgba(255,179,222,.22), transparent 60%),
-        radial-gradient(640px 260px at 50% 100%, rgba(255,255,255,.08), transparent 60%)
-    }
-    .c-card{
-      position:absolute; border-radius:22px; overflow:hidden; z-index:1;
-      background:#131736; border:1px solid rgba(203,182,255,.38); box-shadow:var(--shadow);
-      transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
-    }
-    .c-card:hover{ transform:translateY(-2px) rotate(0deg); border-color:rgba(255,179,222,.55); box-shadow:0 16px 40px rgba(0,0,0,.45) }
-    .c-media-img{width:100%; height:100%; object-fit:cover; display:block; background:#1a1f3f}
-    .c1{left:4%; top:6%; width:33%; height:60%; transform:rotate(-6deg)}
-    .c2{right:6%; top:8%; width:34%; height:56%; transform:rotate(7deg)}
-    .c3{left:33%; top:22%; width:30%; height:52%; transform:rotate(-2deg)}
-    .c4{left:8%; bottom:-8%; width:30%; height:38%; transform:rotate(8deg)}
-    .c5{right:10%; bottom:-10%; width:30%; height:44%; transform:rotate(-8deg)}
+    .moods{display:flex;gap:8px;justify-content:center;margin:8px 0 18px}
+    .moods button{padding:8px 12px;border-radius:12px;border:1px solid #cbb6ff80;background:linear-gradient(180deg,#cbb6ff44,#ffb3de33);color:#fff;cursor:pointer}
+    .moods button:hover{transform:translateY(-1px)}
+
+    .collage{position:relative;width:min(1100px,100%);height:430px;margin:16px auto 34px;border-radius:26px;overflow:visible;z-index:0;border:2px solid rgba(183,140,255,.55);box-shadow:var(--shadow);background:linear-gradient(180deg, rgba(183,140,255,.18), rgba(255,124,207,.14))}
+    .collage::before{content:"";position:absolute;inset:-30px;pointer-events:none;filter:blur(12px);z-index:0;background:
+      radial-gradient(600px 280px at 14% 16%, rgba(183,140,255,.35), transparent 60%),
+      radial-gradient(540px 260px at 86% 18%, rgba(255,124,207,.30), transparent 60%),
+      radial-gradient(640px 260px at 50% 100%, rgba(255,255,255,.12), transparent 60%)}
+    .c-card{position:absolute;border-radius:22px;overflow:hidden;z-index:1;background:#131736;border:2px solid rgba(183,140,255,.65);box-shadow:var(--shadow);transition:.25s}
+    .c-card:hover{transform:translateY(-2px) rotate(0deg);border-color:rgba(255,124,207,.85);box-shadow:0 16px 40px rgba(0,0,0,.48)}
+    .c-media-img{width:100%;height:100%;object-fit:cover;display:block;background:#1a1f3f}
+    .c1{left:4%;top:6%;width:33%;height:60%;transform:rotate(-6deg)}
+    .c2{right:6%;top:8%;width:34%;height:56%;transform:rotate(7deg)}
+    .c3{left:33%;top:22%;width:30%;height:52%;transform:rotate(-2deg)}
+    .c4{left:8%;bottom:-8%;width:30%;height:38%;transform:rotate(8deg)}
+    .c5{right:10%;bottom:-10%;width:30%;height:44%;transform:rotate(-8deg)}
     @media (max-width:860px){.collage{height:360px}.c5{display:none}}
     @media (max-width:620px){.collage{height:300px}.c3{display:none}}
 
-    section{margin:44px 0}
-    .section-title{
-      font-size:24px; font-weight:800; margin:0 0 14px; text-align:center;
-      background:var(--brand-grad);
-      -webkit-background-clip:text; background-clip:text; color:transparent;
-    }
-
-    .grid{display:grid; gap:18px}
+    section{margin:36px 0}
+    .section-title{font-size:26px;font-weight:900;margin:0 0 14px;text-align:center;background:var(--brand-grad);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.3px}
+    .grid{display:grid;gap:18px}
     .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .tile{
-      background:var(--tile-grad); border:1px solid rgba(203,182,255,.28); border-radius:18px; padding:18px;
-      box-shadow:var(--shadow);
-      transition: background .25s ease, border-color .25s ease, transform .2s ease, box-shadow .25s ease;
-    }
-    .tile:hover{
-      background:var(--tile-grad-hover);
-      border-color:rgba(203,182,255,.55);
-      box-shadow:0 12px 36px rgba(255,179,222,.18), 0 24px 58px rgba(158,224,255,.18);
-      transform:translateY(-2px);
-    }
-
-    .about{display:grid; grid-template-columns:1fr 1.2fr; gap:24px; align-items:center}
-    .about .photo{
-      border-radius:18px; overflow:hidden; border:1px solid rgba(203,182,255,.30); box-shadow:var(--shadow);
-      background:linear-gradient(180deg, rgba(203,182,255,.10), rgba(255,179,222,.08));
-      transition: box-shadow .25s ease, border-color .25s ease;
-    }
-    .about .photo:hover{ border-color:rgba(255,179,222,.55); box-shadow:0 10px 34px rgba(255,179,222,.22) }
-    .about .photo img{width:100%; height:100%; object-fit:cover; display:block}
+    .tile{background:var(--tile-grad);border:2px solid rgba(183,140,255,.55);border-radius:18px;padding:18px;box-shadow:var(--shadow);transition:.25s}
+    .tile:hover{background:var(--tile-grad-hover);border-color:rgba(255,124,207,.85);box-shadow:0 12px 36px rgba(255,124,207,.25), 0 24px 58px rgba(127,208,255,.22);transform:translateY(-2px)}
+    .about{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center}
+    .about .photo{border-radius:18px;overflow:hidden;border:2px solid rgba(183,140,255,.6);box-shadow:var(--shadow);background:linear-gradient(180deg, rgba(183,140,255,.18), rgba(255,124,207,.14));transition:.25s}
+    .about .photo:hover{border-color:rgba(255,124,207,.9);box-shadow:0 10px 34px rgba(255,124,207,.25)}
+    .about .photo img{width:100%;height:100%;object-fit:cover;display:block}
     @media (max-width:860px){.about{grid-template-columns:1fr}}
 
-    .contact{display:grid; gap:16px; max-width:640px; margin:0 auto}
-    .contact .item{
-      display:flex; justify-content:space-between; align-items:center;
-      background:var(--tile-grad); border:1px solid rgba(203,182,255,.30); padding:14px 16px; border-radius:14px;
-      box-shadow:0 1px 0 rgba(255,255,255,.05) inset; transition:background .25s ease, border-color .25s ease
-    }
-    .contact .item:hover{ background:var(--tile-grad-hover); border-color:rgba(203,182,255,.55) }
+    .contact{display:grid;gap:16px;max-width:680px;margin:0 auto}
+    .contact .item{display:flex;justify-content:space-between;align-items:center;background:var(--tile-grad);border:2px solid rgba(183,140,255,.55);padding:14px 16px;border-radius:14px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset;transition:.25s}
+    .contact .item:hover{background:var(--tile-grad-hover);border-color:rgba(255,124,207,.85)}
     .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
 
-    /* Botón CTA (ej: Solicitar turno) */
-    .cta{
-      display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:14px; font-weight:700;
-      color:#0b0b0b; text-decoration:none; background:var(--brand-grad); border:1px solid rgba(255,255,255,.12);
-      box-shadow:0 6px 26px rgba(255,179,222,.22), 0 0 0 rgba(203,182,255,0);
-      transition: transform .2s ease, box-shadow .25s ease, filter .2s ease;
-    }
-    .cta:hover{ transform:translateY(-1px); box-shadow:0 10px 32px rgba(255,179,222,.30), 0 0 0 6px rgba(203,182,255,.15) }
-    .cta:focus-visible{ outline:none; box-shadow:0 0 0 3px var(--ring), 0 0 0 6px var(--ring-strong) }
+    .cta{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:14px;font-weight:800;color:#0b0b0b;text-decoration:none;background:var(--brand-grad);border:1px solid rgba(255,255,255,.12);box-shadow:0 6px 26px rgba(255,124,207,.28), 0 0 0 rgba(183,140,255,0);transition:.25s;cursor:pointer}
+    .cta:hover{transform:translateY(-1px);box-shadow:0 10px 32px rgba(255,124,207,.36), 0 0 0 6px rgba(183,140,255,.22)}
+    .cta:focus-visible{outline:none;box-shadow:0 0 0 3px var(--ring),0 0 0 6px var(--ring-strong)}
 
-    footer{text-align:center; color:var(--muted); font-size:13px; margin:40px 0 16px}
+    footer{text-align:center;color:var(--muted);font-size:13px;margin:40px 0 16px}
 
-    /* Botón WhatsApp flotante */
-    .wa{position:fixed; right:16px; bottom:16px; z-index:50}
-    .wa a{
-      display:inline-flex; align-items:center; gap:8px; padding:10px 12px; border-radius:999px;
-      background:#25D366; color:#0b0b0b; text-decoration:none; font-weight:700; box-shadow:var(--shadow);
-      transition: transform .2s ease, box-shadow .25s ease;
-    }
-    .wa a:hover{ transform:translateY(-1px); box-shadow:0 10px 28px rgba(37,211,102,.35) }
+    /* WhatsApp flotante */
+    .wa{position:fixed;right:16px;bottom:16px;z-index:60}
+    .wa a{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;background:#25D366;color:#0b0b0b;text-decoration:none;font-weight:700;box-shadow:var(--shadow);transition:.25s}
+    .wa a:hover{transform:translateY(-1px);box-shadow:0 10px 28px rgba(37,211,102,.35)}
 
-    /* Panel Diagnóstico */
-    .diag{max-width:1100px; margin:0 auto 12px; padding:10px 12px; border-radius:12px;
-      background:#101635; border:1px solid var(--ring)}
+    /* Quick Dock */
+    .quick-dock{position:fixed;right:16px;bottom:86px;display:flex;gap:8px;z-index:60}
+    .quick-dock a,.quick-dock button{padding:10px 12px;border-radius:12px;border:1px solid #cbb6ff90;background:linear-gradient(180deg,#cbb6ff44,#ffb3de33);color:#fff;text-decoration:none;cursor:pointer}
+    .quick-dock a:hover,.quick-dock button:hover{transform:translateY(-1px)}
+
+    /* Diagnóstico */
+    .diag{max-width:1100px;margin:0 auto 12px;padding:10px 12px;border-radius:12px;background:#0f1533;border:1px solid var(--ring)}
     .diag b{color:var(--violet)} .ok{color:var(--blue)} .err{color:#ff9aa9}
 
-    /* Motion-safe */
-    @media (prefers-reduced-motion: reduce){
-      *{transition:none!important}
-    }
+    /* Modal Consentimiento */
+    .modal{position:fixed;inset:0;background:rgba(8,10,18,.7);display:none;align-items:center;justify-content:center;z-index:100}
+    .modal.open{display:flex}
+    .modal-card{background:#131a3a;border:1px solid rgba(183,140,255,.6);border-radius:16px;max-width:620px;width:92%;padding:16px 18px;box-shadow:var(--shadow)}
+    .modal-card h3{margin:0 0 10px}
+    .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
+    .btn{padding:10px 12px;border-radius:12px;border:1px solid rgba(183,140,255,.6);background:var(--link-grad);color:#fff;cursor:pointer}
+    .btn.primary{background:var(--brand-grad);color:#0b0b0b;border-color:transparent;font-weight:800}
+
+    /* Pausa guiada */
+    .pause{max-width:700px;margin:0 auto;text-align:center}
+    .breath{width:140px;height:140px;border-radius:999px;margin:12px auto;background:radial-gradient(circle at 30% 30%, rgba(183,140,255,.8), rgba(255,124,207,.7));box-shadow:0 0 60px rgba(183,140,255,.35);animation:breath 6s ease-in-out infinite}
+    @keyframes breath{0%{transform:scale(.9)}50%{transform:scale(1.07)}100%{transform:scale(.9)}}
+    .pause .timer{font-size:28px;font-weight:900;letter-spacing:1px}
+
+    /* Modo calma reduce estímulos */
+    .calma-toggle{position:fixed;left:16px;bottom:16px;background:#0f1533aa;padding:8px 10px;border-radius:10px;border:1px solid #cbb6ff66;z-index:60}
+    .calma-toggle input{vertical-align:middle}
+    .calma-on *{transition:none !important;animation:none !important}
+    .calma-on .tile,.calma-on .links a,.calma-on .c-card,.calma-on .collage{box-shadow:none !important;border-color:#6b6f9a!important;background:#101426!important}
   </style>
 </head>
 <body>
@@ -179,87 +155,100 @@
       <nav class="links" aria-label="Principal">
         <a href="#about">Sobre mí</a>
         <a href="#proyectos">Proyectos</a>
-        <a href="#servicios">Servicios</a>
+        <a href="#pausa">Pausa guiada</a>
+        <a href="#privacidad">Privacidad</a>
         <a href="#contacto">Contacto</a>
       </nav>
     </div>
   </header>
 
-  <!-- Diagnóstico -->
+  <!-- Theme Check -->
+  <div class="theme-check">
+    <strong>Theme Check:</strong>&nbsp;
+    <span class="chip v" title="violet"></span>
+    <span class="chip p" title="pink"></span>
+    <span class="chip b" title="blue"></span>
+    <span style="margin-left:8px">— Estilo violeta/rosado ACTIVADO</span>
+  </div>
+
+  <!-- Diagnóstico imágenes -->
   <div class="diag">
-    <div><b>Diagnóstico:</b> Dropbox (dl/dropbox + raw/dl) → Proxy → Local (collage-X.jpg) → Fallback, para cada imagen.</div>
+    <div><b>Diagnóstico imágenes:</b> Dropbox (dl/dropbox + raw/dl) → Proxy → Local (collage-X.jpg) → Fallback.</div>
     <div id="diagLog" style="margin-top:6px;font-size:.95rem"></div>
   </div>
 
   <main class="wrap">
     <section class="hero" aria-label="Portada">
       <h1>Psiquiatría, tecnología y proyectos creativos</h1>
-      <p>Enfoque humano + herramientas digitales. Paleta violeta/rosado clara, elegante y suave.</p>
+      <p>Enfoque humano + herramientas digitales (paleta violeta/rosado).</p>
 
+      <!-- Moods sonoros -->
+      <div class="moods" aria-label="Cambiar ambiente visual">
+        <button data-seed="calma">Calma</button>
+        <button data-seed="foco">Foco</button>
+        <button data-seed="energia">Energía</button>
+      </div>
+
+      <!-- Collage -->
       <div class="collage" aria-label="Collage de portada">
         <!-- 1) IMG_1894.JPG -->
         <figure class="c-card c1">
           <img class="c-media-img"
-               data-candidates="
-                https://dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix |
-                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&raw=1 |
-                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&dl=1 |
-                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG%3Frlkey%3Dhyte6ymxzjbqwql4qxec14uix&w=1200&h=800&fit=cover |
-                collage-1.jpg | img/collage-1.jpg"
-               data-fallback="https://picsum.photos/seed/landia1/1200/800"
-               alt="Imagen 1">
+            data-candidates="
+              https://dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix |
+              https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&raw=1 |
+              https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&dl=1 |
+              https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG%3Frlkey%3Dhyte6ymxzjbqwql4qxec14uix&w=1200&h=800&fit=cover |
+              collage-1.jpg | img/collage-1.jpg"
+            data-fallback="https://picsum.photos/seed/landia1/1200/800" alt="Imagen 1">
         </figure>
 
         <!-- 2) collage-2 -->
         <figure class="c-card c2">
           <img class="c-media-img"
-               data-candidates="
-                https://dl.dropboxusercontent.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG?rlkey=znjd49w9vobvts5kwcv2rqe9x |
-                https://www.dropbox.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG?rlkey=znjd49w9vobvts5kwcv2rqe9x&raw=1 |
-                https://www.dropbox.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG?rlkey=znjd49w9vobvts5kwcv2rqe9x&dl=1 |
-                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG%3Frlkey%3Dznjd49w9vobvts5kwcv2rqe9x&w=1200&h=800&fit=cover |
-                collage-2.jpg | img/collage-2.jpg"
-               data-fallback="https://picsum.photos/seed/landia2/1200/800"
-               alt="Imagen 2">
+            data-candidates="
+              https://dl.dropboxusercontent.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG?rlkey=znjd49w9vobvts5kwcv2rqe9x |
+              https://www.dropbox.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG?rlkey=znjd49w9vobvts5kwcv2rqe9x&raw=1 |
+              https://www.dropbox.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG?rlkey=znjd49w9vobvts5kwcv2rqe9x&dl=1 |
+              https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG%3Frlkey%3Dznjd49w9vobvts5kwcv2rqe9x&w=1200&h=800&fit=cover |
+              collage-2.jpg | img/collage-2.jpg"
+            data-fallback="https://picsum.photos/seed/landia2/1200/800" alt="Imagen 2">
         </figure>
 
         <!-- 3) collage-3 -->
         <figure class="c-card c3">
           <img class="c-media-img"
-               data-candidates="
-                https://dl.dropboxusercontent.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?rlkey=mv7vg3qaa3efqtpykv32v9p5l |
-                https://www.dropbox.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?rlkey=mv7vg3qaa3efqtpykv32v9p5l&raw=1 |
-                https://www.dropbox.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?rlkey=mv7vg3qaa3efqtpykv32v9p5l&dl=1 |
-                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG%3Frlkey%3Dmv7vg3qaa3efqtpykv32v9p5l&w=1200&h=800&fit=cover |
-                collage-3.jpg | img/collage-3.jpg"
-               data-fallback="https://picsum.photos/seed/landia3/1200/800"
-               alt="Imagen 3">
+            data-candidates="
+              https://dl.dropboxusercontent.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?rlkey=mv7vg3qaa3efqtpykv32v9p5l |
+              https://www.dropbox.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?rlkey=mv7vg3qaa3efqtpykv32v9p5l&raw=1 |
+              https://www.dropbox.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?rlkey=mv7vg3qaa3efqtpykv32v9p5l&dl=1 |
+              https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG%3Frlkey%3Dmv7vg3qaa3efqtpykv32v9p5l&w=1200&h=800&fit=cover |
+              collage-3.jpg | img/collage-3.jpg"
+            data-fallback="https://picsum.photos/seed/landia3/1200/800" alt="Imagen 3">
         </figure>
 
         <!-- 4) collage-4 -->
         <figure class="c-card c4">
           <img class="c-media-img"
-               data-candidates="
-                https://dl.dropboxusercontent.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?rlkey=327nne8usg9x4d0nyamnek6k5 |
-                https://www.dropbox.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?rlkey=327nne8usg9x4d0nyamnek6k5&raw=1 |
-                https://www.dropbox.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?rlkey=327nne8usg9x4d0nyamnek6k5&dl=1 |
-                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG%3Frlkey%3D327nne8usg9x4d0nyamnek6k5&w=1200&h=800&fit=cover |
-                collage-4.jpg | img/collage-4.jpg"
-               data-fallback="https://picsum.photos/seed/landia4/1200/800"
-               alt="Imagen 4">
+            data-candidates="
+              https://dl.dropboxusercontent.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?rlkey=327nne8usg9x4d0nyamnek6k5 |
+              https://www.dropbox.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?rlkey=327nne8usg9x4d0nyamnek6k5&raw=1 |
+              https://www.dropbox.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?rlkey=327nne8usg9x4d0nyamnek6k5&dl=1 |
+              https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG%3Frlkey%3D327nne8usg9x4d0nyamnek6k5&w=1200&h=800&fit=cover |
+              collage-4.jpg | img/collage-4.jpg"
+            data-fallback="https://picsum.photos/seed/landia4/1200/800" alt="Imagen 4">
         </figure>
 
         <!-- 5) collage-5 -->
         <figure class="c-card c5">
           <img class="c-media-img"
-               data-candidates="
-                https://dl.dropboxusercontent.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG?rlkey=k33t9epqqrjmuritonz8gjzi3 |
-                https://www.dropbox.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG?rlkey=k33t9epqqrjmuritonz8gjzi3&raw=1 |
-                https://www.dropbox.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG?rlkey=k33t9epqqrjmuritonz8gjzi3&dl=1 |
-                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG%3Frlkey%3Dk33t9epqqrjmuritonz8gjzi3&w=1200&h=800&fit=cover |
-                collage-5.jpg | img/collage-5.jpg"
-               data-fallback="https://picsum.photos/seed/landia5/1200/800"
-               alt="Imagen 5">
+            data-candidates="
+              https://dl.dropboxusercontent.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG?rlkey=k33t9epqqrjmuritonz8gjzi3 |
+              https://www.dropbox.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG?rlkey=k33t9epqqrjmuritonz8gjzi3&raw=1 |
+              https://www.dropbox.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG?rlkey=k33t9epqqrjmuritonz8gjzi3&dl=1 |
+              https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG%3Frlkey%3Dk33t9epqqrjmuritonz8gjzi3&w=1200&h=800&fit=cover |
+              collage-5.jpg | img/collage-5.jpg"
+            data-fallback="https://picsum.photos/seed/landia5/1200/800" alt="Imagen 5">
         </figure>
       </div>
     </section>
@@ -271,17 +260,46 @@
       <div class="text">
         <h2 id="titulo-about" class="section-title" style="text-align:left">Sobre mí</h2>
         <p>Soy psiquiatra con foco en salud mental y tecnología. Exploro interfaces, automatizaciones y experiencias digitales para potenciar el bienestar, respetando siempre la privacidad de los datos.</p>
-        <p>Actualmente desarrollo proyectos como <strong>Landia’s World</strong> y <strong>Likelandii</strong>, integrando creatividad, música y comunidad.</p>
-        <p><a class="cta" href="mailto:likelandi@proton.me?subject=Consulta%20-%20Sitio%20Personal">Escribirme ahora</a></p>
+        <p>Desarrollo proyectos como <strong>Landia’s World</strong> y <strong>Likelandii</strong>, integrando creatividad, música y comunidad.</p>
+        <p><button class="cta" id="cta-consulta">Escribirme ahora</button></p>
       </div>
     </section>
 
     <section id="proyectos">
       <h2 class="section-title">Proyectos</h2>
       <div class="grid cols-3">
-        <article class="tile"><div class="kicker">Landia’s World</div><div>Identidad creativa y ecosistema de experiencias físicas + digitales.</div></article>
-        <article class="tile"><div class="kicker">Likelandii</div><div>Community building y tecnología aplicada al bienestar.</div></article>
-        <article class="tile"><div class="kicker">Consultorio Digital</div><div>Herramientas de atención y seguimiento con enfoque humano.</div></article>
+        <article class="tile"><strong>Landia’s World</strong><div>Identidad creativa y ecosistema de experiencias físicas + digitales.</div></article>
+        <article class="tile"><strong>Likelandii</strong><div>Community building y tecnología aplicada al bienestar.</div></article>
+        <article class="tile"><strong>Consultorio Digital</strong><div>Herramientas de atención y seguimiento con enfoque humano.</div></article>
+      </div>
+    </section>
+
+    <section id="pausa" class="pause">
+      <h2 class="section-title">Pausa guiada (1 minuto)</h2>
+      <div class="breath" aria-hidden="true"></div>
+      <div class="timer" id="timer">01:00</div>
+      <p style="color:var(--muted)">Inhala al expandirse, exhala al contraerse. Si lo necesitás, cerrá los ojos.</p>
+      <p>
+        <button class="cta" id="startPausa">Iniciar</button>
+        <button class="cta" id="resetPausa" style="background:linear-gradient(90deg,#ffd1e9,#cbb6ff,#9ee0ff)">Reiniciar</button>
+      </p>
+    </section>
+
+    <section id="privacidad">
+      <h2 class="section-title">Privacidad (resumen)</h2>
+      <div class="grid cols-3">
+        <article class="tile">
+          <strong>Datos mínimos</strong>
+          <div>Solo se usa tu email y el contenido del mensaje para responderte. No se cede a terceros.</div>
+        </article>
+        <article class="tile">
+          <strong>Sin rastreo invasivo</strong>
+          <div>No hay cookies de seguimiento ni analíticas personales. (Podemos sumar analítica sin cookies en el futuro).</div>
+        </article>
+        <article class="tile">
+          <strong>Tu control</strong>
+          <div>Podés pedir rectificación o eliminación de tu información de contacto cuando quieras.</div>
+        </article>
       </div>
     </section>
 
@@ -289,16 +307,41 @@
       <h2 class="section-title">Contacto</h2>
       <div class="item"><strong>Ubicación:</strong> <span class="mono">Luján, Provincia de Buenos Aires, Argentina</span></div>
       <div class="item"><strong>Email:</strong> <a class="mono" href="mailto:likelandi@proton.me">likelandi@proton.me</a></div>
-      <div class="item"><strong>Solicitar turno (CTA):</strong> <a class="cta" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Solicitar turno</a></div>
+      <div class="item"><strong>Solicitar turno (CTA con consentimiento):</strong> <button class="cta" id="cta-turno">Solicitar turno</button></div>
       <div class="item"><strong>Contador de visitas:</strong> <span id="visitCounter" class="mono">—</span></div>
+      <div class="item"><strong>Ayuda inmediata:</strong> <a class="mono" href="#privacidad">Recursos y recomendaciones</a></div>
     </section>
   </main>
 
   <footer>© <span id="year"></span> Juan Pablo — Todos los derechos reservados.</footer>
 
-  <!-- WhatsApp -->
-  <div class="wa">
-    <a href="https://wa.me/541124605401?text=Hola%20Juan%20Pablo%2C%20quiero%20un%20turno" target="_blank" rel="noopener">WhatsApp</a>
+  <!-- WhatsApp flotante -->
+  <div class="wa"><a href="https://wa.me/541124605401?text=Hola%20Juan%20Pablo%2C%20quiero%20un%20turno" target="_blank" rel="noopener">WhatsApp</a></div>
+
+  <!-- Quick Dock -->
+  <div class="quick-dock" aria-label="Acciones rápidas">
+    <a href="#contacto">Turno</a>
+    <a href="mailto:likelandi@proton.me">Email</a>
+    <a href="https://wa.me/541124605401" target="_blank" rel="noopener">WhatsApp</a>
+    <button onclick="scrollTo({top:0,behavior:'smooth'})">↑</button>
+  </div>
+
+  <!-- Modo Calma -->
+  <label class="calma-toggle"><input type="checkbox" id="calmaToggle"> Modo calma</label>
+
+  <!-- Modal consentimiento -->
+  <div class="modal" id="modalCons">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consTitulo">
+      <h3 id="consTitulo">Consentimiento para contactarme</h3>
+      <p style="color:var(--muted)">
+        Al continuar, aceptás enviar un email a <strong>likelandi@proton.me</strong>. Tu dirección y mensaje
+        se usarán solo para responderte y coordinar turnos. No se comparten con terceros.
+      </p>
+      <div class="modal-actions">
+        <button class="btn" id="cancelCons">Cancelar</button>
+        <button class="btn primary" id="okCons">Acepto y continuar</button>
+      </div>
+    </div>
   </div>
 
   <script>
@@ -311,7 +354,7 @@
       const el=document.getElementById('visitCounter'); if(el) el.textContent = n.toLocaleString('es-AR');
     })();
 
-    // Loader con diagnóstico
+    // Diagnóstico carga de imágenes (secuencia de candidatos con cache-bust)
     (function(){
       const log = document.getElementById('diagLog');
       function append(msg, cls){ if(!log) return; const p=document.createElement('div'); p.textContent=msg; if(cls) p.className=cls; log.appendChild(p); }
@@ -326,7 +369,7 @@
           const probe = new Image();
           probe.onload = function(){ imgEl.src = url; append('OK → ' + url, 'ok'); };
           probe.onerror = function(){ append('ERROR → ' + url, 'err'); tryNext(); };
-          probe.src = url + (url.includes('?') ? '&' : '?') + 'v=' + Date.now(); // rompe caché
+          probe.src = url + (url.includes('?') ? '&' : '?') + 'v=' + Date.now();
         }
         tryNext();
       }
@@ -335,6 +378,75 @@
         img.addEventListener('load', ()=>append('OK fijo → ' + img.src, 'ok'));
         img.addEventListener('error', ()=>append('ERROR fijo → ' + img.src, 'err'));
       });
+    })();
+
+    // Moods: cambia imágenes "no-candidates" con seeds
+    (function(){
+      const btns=document.querySelectorAll('.moods button');
+      btns.forEach(b=>{
+        b.addEventListener('click',()=>{
+          const seed=b.dataset.seed||'calma';
+          document.querySelectorAll('.c-media-img:not([data-candidates])').forEach((img,i)=>{
+            img.src=`https://picsum.photos/seed/${seed}${i}/1200/800`;
+          });
+        });
+      });
+    })();
+
+    // Pausa guiada 60s
+    (function(){
+      const timerEl=document.getElementById('timer');
+      const start=document.getElementById('startPausa');
+      const reset=document.getElementById('resetPausa');
+      let t=60, iv=null;
+      function fmt(s){const m=Math.floor(s/60), ss=String(s%60).padStart(2,'0'); return `0${m}:${ss}`;}
+      function tick(){ t--; timerEl.textContent=fmt(t); if(t<=0){clearInterval(iv); iv=null;}}
+      start.addEventListener('click',()=>{ if(iv) return; t=60; timerEl.textContent=fmt(t); iv=setInterval(tick,1000); });
+      reset.addEventListener('click',()=>{ clearInterval(iv); iv=null; t=60; timerEl.textContent=fmt(t); });
+    })();
+
+    // Modo calma
+    document.getElementById('calmaToggle').addEventListener('change',e=>{
+      document.documentElement.classList.toggle('calma-on', e.target.checked);
+    });
+
+    // Consentimiento antes de mailto (CTA)
+    (function(){
+      const modal=document.getElementById('modalCons');
+      const openers=[document.getElementById('cta-turno'), document.getElementById('cta-consulta')].filter(Boolean);
+      const ok=document.getElementById('okCons');
+      const cancel=document.getElementById('cancelCons');
+      openers.forEach(btn=>btn.addEventListener('click',()=>modal.classList.add('open')));
+      ok.addEventListener('click',()=>{
+        modal.classList.remove('open');
+        // Abre mailto
+        location.href='mailto:likelandi@proton.me?subject=Solicitud%20de%20turno';
+      });
+      cancel.addEventListener('click',()=>modal.classList.remove('open'));
+      modal.addEventListener('click',e=>{ if(e.target===modal) modal.classList.remove('open'); });
+    })();
+
+    // Voz (comandos básicos) — si el navegador lo soporta
+    (function(){
+      const btn = document.createElement('button');
+      btn.textContent='🎙️ Voz';
+      btn.className='cta';
+      btn.style.position='fixed'; btn.style.left='16px'; btn.style.bottom='64px'; btn.style.zIndex='60';
+      document.body.appendChild(btn);
+      let rec;
+      if('webkitSpeechRecognition' in window){
+        rec=new webkitSpeechRecognition(); rec.lang='es-AR'; rec.continuous=false;
+        rec.onresult=e=>{
+          const t=e.results[0][0].transcript.toLowerCase();
+          if(t.includes('contacto')) location.hash='#contacto';
+          if(t.includes('turno')) document.getElementById('cta-turno')?.click();
+          if(t.includes('arriba')) scrollTo({top:0,behavior:'smooth'});
+          if(t.includes('pausa')) location.hash='#pausa';
+        };
+        btn.onclick=()=>rec.start();
+      } else {
+        btn.style.display='none';
+      }
     })();
   </script>
 </body>
