@@ -3,32 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Juan Pablo — Sitio Personal</title>
+  <title>Juan Pablo — Sitio Personal (BUILD v6)</title>
   <meta name="description" content="Sitio personal de Juan Pablo Fernández Rebosio: psiquiatría, tecnología, proyectos y contacto." />
   <style>
-    :root{
-      --bg-1:#0c0f1a; --bg-2:#12172a;
-      --violet:#a99bff; --blue:#7fd0ff;
-      --text:#f2f4ff; --muted:#cfd7ffcc;
-      --shadow:0 16px 36px rgba(0,0,0,.35);
-    }
+    :root{ --bg-1:#0c0f1a; --bg-2:#12172a; --violet:#a99bff; --blue:#7fd0ff; --text:#f2f4ff; --muted:#cfd7ffcc; --shadow:0 16px 36px rgba(0,0,0,.35); }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;
       background:radial-gradient(900px 520px at 8% -12%, rgba(169,155,255,.22), transparent 60%),
                  radial-gradient(800px 460px at 92% -10%, rgba(127,208,255,.18), transparent 60%),
-                 var(--bg-1);color:var(--text)}
+                 var(--bg-1); color:var(--text);}
     .wrap{max-width:1100px;margin:0 auto;padding:24px}
-    header{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);
-      background:linear-gradient(to right, rgba(18,23,42,.9), rgba(18,23,42,.7));
-      border-bottom:1px solid rgba(169,155,255,.25)}
+    header{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);background:linear-gradient(to right, rgba(18,23,42,.9), rgba(18,23,42,.7));border-bottom:1px solid rgba(169,155,255,.25)}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800}
-    .badge{font-size:12px;padding:4px 10px;border-radius:999px;
-      background:linear-gradient(90deg,var(--violet),var(--blue));box-shadow:var(--shadow)}
+    .badge{font-size:12px;padding:4px 10px;border-radius:999px;background:linear-gradient(90deg,var(--violet),var(--blue));box-shadow:var(--shadow)}
     .links{display:flex;gap:12px;flex-wrap:wrap}
-    .links a{padding:10px 12px;border-radius:12px;background:rgba(169,155,255,.14);
-      border:1px solid rgba(169,155,255,.22);color:inherit;text-decoration:none}
+    .links a{padding:10px 12px;border-radius:12px;background:rgba(169,155,255,.14);border:1px solid rgba(169,155,255,.22);color:inherit;text-decoration:none}
     .links a:hover{background:rgba(169,155,255,.22)}
     .hero{padding:48px 0 24px;text-align:center}
     .hero h1{font-size:clamp(28px,4.2vw,44px);margin:0 0 8px}
@@ -38,36 +29,38 @@
       background:radial-gradient(600px 280px at 14% 16%, rgba(169,155,255,.25), transparent 60%),
                  radial-gradient(540px 260px at 86% 18%, rgba(127,208,255,.20), transparent 60%),
                  radial-gradient(640px 260px at 50% 100%, rgba(255,255,255,.06), transparent 60%)}
-    .c-card{position:absolute;border-radius:22px;box-shadow:var(--shadow);overflow:hidden;
-      background:#121635;border:1px solid rgba(199,191,255,.28);z-index:1}
+    .c-card{position:absolute;border-radius:22px;box-shadow:var(--shadow);overflow:hidden;background:#121635;border:1px solid rgba(199,191,255,.28);z-index:1}
     .c-media-img{width:100%;height:100%;object-fit:cover;display:block;background:#1a1f3f}
     .c1{left:4%;top:6%;width:33%;height:60%;transform:rotate(-6deg)}
     .c2{right:6%;top:8%;width:34%;height:56%;transform:rotate(7deg)}
     .c3{left:33%;top:22%;width:30%;height:52%;transform:rotate(-2deg)}
     .c4{left:8%;bottom:-8%;width:30%;height:38%;transform:rotate(8deg)}
     .c5{right:10%;bottom:-10%;width:30%;height:44%;transform:rotate(-8deg)}
+    @media (max-width:860px){.collage{height:360px}.c5{display:none}}
+    @media (max-width:620px){.collage{height:300px}.c3{display:none}}
+    section{margin:44px 0}
     .section-title{font-size:24px;font-weight:800;margin:0 0 14px;text-align:center}
     .grid{display:grid;gap:18px}
     .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
     .tile{background:var(--bg-2);border:1px solid rgba(169,155,255,.20);border-radius:18px;padding:18px}
     .about{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center}
-    .about .photo{border-radius:18px;overflow:hidden;border:1px solid rgba(169,155,255,.22);box-shadow:var(--shadow)}
+    .about .photo{border-radius:18px;overflow:hidden;border:1px solid rgba(169,155,255,.22);box-shadow:var(--shadow);background:#12172a}
     .about .photo img{width:100%;height:100%;object-fit:cover;display:block}
     .contact{display:grid;gap:16px;max-width:640px;margin:0 auto}
-    .contact .item{display:flex;justify-content:space-between;align-items:center;background:var(--bg-2);
-      border:1px solid rgba(169,155,255,.20);padding:14px 16px;border-radius:14px}
+    .contact .item{display:flex;justify-content:space-between;align-items:center;background:var(--bg-2);border:1px solid rgba(169,155,255,.20);padding:14px 16px;border-radius:14px}
     .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
     footer{text-align:center;color:var(--muted);font-size:13px;margin:40px 0 16px}
     .wa{position:fixed;right:16px;bottom:16px;z-index:50}
-    .wa a{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;
-      background:#25D366;color:#0b0b0b;text-decoration:none;font-weight:700;box-shadow:var(--shadow)}
+    .wa a{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;background:#25D366;color:#0b0b0b;text-decoration:none;font-weight:700;box-shadow:var(--shadow)}
+    .diag{max-width:1100px;margin:0 auto 12px;padding:10px 12px;border-radius:12px;background:#0e1430;border:1px solid #3a4aa8}
+    .diag b{color:#a99bff} .ok{color:#7fd0ff} .err{color:#ff8a8a}
   </style>
 </head>
 <body>
   <header>
     <div class="wrap nav">
-      <div class="brand"><span class="badge">JP</span><span>Juan Pablo — Personal</span></div>
-      <nav class="links">
+      <div class="brand"><span class="badge" aria-hidden="true">JP</span><span>Juan Pablo — Personal</span></div>
+      <nav class="links" aria-label="Principal">
         <a href="#about">Sobre mí</a>
         <a href="#proyectos">Proyectos</a>
         <a href="#servicios">Servicios</a>
@@ -76,27 +69,43 @@
     </div>
   </header>
 
+  <!-- Diagnóstico -->
+  <div class="diag">
+    <div><b>Diagnóstico:</b> Probamos Dropbox directo, Dropbox raw, luego local (<code>IMG_1894.JPG</code> y <code>img/IMG_1894.JPG</code>). Si todo falla → placeholder.</div>
+    <div id="diagLog" style="margin-top:6px;font-size:.95rem"></div>
+  </div>
+
   <main class="wrap">
-    <section class="hero">
+    <section class="hero" aria-label="Portada">
       <h1>Psiquiatría, tecnología y proyectos creativos</h1>
       <p>Enfoque humano + herramientas digitales. Paleta suave violeta-azul para una experiencia clara y elegante.</p>
 
-      <div class="collage">
-        <!-- Tu imagen de Dropbox principal -->
-        <figure class="c-card c1"><img class="c-media-img" src="https://www.dropbox.com/scl/fi/gdh9nvqvfx1glexfu1o7x/IMG_1894.JPG?raw=1" alt="Imagen de portada principal"></figure>
-        <figure class="c-card c2"><img class="c-media-img" src="https://picsum.photos/seed/landia2/1200/800" alt=""></figure>
-        <figure class="c-card c3"><img class="c-media-img" src="https://picsum.photos/seed/landia3/1200/800" alt=""></figure>
-        <figure class="c-card c4"><img class="c-media-img" src="https://picsum.photos/seed/landia4/1200/800" alt=""></figure>
-        <figure class="c-card c5"><img class="c-media-img" src="https://picsum.photos/seed/landia5/1200/800" alt=""></figure>
+      <div class="collage" aria-label="Collage de portada">
+        <!-- PRINCIPAL: usa tu nuevo enlace de Dropbox en todas sus formas -->
+        <figure class="c-card c1">
+          <img class="c-media-img"
+               data-candidates="
+                https://dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix |
+                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&raw=1 |
+                IMG_1894.JPG | img/IMG_1894.JPG"
+               data-fallback="https://picsum.photos/seed/landia1/1200/800"
+               alt="Imagen de portada principal">
+        </figure>
+
+        <!-- Las otras se ven siempre (online) -->
+        <figure class="c-card c2"><img class="c-media-img" src="https://picsum.photos/seed/landia2/1200/800" alt="Imagen 2"></figure>
+        <figure class="c-card c3"><img class="c-media-img" src="https://picsum.photos/seed/landia3/1200/800" alt="Imagen 3"></figure>
+        <figure class="c-card c4"><img class="c-media-img" src="https://picsum.photos/seed/landia4/1200/800" alt="Imagen 4"></figure>
+        <figure class="c-card c5"><img class="c-media-img" src="https://picsum.photos/seed/landia5/1200/800" alt="Imagen 5"></figure>
       </div>
     </section>
 
-    <section id="about" class="about">
-      <div class="photo">
+    <section id="about" class="about" aria-labelledby="titulo-about">
+      <div class="photo" role="img" aria-label="Retrato de Juan Pablo">
         <img src="https://picsum.photos/seed/portraitjp/900/700" alt="Retrato de Juan Pablo">
       </div>
       <div class="text">
-        <h2 class="section-title" style="text-align:left">Sobre mí</h2>
+        <h2 id="titulo-about" class="section-title" style="text-align:left">Sobre mí</h2>
         <p>Soy psiquiatra con foco en salud mental y tecnología. Exploro interfaces, automatizaciones y experiencias digitales para potenciar el bienestar, respetando siempre la privacidad de los datos.</p>
         <p>Actualmente desarrollo proyectos como <strong>Landia’s World</strong> y <strong>Likelandii</strong>, integrando creatividad, música y comunidad.</p>
       </div>
@@ -127,12 +136,40 @@
   </div>
 
   <script>
+    // Año + contador
     document.getElementById('year').textContent = new Date().getFullYear();
     (function(){
       const KEY='jp_visit_counter_inline';
       let n=0; try{ n=parseInt(localStorage.getItem(KEY)||'0',10)||0; }catch(_){}
       n++; try{ localStorage.setItem(KEY, String(n)); }catch(_){}
       const el=document.getElementById('visitCounter'); if(el) el.textContent = n.toLocaleString('es-AR');
+    })();
+
+    // Loader con diagnóstico
+    (function(){
+      const log = document.getElementById('diagLog');
+      function append(msg, cls){ if(!log) return; const p=document.createElement('div'); p.textContent=msg; if(cls) p.className=cls; log.appendChild(p); }
+      function tryLoadSequence(imgEl, candidates, fallback){
+        let i = 0;
+        function tryNext(){
+          if(i >= candidates.length){ imgEl.src = fallback; append('Fallback → ' + fallback, 'err'); return; }
+          const url = candidates[i++].trim();
+          const test = new Image();
+          test.onload = function(){ imgEl.src = url; append('OK → ' + url, 'ok'); };
+          test.onerror = function(){ append('ERROR → ' + url, 'err'); tryNext(); };
+          test.src = url + (url.includes('?') ? '&' : '?') + 'v=' + Date.now();
+        }
+        tryNext();
+      }
+      document.querySelectorAll('img[data-candidates]').forEach(img=>{
+        const candidates = img.getAttribute('data-candidates').split('|');
+        const fallback = img.getAttribute('data-fallback');
+        tryLoadSequence(img, candidates, fallback);
+      });
+      document.querySelectorAll('img.c-media-img:not([data-candidates])').forEach(img=>{
+        img.addEventListener('load', ()=>append('OK fijo → ' + img.src, 'ok'));
+        img.addEventListener('error', ()=>append('ERROR fijo → ' + img.src, 'err'));
+      });
     })();
   </script>
 </body>
