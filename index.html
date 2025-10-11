@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Juan Pablo — Sitio Personal (BUILD v8)</title>
+  <title>Juan Pablo — Sitio Personal (BUILD v10)</title>
   <meta name="description" content="Sitio personal de Juan Pablo Fernández Rebosio: psiquiatría, tecnología, proyectos y contacto." />
   <style>
     :root{ --bg-1:#0c0f1a; --bg-2:#12172a; --violet:#a99bff; --blue:#7fd0ff; --text:#f2f4ff; --muted:#cfd7ffcc; --shadow:0 16px 36px rgba(0,0,0,.35); }
@@ -71,7 +71,7 @@
 
   <!-- Diagnóstico -->
   <div class="diag">
-    <div><b>Diagnóstico:</b> Intentamos Dropbox (varias formas) → Proxy → Local (collage-X.jpg) → Fallback, para cada imagen.</div>
+    <div><b>Diagnóstico:</b> Para cada imagen probamos Dropbox (dl/dropbox + raw/dl) → Proxy → Local (collage-X.jpg) → Fallback.</div>
     <div id="diagLog" style="margin-top:6px;font-size:.95rem"></div>
   </div>
 
@@ -81,7 +81,7 @@
       <p>Enfoque humano + herramientas digitales. Paleta suave violeta-azul para una experiencia clara y elegante.</p>
 
       <div class="collage" aria-label="Collage de portada">
-        <!-- 1) Tu link ya comprobado -->
+        <!-- 1) IMG_1894.JPG (ya validada antes) -->
         <figure class="c-card c1">
           <img class="c-media-img"
                data-candidates="
@@ -94,53 +94,53 @@
                alt="Imagen 1">
         </figure>
 
-        <!-- 2) Generado automáticamente: IMG_1895.JPG -->
+        <!-- 2) collage-2 (tu link) -->
         <figure class="c-card c2">
           <img class="c-media-img"
                data-candidates="
-                https://dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1895.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix |
-                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1895.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&raw=1 |
-                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1895.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&dl=1 |
-                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1895.JPG%3Frlkey%3Dhyte6ymxzjbqwql4qxec14uix&w=1200&h=800&fit=cover |
+                https://dl.dropboxusercontent.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG?rlkey=znjd49w9vobvts5kwcv2rqe9x |
+                https://www.dropbox.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG?rlkey=znjd49w9vobvts5kwcv2rqe9x&raw=1 |
+                https://www.dropbox.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG?rlkey=znjd49w9vobvts5kwcv2rqe9x&dl=1 |
+                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG%3Frlkey%3Dznjd49w9vobvts5kwcv2rqe9x&w=1200&h=800&fit=cover |
                 collage-2.jpg | img/collage-2.jpg"
                data-fallback="https://picsum.photos/seed/landia2/1200/800"
                alt="Imagen 2">
         </figure>
 
-        <!-- 3) Generado automáticamente: IMG_1896.JPG -->
+        <!-- 3) collage-3 (tu link) -->
         <figure class="c-card c3">
           <img class="c-media-img"
                data-candidates="
-                https://dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1896.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix |
-                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1896.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&raw=1 |
-                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1896.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&dl=1 |
-                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1896.JPG%3Frlkey%3Dhyte6ymxzjbqwql4qxec14uix&w=1200&h=800&fit=cover |
+                https://dl.dropboxusercontent.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?rlkey=mv7vg3qaa3efqtpykv32v9p5l |
+                https://www.dropbox.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?rlkey=mv7vg3qaa3efqtpykv32v9p5l&raw=1 |
+                https://www.dropbox.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?rlkey=mv7vg3qaa3efqtpykv32v9p5l&dl=1 |
+                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG%3Frlkey%3Dmv7vg3qaa3efqtpykv32v9p5l&w=1200&h=800&fit=cover |
                 collage-3.jpg | img/collage-3.jpg"
                data-fallback="https://picsum.photos/seed/landia3/1200/800"
                alt="Imagen 3">
         </figure>
 
-        <!-- 4) Generado automáticamente: IMG_1897.JPG -->
+        <!-- 4) collage-4 (nuevo link) -->
         <figure class="c-card c4">
           <img class="c-media-img"
                data-candidates="
-                https://dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1897.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix |
-                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1897.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&raw=1 |
-                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1897.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&dl=1 |
-                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1897.JPG%3Frlkey%3Dhyte6ymxzjbqwql4qxec14uix&w=1200&h=800&fit=cover |
+                https://dl.dropboxusercontent.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?rlkey=327nne8usg9x4d0nyamnek6k5 |
+                https://www.dropbox.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?rlkey=327nne8usg9x4d0nyamnek6k5&raw=1 |
+                https://www.dropbox.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?rlkey=327nne8usg9x4d0nyamnek6k5&dl=1 |
+                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG%3Frlkey%3D327nne8usg9x4d0nyamnek6k5&w=1200&h=800&fit=cover |
                 collage-4.jpg | img/collage-4.jpg"
                data-fallback="https://picsum.photos/seed/landia4/1200/800"
                alt="Imagen 4">
         </figure>
 
-        <!-- 5) Generado automáticamente: IMG_1898.JPG -->
+        <!-- 5) collage-5 (nuevo link) -->
         <figure class="c-card c5">
           <img class="c-media-img"
                data-candidates="
-                https://dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1898.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix |
-                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1898.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&raw=1 |
-                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1898.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&dl=1 |
-                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1898.JPG%3Frlkey%3Dhyte6ymxzjbqwql4qxec14uix&w=1200&h=800&fit=cover |
+                https://dl.dropboxusercontent.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG?rlkey=k33t9epqqrjmuritonz8gjzi3 |
+                https://www.dropbox.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG?rlkey=k33t9epqqrjmuritonz8gjzi3&raw=1 |
+                https://www.dropbox.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG?rlkey=k33t9epqqrjmuritonz8gjzi3&dl=1 |
+                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG%3Frlkey%3Dk33t9epqqrjmuritonz8gjzi3&w=1200&h=800&fit=cover |
                 collage-5.jpg | img/collage-5.jpg"
                data-fallback="https://picsum.photos/seed/landia5/1200/800"
                alt="Imagen 5">
@@ -204,7 +204,7 @@
         const candidates = raw.split('|').map(s=>s.trim()).filter(Boolean);
         let i = 0;
         function tryNext(){
-          if(i >= candidates.length){ imgEl.src = fb; append('Fallback → ' + fb, 'err'); return; }
+          if(i >= candidates.length){ if(fb){ imgEl.src = fb; append('Fallback → ' + fb, 'err'); } return; }
           const url = candidates[i++];
           const probe = new Image();
           probe.onload = function(){ imgEl.src = url; append('OK → ' + url, 'ok'); };
@@ -214,7 +214,6 @@
         tryNext();
       }
       document.querySelectorAll('img[data-candidates]').forEach(tryLoadSequence);
-      // Registro de las fijas
       document.querySelectorAll('img.c-media-img:not([data-candidates])').forEach(img=>{
         img.addEventListener('load', ()=>append('OK fijo → ' + img.src, 'ok'));
         img.addEventListener('error', ()=>append('ERROR fijo → ' + img.src, 'err'));
