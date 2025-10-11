@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Juan Pablo — Sitio Personal (BUILD v6)</title>
+  <title>Juan Pablo — Sitio Personal (BUILD v8)</title>
   <meta name="description" content="Sitio personal de Juan Pablo Fernández Rebosio: psiquiatría, tecnología, proyectos y contacto." />
   <style>
     :root{ --bg-1:#0c0f1a; --bg-2:#12172a; --violet:#a99bff; --blue:#7fd0ff; --text:#f2f4ff; --muted:#cfd7ffcc; --shadow:0 16px 36px rgba(0,0,0,.35); }
@@ -71,7 +71,7 @@
 
   <!-- Diagnóstico -->
   <div class="diag">
-    <div><b>Diagnóstico:</b> Probamos Dropbox directo, Dropbox raw, luego local (<code>IMG_1894.JPG</code> y <code>img/IMG_1894.JPG</code>). Si todo falla → placeholder.</div>
+    <div><b>Diagnóstico:</b> Intentamos Dropbox (varias formas) → Proxy → Local (collage-X.jpg) → Fallback, para cada imagen.</div>
     <div id="diagLog" style="margin-top:6px;font-size:.95rem"></div>
   </div>
 
@@ -81,22 +81,70 @@
       <p>Enfoque humano + herramientas digitales. Paleta suave violeta-azul para una experiencia clara y elegante.</p>
 
       <div class="collage" aria-label="Collage de portada">
-        <!-- PRINCIPAL: usa tu nuevo enlace de Dropbox en todas sus formas -->
+        <!-- 1) Tu link ya comprobado -->
         <figure class="c-card c1">
           <img class="c-media-img"
                data-candidates="
                 https://dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix |
                 https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&raw=1 |
-                IMG_1894.JPG | img/IMG_1894.JPG"
+                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&dl=1 |
+                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG%3Frlkey%3Dhyte6ymxzjbqwql4qxec14uix&w=1200&h=800&fit=cover |
+                collage-1.jpg | img/collage-1.jpg"
                data-fallback="https://picsum.photos/seed/landia1/1200/800"
-               alt="Imagen de portada principal">
+               alt="Imagen 1">
         </figure>
 
-        <!-- Las otras se ven siempre (online) -->
-        <figure class="c-card c2"><img class="c-media-img" src="https://picsum.photos/seed/landia2/1200/800" alt="Imagen 2"></figure>
-        <figure class="c-card c3"><img class="c-media-img" src="https://picsum.photos/seed/landia3/1200/800" alt="Imagen 3"></figure>
-        <figure class="c-card c4"><img class="c-media-img" src="https://picsum.photos/seed/landia4/1200/800" alt="Imagen 4"></figure>
-        <figure class="c-card c5"><img class="c-media-img" src="https://picsum.photos/seed/landia5/1200/800" alt="Imagen 5"></figure>
+        <!-- 2) Generado automáticamente: IMG_1895.JPG -->
+        <figure class="c-card c2">
+          <img class="c-media-img"
+               data-candidates="
+                https://dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1895.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix |
+                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1895.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&raw=1 |
+                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1895.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&dl=1 |
+                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1895.JPG%3Frlkey%3Dhyte6ymxzjbqwql4qxec14uix&w=1200&h=800&fit=cover |
+                collage-2.jpg | img/collage-2.jpg"
+               data-fallback="https://picsum.photos/seed/landia2/1200/800"
+               alt="Imagen 2">
+        </figure>
+
+        <!-- 3) Generado automáticamente: IMG_1896.JPG -->
+        <figure class="c-card c3">
+          <img class="c-media-img"
+               data-candidates="
+                https://dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1896.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix |
+                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1896.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&raw=1 |
+                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1896.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&dl=1 |
+                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1896.JPG%3Frlkey%3Dhyte6ymxzjbqwql4qxec14uix&w=1200&h=800&fit=cover |
+                collage-3.jpg | img/collage-3.jpg"
+               data-fallback="https://picsum.photos/seed/landia3/1200/800"
+               alt="Imagen 3">
+        </figure>
+
+        <!-- 4) Generado automáticamente: IMG_1897.JPG -->
+        <figure class="c-card c4">
+          <img class="c-media-img"
+               data-candidates="
+                https://dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1897.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix |
+                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1897.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&raw=1 |
+                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1897.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&dl=1 |
+                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1897.JPG%3Frlkey%3Dhyte6ymxzjbqwql4qxec14uix&w=1200&h=800&fit=cover |
+                collage-4.jpg | img/collage-4.jpg"
+               data-fallback="https://picsum.photos/seed/landia4/1200/800"
+               alt="Imagen 4">
+        </figure>
+
+        <!-- 5) Generado automáticamente: IMG_1898.JPG -->
+        <figure class="c-card c5">
+          <img class="c-media-img"
+               data-candidates="
+                https://dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1898.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix |
+                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1898.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&raw=1 |
+                https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1898.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&dl=1 |
+                https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1898.JPG%3Frlkey%3Dhyte6ymxzjbqwql4qxec14uix&w=1200&h=800&fit=cover |
+                collage-5.jpg | img/collage-5.jpg"
+               data-fallback="https://picsum.photos/seed/landia5/1200/800"
+               alt="Imagen 5">
+        </figure>
       </div>
     </section>
 
@@ -131,6 +179,7 @@
 
   <footer>© <span id="year"></span> Juan Pablo — Todos los derechos reservados.</footer>
 
+  <!-- WhatsApp -->
   <div class="wa">
     <a href="https://wa.me/541124605401?text=Hola%20Juan%20Pablo%2C%20quiero%20un%20turno" target="_blank" rel="noopener">WhatsApp</a>
   </div>
@@ -149,23 +198,23 @@
     (function(){
       const log = document.getElementById('diagLog');
       function append(msg, cls){ if(!log) return; const p=document.createElement('div'); p.textContent=msg; if(cls) p.className=cls; log.appendChild(p); }
-      function tryLoadSequence(imgEl, candidates, fallback){
+      function tryLoadSequence(imgEl){
+        const raw = imgEl.getAttribute('data-candidates')||'';
+        const fb  = imgEl.getAttribute('data-fallback');
+        const candidates = raw.split('|').map(s=>s.trim()).filter(Boolean);
         let i = 0;
         function tryNext(){
-          if(i >= candidates.length){ imgEl.src = fallback; append('Fallback → ' + fallback, 'err'); return; }
-          const url = candidates[i++].trim();
-          const test = new Image();
-          test.onload = function(){ imgEl.src = url; append('OK → ' + url, 'ok'); };
-          test.onerror = function(){ append('ERROR → ' + url, 'err'); tryNext(); };
-          test.src = url + (url.includes('?') ? '&' : '?') + 'v=' + Date.now();
+          if(i >= candidates.length){ imgEl.src = fb; append('Fallback → ' + fb, 'err'); return; }
+          const url = candidates[i++];
+          const probe = new Image();
+          probe.onload = function(){ imgEl.src = url; append('OK → ' + url, 'ok'); };
+          probe.onerror = function(){ append('ERROR → ' + url, 'err'); tryNext(); };
+          probe.src = url + (url.includes('?') ? '&' : '?') + 'v=' + Date.now(); // rompe caché
         }
         tryNext();
       }
-      document.querySelectorAll('img[data-candidates]').forEach(img=>{
-        const candidates = img.getAttribute('data-candidates').split('|');
-        const fallback = img.getAttribute('data-fallback');
-        tryLoadSequence(img, candidates, fallback);
-      });
+      document.querySelectorAll('img[data-candidates]').forEach(tryLoadSequence);
+      // Registro de las fijas
       document.querySelectorAll('img.c-media-img:not([data-candidates])').forEach(img=>{
         img.addEventListener('load', ()=>append('OK fijo → ' + img.src, 'ok'));
         img.addEventListener('error', ()=>append('ERROR fijo → ' + img.src, 'err'));
