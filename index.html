@@ -2,101 +2,82 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Juan Pablo Fernández Rebosio | Médico Psiquiatra</title>
-  <meta name="description" content="Sitio profesional de Juan Pablo Fernández Rebosio, médico psiquiatra en Luján, Buenos Aires. Atención presencial y online." />
+  <meta name="description" content="Sitio profesional de Juan Pablo Fernández Rebosio, médico psiquiatra en Luján (Buenos Aires). Atención presencial y online." />
   <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
   <meta http-equiv="pragma" content="no-cache" />
   <meta http-equiv="expires" content="0" />
+
   <style>
     :root {
       --violet:#b78cff; --pink:#ff7ccf; --blue:#7fd0ff;
-      --bg: #faf8ff; --ink:#0b0b0b; --muted:#666;
+      --ink:#0b0b0b; --muted:#666; --bg:#faf8ff;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
+    *{box-sizing:border-box}
     html{scroll-behavior:smooth}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--ink);line-height:1.6;overflow-x:hidden}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:var(--bg);line-height:1.65}
 
-    /* Top bar */
-    .topbar{
-      position:sticky;top:0;z-index:50;
-      background:linear-gradient(90deg,var(--violet),var(--pink),var(--blue));
-      color:#fff; box-shadow:0 4px 16px rgba(0,0,0,.08)
-    }
-    .topbar .wrap{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{font-weight:800;letter-spacing:.2px}
+    /* Version banner */
+    .ver{position:sticky;top:0;z-index:1000;text-align:center;font-weight:900;padding:10px;
+      background:linear-gradient(90deg,var(--violet),var(--pink),var(--blue));color:#0b0b0b;border-bottom:2px solid #fff6}
+
+    /* Top nav */
+    .topbar{position:sticky;top:42px;z-index:900;background:#ffffffcc;backdrop-filter:blur(8px);border-bottom:1px solid #eee}
+    .topwrap{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{font-weight:800}
     .nav{display:flex;gap:10px;flex-wrap:wrap}
-    .nav a{
-      color:#0b0b0b;background:#ffffffcc;padding:8px 12px;border-radius:12px;
-      text-decoration:none;font-weight:700;border:1px solid #ffffff66
-    }
-    .nav a:hover{background:#fff;border-color:#fff;transform:translateY(-1px);transition:.2s}
+    .nav a{color:var(--ink);text-decoration:none;font-weight:700;padding:8px 12px;border-radius:12px;border:1px solid #eee;background:#fff}
+    .nav a:hover{border-color:#ddd;transform:translateY(-1px);transition:.2s}
 
+    /* Sections */
+    section{max-width:1100px;margin:0 auto;padding:44px 16px}
     header.hero{
-      text-align:center;color:#fff;padding:76px 20px 64px;
-      background:radial-gradient(700px 420px at 10% -10%, rgba(255,255,255,.25), transparent 60%),
-                 radial-gradient(700px 420px at 90% -8%, rgba(255,255,255,.18), transparent 60%),
-                 linear-gradient(135deg,var(--violet),var(--pink),var(--blue));
+      background:radial-gradient(700px 420px at 10% -10%, rgba(183,140,255,.25), transparent 60%),
+                 radial-gradient(700px 420px at 90% -8%, rgba(255,124,207,.18), transparent 60%),
+                 linear-gradient(120deg,var(--violet),var(--pink),var(--blue));
+      color:#fff;text-align:center;padding:72px 16px 60px;margin-bottom:8px
     }
-    header.hero h1{font-size:clamp(28px,4.2vw,36px);margin-bottom:8px}
-    header.hero p{font-size:clamp(15px,2.4vw,18px);opacity:.95}
+    header.hero h1{margin:0 0 8px;font-size:clamp(26px,4vw,36px)}
+    header.hero p{margin:0;font-size:clamp(14px,2.2vw,18px)}
 
-    section{padding:56px 8%;max-width:1100px;margin:0 auto}
-    .section-title{
-      font-size:1.8rem;margin:0 0 18px;text-align:center;
+    .title{
+      margin:0 0 18px;text-align:center;font-weight:900;font-size:1.8rem;
       background:linear-gradient(90deg,var(--violet),var(--pink),var(--blue));
-      -webkit-background-clip:text;background-clip:text;color:transparent;font-weight:900
+      -webkit-background-clip:text;background-clip:text;color:transparent
     }
 
     /* About */
-    .about{display:flex;flex-wrap:wrap;gap:28px;align-items:center}
-    .about .photo img{
-      width:320px;max-width:100%;height:auto;border-radius:20px;
-      box-shadow:0 6px 18px rgba(0,0,0,.12);border:2px solid #e9ddff
-    }
+    .about{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+    .about .photo img{width:320px;max-width:100%;height:auto;border-radius:18px;border:2px solid #e7ddff;box-shadow:0 6px 18px rgba(0,0,0,.12)}
     .about .text{flex:1 1 360px}
-    ul{list-style:disc;margin-left:18px}
+    ul{margin:8px 0 0 18px}
 
-    /* Cards / grid */
-    .grid{display:grid;gap:20px}
+    /* Cards grid */
+    .grid{display:grid;gap:18px}
     .cols-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-    .tile{
-      background:#fff;border-radius:16px;padding:20px;box-shadow:0 2px 8px rgba(0,0,0,.06);
-      border:1px solid #eee;transition:.25s
-    }
-    .tile:hover{transform:translateY(-2px);box-shadow:0 10px 18px rgba(0,0,0,.08)}
+    .tile{background:#fff;border:1px solid #eee;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+    .tile:hover{transform:translateY(-2px);box-shadow:0 10px 16px rgba(0,0,0,.08);transition:.25s}
 
     /* CTA */
-    .cta{
-      background:linear-gradient(135deg,var(--violet),var(--pink));
-      color:#fff;border:none;padding:10px 18px;border-radius:30px;
-      font-weight:800;text-decoration:none;display:inline-block;transition:.25s;text-align:center
-    }
+    .cta{display:inline-block;background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;
+      padding:10px 18px;border-radius:28px;text-decoration:none;font-weight:800}
     .cta:hover{opacity:.95;transform:translateY(-1px)}
 
-    /* Contact */
-    #contacto{
-      background:linear-gradient(120deg,#fff,#f7f2ff);
-      border-radius:20px;box-shadow:0 2px 10px rgba(0,0,0,.05);text-align:center;padding:40px 20px
-    }
+    /* Contact block */
+    #contacto .box{background:linear-gradient(120deg,#fff,#f7f2ff);border:1px solid #eee;border-radius:18px;padding:24px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.05)}
 
-    footer{
-      background:linear-gradient(90deg,var(--violet),var(--pink),var(--blue));
-      color:#fff;text-align:center;padding:16px 10px;font-size:.95rem;margin-top:36px
-    }
-
-    /* PDF thumbnail nice touch */
-    .pdf-thumb{
-      width:90px;height:auto;filter:drop-shadow(0 0 6px rgba(183,140,255,.6));
-      transition:.35s;margin-bottom:12px
-    }
-    .pdf-thumb:hover{transform:scale(1.04)}
+    /* Footer */
+    footer{margin-top:32px;text-align:center;color:#fff;padding:14px;background:linear-gradient(90deg,var(--violet),var(--pink),var(--blue))}
   </style>
 </head>
 <body>
+  <!-- VERSION -->
+  <div class="ver">BUILD v20 — Página completa cargada</div>
+
   <!-- NAV -->
   <div class="topbar">
-    <div class="wrap">
+    <div class="topwrap">
       <div class="brand">JP · Psiquiatría</div>
       <nav class="nav" aria-label="Principal">
         <a href="#home">Inicio</a>
@@ -107,53 +88,55 @@
     </div>
   </div>
 
-  <!-- HERO -->
-  <header id="home" class="hero">
+  <!-- HERO (INICIO) -->
+  <header id="home" class="hero" role="banner" aria-label="Portada">
     <h1>Juan Pablo Fernández Rebosio</h1>
     <p>Médico Psiquiatra · Luján, Buenos Aires · Atención presencial y online</p>
   </header>
 
   <!-- SOBRE MÍ -->
-  <section id="about" class="about" aria-labelledby="titulo-about">
-    <div class="photo">
-      <img
-        src="https://www.dropbox.com/scl/fi/24vfuqim1heomyyfvboq9/520590217_10161900831263763_8879586893041454091_n.jpg?raw=1"
-        alt="Juan Pablo Fernández Rebosio">
-    </div>
-    <div class="text">
-      <h2 id="titulo-about" class="section-title" style="text-align:left">Sobre mí</h2>
-      <p>
-        Soy <strong>Juan Pablo Fernández Rebosio</strong>, médico psiquiatra con práctica en Luján (Buenos Aires).<br>
-        Mi enfoque es humano y práctico: construir rutinas que bajen el estrés, mejoren el sueño y acompañen el ánimo,
-        sumando tecnología solo cuando aporta claridad y continuidad del cuidado.
-      </p>
-      <h3 style="margin:10px 0 6px">En qué puedo ayudarte</h3>
-      <ul>
-        <li>Ansiedad, estrés, trastornos del estado de ánimo y dificultades del sueño.</li>
-        <li>Procesos de <em>burnout</em>, foco/atención y retorno al funcionamiento diario.</li>
-        <li>Plan de hábitos: respiración, descanso, movimiento y estructura semanal.</li>
-      </ul>
-      <h3 style="margin:10px 0 6px">Cómo trabajo</h3>
-      <ul>
-        <li>Primera entrevista → historia clínica, objetivos y plan conjunto.</li>
-        <li>Seguimiento breve, con materiales simples y objetivos medibles.</li>
-        <li>Privacidad y consentimiento: datos mínimos y comunicación clara.</li>
-      </ul>
-      <p style="color:var(--muted);margin-top:12px">
-        Atiendo en <strong>Luján, Provincia de Buenos Aires</strong>, con modalidad presencial y online.
-      </p>
-      <p><a class="cta" href="#contacto">Escribirme ahora</a></p>
+  <section id="about" aria-labelledby="tit-about">
+    <h2 id="tit-about" class="title">Sobre mí</h2>
+    <div class="about">
+      <div class="photo">
+        <img
+          src="https://www.dropbox.com/scl/fi/24vfuqim1heomyyfvboq9/520590217_10161900831263763_8879586893041454091_n.jpg?raw=1"
+          alt="Juan Pablo Fernández Rebosio">
+      </div>
+      <div class="text">
+        <p>
+          Soy <strong>Juan Pablo Fernández Rebosio</strong>, médico psiquiatra con práctica en Luján (Buenos Aires).
+          Mi enfoque es humano y práctico: construir rutinas que bajen el estrés, mejoren el sueño y acompañen el ánimo,
+          sumando tecnología solo cuando aporta claridad y continuidad del cuidado.
+        </p>
+        <h3 style="margin:12px 0 6px">En qué puedo ayudarte</h3>
+        <ul>
+          <li>Ansiedad, estrés, trastornos del estado de ánimo y dificultades del sueño.</li>
+          <li>Procesos de <em>burnout</em>, foco/atención y retorno al funcionamiento diario.</li>
+          <li>Plan de hábitos: respiración, descanso, movimiento y estructura semanal.</li>
+        </ul>
+        <h3 style="margin:14px 0 6px">Cómo trabajo</h3>
+        <ul>
+          <li>Primera entrevista → historia clínica, objetivos y plan conjunto.</li>
+          <li>Seguimiento breve, con materiales simples y objetivos medibles.</li>
+          <li>Privacidad y consentimiento: datos mínimos y comunicación clara.</li>
+        </ul>
+        <p style="color:var(--muted);margin-top:12px">
+          Atiendo en <strong>Luján, Provincia de Buenos Aires</strong>, con modalidad presencial y online.
+        </p>
+        <p><a class="cta" href="#contacto">Escribirme ahora</a></p>
+      </div>
     </div>
   </section>
 
-  <!-- CV -->
-  <section id="cv" aria-labelledby="titulo-cv" style="margin-top:18px">
-    <h2 id="titulo-cv" class="section-title">Formación y Experiencia</h2>
+  <!-- CURRÍCULUM -->
+  <section id="cv" aria-labelledby="tit-cv">
+    <h2 id="tit-cv" class="title">Formación y Experiencia</h2>
 
-    <div class="grid cols-3" style="margin-bottom:18px">
+    <div class="grid cols-3" style="margin-bottom:16px">
       <article class="tile">
         <strong>Formación Universitaria</strong>
-        <ul>
+        <ul style="margin-top:8px">
           <li>Médico – Facultad de Medicina, UBA (egreso 2011).</li>
           <li>Concurrencia en Psiquiatría – Hospital Álvarez (2012–2017).</li>
           <li>Especialista Universitario en Psiquiatría – UBA/INEBA (2017).</li>
@@ -162,22 +145,24 @@
 
       <article class="tile">
         <strong>Posgrado</strong>
-        <ul><li>Curso Superior de Psicofarmacología Clínica (2019–2020).</li></ul>
+        <ul style="margin-top:8px">
+          <li>Curso Superior de Psicofarmacología Clínica (2019–2020).</li>
+        </ul>
       </article>
 
       <article class="tile">
         <strong>Idiomas y Tecnología</strong>
-        <ul>
+        <ul style="margin-top:8px">
           <li>Inglés fluido (PET – University of Cambridge, 1998).</li>
           <li>Informática: Office, bases de datos y mantenimiento web.</li>
         </ul>
       </article>
     </div>
 
-    <div class="grid cols-3" style="margin-bottom:18px">
+    <div class="grid cols-3" style="margin-bottom:16px">
       <article class="tile">
         <strong>Experiencia Asistencial</strong>
-        <ul>
+        <ul style="margin-top:8px">
           <li>Policlínico Municipal de Luján — Médico Psiquiatra (2023–actualidad).</li>
           <li>Clínica San Juan de Dios — Planta Psiquiatría (2018–actualidad).</li>
           <li>Hospital Británico — Staff (2018).</li>
@@ -186,7 +171,7 @@
 
       <article class="tile">
         <strong>Coordinación</strong>
-        <ul>
+        <ul style="margin-top:8px">
           <li>Extensión Comunitaria — San Juan de Dios Luján (2018–actualidad).</li>
           <li>Hospital de Día y Consultorios Externos — Santa Elena de la Paz (2016–2019).</li>
         </ul>
@@ -194,17 +179,17 @@
 
       <article class="tile">
         <strong>Congresos y Actividad Científica</strong>
-        <ul>
+        <ul style="margin-top:8px">
           <li>APSA / AAP (2011, 2013, 2014, 2018, 2020).</li>
           <li>WPA–APAL, Cartagena (2021) — Ponencia sobre integración comunitaria.</li>
         </ul>
       </article>
     </div>
 
-    <div class="grid cols-3" style="margin-bottom:18px;align-items:flex-start">
+    <div class="grid cols-3" style="align-items:flex-start">
       <article class="tile">
         <strong>Matrículas</strong>
-        <ul>
+        <ul style="margin-top:8px">
           <li>Matrícula Nacional: 141467.</li>
           <li>Matrícula Provincial: 551790.</li>
         </ul>
@@ -215,7 +200,7 @@
 
       <article class="tile">
         <strong>Modalidad de atención</strong>
-        <ul>
+        <ul style="margin-top:8px">
           <li>Presencial y online.</li>
           <li>Coordinación con equipos y familia cuando corresponde.</li>
         </ul>
@@ -223,7 +208,8 @@
 
       <article class="tile" style="display:flex;flex-direction:column;align-items:center;text-align:center">
         <strong style="margin-bottom:8px">CV completo</strong>
-        <img class="pdf-thumb" src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg" alt="Miniatura CV PDF">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg"
+             alt="Miniatura CV PDF" style="width:90px;height:auto;filter:drop-shadow(0 0 6px rgba(183,140,255,.6));margin-bottom:12px">
         <p style="color:var(--muted);margin:0 0 12px">Descargá el documento completo en el formato que prefieras.</p>
         <p style="display:flex;flex-direction:column;gap:8px;width:100%">
           <a class="cta" href="CV_JPFR_sitio.pdf" target="_blank" rel="noopener">📄 Ver CV en PDF (sitio)</a>
@@ -234,36 +220,33 @@
   </section>
 
   <!-- CONTACTO -->
-  <section id="contacto">
-    <h2 class="section-title">Contacto</h2>
-    <p>Ubicación: <strong>Luján, Provincia de Buenos Aires, Argentina</strong></p>
-    <p>Email: <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></p>
-    <p>WhatsApp: <a href="https://wa.me/541124605401" target="_blank">+54 11 2460-5401</a></p>
-    <p style="margin-top:12px"><a class="cta" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Solicitar turno</a></p>
-    <div style="margin-top:20px;font-size:.9rem;color:var(--muted)">
-      Visitas registradas: <span id="visitCounter">0</span>
+  <section id="contacto" aria-labelledby="tit-contacto">
+    <h2 id="tit-contacto" class="title">Contacto</h2>
+    <div class="box">
+      <p>Ubicación: <strong>Luján, Provincia de Buenos Aires, Argentina</strong></p>
+      <p>Email: <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></p>
+      <p>WhatsApp: <a href="https://wa.me/541124605401" target="_blank" rel="noopener">+54 11 2460-5401</a></p>
+      <p style="margin-top:12px"><a class="cta" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Solicitar turno</a></p>
+      <div style="margin-top:16px;font-size:.95rem;color:var(--muted)">Visitas registradas: <span id="visitCounter">0</span></div>
     </div>
   </section>
 
   <footer>
-    © <span id="year"></span> Juan Pablo Fernández Rebosio | Luján (Buenos Aires)
+    © <span id="year"></span> Juan Pablo Fernández Rebosio · Luján (Buenos Aires)
   </footer>
 
   <script>
     // Año + contador
-    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById('year').textContent = new Date().getFullYear();
     try{
-      const KEY="jp_visit_counter_inline";
-      let n=parseInt(localStorage.getItem(KEY)||"0",10)||0;
+      const KEY='jp_visit_counter_inline';
+      let n=parseInt(localStorage.getItem(KEY)||'0',10)||0;
       localStorage.setItem(KEY,String(++n));
-      const el=document.getElementById("visitCounter");
-      if(el) el.textContent=n.toLocaleString("es-AR");
+      const el=document.getElementById('visitCounter'); if(el) el.textContent=n.toLocaleString('es-AR');
     }catch(_){}
 
-    // Asegurar que al entrar SIN ancla se arranque arriba (evita quedar "anclado" a #about por historial)
-    document.addEventListener("DOMContentLoaded", ()=>{
-      if(!location.hash){ setTimeout(()=>window.scrollTo({top:0,left:0,behavior:"instant"}), 10); }
-    });
+    // Si no hay hash (#about, #cv, etc.), forzar inicio arriba (evita “quedar pegado” a una sección por historial/caché)
+    document.addEventListener('DOMContentLoaded',()=>{ if(!location.hash){ window.scrollTo(0,0); } });
   </script>
 </body>
 </html>
