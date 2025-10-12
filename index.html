@@ -1,98 +1,97 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Juan Pablo Fernández Rebosio | Médico Psiquiatra</title>
-  <meta name="description" content="Sitio profesional de Juan Pablo Fernández Rebosio, médico psiquiatra en Luján (Buenos Aires). Atención presencial y online." />
-  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="pragma" content="no-cache" />
-  <meta http-equiv="expires" content="0" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Juan Pablo Fernández Rebosio | Médico Psiquiatra</title>
+<meta name="description" content="Sitio profesional de Juan Pablo Fernández Rebosio, médico psiquiatra en Luján (Buenos Aires). Atención presencial y online." />
+<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="0" />
+<style>
+  :root{
+    --violet:#b78cff; --pink:#ff7ccf; --blue:#7fd0ff;
+    --ink:#0b0b0b; --muted:#666; --bg:#faf8ff;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--ink);line-height:1.65}
 
-  <style>
-    :root {
-      --violet:#b78cff; --pink:#ff7ccf; --blue:#7fd0ff;
-      --ink:#0b0b0b; --muted:#666; --bg:#faf8ff;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;color:var(--ink);background:var(--bg);line-height:1.65}
+  /* Banner de versión para verificar que cargó correcto */
+  .ver{position:relative;text-align:center;font-weight:900;padding:10px;
+    background:linear-gradient(90deg,var(--violet),var(--pink),var(--blue));color:#0b0b0b;border-bottom:2px solid #fff6}
 
-    /* Version banner */
-    .ver{position:sticky;top:0;z-index:1000;text-align:center;font-weight:900;padding:10px;
-      background:linear-gradient(90deg,var(--violet),var(--pink),var(--blue));color:#0b0b0b;border-bottom:2px solid #fff6}
+  /* NAV (NO sticky para evitar solapamientos) */
+  .navwrap{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .brand{font-weight:800}
+  .nav{display:flex;gap:10px;flex-wrap:wrap}
+  .nav a{color:var(--ink);text-decoration:none;font-weight:700;padding:8px 12px;border-radius:12px;border:1px solid #eee;background:#fff}
+  .nav a:hover{border-color:#ddd;transform:translateY(-1px);transition:.2s}
 
-    /* Top nav */
-    .topbar{position:sticky;top:42px;z-index:900;background:#ffffffcc;backdrop-filter:blur(8px);border-bottom:1px solid #eee}
-    .topwrap{max-width:1100px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-    .brand{font-weight:800}
-    .nav{display:flex;gap:10px;flex-wrap:wrap}
-    .nav a{color:var(--ink);text-decoration:none;font-weight:700;padding:8px 12px;border-radius:12px;border:1px solid #eee;background:#fff}
-    .nav a:hover{border-color:#ddd;transform:translateY(-1px);transition:.2s}
+  /* SECCIONES */
+  section{max-width:1100px;margin:0 auto;padding:44px 16px;display:block;overflow:visible}
+  .title{
+    margin:0 0 18px;text-align:center;font-weight:900;font-size:1.8rem;
+    background:linear-gradient(90deg,var(--violet),var(--pink),var(--blue));
+    -webkit-background-clip:text;background-clip:text;color:transparent
+  }
 
-    /* Sections */
-    section{max-width:1100px;margin:0 auto;padding:44px 16px}
-    header.hero{
-      background:radial-gradient(700px 420px at 10% -10%, rgba(183,140,255,.25), transparent 60%),
-                 radial-gradient(700px 420px at 90% -8%, rgba(255,124,207,.18), transparent 60%),
-                 linear-gradient(120deg,var(--violet),var(--pink),var(--blue));
-      color:#fff;text-align:center;padding:72px 16px 60px;margin-bottom:8px
-    }
-    header.hero h1{margin:0 0 8px;font-size:clamp(26px,4vw,36px)}
-    header.hero p{margin:0;font-size:clamp(14px,2.2vw,18px)}
+  /* HERO */
+  .hero{
+    margin-top:8px;
+    background:radial-gradient(700px 420px at 10% -10%, rgba(183,140,255,.25), transparent 60%),
+               radial-gradient(700px 420px at 90% -8%, rgba(255,124,207,.18), transparent 60%),
+               linear-gradient(120deg,var(--violet),var(--pink),var(--blue));
+    color:#fff;text-align:center;padding:72px 16px 60px
+  }
+  .hero h1{margin:0 0 8px;font-size:clamp(26px,4vw,36px)}
+  .hero p{margin:0;font-size:clamp(14px,2.2vw,18px)}
 
-    .title{
-      margin:0 0 18px;text-align:center;font-weight:900;font-size:1.8rem;
-      background:linear-gradient(90deg,var(--violet),var(--pink),var(--blue));
-      -webkit-background-clip:text;background-clip:text;color:transparent
-    }
+  /* SOBRE MI */
+  .about{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
+  .about .photo img{width:320px;max-width:100%;height:auto;border-radius:18px;border:2px solid #e7ddff;box-shadow:0 6px 18px rgba(0,0,0,.12)}
+  .about .text{flex:1 1 360px}
+  ul{margin:8px 0 0 18px}
 
-    /* About */
-    .about{display:flex;flex-wrap:wrap;gap:24px;align-items:center}
-    .about .photo img{width:320px;max-width:100%;height:auto;border-radius:18px;border:2px solid #e7ddff;box-shadow:0 6px 18px rgba(0,0,0,.12)}
-    .about .text{flex:1 1 360px}
-    ul{margin:8px 0 0 18px}
+  /* GRID + CARDS */
+  .grid{display:grid;gap:18px}
+  .cols-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .tile{background:#fff;border:1px solid #eee;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
+  .tile:hover{transform:translateY(-2px);box-shadow:0 10px 16px rgba(0,0,0,.08);transition:.25s}
 
-    /* Cards grid */
-    .grid{display:grid;gap:18px}
-    .cols-3{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-    .tile{background:#fff;border:1px solid #eee;border-radius:14px;padding:16px;box-shadow:0 2px 8px rgba(0,0,0,.05)}
-    .tile:hover{transform:translateY(-2px);box-shadow:0 10px 16px rgba(0,0,0,.08);transition:.25s}
+  /* CTA */
+  .cta{display:inline-block;background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;
+    padding:10px 18px;border-radius:28px;text-decoration:none;font-weight:800}
+  .cta:hover{opacity:.95;transform:translateY(-1px)}
 
-    /* CTA */
-    .cta{display:inline-block;background:linear-gradient(135deg,var(--violet),var(--pink));color:#fff;
-      padding:10px 18px;border-radius:28px;text-decoration:none;font-weight:800}
-    .cta:hover{opacity:.95;transform:translateY(-1px)}
+  /* CONTACTO */
+  #contacto .box{background:linear-gradient(120deg,#fff,#f7f2ff);border:1px solid #eee;border-radius:18px;padding:24px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.05)}
 
-    /* Contact block */
-    #contacto .box{background:linear-gradient(120deg,#fff,#f7f2ff);border:1px solid #eee;border-radius:18px;padding:24px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,.05)}
-
-    /* Footer */
-    footer{margin-top:32px;text-align:center;color:#fff;padding:14px;background:linear-gradient(90deg,var(--violet),var(--pink),var(--blue))}
-  </style>
+  /* FOOTER */
+  footer{margin-top:32px;text-align:center;color:#fff;padding:14px;background:linear-gradient(90deg,var(--violet),var(--pink),var(--blue))}
+</style>
 </head>
 <body>
-  <!-- VERSION -->
-  <div class="ver">BUILD v20 — Página completa cargada</div>
+  <!-- VERIFICADOR DE CARGA -->
+  <div class="ver">BUILD v21 SAFE — Página completa</div>
 
   <!-- NAV -->
-  <div class="topbar">
-    <div class="topwrap">
-      <div class="brand">JP · Psiquiatría</div>
-      <nav class="nav" aria-label="Principal">
-        <a href="#home">Inicio</a>
-        <a href="#about">Sobre mí</a>
-        <a href="#cv">Currículum</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
+  <div class="navwrap" role="navigation" aria-label="Navegación principal">
+    <div class="brand">JP · Psiquiatría</div>
+    <nav class="nav">
+      <a href="#home">Inicio</a>
+      <a href="#about">Sobre mí</a>
+      <a href="#cv">Currículum</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
   </div>
 
-  <!-- HERO (INICIO) -->
-  <header id="home" class="hero" role="banner" aria-label="Portada">
+  <!-- INICIO -->
+  <section id="home" class="hero" role="banner" aria-label="Portada">
     <h1>Juan Pablo Fernández Rebosio</h1>
     <p>Médico Psiquiatra · Luján, Buenos Aires · Atención presencial y online</p>
-  </header>
+  </section>
 
   <!-- SOBRE MÍ -->
   <section id="about" aria-labelledby="tit-about">
@@ -236,7 +235,7 @@
   </footer>
 
   <script>
-    // Año + contador
+    // Año + contador local
     document.getElementById('year').textContent = new Date().getFullYear();
     try{
       const KEY='jp_visit_counter_inline';
@@ -245,8 +244,17 @@
       const el=document.getElementById('visitCounter'); if(el) el.textContent=n.toLocaleString('es-AR');
     }catch(_){}
 
-    // Si no hay hash (#about, #cv, etc.), forzar inicio arriba (evita “quedar pegado” a una sección por historial/caché)
-    document.addEventListener('DOMContentLoaded',()=>{ if(!location.hash){ window.scrollTo(0,0); } });
+    // Si se entra SIN hash (#about, #cv...), asegurar inicio arriba
+    document.addEventListener('DOMContentLoaded',()=>{
+      if(!location.hash){ window.scrollTo(0,0); }
+    });
+
+    // Prevención extra: si el navegador recuerda un ancla previa, limpia la URL en primera carga suave.
+    (function(){
+      if(location.hash && (performance?.navigation?.type===performance?.navigation?.TYPE_RELOAD || performance?.getEntriesByType)){
+        history.replaceState(null,'',location.pathname + location.search);
+      }
+    })();
   </script>
 </body>
 </html>
