@@ -1,298 +1,356 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Juan Pablo — Psiquiatría & Tecnología (BUILD v15.2)</title>
-  <meta name="description" content="Atención en salud mental con enfoque humano + herramientas digitales. Luján, Buenos Aires." />
-  <!-- Evita cache en algunos hosts -->
-  <meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
-  <meta http-equiv="pragma" content="no-cache" />
-  <meta http-equiv="expires" content="0" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Juan Pablo — Psiquiatría & Tecnología (BUILD v15.4)</title>
+<meta name="description" content="Atención en salud mental con enfoque humano + herramientas digitales. Luján, Buenos Aires." />
+<meta http-equiv="cache-control" content="no-cache, no-store, must-revalidate" />
+<meta http-equiv="pragma" content="no-cache" />
+<meta http-equiv="expires" content="0" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Juan Pablo — Psiquiatría & Tecnología">
-  <meta property="og:description" content="Atención humana + herramientas digitales. Luján, Buenos Aires.">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix">
+<!-- Open Graph -->
+<meta property="og:title" content="Juan Pablo — Psiquiatría & Tecnología">
+<meta property="og:description" content="Atención humana + herramientas digitales. Luján, Buenos Aires.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://dl.dropboxusercontent.com/scl/fi/eti4id9palyp8bh1fb6wo/collage-1.jpg.JPG?rlkey=qp1jzx1y1hy62cn82ypn0snsy">
 
-  <!-- JSON-LD Person -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Person",
-    "name":"Juan Pablo Fernández Rebosio",
-    "jobTitle":"Psiquiatra",
-    "address":{"@type":"PostalAddress","addressLocality":"Luján","addressRegion":"Buenos Aires","addressCountry":"AR"},
-    "email":"mailto:likelandi@proton.me",
-    "url":"https://tu-dominio.example",
-    "sameAs":["https://wa.me/541124605401"]
-  }
-  </script>
+<!-- JSON-LD Person -->
+<script type="application/ld+json">{
+  "@context":"https://schema.org",
+  "@type":"Person",
+  "name":"Juan Pablo Fernández Rebosio",
+  "jobTitle":"Psiquiatra",
+  "address":{"@type":"PostalAddress","addressLocality":"Luján","addressRegion":"Buenos Aires","addressCountry":"AR"},
+  "email":"mailto:likelandi@proton.me",
+  "url":"https://likelandi.github.io",
+  "sameAs":["https://wa.me/541124605401"]
+}</script>
 
-  <style>
-    :root{
-      --bg-1:#0b0e19; --violet:#b78cff; --pink:#ff7ccf; --blue:#7fd0ff;
-      --text:#f8f8ff; --muted:#dfe6ffcc; --ring:rgba(183,140,255,.65);
-      --brand-grad:linear-gradient(90deg,var(--violet),var(--pink),var(--blue));
-      --link-grad:linear-gradient(180deg,rgba(183,140,255,.35),rgba(255,124,207,.25));
-      --link-grad-hover:linear-gradient(180deg,rgba(183,140,255,.55),rgba(255,124,207,.45));
-      --tile-grad:linear-gradient(180deg,rgba(183,140,255,.22),rgba(255,124,207,.18));
-      --tile-grad-hover:linear-gradient(180deg,rgba(183,140,255,.32),rgba(255,124,207,.28));
-      --shadow:0 16px 36px rgba(0,0,0,.4);
-    }
-    *{box-sizing:border-box} html{scroll-behavior:smooth}
-    body{
-      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial; line-height:1.6; color:var(--text);
-      background:
-        radial-gradient(900px 520px at 8% -12%, rgba(183,140,255,.35), transparent 60%),
-        radial-gradient(900px 520px at 92% -10%, rgba(255,124,207,.28), transparent 60%),
-        radial-gradient(800px 460px at 50% 120%, rgba(127,208,255,.20), transparent 60%),
-        var(--bg-1);
-    }
-    .wrap{max-width:1100px;margin:0 auto;padding:24px}
-    header{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);
-      background:linear-gradient(to right, rgba(17,22,49,.92), rgba(17,22,49,.78));
-      border-bottom:2px solid rgba(183,140,255,.55)}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:12px;font-weight:800}
-    .badge{font-size:12px;padding:6px 12px;border-radius:999px;background:var(--brand-grad);color:#0b0b0b;box-shadow:var(--shadow)}
-    .links{display:flex;gap:12px;flex-wrap:wrap}
-    .links a{padding:10px 12px;border-radius:12px;text-decoration:none;color:inherit;background:var(--link-grad);border:1px solid rgba(183,140,255,.6);transition:.25s}
-    .links a:hover{background:var(--link-grad-hover);border-color:rgba(183,140,255,.9);box-shadow:0 0 24px rgba(255,124,207,.35), 0 0 44px rgba(127,208,255,.25);transform:translateY(-1px)}
-    .links a:focus-visible{outline:none;box-shadow:0 0 0 3px var(--ring),0 0 0 6px rgba(255,124,207,.65)}
+<style>
+:root{
+  --bg-1:#0b0e19; --violet:#b78cff; --pink:#ff7ccf; --blue:#7fd0ff;
+  --text:#f8f8ff; --muted:#dfe6ffcc; --ring:rgba(183,140,255,.65);
+  --brand-grad:linear-gradient(90deg,var(--violet),var(--pink),var(--blue));
+  --link-grad:linear-gradient(180deg,rgba(183,140,255,.35),rgba(255,124,207,.25));
+  --link-grad-hover:linear-gradient(180deg,rgba(183,140,255,.55),rgba(255,124,207,.45));
+  --tile-grad:linear-gradient(180deg,rgba(183,140,255,.22),rgba(255,124,207,.18));
+  --tile-grad-hover:linear-gradient(180deg,rgba(183,140,255,.32),rgba(255,124,207,.28));
+  --shadow:0 16px 36px rgba(0,0,0,.4);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{
+  margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;line-height:1.6;color:var(--text);
+  background:
+    radial-gradient(900px 520px at 8% -12%, rgba(183,140,255,.35), transparent 60%),
+    radial-gradient(900px 520px at 92% -10%, rgba(255,124,207,.28), transparent 60%),
+    radial-gradient(800px 460px at 50% 120%, rgba(127,208,255,.20), transparent 60%),
+    var(--bg-1);
+}
+.wrap{max-width:1100px;margin:0 auto;padding:24px}
+header{position:sticky;top:0;z-index:20;backdrop-filter:blur(8px);
+  background:linear-gradient(to right, rgba(17,22,49,.92), rgba(17,22,49,.78));
+  border-bottom:2px solid rgba(183,140,255,.55)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800}
+.badge{font-size:12px;padding:6px 12px;border-radius:999px;background:var(--brand-grad);color:#0b0b0b;box-shadow:var(--shadow)}
+.links{display:flex;gap:12px;flex-wrap:wrap}
+.links a{padding:10px 12px;border-radius:12px;text-decoration:none;color:inherit;background:var(--link-grad);border:1px solid rgba(183,140,255,.6);transition:.25s}
+.links a:hover{background:var(--link-grad-hover);border-color:rgba(183,140,255,.9);box-shadow:0 0 24px rgba(255,124,207,.35), 0 0 44px rgba(127,208,255,.25);transform:translateY(-1px)}
+.links a:focus-visible{outline:none;box-shadow:0 0 0 3px var(--ring),0 0 0 6px rgba(255,124,207,.65)}
+.version-banner{position:sticky;top:0;z-index:25;background:var(--brand-grad);color:#0b0b0b;text-align:center;font-weight:900;padding:10px;border-bottom:2px solid #fff3}
+.theme-check{display:flex;gap:8px;align-items:center;justify-content:center;padding:8px 12px;background:#0f1533;border:1px solid rgba(183,140,255,.6);border-left:4px solid var(--pink);border-right:4px solid var(--violet);margin:10px auto 0;max-width:1100px;border-radius:10px;color:var(--muted);font-size:14px}
+.chip{width:16px;height:16px;border-radius:4px;display:inline-block}.chip.v{background:var(--violet)}.chip.p{background:var(--pink)}.chip.b{background:var(--blue)}
 
-    /* Banner de versión visible */
-    .version-banner{position:sticky;top:0;z-index:25;background:var(--brand-grad);color:#0b0b0b;text-align:center;font-weight:900;padding:10px;border-bottom:2px solid #fff3}
-    .version-banner small{opacity:.7;font-weight:700}
+.hero{padding:38px 0 0;text-align:center}
+.hero h1{font-size:clamp(28px,4.2vw,46px);margin:0 0 8px;background:var(--brand-grad);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 18px rgba(183,140,255,.25)}
+.hero p{color:var(--muted);margin-bottom:10px}
 
-    .theme-check{display:flex;gap:8px;align-items:center;justify-content:center;padding:8px 12px;background:#0f1533;border:1px solid rgba(183,140,255,.6);border-left:4px solid var(--pink);border-right:4px solid var(--violet);margin:10px auto 0;max-width:1100px;border-radius:10px;color:var(--muted);font-size:14px}
-    .chip{width:16px;height:16px;border-radius:4px;display:inline-block}.chip.v{background:var(--violet)}.chip.p{background:var(--pink)}.chip.b{background:var(--blue)}
+.moods{display:flex;gap:8px;justify-content:center;margin:8px 0 18px}
+.moods button{padding:8px 12px;border-radius:12px;border:1px solid #cbb6ff80;background:linear-gradient(180deg,#cbb6ff44,#ffb3de33);color:#fff;cursor:pointer}
+.moods button:hover{transform:translateY(-1px)}
 
-    .hero{padding:38px 0 0;text-align:center}
-    .hero h1{font-size:clamp(28px,4.2vw,46px);margin:0 0 8px;background:var(--brand-grad);-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:0 0 18px rgba(183,140,255,.25)}
-    .hero p{color:var(--muted);margin-bottom:10px}
+.collage{position:relative;width:min(1100px,100%);height:430px;margin:16px auto 34px;border-radius:26px;overflow:visible;z-index:0;border:2px solid rgba(183,140,255,.55);box-shadow:var(--shadow);background:linear-gradient(180deg, rgba(183,140,255,.18), rgba(255,124,207,.14))}
+.c-card{position:absolute;border-radius:22px;overflow:hidden;z-index:1;background:#131736;border:2px solid rgba(183,140,255,.65);box-shadow:var(--shadow);transition:.25s}
+.c-media-img{width:100%;height:100%;object-fit:cover;display:block;background:#1a1f3f}
+.c1{left:4%;top:6%;width:33%;height:60%;transform:rotate(-6deg)}
+.c2{right:6%;top:8%;width:34%;height:56%;transform:rotate(7deg)}
+.c3{left:33%;top:22%;width:30%;height:52%;transform:rotate(-2deg)}
+.c4{left:8%;bottom:-8%;width:30%;height:38%;transform:rotate(8deg)}
+.c5{right:10%;bottom:-10%;width:30%;height:44%;transform:rotate(-8deg)}
+@media (max-width:860px){.collage{height:360px}.c5{display:none}}
+@media (max-width:620px){.collage{height:300px}.c3{display:none}}
 
-    .moods{display:flex;gap:8px;justify-content:center;margin:8px 0 18px}
-    .moods button{padding:8px 12px;border-radius:12px;border:1px solid #cbb6ff80;background:linear-gradient(180deg,#cbb6ff44,#ffb3de33);color:#fff;cursor:pointer}
-    .moods button:hover{transform:translateY(-1px)}
+section{margin:36px 0}
+.section-title{font-size:26px;font-weight:900;margin:0 0 14px;text-align:center;background:var(--brand-grad);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.3px}
+.grid{display:grid;gap:18px}
+.grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.tile{background:var(--tile-grad);border:2px solid rgba(183,140,255,.55);border-radius:18px;padding:18px;box-shadow:var(--shadow);transition:.25s}
+.tile:hover{background:var(--tile-grad-hover);border-color:rgba(255,124,207,.85);box-shadow:0 12px 36px rgba(255,124,207,.25), 0 24px 58px rgba(127,208,255,.22);transform:translateY(-2px)}
+.about{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center}
+.about .photo{border-radius:18px;overflow:hidden;border:2px solid rgba(183,140,255,.6);box-shadow:var(--shadow);background:linear-gradient(180deg, rgba(183,140,255,.18), rgba(255,124,207,.14))}
+.about .photo img{width:100%;height:100%;object-fit:cover;display:block}
+@media (max-width:860px){.about{grid-template-columns:1fr}}
 
-    .collage{position:relative;width:min(1100px,100%);height:430px;margin:16px auto 34px;border-radius:26px;overflow:visible;z-index:0;border:2px solid rgba(183,140,255,.55);box-shadow:var(--shadow);background:linear-gradient(180deg, rgba(183,140,255,.18), rgba(255,124,207,.14))}
-    .c-card{position:absolute;border-radius:22px;overflow:hidden;z-index:1;background:#131736;border:2px solid rgba(183,140,255,.65);box-shadow:var(--shadow);transition:.25s}
-    .c-media-img{width:100%;height:100%;object-fit:cover;display:block;background:#1a1f3f}
-    .c1{left:4%;top:6%;width:33%;height:60%;transform:rotate(-6deg)}
-    .c2{right:6%;top:8%;width:34%;height:56%;transform:rotate(7deg)}
-    .c3{left:33%;top:22%;width:30%;height:52%;transform:rotate(-2deg)}
-    .c4{left:8%;bottom:-8%;width:30%;height:38%;transform:rotate(8deg)}
-    .c5{right:10%;bottom:-10%;width:30%;height:44%;transform:rotate(-8deg)}
-    @media (max-width:860px){.collage{height:360px}.c5{display:none}}
-    @media (max-width:620px){.collage{height:300px}.c3{display:none}}
+.contact{display:grid;gap:16px;max-width:680px;margin:0 auto}
+.contact .item{display:flex;justify-content:space-between;align-items:center;background:var(--tile-grad);border:2px solid rgba(183,140,255,.55);padding:14px 16px;border-radius:14px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace}
 
-    section{margin:36px 0}
-    .section-title{font-size:26px;font-weight:900;margin:0 0 14px;text-align:center;background:var(--brand-grad);-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.3px}
-    .grid{display:grid;gap:18px}
-    .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .tile{background:var(--tile-grad);border:2px solid rgba(183,140,255,.55);border-radius:18px;padding:18px;box-shadow:var(--shadow);transition:.25s}
-    .tile:hover{background:var(--tile-grad-hover);border-color:rgba(255,124,207,.85);box-shadow:0 12px 36px rgba(255,124,207,.25), 0 24px 58px rgba(127,208,255,.22);transform:translateY(-2px)}
-    .about{display:grid;grid-template-columns:1fr 1.2fr;gap:24px;align-items:center}
-    .about .photo{border-radius:18px;overflow:hidden;border:2px solid rgba(183,140,255,.6);box-shadow:var(--shadow);background:linear-gradient(180deg, rgba(183,140,255,.18), rgba(255,124,207,.14))}
-    .about .photo img{width:100%;height:100%;object-fit:cover;display:block}
-    @media (max-width:860px){.about{grid-template-columns:1fr}}
+.cta{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:14px;font-weight:800;color:#0b0b0b;text-decoration:none;background:var(--brand-grad);border:1px solid rgba(255,255,255,.12);box-shadow:0 6px 26px rgba(255,124,207,.28);cursor:pointer}
+footer{text-align:center;color:var(--muted);font-size:13px;margin:40px 0 16px}
 
-    .contact{display:grid;gap:16px;max-width:680px;margin:0 auto}
-    .contact .item{display:flex;justify-content:space-between;align-items:center;background:var(--tile-grad);border:2px solid rgba(183,140,255,.55);padding:14px 16px;border-radius:14px;box-shadow:0 1px 0 rgba(255,255,255,.06) inset}
-    .mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+.wa{position:fixed;right:16px;bottom:16px;z-index:60}
+.wa a{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;background:#25D366;color:#0b0b0b;text-decoration:none;font-weight:700;box-shadow:var(--shadow)}
 
-    .cta{display:inline-flex;align-items:center;gap:8px;padding:12px 16px;border-radius:14px;font-weight:800;color:#0b0b0b;text-decoration:none;background:var(--brand-grad);border:1px solid rgba(255,255,255,.12);box-shadow:0 6px 26px rgba(255,124,207,.28);cursor:pointer}
-    footer{text-align:center;color:var(--muted);font-size:13px;margin:40px 0 16px}
+.quick-dock{position:fixed;right:16px;bottom:86px;display:flex;gap:8px;z-index:60}
+.quick-dock a,.quick-dock button{padding:10px 12px;border-radius:12px;border:1px solid #cbb6ff90;background:linear-gradient(180deg,#cbb6ff44,#ffb3de33);color:#fff;text-decoration:none;cursor:pointer}
 
-    .wa{position:fixed;right:16px;bottom:16px;z-index:60}
-    .wa a{display:inline-flex;align-items:center;gap:8px;padding:10px 12px;border-radius:999px;background:#25D366;color:#0b0b0b;text-decoration:none;font-weight:700;box-shadow:var(--shadow)}
+.diag{max-width:1100px;margin:0 auto 12px;padding:10px 12px;border-radius:12px;background:#0f1533;border:1px solid var(--ring)}
+.diag b{color:var(--violet)} .ok{color:var(--blue)} .err{color:#ff9aa9}
 
-    .quick-dock{position:fixed;right:16px;bottom:86px;display:flex;gap:8px;z-index:60}
-    .quick-dock a,.quick-dock button{padding:10px 12px;border-radius:12px;border:1px solid #cbb6ff90;background:linear-gradient(180deg,#cbb6ff44,#ffb3de33);color:#fff;text-decoration:none;cursor:pointer}
+.modal{position:fixed;inset:0;background:rgba(8,10,18,.7);display:none;align-items:center;justify-content:center;z-index:100}
+.modal.open{display:flex}
+.modal-card{background:#131a3a;border:1px solid rgba(183,140,255,.6);border-radius:16px;max-width:620px;width:92%;padding:16px 18px;box-shadow:var(--shadow)}
+.modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
+.btn{padding:10px 12px;border-radius:12px;border:1px solid rgba(183,140,255,.6);background:var(--link-grad);color:#fff;cursor:pointer}
+.btn.primary{background:var(--brand-grad);color:#0b0b0b;border-color:transparent;font-weight:800}
 
-    .diag{max-width:1100px;margin:0 auto 12px;padding:10px 12px;border-radius:12px;background:#0f1533;border:1px solid var(--ring)}
-    .diag b{color:var(--violet)} .ok{color:var(--blue)} .err{color:#ff9aa9}
+.pause{max-width:700px;margin:0 auto;text-align:center}
+.breath{width:140px;height:140px;border-radius:999px;margin:12px auto;background:radial-gradient(circle at 30% 30%, rgba(183,140,255,.8), rgba(255,124,207,.7));box-shadow:0 0 60px rgba(183,140,255,.35);animation:breath 6s ease-in-out infinite}
+@keyframes breath{0%{transform:scale(.9)}50%{transform:scale(1.07)}100%{transform:scale(.9)}}
+.pause .timer{font-size:28px;font-weight:900;letter-spacing:1px}
 
-    .modal{position:fixed;inset:0;background:rgba(8,10,18,.7);display:none;align-items:center;justify-content:center;z-index:100}
-    .modal.open{display:flex}
-    .modal-card{background:#131a3a;border:1px solid rgba(183,140,255,.6);border-radius:16px;max-width:620px;width:92%;padding:16px 18px;box-shadow:var(--shadow)}
-    .modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
-    .btn{padding:10px 12px;border-radius:12px;border:1px solid rgba(183,140,255,.6);background:var(--link-grad);color:#fff;cursor:pointer}
-    .btn.primary{background:var(--brand-grad);color:#0b0b0b;border-color:transparent;font-weight:800}
-
-    .pause{max-width:700px;margin:0 auto;text-align:center}
-    .breath{width:140px;height:140px;border-radius:999px;margin:12px auto;background:radial-gradient(circle at 30% 30%, rgba(183,140,255,.8), rgba(255,124,207,.7));box-shadow:0 0 60px rgba(183,140,255,.35);animation:breath 6s ease-in-out infinite}
-    @keyframes breath{0%{transform:scale(.9)}50%{transform:scale(1.07)}100%{transform:scale(.9)}}
-    .pause .timer{font-size:28px;font-weight:900;letter-spacing:1px}
-
-    .calma-toggle{position:fixed;left:16px;bottom:16px;background:#0f1533aa;padding:8px 10px;border-radius:10px;border:1px solid #cbb6ff66;z-index:60}
-    .calma-on *{transition:none !important;animation:none !important}
-  </style>
+.calma-toggle{position:fixed;left:16px;bottom:16px;background:#0f1533aa;padding:8px 10px;border-radius:10px;border:1px solid #cbb6ff66;z-index:60}
+.calma-on *{transition:none !important;animation:none !important}
+</style>
 </head>
 <body>
-  <!-- BANNER DE VERSIÓN -->
-  <div class="version-banner">BUILD v15.2 CARGADO <small>(si ves esto, es la versión nueva)</small></div>
+<div class="version-banner">BUILD v15.4 CARGADO — Fix: c1 forzada a tu foto</div>
 
-  <header>
-    <div class="wrap nav">
-      <div class="brand"><span class="badge">JP</span><span>Juan Pablo — Personal</span></div>
-      <nav class="links" aria-label="Principal">
-        <a href="#about">Sobre mí</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#pausa">Pausa guiada</a>
-        <a href="#privacidad">Privacidad</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+<header>
+  <div class="wrap nav">
+    <div class="brand"><span class="badge">JP</span><span>Juan Pablo — Personal</span></div>
+    <nav class="links" aria-label="Principal">
+      <a href="#about">Sobre mí</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#pausa">Pausa guiada</a>
+      <a href="#privacidad">Privacidad</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<div class="theme-check">
+  <strong>Theme Check:</strong>&nbsp;
+  <span class="chip v"></span><span class="chip p"></span><span class="chip b"></span>
+  <span style="margin-left:8px">— Estilo violeta/rosado ACTIVADO</span>
+</div>
+
+<div class="diag">
+  <div><b>Diagnóstico imágenes:</b> c1 forzada a tu foto → anti-duplicados activos.</div>
+  <div id="diagLog" style="margin-top:6px;font-size:.95rem"></div>
+</div>
+
+<main class="wrap">
+  <section class="hero" aria-label="Portada">
+    <h1>Psiquiatría, tecnología y proyectos creativos</h1>
+    <p>Enfoque humano + herramientas digitales.</p>
+
+    <div class="moods" aria-label="Cambiar ambiente visual">
+      <button data-seed="calma">Calma</button>
+      <button data-seed="foco">Foco</button>
+      <button data-seed="energia">Energía</button>
     </div>
-  </header>
 
-  <div class="theme-check">
-    <strong>Theme Check:</strong>&nbsp;
-    <span class="chip v"></span><span class="chip p"></span><span class="chip b"></span>
-    <span style="margin-left:8px">— Estilo violeta/rosado ACTIVADO</span>
-  </div>
+    <!-- Collage -->
+    <div class="collage" aria-label="Collage de portada">
+      <!-- c1: FIJADA a tu foto nueva -->
+      <figure class="c-card c1">
+        <img class="c-media-img" alt="Portada 1 (fijada)">
+      </figure>
 
-  <div class="diag">
-    <div><b>Diagnóstico imágenes:</b> Dropbox → Proxy → Local → Fallback + anti-duplicados.</div>
-    <div id="diagLog" style="margin-top:6px;font-size:.95rem"></div>
-  </div>
+      <!-- c2–c5: resto con candidatos -->
+      <figure class="c-card c2">
+        <img class="c-media-img"
+          data-candidates="
+            https://dl.dropboxusercontent.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG?rlkey=znjd49w9vobvts5kwcv2rqe9x |
+            https://www.dropbox.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG?rlkey=znjd49w9vobvts5kwcv2rqe9x&raw=1 |
+            https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG%3Frlkey%3Dznjd49w9vobvts5kwcv2rqe9x&w=1200&h=800&fit=cover |
+            collage-2.jpg | img/collage-2.jpg"
+          data-fallback="https://picsum.photos/seed/landia2/1200/800" alt="Portada 2">
+      </figure>
 
-  <main class="wrap">
-    <section class="hero"><h1>Psiquiatría, tecnología y proyectos creativos</h1><p>Enfoque humano + herramientas digitales.</p>
-      <div class="moods"><button data-seed="calma">Calma</button><button data-seed="foco">Foco</button><button data-seed="energia">Energía</button></div>
+      <figure class="c-card c3">
+        <img class="c-media-img"
+          data-candidates="
+            https://dl.dropboxusercontent.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?rlkey=mv7vg3qaa3efqtpykv32v9p5l |
+            https://www.dropbox.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?rlkey=mv7vg3qaa3efqtpykv32v9p5l&raw=1 |
+            https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG%3Frlkey%3Dmv7vg3qaa3efqtpykv32v9p5l&w=1200&h=800&fit=cover |
+            collage-3.jpg | img/collage-3.jpg"
+          data-fallback="https://picsum.photos/seed/landia3/1200/800" alt="Portada 3">
+      </figure>
 
-      <div class="collage">
-        <figure class="c-card c1"><img class="c-media-img" data-candidates="https://dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix | https://www.dropbox.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG?rlkey=hyte6ymxzjbqwql4qxec14uix&raw=1 | https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/isdc37yrbmn5aaal38dh5/IMG_1894.JPG%3Frlkey%3Dhyte6ymxzjbqwql4qxec14uix&w=1200&h=800&fit=cover | collage-1.jpg | img/collage-1.jpg" data-fallback="https://picsum.photos/seed/landia1/1200/800" alt=""></figure>
-        <figure class="c-card c2"><img class="c-media-img" alt=""></figure>
-        <figure class="c-card c3"><img class="c-media-img" data-candidates="https://dl.dropboxusercontent.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?rlkey=mv7vg3qaa3efqtpykv32v9p5l | https://www.dropbox.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?rlkey=mv7vg3qaa3efqtpykv32v9p5l&raw=1 | https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG%3Frlkey%3Dmv7vg3qaa3efqtpykv32v9p5l&w=1200&h=800&fit=cover | collage-3.jpg | img/collage-3.jpg" data-fallback="https://picsum.photos/seed/landia3/1200/800"></figure>
-        <figure class="c-card c4"><img class="c-media-img" data-candidates="https://dl.dropboxusercontent.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?rlkey=327nne8usg9x4d0nyamnek6k5 | https://www.dropbox.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?rlkey=327nne8usg9x4d0nyamnek6k5&raw=1 | https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG%3Frlkey%3D327nne8usg9x4d0nyamnek6k5&w=1200&h=800&fit=cover | collage-4.jpg | img/collage-4.jpg" data-fallback="https://picsum.photos/seed/landia4/1200/800"></figure>
-        <figure class="c-card c5"><img class="c-media-img" data-candidates="https://dl.dropboxusercontent.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG?rlkey=k33t9epqqrjmuritonz8gjzi3 | https://www.dropbox.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG?rlkey=k33t9epqqrjmuritonz8gjzi3&raw=1 | https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG%3Frlkey%3Dk33t9epqqrjmuritonz8gjzi3&w=1200&h=800&fit=cover | collage-5.jpg | img/collage-5.jpg" data-fallback="https://picsum.photos/seed/landia5/1200/800"></figure>
-      </div>
-    </section>
+      <figure class="c-card c4">
+        <img class="c-media-img"
+          data-candidates="
+            https://dl.dropboxusercontent.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?rlkey=327nne8usg9x4d0nyamnek6k5 |
+            https://www.dropbox.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?rlkey=327nne8usg9x4d0nyamnek6k5&raw=1 |
+            https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG%3Frlkey%3D327nne8usg9x4d0nyamnek6k5&w=1200&h=800&fit=cover |
+            collage-4.jpg | img/collage-4.jpg"
+          data-fallback="https://picsum.photos/seed/landia4/1200/800" alt="Portada 4">
+      </figure>
 
-    <section id="about" class="about">
-      <div class="photo"><img src="https://picsum.photos/seed/portraitjp/900/700" alt="Retrato de Juan Pablo"></div>
-      <div class="text">
-        <h2 class="section-title" style="text-align:left">Sobre mí</h2>
-        <p>Soy psiquiatra con foco en salud mental y tecnología…</p>
-        <p><button class="cta" id="cta-consulta">Escribirme ahora</button></p>
-      </div>
-    </section>
-
-    <section id="proyectos">
-      <h2 class="section-title">Proyectos</h2>
-      <div class="grid cols-3">
-        <article class="tile"><strong>Landia’s World</strong><div>Identidad creativa…</div></article>
-        <article class="tile"><strong>Likelandii</strong><div>Community building…</div></article>
-        <article class="tile"><strong>Consultorio Digital</strong><div>Herramientas…</div></article>
-      </div>
-    </section>
-
-    <section id="pausa" class="pause">
-      <h2 class="section-title">Pausa guiada (1 minuto)</h2>
-      <div class="breath" aria-hidden="true"></div>
-      <div class="timer" id="timer">01:00</div>
-      <p style="color:var(--muted)">Inhala al expandirse…</p>
-      <p><button class="cta" id="startPausa">Iniciar</button> <button class="cta" id="resetPausa" style="background:linear-gradient(90deg,#ffd1e9,#cbb6ff,#9ee0ff)">Reiniciar</button></p>
-    </section>
-
-    <section id="privacidad">
-      <h2 class="section-title">Privacidad (resumen)</h2>
-      <div class="grid cols-3">
-        <article class="tile"><strong>Datos mínimos</strong><div>Solo se usa tu email…</div></article>
-        <article class="tile"><strong>Sin rastreo invasivo</strong><div>No hay cookies…</div></article>
-        <article class="tile"><strong>Tu control</strong><div>Podés pedir…</div></article>
-      </div>
-    </section>
-
-    <section id="contacto" class="contact">
-      <h2 class="section-title">Contacto</h2>
-      <div class="item"><strong>Ubicación:</strong> <span class="mono">Luján, Provincia de Buenos Aires, Argentina</span></div>
-      <div class="item"><strong>Email:</strong> <a class="mono" href="mailto:likelandi@proton.me">likelandi@proton.me</a></div>
-      <div class="item"><strong>Solicitar turno:</strong> <button class="cta" id="cta-turno">Solicitar turno</button></div>
-      <div class="item"><strong>Contador de visitas:</strong> <span id="visitCounter" class="mono">—</span></div>
-    </section>
-  </main>
-
-  <footer>© <span id="year"></span> Juan Pablo — Todos los derechos reservados.</footer>
-
-  <div class="wa"><a href="https://wa.me/541124605401?text=Hola%20Juan%20Pablo%2C%20quiero%20un%20turno" target="_blank" rel="noopener">WhatsApp</a></div>
-  <div class="quick-dock"><a href="#contacto">Turno</a><a href="mailto:likelandi@proton.me">Email</a><a href="https://wa.me/541124605401" target="_blank" rel="noopener">WhatsApp</a><button onclick="scrollTo({top:0,behavior:'smooth'})">↑</button></div>
-  <label class="calma-toggle"><input type="checkbox" id="calmaToggle"> Modo calma</label>
-
-  <!-- Modal consentimiento -->
-  <div class="modal" id="modalCons">
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consTitulo">
-      <h3 id="consTitulo">Consentimiento</h3>
-      <p style="color:var(--muted)">Al continuar, se abrirá tu cliente de email…</p>
-      <div class="modal-actions"><button class="btn" id="cancelCons">Cancelar</button><button class="btn primary" id="okCons">Aceptar</button></div>
+      <figure class="c-card c5">
+        <img class="c-media-img"
+          data-candidates="
+            https://dl.dropboxusercontent.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG?rlkey=k33t9epqqrjmuritonz8gjzi3 |
+            https://www.dropbox.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG?rlkey=k33t9epqqrjmuritonz8gjzi3&raw=1 |
+            https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG%3Frlkey%3Dk33t9epqqrjmuritonz8gjzi3&w=1200&h=800&fit=cover |
+            collage-5.jpg | img/collage-5.jpg"
+          data-fallback="https://picsum.photos/seed/landia5/1200/800" alt="Portada 5">
+      </figure>
     </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="photo"><img src="https://picsum.photos/seed/portraitjp/900/700" alt="Retrato de Juan Pablo"></div>
+    <div class="text">
+      <h2 class="section-title" style="text-align:left">Sobre mí</h2>
+      <p>Soy psiquiatra con foco en salud mental y tecnología…</p>
+      <p><button class="cta" id="cta-consulta">Escribirme ahora</button></p>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <h2 class="section-title">Proyectos</h2>
+    <div class="grid cols-3">
+      <article class="tile"><strong>Landia’s World</strong><div>Identidad creativa…</div></article>
+      <article class="tile"><strong>Likelandii</strong><div>Community building…</div></article>
+      <article class="tile"><strong>Consultorio Digital</strong><div>Herramientas…</div></article>
+    </div>
+  </section>
+
+  <section id="pausa" class="pause">
+    <h2 class="section-title">Pausa guiada (1 minuto)</h2>
+    <div class="breath" aria-hidden="true"></div>
+    <div class="timer" id="timer">01:00</div>
+    <p style="color:var(--muted)">Inhala al expandirse…</p>
+    <p><button class="cta" id="startPausa">Iniciar</button> <button class="cta" id="resetPausa" style="background:linear-gradient(90deg,#ffd1e9,#cbb6ff,#9ee0ff)">Reiniciar</button></p>
+  </section>
+
+  <section id="privacidad">
+    <h2 class="section-title">Privacidad (resumen)</h2>
+    <div class="grid cols-3">
+      <article class="tile"><strong>Datos mínimos</strong><div>Solo se usa tu email…</div></article>
+      <article class="tile"><strong>Sin rastreo invasivo</strong><div>No hay cookies…</div></article>
+      <article class="tile"><strong>Tu control</strong><div>Podés pedir…</div></article>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <h2 class="section-title">Contacto</h2>
+    <div class="item"><strong>Ubicación:</strong> <span class="mono">Luján, Provincia de Buenos Aires, Argentina</span></div>
+    <div class="item"><strong>Email:</strong> <a class="mono" href="mailto:likelandi@proton.me">likelandi@proton.me</a></div>
+    <div class="item"><strong>Solicitar turno:</strong> <button class="cta" id="cta-turno">Solicitar turno</button></div>
+    <div class="item"><strong>Contador de visitas:</strong> <span id="visitCounter" class="mono">—</span></div>
+  </section>
+</main>
+
+<footer>© <span id="year"></span> Juan Pablo — Todos los derechos reservados.</footer>
+
+<div class="wa"><a href="https://wa.me/541124605401?text=Hola%20Juan%20Pablo%2C%20quiero%20un%20turno" target="_blank" rel="noopener">WhatsApp</a></div>
+<div class="quick-dock"><a href="#contacto">Turno</a><a href="mailto:likelandi@proton.me">Email</a><a href="https://wa.me/541124605401" target="_blank" rel="noopener">WhatsApp</a><button onclick="scrollTo({top:0,behavior:'smooth'})">↑</button></div>
+<label class="calma-toggle"><input type="checkbox" id="calmaToggle"> Modo calma</label>
+
+<!-- Modal consentimiento -->
+<div class="modal" id="modalCons">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="consTitulo">
+    <h3 id="consTitulo">Consentimiento</h3>
+    <p style="color:var(--muted)">Al continuar, se abrirá tu cliente de email…</p>
+    <div class="modal-actions"><button class="btn" id="cancelCons">Cancelar</button><button class="btn primary" id="okCons">Aceptar</button></div>
   </div>
+</div>
 
-  <script>
-    // Año + contador
-    document.getElementById('year').textContent = new Date().getFullYear();
-    (function(){const KEY='jp_visit_counter_inline';let n=0;try{n=parseInt(localStorage.getItem(KEY)||'0',10)||0;}catch(_){}
-      n++;try{localStorage.setItem(KEY,String(n));}catch(_){}
-      const el=document.getElementById('visitCounter');if(el)el.textContent=n.toLocaleString('es-AR');})();
+<script>
+  // Año + contador
+  document.getElementById('year').textContent = new Date().getFullYear();
+  (function(){const KEY='jp_visit_counter_inline';let n=0;try{n=parseInt(localStorage.getItem(KEY)||'0',10)||0;}catch(_){}
+    n++;try{localStorage.setItem(KEY,String(n));}catch(_){}
+    const el=document.getElementById('visitCounter');if(el)el.textContent=n.toLocaleString('es-AR');})();
 
-    // Diagnóstico utils
-    (function(){const log=document.getElementById('diagLog');function ap(m,c){if(!log)return;const p=document.createElement('div');p.textContent=m;if(c)p.className=c;log.appendChild(p);}window.__diag={ok:(m)=>ap(m,'ok'),err:(m)=>ap(m,'err'),info:(m)=>ap(m)}})();
+  // Diagnóstico utils
+  (function(){const log=document.getElementById('diagLog');function ap(m,c){if(!log)return;const p=document.createElement('div');p.textContent=m;if(c)p.className=c;log.appendChild(p);}window.__diag={ok:(m)=>ap(m,'ok'),err:(m)=>ap(m,'err'),info:(m)=>ap(m)}})();
 
-    // Foto NUEVA bloqueada en c2 + anti-duplicados
-    const NEW_IMG_CANDIDATES=[
-      "https://dl.dropboxusercontent.com/scl/fi/eti4id9palyp8bh1fb6wo/collage-1.jpg.JPG?rlkey=qp1jzx1y1hy62cn82ypn0snsy",
-      "https://www.dropbox.com/scl/fi/eti4id9palyp8bh1fb6wo/collage-1.jpg.JPG?rlkey=qp1jzx1y1hy62cn82ypn0snsy&raw=1",
-      "https://www.dropbox.com/scl/fi/eti4id9palyp8bh1fb6wo/collage-1.jpg.JPG?rlkey=qp1jzx1y1hy62cn82ypn0snsy&dl=1",
-      "https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/eti4id9palyp8bh1fb6wo/collage-1.jpg.JPG%3Frlkey%3Dqp1jzx1y1hy62cn82ypn0snsy&w=1200&h=800&fit=cover"
-    ];
-    const bust=(u)=>u+(u.includes('?')?'&':'?')+'v='+Date.now();
-    function probe(u){return new Promise((res,rej)=>{const im=new Image();im.onload=()=>res(u);im.onerror=()=>rej(u);im.src=bust(u);});}
-    const UNIQUE=(i)=>`https://picsum.photos/seed/landia-unique-${i}/1200/800`;
+  // URLs de TU foto (c1) — se prueban en orden
+  const C1_NEW = [
+    "https://dl.dropboxusercontent.com/scl/fi/eti4id9palyp8bh1fb6wo/collage-1.jpg.JPG?rlkey=qp1jzx1y1hy62cn82ypn0snsy",
+    "https://www.dropbox.com/scl/fi/eti4id9palyp8bh1fb6wo/collage-1.jpg.JPG?rlkey=qp1jzx1y1hy62cn82ypn0snsy&raw=1",
+    "https://www.dropbox.com/scl/fi/eti4id9palyp8bh1fb6wo/collage-1.jpg.JPG?rlkey=qp1jzx1y1hy62cn82ypn0snsy&dl=1",
+    "https://images.weserv.nl/?url=dl.dropboxusercontent.com/scl/fi/eti4id9palyp8bh1fb6wo/collage-1.jpg.JPG%3Frlkey%3Dqp1jzx1y1hy62cn82ypn0snsy&w=1200&h=800&fit=cover"
+  ];
+  const bust=(u)=>u+(u.includes('?')?'&':'?')+'v='+Date.now();
+  function probe(u){return new Promise((res,rej)=>{const im=new Image();im.onload=()=>res(u);im.onerror=()=>rej(u);im.src=bust(u);});}
+  const UNIQUE=(i)=>`https://picsum.photos/seed/landia-unique-${i}/1200/800`;
 
-    (async function(){
-      const used=new Set();
-      const imgs=[...document.querySelectorAll('.collage img.c-media-img')];
-      const c2=document.querySelector('.collage .c2 img.c-media-img');
-      if(c2){
-        let chosen=null; for(const u of NEW_IMG_CANDIDATES){try{chosen=await probe(u);break;}catch(_){window.__diag?.err('ERROR c2 → '+u);}}
-        if(!chosen){chosen=UNIQUE(2);window.__diag?.err('Fallback c2 → '+chosen);}
-        c2.src=chosen; c2.dataset._chosen=chosen; used.add(chosen); window.__diag?.ok('c2 fijada → '+chosen);
+  (async function(){
+    const used=new Set();
+    const imgs=[...document.querySelectorAll('.collage img.c-media-img')];
+
+    // 1) Forzar c1 con tu imagen
+    const c1 = document.querySelector('.collage .c1 img.c-media-img');
+    let c1chosen = null;
+    if(c1){
+      window.__diag?.info('Forzando c1 con tu foto nueva…');
+      for(const u of C1_NEW){
+        try{ c1chosen = await probe(u); break; }catch(_){ window.__diag?.err('ERROR c1 → '+u); }
       }
-      async function choose(cands,fb,idx,ban){
-        const filtered=cands.map(s=>s.trim()).filter(Boolean).filter(u=>u!==ban);
-        for(const u of filtered){ if(used.has(u)) continue; try{const ok=await probe(u); used.add(ok); window.__diag?.ok('OK → '+ok); return ok;}catch(_){window.__diag?.err('ERROR → '+u);} }
-        const pick=(fb && !used.has(fb) && fb!==ban) ? fb : UNIQUE(idx); used.add(pick); window.__diag?.err('Fallback único → '+pick); return pick;
-      }
-      const rest=imgs.filter(im=>im!==c2);
-      await Promise.all(rest.map(async (img,i)=>{const raw=img.getAttribute('data-candidates')||''; const fb=img.getAttribute('data-fallback')||''; const cands=raw.split('|'); const ban=c2?.dataset?._chosen||''; const ch=await choose(cands,fb,i,ban); img.src=ch; img.dataset._chosen=ch; }));
+      if(!c1chosen){ c1chosen = UNIQUE(1); window.__diag?.err('Fallback c1 → '+c1chosen); }
+      c1.src = c1chosen; c1.dataset._chosen = c1chosen; used.add(c1chosen);
+      window.__diag?.ok('c1 fijada → '+c1chosen);
+    }
 
-      const seen=new Map();
-      for(let i=0;i<imgs.length;i++){
-        const im=imgs[i]; const src=im.currentSrc||im.src;
-        if(!seen.has(src)){seen.set(src,i);continue;}
-        window.__diag?.info(`Duplicado final: tarjeta ${i+1} → ${src}`);
-        const ban=c2?.dataset?._chosen||'';
-        const alt=[]; if(im!==c2){ for(const u of NEW_IMG_CANDIDATES){ if(!used.has(u) && u!==ban) alt.push(u); } }
-        const raw=im.getAttribute('data-candidates')||''; raw.split('|').forEach(u=>{u=u.trim(); if(u && u!==src && u!==ban) alt.push(u);});
-        let rep=null; for(const u of alt){ if(used.has(u)) continue; try{rep=await probe(u);break;}catch(_){window.__diag?.err('ERROR repl → '+u);} }
-        if(!rep){rep=UNIQUE(i);}
-        im.src=rep; im.dataset._chosen=rep; used.add(rep); window.__diag?.ok(`Reemplazada tarjeta ${i+1} → ${rep}`);
-      }
-    })();
+    // 2) Cargar el resto evitando usar la de c1
+    async function choose(cands,fb,idx,ban){
+      const filtered=(cands||[]).map(s=>s.trim()).filter(Boolean).filter(u=>u!==ban);
+      for(const u of filtered){ if(used.has(u)) continue; try{const ok=await probe(u); used.add(ok); window.__diag?.ok('OK → '+ok); return ok;}catch(_){ window.__diag?.err('ERROR → '+u);} }
+      const pick=(fb && !used.has(fb) && fb!==ban) ? fb : UNIQUE(idx);
+      used.add(pick); window.__diag?.err('Fallback único → '+pick); return pick;
+    }
+    const rest = imgs.filter(im=>im!==c1);
+    await Promise.all(rest.map(async (img,i)=>{
+      const raw = img.getAttribute('data-candidates')||'';
+      const fb  = img.getAttribute('data-fallback')||'';
+      const cands = raw.split('|');
+      const chosen = await choose(cands, fb, i+2, c1chosen||'');
+      img.src = chosen; img.dataset._chosen = chosen;
+    }));
 
-    // Moods
-    (function(){document.querySelectorAll('.moods button').forEach(b=>b.addEventListener('click',()=>{const seed=b.dataset.seed||'calma';document.querySelectorAll('.c-media-img:not([data-candidates])').forEach((img,i)=>img.src=`https://picsum.photos/seed/${seed}${i}/1200/800`);}));})();
-    // Pausa
-    (function(){const t=document.getElementById('timer');if(!t)return;const s=document.getElementById('startPausa');const r=document.getElementById('resetPausa');let v=60,h=null;function F(x){const m=Math.floor(x/60),ss=String(x%60).padStart(2,'0');return`0${m}:${ss}`}function tick(){v--;t.textContent=F(v);if(v<=0){clearInterval(h);h=null}}s&&s.addEventListener('click',()=>{if(h)return;v=60;t.textContent=F(v);h=setInterval(tick,1000)});r&&r.addEventListener('click',()=>{clearInterval(h);h=null;v=60;t.textContent=F(v)})})();
-    // Calma
-    document.getElementById('calmaToggle')?.addEventListener('change',e=>document.documentElement.classList.toggle('calma-on',e.target.checked));
-    // Consentimiento
-    (function(){const modal=document.getElementById('modalCons');if(!modal)return;const open=[document.getElementById('cta-turno'),document.getElementById('cta-consulta')].filter(Boolean);const ok=document.getElementById('okCons');const cancel=document.getElementById('cancelCons');open.forEach(b=>b.addEventListener('click',()=>modal.classList.add('open')));ok&&ok.addEventListener('click',()=>{modal.classList.remove('open');location.href='mailto:likelandi@proton.me?subject=Solicitud%20de%20turno';});cancel&&cancel.addEventListener('click',()=>modal.classList.remove('open'));modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open');});})();
-    // Voz
-    ;(function(){const btn=document.createElement('button');btn.textContent='🎙️ Voz';btn.className='cta';Object.assign(btn.style,{position:'fixed',left:'16px',bottom:'64px',zIndex:'60'});document.body.appendChild(btn);if('webkitSpeechRecognition'in window){const rec=new webkitSpeechRecognition();rec.lang='es-AR';rec.continuous=false;rec.onresult=e=>{const t=e.results[0][0].transcript.toLowerCase();if(t.includes('contacto'))location.hash='#contacto';if(t.includes('turno'))document.getElementById('cta-turno')?.click();if(t.includes('arriba'))scrollTo({top:0,behavior:'smooth'});if(t.includes('pausa'))location.hash='#pausa';};btn.onclick=()=>rec.start();}else{btn.style.display='none';}})();
-  </script>
+    // 3) Verificación final anti-duplicados
+    const seen=new Map();
+    for(let i=0;i<imgs.length;i++){
+      const im=imgs[i]; const src=im.currentSrc||im.src;
+      if(!seen.has(src)){ seen.set(src,i); continue; }
+      window.__diag?.info(`Duplicado final: tarjeta ${i+1} → ${src}`);
+      const ban=c1chosen||'';
+      const raw=im.getAttribute('data-candidates')||'';
+      const alt=[]; raw.split('|').forEach(u=>{u=u.trim(); if(u && u!==src && u!==ban) alt.push(u);});
+      let rep=null; for(const u of alt){ if(used.has(u)) continue; try{rep=await probe(u);break;}catch(_){window.__diag?.err('ERROR repl → '+u);} }
+      if(!rep){ rep = UNIQUE(i+100); }
+      im.src=rep; im.dataset._chosen=rep; used.add(rep);
+      window.__diag?.ok(`Reemplazada tarjeta ${i+1} → ${rep}`);
+    }
+  })();
+
+  // Moods
+  (function(){document.querySelectorAll('.moods button').forEach(b=>b.addEventListener('click',()=>{const seed=b.dataset.seed||'calma';document.querySelectorAll('.c-media-img:not([data-candidates])').forEach((img,i)=>img.src=`https://picsum.photos/seed/${seed}${i}/1200/800`);}));})();
+  // Pausa
+  (function(){const t=document.getElementById('timer');if(!t)return;const s=document.getElementById('startPausa');const r=document.getElementById('resetPausa');let v=60,h=null;function F(x){const m=Math.floor(x/60),ss=String(x%60).padStart(2,'0');return`0${m}:${ss}`}function tick(){v--;t.textContent=F(v);if(v<=0){clearInterval(h);h=null}}s&&s.addEventListener('click',()=>{if(h)return;v=60;t.textContent=F(v);h=setInterval(tick,1000)});r&&r.addEventListener('click',()=>{clearInterval(h);h=null;v=60;t.textContent=F(v)})})();
+  // Calma
+  document.getElementById('calmaToggle')?.addEventListener('change',e=>document.documentElement.classList.toggle('calma-on',e.target.checked));
+  // Consentimiento
+  (function(){const modal=document.getElementById('modalCons');if(!modal)return;const open=[document.getElementById('cta-turno'),document.getElementById('cta-consulta')].filter(Boolean);const ok=document.getElementById('okCons');const cancel=document.getElementById('cancelCons');open.forEach(b=>b.addEventListener('click',()=>modal.classList.add('open')));ok&&ok.addEventListener('click',()=>{modal.classList.remove('open');location.href='mailto:likelandi@proton.me?subject=Solicitud%20de%20turno';});cancel&&cancel.addEventListener('click',()=>modal.classList.remove('open'));modal.addEventListener('click',e=>{if(e.target===modal)modal.classList.remove('open');});})();
+  // Voz
+  ;(function(){const btn=document.createElement('button');btn.textContent='🎙️ Voz';btn.className='cta';Object.assign(btn.style,{position:'fixed',left:'16px',bottom:'64px',zIndex:'60'});document.body.appendChild(btn);if('webkitSpeechRecognition'in window){const rec=new webkitSpeechRecognition();rec.lang='es-AR';rec.continuous=false;rec.onresult=e=>{const t=e.results[0][0].transcript.toLowerCase();if(t.includes('contacto'))location.hash='#contacto';if(t.includes('turno'))document.getElementById('cta-turno')?.click();if(t.includes('arriba'))scrollTo({top:0,behavior:'smooth'});if(t.includes('pausa'))location.hash='#pausa';};btn.onclick=()=>rec.start();}else{btn.style.display='none';}})();
+</script>
 </body>
 </html>
