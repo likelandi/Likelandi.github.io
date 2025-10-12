@@ -1,92 +1,241 @@
-<!-- === SECCIÓN CURRÍCULUM (v18 con miniatura) === -->
-<section id="cv" aria-labelledby="titulo-cv" style="margin-top:18px">
-  <h2 id="titulo-cv" class="section-title">Formación y Experiencia</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juan Pablo Fernández Rebosio | Médico Psiquiatra</title>
+  <meta name="description" content="Sitio profesional de Juan Pablo Fernández Rebosio, médico psiquiatra en Luján, Buenos Aires. Atención presencial y online." />
+  <style>
+    :root {
+      --violet: #b78cff;
+      --pink: #ff7ccf;
+      --blue: #7fd0ff;
+      --muted: #666;
+      --bg: #faf8ff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      background: var(--bg);
+      color: #0b0b0b;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    header {
+      background: linear-gradient(135deg, var(--violet), var(--pink), var(--blue));
+      color: white;
+      text-align: center;
+      padding: 80px 20px;
+    }
+    header h1 { font-size: 2.2rem; margin-bottom: 8px; }
+    header p { font-size: 1.1rem; }
+    section { padding: 60px 8%; max-width: 1100px; margin: 0 auto; }
+    .section-title {
+      font-size: 1.8rem;
+      color: var(--violet);
+      margin-bottom: 18px;
+      text-align: center;
+    }
+    .about { display: flex; flex-wrap: wrap; gap: 32px; align-items: center; }
+    .about .photo img {
+      width: 320px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+    .about .text { flex: 1 1 360px; }
+    ul { list-style: disc; margin-left: 18px; }
+    .grid { display: grid; gap: 20px; }
+    .cols-3 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .tile {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .tile:hover { transform: translateY(-3px); box-shadow: 0 6px 14px rgba(0,0,0,0.08); }
+    .cta {
+      background: linear-gradient(135deg, var(--violet), var(--pink));
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: 0.3s;
+      text-align: center;
+    }
+    .cta:hover { opacity: 0.9; transform: scale(1.03); }
+    #contacto {
+      background: linear-gradient(120deg, #ffffff, #f7f2ff);
+      border-radius: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      text-align: center;
+      padding: 40px 20px;
+    }
+    footer {
+      background: linear-gradient(90deg, var(--violet), var(--pink), var(--blue));
+      color: white;
+      text-align: center;
+      padding: 16px 10px;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Juan Pablo Fernández Rebosio</h1>
+    <p>Médico Psiquiatra · Luján, Buenos Aires · Atención presencial y online</p>
+  </header>
 
-  <div class="grid cols-3" style="margin-bottom:18px">
-    <article class="tile">
-      <strong>Formación Universitaria</strong>
-      <ul style="margin:10px 0 0 18px">
-        <li>Médico – Facultad de Medicina, UBA (egreso 2011).</li>
-        <li>Concurrencia en Psiquiatría – Hospital Álvarez (2012–2017).</li>
-        <li>Especialista Universitario en Psiquiatría – UBA/INEBA (2017).</li>
-      </ul>
-    </article>
-
-    <article class="tile">
-      <strong>Posgrado</strong>
-      <ul style="margin:10px 0 0 18px">
-        <li>Curso Superior de Psicofarmacología Clínica (2019–2020).</li>
-      </ul>
-    </article>
-
-    <article class="tile">
-      <strong>Idiomas y Tecnología</strong>
-      <ul style="margin:10px 0 0 18px">
-        <li>Inglés fluido (PET – University of Cambridge, 1998).</li>
-        <li>Informática: Office, bases de datos y mantenimiento web.</li>
-      </ul>
-    </article>
-  </div>
-
-  <div class="grid cols-3" style="margin-bottom:18px">
-    <article class="tile">
-      <strong>Experiencia Asistencial</strong>
-      <ul style="margin:10px 0 0 18px">
-        <li>Policlínico Municipal de Luján — Médico Psiquiatra (2023–actualidad).</li>
-        <li>Clínica San Juan de Dios — Planta Psiquiatría (2018–actualidad).</li>
-        <li>Hospital Británico — Staff (2018).</li>
-      </ul>
-    </article>
-
-    <article class="tile">
-      <strong>Coordinación</strong>
-      <ul style="margin:10px 0 0 18px">
-        <li>Extensión Comunitaria — San Juan de Dios Luján (2018–actualidad).</li>
-        <li>Hospital de Día y Consultorios Externos — Santa Elena de la Paz (2016–2019).</li>
-      </ul>
-    </article>
-
-    <article class="tile">
-      <strong>Congresos y Actividad Científica</strong>
-      <ul style="margin:10px 0 0 18px">
-        <li>APSA / AAP (2011, 2013, 2014, 2018, 2020).</li>
-        <li>WPA–APAL, Cartagena (2021) — Ponencia sobre integración comunitaria.</li>
-      </ul>
-    </article>
-  </div>
-
-  <div class="grid cols-3" style="margin-bottom:18px;align-items:flex-start">
-    <article class="tile">
-      <strong>Matrículas</strong>
-      <ul style="margin:10px 0 0 18px">
-        <li>Matrícula Nacional: 141467.</li>
-        <li>Matrícula Provincial: 551790.</li>
-      </ul>
-      <div style="margin-top:8px;color:var(--muted);font-size:.95rem">
-        Documentación profesional disponible a solicitud.
-      </div>
-    </article>
-
-    <article class="tile">
-      <strong>Modalidad de atención</strong>
-      <ul style="margin:10px 0 0 18px">
-        <li>Presencial y online.</li>
-        <li>Coordinación con equipos y familia cuando corresponde.</li>
-      </ul>
-    </article>
-
-    <!-- === Bloque con miniatura PDF === -->
-    <article class="tile" style="display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center">
-      <strong style="margin-bottom:8px">CV completo</strong>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg"
-           alt="Miniatura CV PDF"
-           style="width:90px;height:auto;filter:drop-shadow(0 0 4px rgba(183,140,255,0.6));margin-bottom:12px">
-      <p style="color:var(--muted);margin:0 0 12px">Descargá el documento completo en el formato que prefieras.</p>
-      <p style="display:flex;flex-direction:column;gap:8px;width:100%">
-        <a class="cta" href="CV_JPFR_sitio.pdf" target="_blank" rel="noopener">📄 Ver CV en PDF (sitio)</a>
-        <a class="cta" href="https://www.dropbox.com/scl/fi/mnzbh1uwmiigrxmals6lb/CV-JPFR-2024.docx?rlkey=hnu2g3dgmxfp85tc8qgy79sfs&st=mrgqzdp4&dl=1" target="_blank" rel="noopener">💾 Descargar versión DOCX (Dropbox)</a>
+  <!-- === SOBRE MÍ === -->
+  <section id="about" class="about" aria-labelledby="titulo-about">
+    <div class="photo">
+      <img src="https://www.dropbox.com/scl/fi/24vfuqim1heomyyfvboq9/520590217_10161900831263763_8879586893041454091_n.jpg?raw=1" alt="Juan Pablo Fernández Rebosio">
+    </div>
+    <div class="text">
+      <h2 id="titulo-about" class="section-title" style="text-align:left">Sobre mí</h2>
+      <p>
+        Soy <strong>Juan Pablo Fernández Rebosio</strong>, médico psiquiatra con práctica en Luján (Buenos Aires).  
+        Mi enfoque es humano y práctico: construir rutinas que bajen el estrés, mejoren el sueño y acompañen el ánimo,  
+        sumando tecnología solo cuando aporta claridad y continuidad del cuidado.
       </p>
-    </article>
-  </div>
-</section>
-<!-- === FIN SECCIÓN CURRÍCULUM v18 === -->
+      <h3 style="margin:10px 0 6px">En qué puedo ayudarte</h3>
+      <ul>
+        <li>Ansiedad, estrés, trastornos del estado de ánimo y dificultades del sueño.</li>
+        <li>Procesos de <em>burnout</em>, foco/atención y retorno al funcionamiento diario.</li>
+        <li>Plan de hábitos: respiración, descanso, movimiento y estructura semanal.</li>
+      </ul>
+      <h3 style="margin:10px 0 6px">Cómo trabajo</h3>
+      <ul>
+        <li>Primera entrevista → historia clínica, objetivos y plan conjunto.</li>
+        <li>Seguimiento breve, con materiales simples y objetivos medibles.</li>
+        <li>Privacidad y consentimiento: datos mínimos y comunicación clara.</li>
+      </ul>
+      <p style="color:var(--muted);margin-top:12px">
+        Atiendo en <strong>Luján, Provincia de Buenos Aires</strong>, con modalidad presencial y online.  
+        Si necesitás orientación, escribime y vemos el mejor camino para vos.
+      </p>
+      <p><a class="cta" href="#contacto">Escribirme ahora</a></p>
+    </div>
+  </section>
+
+  <!-- === CV === -->
+  <section id="cv" aria-labelledby="titulo-cv" style="margin-top:18px">
+    <h2 id="titulo-cv" class="section-title">Formación y Experiencia</h2>
+
+    <div class="grid cols-3" style="margin-bottom:18px">
+      <article class="tile">
+        <strong>Formación Universitaria</strong>
+        <ul>
+          <li>Médico – Facultad de Medicina, UBA (egreso 2011).</li>
+          <li>Concurrencia en Psiquiatría – Hospital Álvarez (2012–2017).</li>
+          <li>Especialista Universitario en Psiquiatría – UBA/INEBA (2017).</li>
+        </ul>
+      </article>
+
+      <article class="tile">
+        <strong>Posgrado</strong>
+        <ul><li>Curso Superior de Psicofarmacología Clínica (2019–2020).</li></ul>
+      </article>
+
+      <article class="tile">
+        <strong>Idiomas y Tecnología</strong>
+        <ul>
+          <li>Inglés fluido (PET – University of Cambridge, 1998).</li>
+          <li>Informática: Office, bases de datos y mantenimiento web.</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="grid cols-3" style="margin-bottom:18px">
+      <article class="tile">
+        <strong>Experiencia Asistencial</strong>
+        <ul>
+          <li>Policlínico Municipal de Luján — Médico Psiquiatra (2023–actualidad).</li>
+          <li>Clínica San Juan de Dios — Planta Psiquiatría (2018–actualidad).</li>
+          <li>Hospital Británico — Staff (2018).</li>
+        </ul>
+      </article>
+
+      <article class="tile">
+        <strong>Coordinación</strong>
+        <ul>
+          <li>Extensión Comunitaria — San Juan de Dios Luján (2018–actualidad).</li>
+          <li>Hospital de Día y Consultorios Externos — Santa Elena de la Paz (2016–2019).</li>
+        </ul>
+      </article>
+
+      <article class="tile">
+        <strong>Congresos y Actividad Científica</strong>
+        <ul>
+          <li>APSA / AAP (2011, 2013, 2014, 2018, 2020).</li>
+          <li>WPA–APAL, Cartagena (2021) — Ponencia sobre integración comunitaria.</li>
+        </ul>
+      </article>
+    </div>
+
+    <div class="grid cols-3" style="margin-bottom:18px;align-items:flex-start">
+      <article class="tile">
+        <strong>Matrículas</strong>
+        <ul>
+          <li>Matrícula Nacional: 141467.</li>
+          <li>Matrícula Provincial: 551790.</li>
+        </ul>
+        <div style="margin-top:8px;color:var(--muted);font-size:.95rem">
+          Documentación profesional disponible a solicitud.
+        </div>
+      </article>
+
+      <article class="tile">
+        <strong>Modalidad de atención</strong>
+        <ul>
+          <li>Presencial y online.</li>
+          <li>Coordinación con equipos y familia cuando corresponde.</li>
+        </ul>
+      </article>
+
+      <article class="tile" style="display:flex;flex-direction:column;align-items:center;text-align:center">
+        <strong style="margin-bottom:8px">CV completo</strong>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/8/87/PDF_file_icon.svg"
+             alt="Miniatura CV PDF"
+             style="width:90px;height:auto;filter:drop-shadow(0 0 4px rgba(183,140,255,0.6));margin-bottom:12px;transition:0.4s">
+        <p style="color:var(--muted);margin:0 0 12px">Descargá el documento completo en el formato que prefieras.</p>
+        <p style="display:flex;flex-direction:column;gap:8px;width:100%">
+          <a class="cta" href="CV_JPFR_sitio.pdf" target="_blank" rel="noopener">📄 Ver CV en PDF (sitio)</a>
+          <a class="cta" href="https://www.dropbox.com/scl/fi/mnzbh1uwmiigrxmals6lb/CV-JPFR-2024.docx?rlkey=hnu2g3dgmxfp85tc8qgy79sfs&st=mrgqzdp4&dl=1" target="_blank" rel="noopener">💾 Descargar versión DOCX (Dropbox)</a>
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- === CONTACTO === -->
+  <section id="contacto">
+    <h2 class="section-title">Contacto</h2>
+    <p>Ubicación: <strong>Luján, Provincia de Buenos Aires, Argentina</strong></p>
+    <p>Email: <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></p>
+    <p>WhatsApp: <a href="https://wa.me/541124605401" target="_blank">+54 11 2460-5401</a></p>
+    <p style="margin-top:12px"><a class="cta" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Solicitar turno</a></p>
+    <div style="margin-top:20px;font-size:0.9rem;color:var(--muted)">
+      Visitas registradas: <span id="visitCounter">0</span>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Juan Pablo Fernández Rebosio | Luján (Buenos Aires)
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    try {
+      const KEY = "jp_visit_counter_inline";
+      let n = parseInt(localStorage.getItem(KEY) || "0", 10) || 0;
+      localStorage.setItem(KEY, String(++n));
+      const el = document.getElementById("visitCounter");
+      if (el) el.textContent = n.toLocaleString("es-AR");
+    } catch(_) {}
+  </script>
+</body>
+</html>
