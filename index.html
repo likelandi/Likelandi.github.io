@@ -1,323 +1,260 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
+<meta charset="UTF-8" />
+<meta http-equiv="x-ua-compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Likelandi — Home</title>
-<meta name="description" content="Psiquiatría, arteterapia, musicoterapia e IA — en un espacio claro, creativo y tecnológico.">
+
+<title>Juan Pablo Fernández Rebosio | Landia’s World</title>
+<meta name="description" content="Sitio personal y profesional de Juan Pablo Fernández Rebosio. Psiquiatría, tecnología y proyectos creativos en Luján, Buenos Aires." />
+
 <style>
   :root{
-    --bg:#07060c; --ink:#0b0a10; --fg:#f7f5ff; --muted:#dcd6ef; --line:#ffffff26;
-    --vioA:#ddd6fe; --vioB:#c4b5fd; --vioC:#a78bfa;
-    --cyA:#7de9fb; --cyB:#3bd6ef; --cyC:#0ea5c0;
-    --glass:rgba(19,16,35,.55); --glass2:rgba(19,16,35,.72);
-    --blur:14px; --rad:18px; --maxw:1120px;
+    --rose1:#ffb4dc; --rose2:#f48fb1; --violet1:#c77dff; --violet2:#9c27b0;
+    --bg:#fff6fa; --ink:#220422; --muted:#6b406d;
   }
-  *{box-sizing:border-box} html,body{margin:0}
-  body{
-    background:
-      radial-gradient(900px 500px at 15% -5%, #24186a 0%, transparent 55%),
-      radial-gradient(700px 420px at 90% -10%, #0c4a75 0%, transparent 55%),
-      linear-gradient(180deg,#07060c 0%, #090815 100%);
-    color:var(--fg);
-    font:16px/1.75 ui-sans-serif,system-ui,-apple-system,"SF Pro Text","Segoe UI",Roboto,Helvetica,Arial;
-    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
-  }
-  a{color:var(--cyA);text-decoration:none} a:hover{text-decoration:underline}
-  a:focus-visible,button:focus-visible{outline:3px solid var(--cyA);outline-offset:2px;border-radius:12px}
-
-  /* NAV */
-  .nav{position:sticky;top:0;z-index:20;background:var(--glass);backdrop-filter:blur(var(--blur));border-bottom:1px solid var(--line)}
-  .nav .inner{max-width:var(--maxw);margin:0 auto;padding:10px 16px;display:flex;gap:10px;align-items:center}
-  .brand{margin-right:auto;font-weight:900;letter-spacing:.2px;background:linear-gradient(90deg,var(--vioA),var(--cyA));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-  .nav a{color:var(--fg);opacity:.9;padding:8px 12px;border-radius:12px}
-  .nav a:hover{background:rgba(255,255,255,.06)}
-  .nav .hl{background:linear-gradient(135deg,var(--vioA),var(--cyA));color:#061017;font-weight:800;border:0}
-
-  /* LAYOUT */
-  .band{padding:40px 0}
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:26px 16px 80px}
-  .glass{background:var(--glass);backdrop-filter:blur(var(--blur));border-radius:var(--rad);border:1px solid var(--line);position:relative}
-  .glow{position:absolute;inset:-1px;border-radius:inherit;pointer-events:none;background:
-        linear-gradient(120deg,transparent 0 10%,#ffffff08 15%,transparent 30%),
-        conic-gradient(from 180deg at 50% 50%, var(--vioA), var(--cyA), var(--vioB), var(--cyB), var(--vioA));
-        filter:blur(18px);opacity:.18;mask:linear-gradient(#000,transparent 60%)}
-
-  /* BAND BGs */
-  .band--hero{padding-top:28px}
-  .band--musik{background:radial-gradient(680px 380px at 85% 5%, #3cc9f066 0%, transparent 65%),linear-gradient(180deg,transparent 0%, #0a0917 100%)}
-  .band--ia{background:radial-gradient(750px 420px at 10% 0%, #c4b5fd33 0%, transparent 70%),linear-gradient(180deg,transparent 0%, #0a0814 100%)}
-  .band--inc{background:radial-gradient(720px 420px at 90% 0%, #3bd6ef33 0%, transparent 70%),linear-gradient(180deg,transparent 0%, #0a0812 100%)}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:"Inter",-apple-system,system-ui,Roboto,Arial,sans-serif;scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);line-height:1.65}
 
   /* HERO */
-  .hero{display:grid;gap:16px}
-  .frame{overflow:hidden;border-radius:var(--rad);border:1px solid var(--line)}
-  .frame img{width:100%;height:auto;display:block;object-fit:cover}
-  .title{font-size:clamp(28px,5vw,48px);line-height:1.15;margin:0;letter-spacing:.3px;background:linear-gradient(90deg,var(--vioA),var(--cyA));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-  .lede{color:var(--muted);margin:.2rem 0 0}
-  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-  .chip{font-size:13px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid var(--line)}
-  .btn{display:inline-block;padding:10px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:var(--fg);font-weight:800;text-decoration:none}
-  .btn.primary{background:linear-gradient(135deg,var(--vioA),var(--cyA));color:#081018;border:none}
+  header.hero{
+    background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));
+    color:#fff;text-align:center;padding:82px 20px 72px;box-shadow:0 3px 10px rgba(0,0,0,.2);
+  }
+  header.hero h1{margin:0;font-size:clamp(28px,4vw,42px);letter-spacing:.5px}
+  header.hero p{margin:10px 0 18px;font-size:clamp(14px,2vw,20px);opacity:.95}
+  .cta{
+    display:inline-block;padding:12px 20px;border-radius:26px;font-weight:800;text-decoration:none;color:#fff;
+    background:linear-gradient(135deg,var(--rose1),var(--violet1));box-shadow:0 4px 10px rgba(0,0,0,.18);
+  }
+  .cta:hover{opacity:.95;transform:translateY(-1px);transition:.25s}
+  .cta + .cta{margin-left:10px}
 
-  /* TITLES */
-  .section-title{display:flex;align-items:center;gap:10px;margin:0 0 14px}
-  .badge{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#061018;background:linear-gradient(135deg,var(--cyA),var(--vioA));border-radius:999px;padding:6px 10px;font-weight:900}
-  h2{font-size:clamp(22px,3.6vw,30px);margin:8px 0}
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:100;background:#ffffffcc;backdrop-filter:blur(10px);
+    border-bottom:1px solid #eee;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:10px;
+  }
+  nav a{
+    color:var(--violet2);text-decoration:none;font-weight:700;padding:8px 14px;
+    border:1px solid #f3d1ea;border-radius:20px;background:#fff;transition:.25s;
+  }
+  nav a:hover{background:var(--rose1);color:#fff;border-color:var(--rose1);transform:translateY(-1px)}
 
-  /* GRIDS */
-  .cards{display:grid;gap:14px}
-  .card{padding:16px;position:relative}
-  .card h3{margin:0 0 6px;font-size:18px}
-  .grid2{display:grid;gap:16px}
-  .playerGrid{display:grid;gap:16px}
-  @media(min-width:900px){
-    .cards.cols-3{grid-template-columns:repeat(3,1fr)}
-    .grid2{grid-template-columns:1.3fr .7fr}
-    .playerGrid{grid-template-columns:2fr 1fr}
+  /* LAYOUT */
+  section{max-width:1100px;margin:auto;padding:60px 20px}
+  .title{
+    text-align:center;margin:0 0 30px;font-size:2rem;font-weight:900;
+    background:linear-gradient(90deg,var(--rose2),var(--violet1));-webkit-background-clip:text;color:transparent
+  }
+  .tile{
+    background:#fff;border-radius:16px;padding:25px;margin-bottom:25px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);border:1px solid #f2d5ec;
   }
 
-  /* EMBEDS */
-  .player,.apple{overflow:hidden;position:relative}
-  .player iframe,.apple iframe{width:100%;height:100%;border:0;display:block}
-  .player{aspect-ratio:16/9}
-  .apple{min-height:420px}
+  /* PORTADA con marco degradado */
+  .hero-frame{padding:4px;border-radius:22px;background:conic-gradient(from 0deg, var(--violet2), var(--rose2), var(--violet1), var(--violet2));max-width:1000px;margin:22px auto}
+  .hero-img{
+    width:100%;display:block;border-radius:18px;background:#eee;aspect-ratio:16/9;object-fit:cover;
+    box-shadow:0 6px 18px rgba(0,0,0,.15)
+  }
+  .hero-placeholder{
+    display:none;align-items:center;justify-content:center;text-align:center;color:#5b3a67;
+    width:100%;border-radius:18px;aspect-ratio:16/9;
+    background:radial-gradient(100% 100% at 0% 0%, #fbe7f3 0%, #efe5ff 100%);
+    border:2px dashed #e2c9e3;font-weight:800;letter-spacing:.4px;
+  }
 
-  /* YT sidebar */
-  .side{max-height:480px;overflow:auto}
-  .item{display:flex;gap:10px;align-items:center;padding:10px 12px;border-bottom:1px solid #ffffff1a;cursor:pointer}
-  .item:last-child{border-bottom:none}
-  .thumb{flex:0 0 56px;height:36px;border-radius:10px;background:#0b0a12;border:1px solid #ffffff18;display:grid;place-items:center;font-size:12px;color:#cfc7da}
-  .meta{min-width:0}
-  .t{font-size:14px;margin:0 0 2px}
-  .c{font-size:12px;color:var(--muted);margin:0}
-  .item:hover{background:#1a1430}
-  .item.active{background:#221a3e;outline:1px solid #8e7cff66}
+  /* COLLAGE (4 fotos) */
+  .collage{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+  .collage .frame{padding:3px;border-radius:14px;background:conic-gradient(from 0deg, var(--rose2), var(--violet1), var(--rose1))}
+  .collage img{
+    width:100%;display:block;border-radius:12px;aspect-ratio:4/3;object-fit:cover;background:#eee;
+    box-shadow:0 3px 10px rgba(0,0,0,.12)
+  }
+  .ph{
+    display:none;align-items:center;justify-content:center;text-align:center;color:#6b3d74;
+    width:100%;border-radius:12px;aspect-ratio:4/3;border:2px dashed #e2c9e3;
+    background:radial-gradient(100% 100% at 0% 0%, #fbe7f3 0%, #efe5ff 100%);font-weight:800
+  }
 
-  footer{margin:30px 0 0;padding:20px 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:14px}
+  ul{margin:8px 0 0 18px}
+  footer{
+    text-align:center;color:#fff;padding:14px;
+    background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));
+    margin-top:40px;
+  }
+
+  /* Diag simple (puede ocultarse si querés) */
+  .diag{font:12px/1.4 system-ui;background:#0f1533;color:#e8eaff;padding:6px 10px;border-top:1px solid #1c255a}
+  .ok{color:#7fd0ff} .err{color:#ff9aa9}
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav" aria-label="principal">
-  <div class="inner">
-    <div class="brand">Likelandi</div>
-    <a class="hl" href="#inicio">Inicio</a>
-    <a href="#programas">Programa</a>
-    <a href="#musik">Música</a>
-    <a href="#lab-ia">Lab de IA</a>
-    <a href="#inclusion">Inclusión</a>
-    <a href="#contacto">Contacto</a>
-  </div>
+<header class="hero">
+  <h1>Juan Pablo Fernández Rebosio</h1>
+  <p>Psiquiatría, tecnología y proyectos creativos · Landia’s World</p>
+  <a class="cta" href="sobre-mi.html">Ver Sobre mí</a>
+  <a class="cta" href="info.html">Página informativa</a>
+</header>
+
+<nav aria-label="principal">
+  <a href="#proyectos">Proyectos</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#landiasmusik">Landia’s Musik</a>
+  <a href="#contacto">Contacto</a>
 </nav>
 
-<!-- HERO -->
-<section class="band band--hero">
-  <main id="inicio" class="wrap">
-    <div class="glass hero">
-      <span class="glow"></span>
-      <div class="frame"><img src="consutorio-hero.jpg?v=1" alt="Consultorio — Likelandi" loading="eager" decoding="async"></div>
-      <h1 class="title">Un espacio claro, creativo y tecnológico</h1>
-      <p class="lede">Psiquiatría · Arteterapia · Musicoterapia · <strong>IA & nuevas tecnologías</strong></p>
-      <div class="chips" aria-label="áreas">
-        <span class="chip">🧠 Clínica</span><span class="chip">🎨 Arte</span><span class="chip">🎧 Música</span><span class="chip">🤖 IA</span><span class="chip">🏳️‍🌈 Inclusión</span>
+<!-- PROYECTOS -->
+<section id="proyectos">
+  <h2 class="title">Proyectos Principales</h2>
+  <div class="tile">
+    <p><strong>Landia’s World</strong> · Universo creativo y terapéutico donde convergen música, arte y tecnología. Incluye Landia’s Musik, Likelandi y Just Barby — espacios digitales e interactivos para explorar emociones a través de la voz y el movimiento.</p>
+
+    <!-- Portada -->
+    <div class="hero-frame">
+      <img id="heroImg" class="hero-img" alt="Collage Landia / portada" />
+      <div id="heroPh" class="hero-placeholder">Portada sin imagen (subí <b>hero.jpg</b> a /img o /assets)</div>
+    </div>
+
+    <!-- Collage 4 fotos -->
+    <div class="collage" aria-label="Galería de collages">
+      <!-- Slot 1 -->
+      <div class="frame">
+        <img id="col1" alt="Collage 1" />
+        <div id="col1ph" class="ph">collage-1</div>
       </div>
-      <p style="margin:12px 16px 16px">
-        <a class="btn primary" href="#programas">Ver Programa</a>
-        <a class="btn" href="#musik">Escuchar ahora</a>
-      </p>
-    </div>
-  </main>
-</section>
-
-<!-- PROGRAMAS -->
-<section class="band">
-  <main id="programas" class="wrap">
-    <div class="section-title"><span class="badge">Programas</span><h2>Itinerarios claros y medibles</h2></div>
-    <div class="cards cols-3">
-      <article class="glass card"><span class="glow"></span>
-        <h3>🧩 Rehabilitación Psicosocial</h3>
-        <ul style="margin:8px 0 0 18px">
-          <li>Habilidades sociales & autocuidado</li>
-          <li>Rutinas y hábitos sostenibles</li>
-          <li>Preparación para reinserción</li>
-        </ul>
-      </article>
-      <article class="glass card"><span class="glow"></span>
-        <h3>🤖 IA & Nuevas Tecnologías</h3>
-        <ul style="margin:8px 0 0 18px">
-          <li>Agenda asistida, memoria de trabajo</li>
-          <li>Mapas mentales y resúmenes</li>
-          <li>Proyecto final con rúbrica</li>
-        </ul>
-      </article>
-      <article class="glass card"><span class="glow"></span>
-        <h3>🎨 Arte & Música</h3>
-        <ul style="margin:8px 0 0 18px">
-          <li>Regulación emocional creativa</li>
-          <li>Identidad y propósito</li>
-          <li>Experiencias grupales seguras</li>
-        </ul>
-      </article>
-    </div>
-  </main>
-</section>
-
-<!-- MÚSICA -->
-<section class="band band--musik" id="musik">
-  <main class="wrap">
-    <div class="section-title"><span class="badge">Landia’s Musik</span><h2>Escuchá y enfocá</h2></div>
-
-    <!-- Apple Music -->
-    <div class="glass" style="padding:14px">
-      <span class="glow"></span>
-      <div class="glass" style="padding:10px;background:var(--glass2)">
-        <div class="glow"></div>
-        <div class="apple">
-          <iframe title="Landia’s Musik — Apple Music"
-                  allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write"
-                  sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
-                  src="https://embed.music.apple.com/ar/playlist/landiasmusik/pl.u-2aoqPbYTVbz073?l=en"></iframe>
-        </div>
+      <!-- Slot 2 -->
+      <div class="frame">
+        <img id="col2" alt="Collage 2" />
+        <div id="col2ph" class="ph">collage-2</div>
+      </div>
+      <!-- Slot 3 -->
+      <div class="frame">
+        <img id="col3" alt="Collage 3" />
+        <div id="col3ph" class="ph">collage-3</div>
+      </div>
+      <!-- Slot 4 -->
+      <div class="frame">
+        <img id="col4" alt="Collage 4" />
+        <div id="col4ph" class="ph">collage-4</div>
       </div>
     </div>
-
-    <!-- YouTube -->
-    <div class="playerGrid" style="margin-top:16px">
-      <div class="glass player"><span class="glow"></span>
-        <iframe id="ytPlayer" src="https://www.youtube.com/embed/HcX1GpMR9n4?rel=0"
-          title="Landia’s Musik — Reproductor"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen></iframe>
-      </div>
-
-      <aside class="glass" style="overflow:hidden"><span class="glow"></span>
-        <div style="display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding:10px 12px">
-          <strong>⭐ Favoritos</strong>
-          <div>
-            <button id="prev" class="btn" type="button">◀</button>
-            <button id="next" class="btn" type="button">▶</button>
-          </div>
-        </div>
-        <div id="list" class="side" role="list" aria-label="videos favoritos"></div>
-      </aside>
-    </div>
-  </main>
+  </div>
 </section>
 
-<!-- LAB DE IA -->
-<section class="band band--ia" id="lab-ia">
-  <main class="wrap">
-    <div class="section-title"><span class="badge">Laboratorio de IA</span><h2>Entrenamiento práctico y seguro</h2></div>
-    <div class="grid2">
-      <article class="glass card"><span class="glow"></span>
-        <h3>Lo esencial</h3>
-        <ul style="margin:8px 0 0 18px">
-          <li>Memoria de trabajo y funciones ejecutivas</li>
-          <li>Mapas mentales, resúmenes y “modo foco”</li>
-          <li>Proyecto final (podcast, fanzine o playlist)</li>
-        </ul>
-      </article>
-      <article class="glass card"><span class="glow"></span>
-        <h3>Ética & seguridad</h3>
-        <ul style="margin:8px 0 0 18px">
-          <li>Consentimiento informado y privacidad</li>
-          <li>Pausas pautadas y prevención de sobreuso</li>
-          <li>Abordaje no patologizante</li>
-        </ul>
-      </article>
-    </div>
-  </main>
+<!-- SERVICIOS -->
+<section id="servicios">
+  <h2 class="title">Servicios Profesionales</h2>
+  <div class="tile">
+    <ul>
+      <li>Atención psiquiátrica presencial y online.</li>
+      <li>Asesoramiento en salud mental y tecnología aplicada.</li>
+      <li>Diseño de rutinas para gestión del estrés y hábitos saludables.</li>
+      <li>Proyectos creativos con base terapéutica y de integración sensorial.</li>
+    </ul>
+  </div>
 </section>
 
-<!-- INCLUSIÓN -->
-<section class="band band--inc" id="inclusion">
-  <main class="wrap">
-    <div class="section-title"><span class="badge">Inclusión</span><h2>Diversidad & Perspectiva de Género</h2></div>
-    <div class="cards cols-3">
-      <article class="glass card"><span class="glow"></span>
-        <h3>Compromiso activo</h3>
-        <p>Política de inclusión de <strong>todas</strong> las identidades y expresiones de género, orientaciones e intersexualidades.</p>
-      </article>
-      <article class="glass card"><span class="glow"></span>
-        <h3>Prácticas</h3>
-        <ul style="margin:8px 0 0 18px">
-          <li>Nombre elegido y pronombres</li>
-          <li>Lenguaje inclusivo</li>
-          <li>Red trans-afirmativa</li>
-        </ul>
-      </article>
-      <article class="glass card"><span class="glow"></span>
-        <h3>Marco ético</h3>
-        <p>No patologización, confidencialidad y autonomía, con consentimiento informado.</p>
-      </article>
-    </div>
-  </main>
+<!-- LANDIA'S MUSIK (sin reproductores) -->
+<section id="landiasmusik">
+  <h2 class="title">Landia’s Musik</h2>
+  <div class="tile" style="text-align:center">
+    <p>Curaduría musical personal. Próximamente más novedades aquí.</p>
+  </div>
 </section>
 
-<!-- CONTACTO (EMAIL CORRECTO) -->
-<section class="band" id="contacto">
-  <main class="wrap">
-    <div class="glass card" style="padding:18px"><span class="glow"></span>
-      <h2 style="margin:0 0 10px">Contacto</h2>
-      <div style="display:grid;gap:10px">
-        <div><strong>Ubicación:</strong> Buenos Aires, Argentina</div>
-        <div><strong>Email:</strong> <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></div>
-        <div>
-          <a class="btn primary" href="mailto:likelandi@proton.me?subject=Turno%20Likelandi">Solicitar turno</a>
-        </div>
-      </div>
-    </div>
-    <footer style="text-align:center;margin-top:18px">
-      <img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=likelandi.github.io&count_bg=%237DE9FB&title_bg=%230E0C18&icon=&icon_color=%23E7E7E7&title=visitas&edge_flat=true" alt="contador de visitas">
-    </footer>
-  </main>
+<!-- CONTACTO -->
+<section id="contacto">
+  <h2 class="title">Contacto</h2>
+  <div class="tile" style="text-align:center">
+    <p><strong>Ubicación:</strong> Luján, Provincia de Buenos Aires, Argentina</p>
+    <p><strong>Email profesional:</strong> <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></p>
+    <p><strong>Email personal:</strong> <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a></p>
+    <p><strong>WhatsApp:</strong> <a href="https://wa.me/541124605401" target="_blank" rel="noopener">+54 11 2460-5401</a></p>
+    <a href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno" class="cta">Solicitar turno</a>
+  </div>
 </section>
 
-<footer>© 2025 Likelandi · Hecho en Buenos Aires</footer>
+<footer>
+  © <span id="year"></span> Juan Pablo Fernández Rebosio · Luján (Buenos Aires)
+</footer>
 
-<!-- JS YouTube -->
+<!-- Diagnóstico (podés borrar esta franja si no la querés ver) -->
+<div class="diag">BUILD FINAL — Portada & Collage: <span id="diagStatus">probando…</span></div>
+
 <script>
-(function(){
-  const LIST = [
-    { id:'HcX1GpMR9n4', title:'Video actual', chan:'Tu selección' },
-    { id:'jfKfPfyJRdk', title:'lofi hip hop radio', chan:'Lofi Girl' },
-    { id:'5qap5aO4i9A', title:'Chillhop Radio',  chan:'Chillhop' },
-    { id:'DWcJFNfaw9c', title:'Lo-fi Focus',     chan:'Lofi Girl' },
-    { id:'2OEL4P1Rz04', title:'Deep Focus',      chan:'Relaxing' },
-    { id:'lTRiuFIWV54', title:'Coding Music',    chan:'Playlist' }
-  ];
-  const list=document.getElementById('list');
-  const player=document.getElementById('ytPlayer');
-  const prev=document.getElementById('prev');
-  const next=document.getElementById('next');
+  // Año
+  document.getElementById("year").textContent = new Date().getFullYear();
 
-  function render(){
-    if(!list) return;
-    list.innerHTML='';
-    LIST.forEach((v,i)=>{
-      const el=document.createElement('div');
-      el.className='item'+(i===0?' active':'');
-      el.dataset.id=v.id;
-      el.innerHTML=`<div class="thumb">YT</div><div class="meta"><p class="t">${v.title}</p><p class="c">${v.chan}</p></div>`;
-      list.appendChild(el);
+  // Helper de carga con timeout y cache-buster
+  function tryLoad(src, timeout=10000){
+    return new Promise((resolve, reject)=>{
+      const i = new Image();
+      const t = setTimeout(()=>{ i.src=''; reject(new Error('timeout')); }, timeout);
+      i.onload = ()=>{ clearTimeout(t); resolve(src); };
+      i.onerror = ()=>{ clearTimeout(t); reject(new Error('error')); };
+      i.referrerPolicy = 'no-referrer';
+      i.src = src + (src.includes('?')?'&':'?') + 'v=' + Date.now();
     });
   }
-  function setPlayer(id,auto=true){ if(player) player.src=`https://www.youtube.com/embed/${id}?rel=0${auto?'&autoplay=1':''}`; }
-  function items(){ return list ? Array.from(list.querySelectorAll('.item')) : []; }
-  function activeIndex(){ return items().findIndex(n=>n.classList.contains('active')); }
-  function setActive(i){
-    const arr=items(); arr.forEach(n=>n.classList.remove('active'));
-    if(arr[i]){ arr[i].classList.add('active'); setPlayer(arr[i].dataset.id); }
-    if(window.innerWidth<900 && player){ player.scrollIntoView({behavior:'smooth',block:'start'}); }
-  }
-  list?.addEventListener('click',e=>{ const it=e.target.closest('.item'); if(!it) return; items().forEach(n=>n.classList.remove('active')); it.classList.add('active'); setPlayer(it.dataset.id); });
-  next?.addEventListener('click',()=>{ const arr=items(); if(!arr.length) return; let i=activeIndex(); i=(i+1)%arr.length; setActive(i); });
-  prev?.addEventListener('click',()=>{ const arr=items(); if(!arr.length) return; let i=activeIndex(); i=(i-1+arr.length)%arr.length; setActive(i); });
 
-  render(); setPlayer(LIST[0].id,false);
-})();
+  // ========= Portada =========
+  const hero = document.getElementById('heroImg');
+  const heroPh = document.getElementById('heroPh');
+  const diag = document.getElementById('diagStatus');
+
+  const HERO_CANDIDATES = [
+    'img/hero.jpg',
+    'assets/hero.jpg',
+    'hero.jpg',
+    // tus imágenes de Dropbox (portada/collage general)
+    'https://www.dropbox.com/scl/fi/gdh9nvqvfx1glexfu1o7x/IMG_1894.JPG?raw=1'
+  ];
+
+  (async function(){
+    let ok=null;
+    for(const u of HERO_CANDIDATES){ try{ ok=await tryLoad(u); break; } catch(_){} }
+    if(ok){ hero.src = ok; hero.style.display='block'; heroPh.style.display='none'; diag.textContent='Portada OK → '+ok; diag.className='ok'; }
+    else { hero.style.display='none'; heroPh.style.display='flex'; diag.textContent='Portada en placeholder (subí /img/hero.jpg)'; diag.className='err'; }
+  })();
+
+  // ========= Collage 4 fotos =========
+  // Cada slot prueba: /img → /assets → raíz → Dropbox específico → placeholder
+  const slots = [
+    {img:'col1', ph:'col1ph', candidates:[
+      'img/collage-1.jpg','assets/collage-1.jpg','collage-1.jpg',
+      'https://www.dropbox.com/scl/fi/eti4id9palyp8bh1fb6wo/collage-1.jpg.JPG?raw=1'
+    ]},
+    {img:'col2', ph:'col2ph', candidates:[
+      'img/collage-2.jpg','assets/collage-2.jpg','collage-2.jpg',
+      'https://www.dropbox.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG?raw=1'
+    ]},
+    {img:'col3', ph:'col3ph', candidates:[
+      'img/collage-3.jpg','assets/collage-3.jpg','collage-3.jpg',
+      'https://www.dropbox.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?raw=1'
+    ]},
+    {img:'col4', ph:'col4ph', candidates:[
+      'img/collage-4.jpg','assets/collage-4.jpg','collage-4.jpg',
+      'https://www.dropbox.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?raw=1',
+      'https://www.dropbox.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG?raw=1' /* extra por si usás la 5 */
+    ]}
+  ];
+
+  (async function(){
+    for (const s of slots){
+      const el = document.getElementById(s.img);
+      const ph = document.getElementById(s.ph);
+      let ok=null;
+      for(const u of s.candidates){ try{ ok=await tryLoad(u); break; } catch(_){} }
+      if(ok){ el.src=ok; el.style.display='block'; ph.style.display='none'; }
+      else { el.style.display='none'; ph.style.display='flex'; }
+    }
+  })();
 </script>
+
+<noscript>Para ver las imágenes, activá JavaScript.</noscript>
 </body>
 </html>
