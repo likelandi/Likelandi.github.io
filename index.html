@@ -6,24 +6,44 @@
 <title>Juan Pablo Fernández Rebosio | Médico Psiquiatra</title>
 <meta name="description" content="Sitio profesional de Juan Pablo Fernández Rebosio, médico psiquiatra en Luján (Buenos Aires). Atención presencial y online." />
 <style>
-  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;margin:0;padding:0;background:#faf8ff;color:#111;line-height:1.6}
-  header{background:linear-gradient(120deg,#b78cff,#ff7ccf,#7fd0ff);color:#fff;text-align:center;padding:70px 15px}
+  :root{--violet:#b78cff;--pink:#ff7ccf;--blue:#7fd0ff;--ink:#111;--muted:#666;--bg:#faf8ff}
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;background:var(--bg);color:var(--ink);line-height:1.65}
+
+  .diag{font:13px/1.4 system-ui;background:#0f1533;color:#e8eaff;padding:6px 10px}
+  .ok{color:#7fd0ff} .err{color:#ff9aa9}
+
+  header{background:linear-gradient(120deg,var(--violet),var(--pink),var(--blue));color:#fff;text-align:center;padding:70px 15px}
   header h1{margin:0;font-size:2rem}
   header p{margin:6px 0 0;font-size:1rem}
-  nav{text-align:center;margin:0;padding:10px;background:#fff}
+
+  nav{text-align:center;padding:10px;background:#fff;border-bottom:1px solid #eee}
   nav a{margin:0 8px;color:#333;text-decoration:none;font-weight:bold}
+
   section{max-width:1000px;margin:auto;padding:40px 20px}
   .title{color:#b78cff;text-align:center;margin-bottom:20px;font-size:1.8rem;font-weight:800}
-  .about{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:center}
-  .about img{width:320px;max-width:100%;border-radius:20px;box-shadow:0 4px 12px rgba(0,0,0,0.2)}
-  .about div{flex:1 1 300px}
+
+  .about{display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:center}
+  .about .photo{flex:0 0 auto}
+  .about img{
+    width:320px;max-width:100%;aspect-ratio:4/5;object-fit:cover;
+    border-radius:20px;box-shadow:0 4px 12px rgba(0,0,0,.2);background:#eee;border:2px solid #e7ddff
+  }
+  .about .text{flex:1 1 320px}
   ul{margin-left:20px}
-  .tile{background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.1);margin-bottom:15px}
-  footer{text-align:center;background:linear-gradient(120deg,#b78cff,#ff7ccf,#7fd0ff);color:#fff;padding:10px}
-  .cta{display:inline-block;margin-top:12px;padding:10px 16px;background:linear-gradient(135deg,#b78cff,#ff7ccf);color:#fff;text-decoration:none;border-radius:20px}
+
+  .tile{background:#fff;padding:20px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.1);margin-bottom:15px;border:1px solid #eee}
+  .cta{display:inline-block;margin-top:12px;padding:10px 16px;background:linear-gradient(135deg,#b78cff,#ff7ccf);color:#fff;text-decoration:none;border-radius:20px;font-weight:800}
+  .cta:hover{opacity:.95;transform:translateY(-1px)}
+
+  footer{text-align:center;background:linear-gradient(120deg,#b78cff,#ff7ccf,#7fd0ff);color:#fff;padding:10px;margin-top:10px}
 </style>
 </head>
 <body>
+<!-- Diagnóstico visible -->
+<div class="diag" id="diag">BUILD v27 — Cargador de foto: <span id="photoStatus">inicializando…</span></div>
+
 <header>
   <h1>Juan Pablo Fernández Rebosio</h1>
   <p>Médico Psiquiatra · Luján, Buenos Aires · Atención presencial y online</p>
@@ -38,8 +58,11 @@
 <section id="about">
   <h2 class="title">Sobre mí</h2>
   <div class="about">
-    <img src="https://www.dropbox.com/scl/fi/24vfuqim1heomyyfvboq9/fotomia.jpg?raw=1" alt="Foto Juan Pablo Fernández Rebosio">
-    <div>
+    <div class="photo">
+      <!-- La src inicial se setea por JS para probar rutas en orden -->
+      <img id="portrait" alt="Foto Juan Pablo Fernández Rebosio" />
+    </div>
+    <div class="text">
       <p>Soy <strong>Juan Pablo Fernández Rebosio</strong>, médico psiquiatra con práctica en Luján (Buenos Aires). Mi enfoque es humano y práctico: construir rutinas que bajen el estrés, mejoren el sueño y acompañen el ánimo, sumando tecnología solo cuando aporta claridad y continuidad del cuidado.</p>
       <h3>En qué puedo ayudarte</h3>
       <ul>
@@ -78,7 +101,8 @@
   </div>
   <div class="tile">
     <strong>CV completo</strong><br>
-    <a href="https://www.dropbox.com/scl/fi/mnzbh1uwmiigrxmals6lb/CV-JPFR-2024.docx?raw=1" target="_blank" class="cta">Descargar CV (Word)</a>
+    <a href="CV_JPFR_sitio.pdf" target="_blank" class="cta">Ver CV en PDF (sitio)</a>
+    <a href="https://www.dropbox.com/scl/fi/mnzbh1uwmiigrxmals6lb/CV-JPFR-2024.docx?raw=1" target="_blank" class="cta" style="margin-left:8px">Descargar DOCX (Dropbox)</a>
   </div>
 </section>
 
@@ -87,7 +111,7 @@
   <div style="text-align:center;">
     <p>Ubicación: <strong>Luján, Provincia de Buenos Aires, Argentina</strong></p>
     <p>Email: <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></p>
-    <p>WhatsApp: <a href="https://wa.me/541124605401" target="_blank">+54 11 2460-5401</a></p>
+    <p>WhatsApp: <a href="https://wa.me/541124605401" target="_blank" rel="noopener">+54 11 2460-5401</a></p>
     <a href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno" class="cta">Solicitar turno</a>
   </div>
 </section>
@@ -95,7 +119,57 @@
 <footer>© <span id="year"></span> Juan Pablo Fernández Rebosio · Luján (Buenos Aires)</footer>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
+  // Año
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Helper de diagnóstico
+  const statusEl = document.getElementById('photoStatus');
+  function setStatus(msg, cls){
+    if(!statusEl) return;
+    statusEl.textContent = msg;
+    statusEl.className = cls || '';
+  }
+
+  // Candidatos de imagen (orden de prueba):
+  const CANDIDATES = [
+    'img/portrait.jpg',                     // 1) carpeta /img
+    'assets/portrait.jpg',                  // 2) carpeta /assets
+    'portrait.jpg',                         // 3) raíz del repo
+    'https://www.dropbox.com/scl/fi/24vfuqim1heomyyfvboq9/fotomia.jpg?raw=1' // 4) fallback Dropbox
+  ];
+
+  // Probar cada ruta hasta que una cargue
+  (async function(){
+    const el = document.getElementById('portrait');
+    if(!el){ return; }
+    setStatus('probando rutas locales + Dropbox…');
+
+    function tryLoad(src){
+      return new Promise((resolve, reject)=>{
+        const img = new Image();
+        const t = setTimeout(()=>{ img.src=''; reject(new Error('timeout')); }, 10000);
+        img.onload = () => { clearTimeout(t); resolve(src); };
+        img.onerror = () => { clearTimeout(t); reject(new Error('error')); };
+        // cache buster por si el navegador se aferra a 404 viejos
+        img.src = src + (src.includes('?') ? '&' : '?') + 'v=' + Date.now();
+      });
+    }
+
+    for (const url of CANDIDATES) {
+      try{
+        const ok = await tryLoad(url);
+        el.src = ok; // fijamos la que funcionó (con buster ya aplicado)
+        setStatus('OK → ' + url, 'ok');
+        return;
+      }catch(e){
+        // muestra en consola pero sigue probando
+        console.warn('Fallo foto:', url, e.message);
+      }
+    }
+    // Si nada funciona, deja un mensaje claro y un placeholder
+    el.src = 'https://picsum.photos/seed/jp-fallback/800/1000';
+    setStatus('Usando imagen de respaldo (subí portrait.jpg a /img o /assets o raíz)', 'err');
+  })();
 </script>
 </body>
 </html>
