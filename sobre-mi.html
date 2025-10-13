@@ -2,47 +2,196 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="x-ua-compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+
 <title>Sobre mí | Juan Pablo Fernández Rebosio</title>
-<meta name="description" content="Página personal de presentación de Juan Pablo Fernández Rebosio (psiquiatra)."/>
+<meta name="description" content="Presentación personal de Juan Pablo Fernández Rebosio. Psiquiatría con enfoque humano y tecnológico en Luján, Buenos Aires." />
+<meta http-equiv="x-ua-compatible" content="IE=edge" />
+
 <style>
-  body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;margin:0;background:#faf8ff;color:#111;line-height:1.6}
-  header{background:linear-gradient(120deg,#b78cff,#ff7ccf,#7fd0ff);color:#fff;text-align:center;padding:60px 15px}
-  header h1{margin:0} nav{text-align:center;padding:10px;background:#fff;border-bottom:1px solid #eee}
-  nav a{margin:0 8px;color:#333;text-decoration:none;font-weight:bold}
-  section{max-width:900px;margin:auto;padding:36px 18px}
-  .about{display:flex;flex-wrap:wrap;gap:22px;align-items:flex-start}
-  .about img{width:300px;max-width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;border:2px solid #e7ddff;box-shadow:0 6px 18px rgba(0,0,0,.18);background:#eee}
-  .tile{background:#fff;border:1px solid #eee;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:18px}
-  .cta{display:inline-block;margin-top:12px;padding:10px 16px;background:linear-gradient(135deg,#b78cff,#ff7ccf);color:#fff;text-decoration:none;border-radius:20px;font-weight:800}
-  footer{text-align:center;background:linear-gradient(120deg,#b78cff,#ff7ccf,#7fd0ff);color:#fff;padding:10px;margin-top:10px}
+  :root{
+    --rose1:#ffb4dc; --rose2:#f48fb1; --violet1:#c77dff; --violet2:#9c27b0;
+    --bg:#fff6fa; --ink:#220422; --muted:#6b406d;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:"Inter",-apple-system,system-ui,Roboto,Arial,sans-serif;scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);line-height:1.65}
+
+  header.hero{
+    background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));
+    color:#fff;text-align:center;padding:82px 20px 56px;box-shadow:0 3px 10px rgba(0,0,0,.2);
+  }
+  header.hero h1{margin:0;font-size:clamp(26px,4vw,38px)}
+  header.hero p{margin:10px 0 18px;opacity:.95}
+  .cta{
+    display:inline-block;padding:10px 18px;border-radius:26px;font-weight:800;text-decoration:none;color:#fff;
+    background:linear-gradient(135deg,var(--rose1),var(--violet1));box-shadow:0 4px 10px rgba(0,0,0,.18);
+  }
+  .cta:hover{opacity:.95;transform:translateY(-1px);transition:.25s}
+
+  nav{
+    position:sticky;top:0;z-index:100;background:#ffffffcc;backdrop-filter:blur(10px);
+    border-bottom:1px solid #eee;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:10px;
+  }
+  nav a{
+    color:var(--violet2);text-decoration:none;font-weight:700;padding:8px 14px;
+    border:1px solid #f3d1ea;border-radius:20px;background:#fff;transition:.25s;
+  }
+  nav a:hover{background:var(--rose1);color:#fff;border-color:var(--rose1);transform:translateY(-1px)}
+
+  section{max-width:980px;margin:auto;padding:44px 20px}
+  .title{
+    text-align:center;margin:0 0 24px;font-size:1.9rem;font-weight:900;
+    background:linear-gradient(90deg,var(--rose2),var(--violet1));-webkit-background-clip:text;color:transparent
+  }
+  .about{
+    display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:center
+  }
+  .frame{padding:4px;border-radius:22px;background:conic-gradient(from 0deg, var(--violet2), var(--rose2), var(--violet1), var(--violet2))}
+  .portrait{
+    width:320px;max-width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;background:#eee;
+    border:2px solid #f2d5ec;box-shadow:0 6px 18px rgba(0,0,0,.16)
+  }
+  .placeholder{
+    display:none;align-items:center;justify-content:center;text-align:center;color:#5b3a67;
+    width:320px;max-width:100%;aspect-ratio:4/5;border-radius:18px;border:2px dashed #e2c9e3;
+    background:radial-gradient(100% 100% at 0% 0%, #fbe7f3 0%, #efe5ff 100%);
+    font-weight:900;letter-spacing:.4px
+  }
+  .tile{background:#fff;border-radius:16px;padding:22px;border:1px solid #f2d5ec;box-shadow:0 3px 12px rgba(0,0,0,.08)}
+  ul{margin:8px 0 0 18px}
+
+  footer{
+    text-align:center;color:#fff;padding:14px;margin-top:40px;
+    background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));
+  }
+  .diag{font:12px/1.4 system-ui;background:#0f1533;color:#e8eaff;padding:6px 10px;border-top:1px solid #1c255a}
+  .ok{color:#7fd0ff} .err{color:#ff9aa9}
 </style>
 </head>
 <body>
-<header><h1>Sobre mí</h1></header>
-<nav><a href="index.html">Inicio</a> <a href="info.html">Página informativa</a></nav>
 
-<section>
+<header class="hero">
+  <h1>Sobre mí</h1>
+  <p>Médico Psiquiatra · Luján, Buenos Aires · Atención presencial y online</p>
+  <a class="cta" href="index.html">Volver al Inicio</a>
+</header>
+
+<nav aria-label="principal">
+  <a href="index.html">Inicio</a>
+  <a href="#presentacion">Presentación</a>
+  <a href="#cv">Currículum</a>
+  <a href="#contacto">Contacto</a>
+  <a href="info.html">Página informativa</a>
+</nav>
+
+<section id="presentacion">
+  <h2 class="title">Presentación</h2>
   <div class="about">
-    <img id="portrait" alt="Foto Juan Pablo Fernández Rebosio" />
-    <div class="tile">
-      <p>Soy <strong>Juan Pablo Fernández Rebosio</strong>, médico psiquiatra. Acompaño a personas con ansiedad, estrés, trastornos del estado de ánimo y del sueño. Trabajo con entrevistas claras, objetivos medibles y seguimiento breve, priorizando tu privacidad.</p>
-      <p><strong>Ubicación:</strong> Luján, Provincia de Buenos Aires — presencial y online.</p>
-      <a href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno" class="cta">Solicitar turno</a>
+    <div class="frame">
+      <img id="portrait" class="portrait" alt="Foto de Juan Pablo Fernández Rebosio" />
+    </div>
+    <div class="placeholder" id="portraitPh">Sin foto (subí <b>portrait.jpg</b> a /img o /assets)</div>
+
+    <div class="tile" style="flex:1 1 320px">
+      <p>Soy <strong>Juan Pablo Fernández Rebosio</strong>, médico psiquiatra. Mi enfoque es humano y práctico: rutinas que bajen el estrés, mejoren el sueño y acompañen el estado de ánimo, incorporando tecnología solo cuando suma claridad y continuidad del cuidado.</p>
+      <h3 style="margin:12px 0 6px">En qué puedo ayudarte</h3>
+      <ul>
+        <li>Ansiedad, estrés, trastornos del estado de ánimo y del sueño.</li>
+        <li>Procesos de <em>burnout</em>, foco/atención y funcionamiento diario.</li>
+        <li>Plan de hábitos: descanso, respiración, movimiento y estructura semanal.</li>
+      </ul>
+      <h3 style="margin:12px 0 6px">Cómo trabajo</h3>
+      <ul>
+        <li>Primera entrevista → historia clínica y plan conjunto.</li>
+        <li>Seguimiento breve, objetivos claros y medibles.</li>
+        <li>Privacidad y comunicación directa.</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<footer>© <span id="year"></span> Juan Pablo Fernández Rebosio</footer>
+<section id="cv">
+  <h2 class="title">Currículum</h2>
+  <div class="tile">
+    <strong>Formación</strong>
+    <ul>
+      <li>Médico – Facultad de Medicina, UBA (2011)</li>
+      <li>Concurrencia en Psiquiatría – Hospital Álvarez (2012–2017)</li>
+      <li>Especialista Universitario en Psiquiatría – UBA/INEBA (2017)</li>
+    </ul>
+  </div>
+  <div class="tile">
+    <strong>Experiencia</strong>
+    <ul>
+      <li>Policlínico Municipal de Luján — Médico Psiquiatra (2023–actualidad)</li>
+      <li>Clínica San Juan de Dios — Planta Psiquiatría (2018–actualidad)</li>
+      <li>Hospital Británico — Staff (2018)</li>
+    </ul>
+  </div>
+  <div class="tile">
+    <strong>CV completo</strong><br>
+    <a class="cta" href="CV_JPFR_sitio.pdf" target="_blank" rel="noopener">Ver CV en PDF (sitio)</a>
+    <a class="cta" href="https://www.dropbox.com/scl/fi/mnzbh1uwmiigrxmals6lb/CV-JPFR-2024.docx?raw=1" target="_blank" rel="noopener" style="margin-left:8px">Descargar DOCX (Dropbox)</a>
+  </div>
+</section>
+
+<section id="contacto">
+  <h2 class="title">Contacto</h2>
+  <div class="tile" style="text-align:center">
+    <p>Ubicación: <strong>Luján, Provincia de Buenos Aires, Argentina</strong></p>
+    <p>Email: <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></p>
+    <p>WhatsApp: <a href="https://wa.me/541124605401" target="_blank" rel="noopener">+54 11 2460-5401</a></p>
+    <a href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno" class="cta">Solicitar turno</a>
+  </div>
+</section>
+
+<footer>
+  © <span id="year"></span> Juan Pablo Fernández Rebosio · Luján (Buenos Aires)
+</footer>
+
+<div class="diag">BUILD v32 — Foto sobre mí: <span id="diagStatus">probando…</span></div>
 
 <script>
-document.getElementById("year").textContent=new Date().getFullYear();
-const portrait=document.getElementById('portrait');
-const C=['img/portrait.jpg','assets/portrait.jpg','portrait.jpg','https://www.dropbox.com/scl/fi/24vfuqim1heomyyfvboq9/fotomia.jpg?raw=1'];
-function t(u){return new Promise((r,j)=>{const i=new Image(),T=setTimeout(()=>{i.src='';j()},9000);i.onload=()=>{clearTimeout(T);r(u)};i.onerror=()=>{clearTimeout(T);j()};i.referrerPolicy='no-referrer';i.src=u+(u.includes('?')?'&':'?')+'v='+Date.now();});}
-(async()=>{for(const u of C){try{portrait.src=await t(u);return}catch{}}portrait.alt='(Sin foto)';})();
+  // Año
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Cargador robusto de foto (local → Dropbox → placeholder)
+  const img = document.getElementById('portrait');
+  const ph  = document.getElementById('portraitPh');
+  const diag= document.getElementById('diagStatus');
+  const CANDIDATES = [
+    'img/portrait.jpg',
+    'assets/portrait.jpg',
+    'portrait.jpg',
+    'https://www.dropbox.com/scl/fi/24vfuqim1heomyyfvboq9/fotomia.jpg?raw=1'
+  ];
+
+  function tryLoad(src, timeout=10000){
+    return new Promise((resolve, reject)=>{
+      const i = new Image();
+      const t = setTimeout(()=>{ i.src=''; reject(new Error('timeout')); }, timeout);
+      i.onload = ()=>{ clearTimeout(t); resolve(src); };
+      i.onerror = ()=>{ clearTimeout(t); reject(new Error('error')); };
+      i.referrerPolicy = 'no-referrer';
+      i.src = src + (src.includes('?')?'&':'?') + 'v=' + Date.now();
+    });
+  }
+
+  (async function(){
+    let ok=null;
+    for (const u of CANDIDATES){
+      try{ ok = await tryLoad(u); break; }catch(_){}
+    }
+    if(ok){
+      img.src = ok;
+      img.style.display='block'; ph.style.display='none';
+      if(diag){ diag.textContent='OK → '+ok; diag.className='ok'; }
+    }else{
+      img.style.display='none'; ph.style.display='flex';
+      if(diag){ diag.textContent='Usando placeholder (subí /img/portrait.jpg)'; diag.className='err'; }
+    }
+  })();
 </script>
 </body>
 </html>
-
