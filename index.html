@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Juan Pablo Fernández Rebosio | Landia’s World</title>
 <meta name="description" content="Sitio personal y profesional de Juan Pablo Fernández Rebosio. Psiquiatría, tecnología y proyectos creativos en Luján, Buenos Aires." />
 <style>
@@ -13,12 +13,19 @@
   *{box-sizing:border-box}
   html,body{margin:0;padding:0;font-family:"Inter",-apple-system,system-ui,Roboto,sans-serif;scroll-behavior:smooth}
   body{background:var(--bg);color:var(--ink);line-height:1.6}
+
   header.hero{
     background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));
-    color:#fff;text-align:center;padding:80px 20px 70px;box-shadow:0 3px 10px rgba(0,0,0,.2);
+    color:#fff;text-align:center;padding:82px 20px 72px;box-shadow:0 3px 10px rgba(0,0,0,.2);
   }
   header.hero h1{margin:0;font-size:clamp(28px,4vw,42px);letter-spacing:.5px}
-  header.hero p{margin-top:10px;font-size:clamp(14px,2vw,20px);opacity:.95}
+  header.hero p{margin:10px 0 18px;font-size:clamp(14px,2vw,20px);opacity:.95}
+  .cta{
+    display:inline-block;padding:12px 20px;border-radius:26px;font-weight:800;text-decoration:none;color:#fff;
+    background:linear-gradient(135deg,var(--rose1),var(--violet1));box-shadow:0 4px 10px rgba(0,0,0,.18);
+  }
+  .cta:hover{opacity:.95;transform:translateY(-1px);transition:.25s}
+
   nav{
     position:sticky;top:0;z-index:100;background:#ffffffcc;backdrop-filter:blur(10px);
     border-bottom:1px solid #eee;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:10px;
@@ -30,24 +37,31 @@
   nav a:hover{background:var(--rose1);color:#fff;border-color:var(--rose1);transform:translateY(-1px)}
   section{max-width:1000px;margin:auto;padding:60px 20px}
   .title{text-align:center;margin:0 0 30px;font-size:2rem;font-weight:900;background:linear-gradient(90deg,var(--rose2),var(--violet1));-webkit-background-clip:text;color:transparent}
-  .hero-img{max-width:900px;width:100%;border-radius:20px;display:block;margin:20px auto;box-shadow:0 6px 18px rgba(0,0,0,.15)}
   .tile{
     background:#fff;border-radius:16px;padding:25px;margin-bottom:25px;
     box-shadow:0 3px 12px rgba(0,0,0,.08);border:1px solid #f2d5ec;
   }
-  .cta{
-    display:inline-block;margin-top:12px;padding:12px 20px;font-weight:800;
-    border-radius:25px;text-decoration:none;color:#fff;
-    background:linear-gradient(135deg,var(--rose2),var(--violet1));transition:.25s;
+
+  /* Imagen hero con marco suave */
+  .hero-frame{padding:4px;border-radius:22px;background:conic-gradient(from 0deg, var(--violet2), var(--rose2), var(--violet1), var(--violet2));max-width:900px;margin:22px auto}
+  .hero-img{
+    width:100%;display:block;border-radius:18px;background:#eee;aspect-ratio:16/9;object-fit:cover;
+    box-shadow:0 6px 18px rgba(0,0,0,.15)
   }
-  .cta:hover{opacity:.9;transform:translateY(-1px)}
+  /* Placeholder si no hay imagen */
+  .hero-placeholder{
+    display:none;align-items:center;justify-content:center;text-align:center;color:#5b3a67;
+    width:100%;border-radius:18px;aspect-ratio:16/9;
+    background:radial-gradient(100% 100% at 0% 0%, #fbe7f3 0%, #efe5ff 100%);
+    border:2px dashed #e2c9e3;font-weight:800;letter-spacing:.4px;
+  }
+
+  ul{margin:8px 0 0 18px}
   footer{
     text-align:center;color:#fff;padding:14px;
     background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));
     margin-top:40px;
   }
-  .projects img{width:100%;border-radius:14px;box-shadow:0 3px 10px rgba(0,0,0,.12)}
-  .player{margin:20px 0;text-align:center}
 </style>
 </head>
 <body>
@@ -55,20 +69,27 @@
 <header class="hero">
   <h1>Juan Pablo Fernández Rebosio</h1>
   <p>Psiquiatría, tecnología y proyectos creativos · Landia’s World</p>
+  <!-- Botón directo a la página dedicada de Sobre mí -->
+  <a class="cta" href="sobre-mi.html">Ver Sobre mí</a>
 </header>
 
 <nav>
   <a href="#proyectos">Proyectos</a>
   <a href="#servicios">Servicios</a>
-  <a href="#landiasmusik">Landia’s Musik</a>
   <a href="#contacto">Contacto</a>
+  <a href="info.html">Página informativa</a>
 </nav>
 
 <section id="proyectos">
   <h2 class="title">Proyectos Principales</h2>
   <div class="tile">
     <p><strong>Landia’s World</strong> · Universo creativo y terapéutico donde convergen música, arte y tecnología. Incluye Landia’s Musik, Likelandi y Just Barby — espacios digitales e interactivos para explorar emociones a través de la voz y el movimiento.</p>
-    <img src="https://www.dropbox.com/scl/fi/gdh9nvqvfx1glexfu1o7x/IMG_1894.JPG?raw=1" alt="Landia collage" class="hero-img" />
+
+    <div class="hero-frame">
+      <!-- Imagen con cargador robusto -->
+      <img id="heroImg" class="hero-img" alt="Collage Landia / portada" />
+      <div id="heroPh" class="hero-placeholder">Portada sin imagen (subí <b>hero.jpg</b> a /img o /assets)</div>
+    </div>
   </div>
 </section>
 
@@ -84,20 +105,12 @@
   </div>
 </section>
 
+<!-- (SECCIÓN Landia’s Musik SIN reproductores, solo mención -->
 <section id="landiasmusik">
-  <h2 class="title">Landia’s Musik Party</h2>
-  <div class="tile player">
-    <p>Escuchá mis listas de reproducción favoritas en Apple Music y Spotify 💿</p>
-    <iframe allow="autoplay *; encrypted-media *;" frameborder="0"
-      height="380" style="width:100%;max-width:660px;border-radius:16px;"
-      sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation"
-      src="https://embed.music.apple.com/library/playlist/p.DV7rzdqiW2pJYl"></iframe>
-
-    <iframe style="border-radius:16px;margin-top:20px"
-      src="https://open.spotify.com/embed/playlist/7yAt4LZqOVi0qpJlgCfhg9?utm_source=generator" 
-      width="100%" height="380" frameBorder="0" allowfullscreen="" 
-      allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-      loading="lazy"></iframe>
+  <h2 class="title">Landia’s Musik</h2>
+  <div class="tile" style="text-align:center">
+    <p>Curaduría musical personal. Próximamente más novedades aquí.</p>
+    <!-- Si más adelante querés reactivar embeds, se puede reponer 1 click. Por ahora quedan removidos. -->
   </div>
 </section>
 
@@ -106,7 +119,7 @@
   <div class="tile" style="text-align:center">
     <p>Ubicación: <strong>Luján, Provincia de Buenos Aires, Argentina</strong></p>
     <p>Email: <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></p>
-    <p>WhatsApp: <a href="https://wa.me/541124605401" target="_blank">+54 11 2460-5401</a></p>
+    <p>WhatsApp: <a href="https://wa.me/541124605401" target="_blank" rel="noopener">+54 11 2460-5401</a></p>
     <a href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno" class="cta">Solicitar turno</a>
   </div>
 </section>
@@ -114,8 +127,46 @@
 <footer>© <span id="year"></span> Juan Pablo Fernández Rebosio · Luján (Buenos Aires)</footer>
 
 <script>
-document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  // Año
+  document.getElementById("year").textContent = new Date().getFullYear();
 
+  // CARGADOR ROBUSTO para la portada
+  // Orden: /img/hero.jpg → /assets/hero.jpg → /hero.jpg → Dropbox → placeholder
+  const hero = document.getElementById('heroImg');
+  const ph = document.getElementById('heroPh');
+  const CANDIDATES = [
+    'img/hero.jpg',
+    'assets/hero.jpg',
+    'hero.jpg',
+    // Si querés usar una imagen de Dropbox, podés dejar este link o cambiarlo:
+    'https://www.dropbox.com/scl/fi/gdh9nvqvfx1glexfu1o7x/IMG_1894.JPG?raw=1'
+  ];
+
+  function tryLoad(src, timeout=10000){
+    return new Promise((resolve, reject)=>{
+      const i = new Image();
+      const t = setTimeout(()=>{ i.src=''; reject(new Error('timeout')); }, timeout);
+      i.onload = ()=>{ clearTimeout(t); resolve(src); };
+      i.onerror = ()=>{ clearTimeout(t); reject(new Error('error')); };
+      i.referrerPolicy = 'no-referrer';
+      i.src = src + (src.includes('?')?'&':'?') + 'v=' + Date.now();
+    });
+  }
+
+  (async function(){
+    let okSrc = null;
+    for (const u of CANDIDATES){
+      try { okSrc = await tryLoad(u); break; } catch(_){}
+    }
+    if (okSrc){
+      hero.src = okSrc;
+      hero.style.display = 'block';
+      ph.style.display = 'none';
+    } else {
+      hero.style.display = 'none';
+      ph.style.display = 'flex';
+    }
+  })();
+</script>
 </body>
 </html>
