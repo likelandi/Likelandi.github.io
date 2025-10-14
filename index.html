@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta http-equiv="x-ua-compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 
 <title>Juan Pablo Fernández Rebosio | Landia’s World</title>
-<meta name="description" content="Sitio personal y profesional de Juan Pablo Fernández Rebosio. Psiquiatría, tecnología y proyectos creativos en Luján, Buenos Aires." />
+<meta name="description" content="Personal and professional site of Juan Pablo Fernández Rebosio. Psychiatry, technology, and creative projects based in Luján, Buenos Aires." />
 
 <style>
   :root{
@@ -53,14 +53,14 @@
     box-shadow:0 3px 12px rgba(0,0,0,.08);border:1px solid #f2d5ec;
   }
 
-  /* PORTADA con marco degradado */
+  /* HERO IMAGE */
   .hero-frame{padding:4px;border-radius:22px;background:conic-gradient(from 0deg, var(--violet2), var(--rose2), var(--violet1), var(--violet2));max-width:1000px;margin:22px auto}
   .hero-img{
     width:100%;display:block;border-radius:18px;background:#eee;aspect-ratio:16/9;object-fit:cover;
     box-shadow:0 6px 18px rgba(0,0,0,.15)
   }
 
-  /* COLLAGE (4 fotos) */
+  /* COLLAGE */
   .collage{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
   .collage .frame{padding:3px;border-radius:14px;background:conic-gradient(from 0deg, var(--rose2), var(--violet1), var(--rose1))}
   .collage img{
@@ -80,36 +80,35 @@
 
 <header class="hero">
   <h1>Juan Pablo Fernández Rebosio</h1>
-  <p>Psiquiatría, tecnología y proyectos creativos · Landia’s World</p>
-  <a class="cta" href="sobre-mi.html">Ver Sobre mí</a>
-  <a class="cta" href="info.html">Página informativa</a>
+  <p>Psychiatry, technology & creative projects · Landia’s World</p>
+  <a class="cta" href="index.html">Versión en español</a>
+  <a class="cta" href="sobre-mi.html">Sobre mí</a>
+  <a class="cta" href="info.html">Info page</a>
 </header>
 
-<nav aria-label="principal">
-  <a href="#proyectos">Proyectos</a>
-  <a href="#servicios">Servicios</a>
+<nav aria-label="main">
+  <a href="#projects">Projects</a>
+  <a href="#services">Services</a>
   <a href="#landiasmusik">Landia’s Musik</a>
-  <a href="#contacto">Contacto</a>
+  <a href="#contact">Contact</a>
 </nav>
 
-<!-- PROYECTOS -->
-<section id="proyectos">
-  <h2 class="title">Proyectos Principales</h2>
+<!-- PROJECTS -->
+<section id="projects">
+  <h2 class="title">Main Projects</h2>
   <div class="tile">
-    <p><strong>Landia’s World</strong> · Universo creativo y terapéutico donde convergen música, arte y tecnología. Incluye Landia’s Musik, Likelandi y Just Barby — espacios digitales e interactivos para explorar emociones a través de la voz y el movimiento.</p>
+    <p><strong>Landia’s World</strong> blends music, art and technology in a creative & therapeutic universe. It includes Landia’s Musik, Likelandi and Just Barby — digital spaces to explore emotions through voice, rhythm and movement.</p>
 
-    <!-- Portada: usa tu imagen de Dropbox directamente -->
     <div class="hero-frame">
       <img
         class="hero-img"
-        alt="Collage Landia / portada"
+        alt="Landia collage / cover"
         src="https://www.dropbox.com/scl/fi/gdh9nvqvfx1glexfu1o7x/IMG_1894.JPG?raw=1"
         onerror="this.src='https://picsum.photos/1200/675?random=1';"
       />
     </div>
 
-    <!-- Collage 4 fotos: Dropbox directo -->
-    <div class="collage" aria-label="Galería de collages">
+    <div class="collage" aria-label="Collage gallery">
       <div class="frame">
         <img alt="Collage 1"
              src="https://www.dropbox.com/scl/fi/eti4id9palyp8bh1fb6wo/collage-1.jpg.JPG?raw=1"
@@ -134,36 +133,36 @@
   </div>
 </section>
 
-<!-- SERVICIOS -->
-<section id="servicios">
-  <h2 class="title">Servicios Profesionales</h2>
+<!-- SERVICES -->
+<section id="services">
+  <h2 class="title">Professional Services</h2>
   <div class="tile">
     <ul>
-      <li>Atención psiquiátrica presencial y online.</li>
-      <li>Asesoramiento en salud mental y tecnología aplicada.</li>
-      <li>Diseño de rutinas para gestión del estrés y hábitos saludables.</li>
-      <li>Proyectos creativos con base terapéutica y de integración sensorial.</li>
+      <li>Psychiatric care (in-person and online).</li>
+      <li>Mental health & applied technology guidance.</li>
+      <li>Stress management & healthy routines design.</li>
+      <li>Creative projects with therapeutic and sensory foundations.</li>
     </ul>
   </div>
 </section>
 
-<!-- LANDIA'S MUSIK (sin reproductores) -->
+<!-- LANDIA'S MUSIK (no embeds) -->
 <section id="landiasmusik">
   <h2 class="title">Landia’s Musik</h2>
   <div class="tile" style="text-align:center">
-    <p>Curaduría musical personal. Próximamente más novedades aquí.</p>
+    <p>Personal music curation. Updates coming soon.</p>
   </div>
 </section>
 
-<!-- CONTACTO -->
-<section id="contacto">
-  <h2 class="title">Contacto</h2>
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="title">Contact</h2>
   <div class="tile" style="text-align:center">
-    <p><strong>Ubicación:</strong> Luján, Provincia de Buenos Aires, Argentina</p>
-    <p><strong>Email profesional:</strong> <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></p>
-    <p><strong>Email personal:</strong> <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a></p>
+    <p><strong>Location:</strong> Luján, Buenos Aires Province, Argentina</p>
+    <p><strong>Professional email:</strong> <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></p>
+    <p><strong>Personal email:</strong> <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a></p>
     <p><strong>WhatsApp:</strong> <a href="https://wa.me/541124605401" target="_blank" rel="noopener">+54 11 2460-5401</a></p>
-    <a href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno" class="cta">Solicitar turno</a>
+    <a href="mailto:likelandi@proton.me?subject=Appointment%20request" class="cta">Request an appointment</a>
   </div>
 </section>
 
