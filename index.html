@@ -2,80 +2,168 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
+<meta http-equiv="x-ua-compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Sobre mí | Juan Pablo Fernández Rebosio</title>
-<meta name="description" content="Perfil profesional y humano de Juan Pablo Fernández Rebosio. Psiquiatría, tecnología y proyectos creativos.">
+
+<title>Juan Pablo Fernández Rebosio | Landia’s World</title>
+<meta name="description" content="Sitio personal y profesional de Juan Pablo Fernández Rebosio. Psiquiatría, tecnología y proyectos creativos en Luján, Buenos Aires." />
+
 <style>
   :root{
     --rose1:#ffb4dc; --rose2:#f48fb1; --violet1:#c77dff; --violet2:#9c27b0;
-    --bg:#fff6fa; --ink:#220422;
+    --bg:#fff6fa; --ink:#220422; --muted:#6b406d;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0;font-family:"Inter",-apple-system,system-ui,Roboto,Arial,sans-serif}
+  html,body{margin:0;padding:0;font-family:"Inter",-apple-system,system-ui,Roboto,Arial,sans-serif;scroll-behavior:smooth}
   body{background:var(--bg);color:var(--ink);line-height:1.65}
-  header{
+
+  /* HERO */
+  header.hero{
     background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));
-    color:#fff;text-align:center;padding:70px 20px 60px;
+    color:#fff;text-align:center;padding:82px 20px 72px;box-shadow:0 3px 10px rgba(0,0,0,.2);
   }
-  header h1{margin:0;font-size:clamp(28px,4vw,42px)}
-  header p{opacity:.95;margin-top:8px}
-  nav{text-align:center;background:#fff;border-bottom:1px solid #eee;padding:10px}
-  nav a{margin:0 8px;color:#9c27b0;text-decoration:none;font-weight:800;border:1px solid #f3d1ea;border-radius:14px;padding:8px 12px;background:#fff}
-  nav a:hover{background:var(--rose1);color:#fff;border-color:var(--rose1)}
-  section{max-width:1000px;margin:auto;padding:50px 20px}
-  .title{text-align:center;font-size:2rem;font-weight:900;margin:0 0 30px;background:linear-gradient(90deg,var(--rose2),var(--violet1));-webkit-background-clip:text;color:transparent}
-  .tile{background:#fff;border:1px solid #f2d5ec;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:30px}
-  .about{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:center}
-  .frame{padding:4px;border-radius:22px;background:conic-gradient(from 0deg,var(--violet2),var(--rose2),var(--violet1))}
-  .portrait{width:300px;max-width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;background:#eee;box-shadow:0 3px 10px rgba(0,0,0,.12)}
-  footer{text-align:center;color:#fff;background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));padding:14px;margin-top:40px}
+  header.hero h1{margin:0;font-size:clamp(28px,4vw,42px);letter-spacing:.5px}
+  header.hero p{margin:10px 0 18px;font-size:clamp(14px,2vw,20px);opacity:.95}
+  .cta{
+    display:inline-block;padding:12px 20px;border-radius:26px;font-weight:800;text-decoration:none;color:#fff;
+    background:linear-gradient(135deg,var(--rose1),var(--violet1));box-shadow:0 4px 10px rgba(0,0,0,.18);
+  }
+  .cta:hover{opacity:.95;transform:translateY(-1px);transition:.25s}
+  .cta + .cta{margin-left:10px}
+
+  /* NAV */
+  nav{
+    position:sticky;top:0;z-index:100;background:#ffffffcc;backdrop-filter:blur(10px);
+    border-bottom:1px solid #eee;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:10px;
+  }
+  nav a{
+    color:var(--violet2);text-decoration:none;font-weight:700;padding:8px 14px;
+    border:1px solid #f3d1ea;border-radius:20px;background:#fff;transition:.25s;
+  }
+  nav a:hover{background:var(--rose1);color:#fff;border-color:var(--rose1);transform:translateY(-1px)}
+
+  /* LAYOUT */
+  section{max-width:1100px;margin:auto;padding:60px 20px}
+  .title{
+    text-align:center;margin:0 0 30px;font-size:2rem;font-weight:900;
+    background:linear-gradient(90deg,var(--rose2),var(--violet1));-webkit-background-clip:text;color:transparent
+  }
+  .tile{
+    background:#fff;border-radius:16px;padding:25px;margin-bottom:25px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);border:1px solid #f2d5ec;
+  }
+
+  /* PORTADA con marco degradado */
+  .hero-frame{padding:4px;border-radius:22px;background:conic-gradient(from 0deg, var(--violet2), var(--rose2), var(--violet1), var(--violet2));max-width:1000px;margin:22px auto}
+  .hero-img{
+    width:100%;display:block;border-radius:18px;background:#eee;aspect-ratio:16/9;object-fit:cover;
+    box-shadow:0 6px 18px rgba(0,0,0,.15)
+  }
+
+  /* COLLAGE (4 fotos) */
+  .collage{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
+  .collage .frame{padding:3px;border-radius:14px;background:conic-gradient(from 0deg, var(--rose2), var(--violet1), var(--rose1))}
+  .collage img{
+    width:100%;display:block;border-radius:12px;aspect-ratio:4/3;object-fit:cover;background:#eee;
+    box-shadow:0 3px 10px rgba(0,0,0,.12)
+  }
+
+  ul{margin:8px 0 0 18px}
+  footer{
+    text-align:center;color:#fff;padding:14px;
+    background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));
+    margin-top:40px;
+  }
 </style>
 </head>
 <body>
 
-<header>
-  <h1>Sobre mí</h1>
-  <p>Juan Pablo Fernández Rebosio · Médico Psiquiatra · Luján (Buenos Aires)</p>
+<header class="hero">
+  <h1>Juan Pablo Fernández Rebosio</h1>
+  <p>Psiquiatría, tecnología y proyectos creativos · Landia’s World</p>
+  <a class="cta" href="sobre-mi.html">Ver Sobre mí</a>
+  <a class="cta" href="info.html">Página informativa</a>
 </header>
 
-<nav>
-  <a href="index.html">Inicio</a>
-  <a href="info.html">Página informativa</a>
+<nav aria-label="principal">
+  <a href="#proyectos">Proyectos</a>
+  <a href="#servicios">Servicios</a>
+  <a href="#landiasmusik">Landia’s Musik</a>
+  <a href="#contacto">Contacto</a>
 </nav>
 
-<section>
-  <h2 class="title">Perfil Profesional y Humano</h2>
-  <div class="about">
-    <div class="frame">
+<!-- PROYECTOS -->
+<section id="proyectos">
+  <h2 class="title">Proyectos Principales</h2>
+  <div class="tile">
+    <p><strong>Landia’s World</strong> · Universo creativo y terapéutico donde convergen música, arte y tecnología. Incluye Landia’s Musik, Likelandi y Just Barby — espacios digitales e interactivos para explorar emociones a través de la voz y el movimiento.</p>
+
+    <!-- Portada: usa tu imagen de Dropbox directamente -->
+    <div class="hero-frame">
       <img
-        class="portrait"
-        alt="Foto de Juan Pablo Fernández Rebosio"
-        src="https://www.dropbox.com/scl/fi/24vfuqim1heomyyfvboq9/fotomia.jpg?raw=1"
-        onerror="this.src='https://picsum.photos/600/800?random=25';"
+        class="hero-img"
+        alt="Collage Landia / portada"
+        src="https://www.dropbox.com/scl/fi/gdh9nvqvfx1glexfu1o7x/IMG_1894.JPG?raw=1"
+        onerror="this.src='https://picsum.photos/1200/675?random=1';"
       />
     </div>
-    <div class="tile" style="flex:1 1 320px">
-      <p><strong>Juan Pablo Fernández Rebosio</strong> es médico psiquiatra formado en la Universidad de Buenos Aires (UBA), con experiencia en salud mental, tecnología aplicada y proyectos artísticos de integración emocional.</p>
-      <p>Su trabajo se enfoca en la relación entre mente, cuerpo y entorno digital, promoviendo un uso saludable de la tecnología y la creación como vía de recuperación y crecimiento personal.</p>
-      <p>Desarrolla los proyectos <strong>Landia’s World</strong> y <strong>Likelandi</strong>, que fusionan arte, música, psicología y comunicación audiovisual en experiencias terapéuticas y creativas.</p>
-      <ul>
-        <li>Atención psiquiátrica integral, presencial y online.</li>
-        <li>Diseño de entornos terapéuticos y de bienestar digital.</li>
-        <li>Producción de contenido audiovisual con enfoque emocional.</li>
-        <li>Curaduría musical en <em>Landia’s Musik</em> y eventos de arte sensorial.</li>
-      </ul>
+
+    <!-- Collage 4 fotos: Dropbox directo -->
+    <div class="collage" aria-label="Galería de collages">
+      <div class="frame">
+        <img alt="Collage 1"
+             src="https://www.dropbox.com/scl/fi/eti4id9palyp8bh1fb6wo/collage-1.jpg.JPG?raw=1"
+             onerror="this.src='https://picsum.photos/800/600?random=11';" />
+      </div>
+      <div class="frame">
+        <img alt="Collage 2"
+             src="https://www.dropbox.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG?raw=1"
+             onerror="this.src='https://picsum.photos/800/600?random=12';" />
+      </div>
+      <div class="frame">
+        <img alt="Collage 3"
+             src="https://www.dropbox.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?raw=1"
+             onerror="this.src='https://picsum.photos/800/600?random=13';" />
+      </div>
+      <div class="frame">
+        <img alt="Collage 4"
+             src="https://www.dropbox.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?raw=1"
+             onerror="this.src='https://picsum.photos/800/600?random=14';" />
+      </div>
     </div>
   </div>
 </section>
 
-<section>
+<!-- SERVICIOS -->
+<section id="servicios">
+  <h2 class="title">Servicios Profesionales</h2>
+  <div class="tile">
+    <ul>
+      <li>Atención psiquiátrica presencial y online.</li>
+      <li>Asesoramiento en salud mental y tecnología aplicada.</li>
+      <li>Diseño de rutinas para gestión del estrés y hábitos saludables.</li>
+      <li>Proyectos creativos con base terapéutica y de integración sensorial.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- LANDIA'S MUSIK (sin reproductores) -->
+<section id="landiasmusik">
+  <h2 class="title">Landia’s Musik</h2>
+  <div class="tile" style="text-align:center">
+    <p>Curaduría musical personal. Próximamente más novedades aquí.</p>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
   <h2 class="title">Contacto</h2>
   <div class="tile" style="text-align:center">
+    <p><strong>Ubicación:</strong> Luján, Provincia de Buenos Aires, Argentina</p>
     <p><strong>Email profesional:</strong> <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></p>
     <p><strong>Email personal:</strong> <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a></p>
-    <p><strong>Ubicación:</strong> Luján, Provincia de Buenos Aires, Argentina</p>
     <p><strong>WhatsApp:</strong> <a href="https://wa.me/541124605401" target="_blank" rel="noopener">+54 11 2460-5401</a></p>
-    <p><a class="cta" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Solicitar turno</a></p>
+    <a href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno" class="cta">Solicitar turno</a>
   </div>
 </section>
 
@@ -83,6 +171,8 @@
   © <span id="year"></span> Juan Pablo Fernández Rebosio · Luján (Buenos Aires)
 </footer>
 
-<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 </body>
 </html>
