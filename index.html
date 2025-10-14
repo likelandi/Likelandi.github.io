@@ -2,179 +2,80 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8" />
-<meta http-equiv="x-ua-compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-<title>Juan Pablo Fernández Rebosio | Landia’s World</title>
-<meta name="description" content="Sitio personal y profesional de Juan Pablo Fernández Rebosio. Psiquiatría, tecnología y proyectos creativos en Luján, Buenos Aires." />
-
+<title>Sobre mí | Juan Pablo Fernández Rebosio</title>
+<meta name="description" content="Perfil profesional y humano de Juan Pablo Fernández Rebosio. Psiquiatría, tecnología y proyectos creativos.">
 <style>
   :root{
     --rose1:#ffb4dc; --rose2:#f48fb1; --violet1:#c77dff; --violet2:#9c27b0;
-    --bg:#fff6fa; --ink:#220422; --muted:#6b406d;
+    --bg:#fff6fa; --ink:#220422;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0;font-family:"Inter",-apple-system,system-ui,Roboto,Arial,sans-serif;scroll-behavior:smooth}
+  html,body{margin:0;padding:0;font-family:"Inter",-apple-system,system-ui,Roboto,Arial,sans-serif}
   body{background:var(--bg);color:var(--ink);line-height:1.65}
-
-  /* HERO */
-  header.hero{
+  header{
     background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));
-    color:#fff;text-align:center;padding:82px 20px 72px;box-shadow:0 3px 10px rgba(0,0,0,.2);
+    color:#fff;text-align:center;padding:70px 20px 60px;
   }
-  header.hero h1{margin:0;font-size:clamp(28px,4vw,42px);letter-spacing:.5px}
-  header.hero p{margin:10px 0 18px;font-size:clamp(14px,2vw,20px);opacity:.95}
-  .cta{
-    display:inline-block;padding:12px 20px;border-radius:26px;font-weight:800;text-decoration:none;color:#fff;
-    background:linear-gradient(135deg,var(--rose1),var(--violet1));box-shadow:0 4px 10px rgba(0,0,0,.18);
-  }
-  .cta:hover{opacity:.95;transform:translateY(-1px);transition:.25s}
-  .cta + .cta{margin-left:10px}
-
-  /* NAV */
-  nav{
-    position:sticky;top:0;z-index:100;background:#ffffffcc;backdrop-filter:blur(10px);
-    border-bottom:1px solid #eee;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:10px;
-  }
-  nav a{
-    color:var(--violet2);text-decoration:none;font-weight:700;padding:8px 14px;
-    border:1px solid #f3d1ea;border-radius:20px;background:#fff;transition:.25s;
-  }
-  nav a:hover{background:var(--rose1);color:#fff;border-color:var(--rose1);transform:translateY(-1px)}
-
-  /* LAYOUT */
-  section{max-width:1100px;margin:auto;padding:60px 20px}
-  .title{
-    text-align:center;margin:0 0 30px;font-size:2rem;font-weight:900;
-    background:linear-gradient(90deg,var(--rose2),var(--violet1));-webkit-background-clip:text;color:transparent
-  }
-  .tile{
-    background:#fff;border-radius:16px;padding:25px;margin-bottom:25px;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);border:1px solid #f2d5ec;
-  }
-
-  /* PORTADA con marco degradado */
-  .hero-frame{padding:4px;border-radius:22px;background:conic-gradient(from 0deg, var(--violet2), var(--rose2), var(--violet1), var(--violet2));max-width:1000px;margin:22px auto}
-  .hero-img{
-    width:100%;display:block;border-radius:18px;background:#eee;aspect-ratio:16/9;object-fit:cover;
-    box-shadow:0 6px 18px rgba(0,0,0,.15)
-  }
-  .hero-placeholder{
-    display:none;align-items:center;justify-content:center;text-align:center;color:#5b3a67;
-    width:100%;border-radius:18px;aspect-ratio:16/9;
-    background:radial-gradient(100% 100% at 0% 0%, #fbe7f3 0%, #efe5ff 100%);
-    border:2px dashed #e2c9e3;font-weight:800;letter-spacing:.4px;
-  }
-
-  /* COLLAGE (4 fotos) */
-  .collage{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
-  .collage .frame{padding:3px;border-radius:14px;background:conic-gradient(from 0deg, var(--rose2), var(--violet1), var(--rose1))}
-  .collage img{
-    width:100%;display:block;border-radius:12px;aspect-ratio:4/3;object-fit:cover;background:#eee;
-    box-shadow:0 3px 10px rgba(0,0,0,.12)
-  }
-  .ph{
-    display:none;align-items:center;justify-content:center;text-align:center;color:#6b3d74;
-    width:100%;border-radius:12px;aspect-ratio:4/3;border:2px dashed #e2c9e3;
-    background:radial-gradient(100% 100% at 0% 0%, #fbe7f3 0%, #efe5ff 100%);font-weight:800
-  }
-
-  ul{margin:8px 0 0 18px}
-  footer{
-    text-align:center;color:#fff;padding:14px;
-    background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));
-    margin-top:40px;
-  }
-
-  /* Diag simple (puede ocultarse si querés) */
-  .diag{font:12px/1.4 system-ui;background:#0f1533;color:#e8eaff;padding:6px 10px;border-top:1px solid #1c255a}
-  .ok{color:#7fd0ff} .err{color:#ff9aa9}
+  header h1{margin:0;font-size:clamp(28px,4vw,42px)}
+  header p{opacity:.95;margin-top:8px}
+  nav{text-align:center;background:#fff;border-bottom:1px solid #eee;padding:10px}
+  nav a{margin:0 8px;color:#9c27b0;text-decoration:none;font-weight:800;border:1px solid #f3d1ea;border-radius:14px;padding:8px 12px;background:#fff}
+  nav a:hover{background:var(--rose1);color:#fff;border-color:var(--rose1)}
+  section{max-width:1000px;margin:auto;padding:50px 20px}
+  .title{text-align:center;font-size:2rem;font-weight:900;margin:0 0 30px;background:linear-gradient(90deg,var(--rose2),var(--violet1));-webkit-background-clip:text;color:transparent}
+  .tile{background:#fff;border:1px solid #f2d5ec;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:30px}
+  .about{display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:center}
+  .frame{padding:4px;border-radius:22px;background:conic-gradient(from 0deg,var(--violet2),var(--rose2),var(--violet1))}
+  .portrait{width:300px;max-width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;background:#eee;box-shadow:0 3px 10px rgba(0,0,0,.12)}
+  footer{text-align:center;color:#fff;background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));padding:14px;margin-top:40px}
 </style>
 </head>
 <body>
 
-<header class="hero">
-  <h1>Juan Pablo Fernández Rebosio</h1>
-  <p>Psiquiatría, tecnología y proyectos creativos · Landia’s World</p>
-  <a class="cta" href="sobre-mi.html">Ver Sobre mí</a>
-  <a class="cta" href="info.html">Página informativa</a>
+<header>
+  <h1>Sobre mí</h1>
+  <p>Juan Pablo Fernández Rebosio · Médico Psiquiatra · Luján (Buenos Aires)</p>
 </header>
 
-<nav aria-label="principal">
-  <a href="#proyectos">Proyectos</a>
-  <a href="#servicios">Servicios</a>
-  <a href="#landiasmusik">Landia’s Musik</a>
-  <a href="#contacto">Contacto</a>
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="info.html">Página informativa</a>
 </nav>
 
-<!-- PROYECTOS -->
-<section id="proyectos">
-  <h2 class="title">Proyectos Principales</h2>
-  <div class="tile">
-    <p><strong>Landia’s World</strong> · Universo creativo y terapéutico donde convergen música, arte y tecnología. Incluye Landia’s Musik, Likelandi y Just Barby — espacios digitales e interactivos para explorar emociones a través de la voz y el movimiento.</p>
-
-    <!-- Portada -->
-    <div class="hero-frame">
-      <img id="heroImg" class="hero-img" alt="Collage Landia / portada" />
-      <div id="heroPh" class="hero-placeholder">Portada sin imagen (subí <b>hero.jpg</b> a /img o /assets)</div>
+<section>
+  <h2 class="title">Perfil Profesional y Humano</h2>
+  <div class="about">
+    <div class="frame">
+      <img
+        class="portrait"
+        alt="Foto de Juan Pablo Fernández Rebosio"
+        src="https://www.dropbox.com/scl/fi/24vfuqim1heomyyfvboq9/fotomia.jpg?raw=1"
+        onerror="this.src='https://picsum.photos/600/800?random=25';"
+      />
     </div>
-
-    <!-- Collage 4 fotos -->
-    <div class="collage" aria-label="Galería de collages">
-      <!-- Slot 1 -->
-      <div class="frame">
-        <img id="col1" alt="Collage 1" />
-        <div id="col1ph" class="ph">collage-1</div>
-      </div>
-      <!-- Slot 2 -->
-      <div class="frame">
-        <img id="col2" alt="Collage 2" />
-        <div id="col2ph" class="ph">collage-2</div>
-      </div>
-      <!-- Slot 3 -->
-      <div class="frame">
-        <img id="col3" alt="Collage 3" />
-        <div id="col3ph" class="ph">collage-3</div>
-      </div>
-      <!-- Slot 4 -->
-      <div class="frame">
-        <img id="col4" alt="Collage 4" />
-        <div id="col4ph" class="ph">collage-4</div>
-      </div>
+    <div class="tile" style="flex:1 1 320px">
+      <p><strong>Juan Pablo Fernández Rebosio</strong> es médico psiquiatra formado en la Universidad de Buenos Aires (UBA), con experiencia en salud mental, tecnología aplicada y proyectos artísticos de integración emocional.</p>
+      <p>Su trabajo se enfoca en la relación entre mente, cuerpo y entorno digital, promoviendo un uso saludable de la tecnología y la creación como vía de recuperación y crecimiento personal.</p>
+      <p>Desarrolla los proyectos <strong>Landia’s World</strong> y <strong>Likelandi</strong>, que fusionan arte, música, psicología y comunicación audiovisual en experiencias terapéuticas y creativas.</p>
+      <ul>
+        <li>Atención psiquiátrica integral, presencial y online.</li>
+        <li>Diseño de entornos terapéuticos y de bienestar digital.</li>
+        <li>Producción de contenido audiovisual con enfoque emocional.</li>
+        <li>Curaduría musical en <em>Landia’s Musik</em> y eventos de arte sensorial.</li>
+      </ul>
     </div>
   </div>
 </section>
 
-<!-- SERVICIOS -->
-<section id="servicios">
-  <h2 class="title">Servicios Profesionales</h2>
-  <div class="tile">
-    <ul>
-      <li>Atención psiquiátrica presencial y online.</li>
-      <li>Asesoramiento en salud mental y tecnología aplicada.</li>
-      <li>Diseño de rutinas para gestión del estrés y hábitos saludables.</li>
-      <li>Proyectos creativos con base terapéutica y de integración sensorial.</li>
-    </ul>
-  </div>
-</section>
-
-<!-- LANDIA'S MUSIK (sin reproductores) -->
-<section id="landiasmusik">
-  <h2 class="title">Landia’s Musik</h2>
-  <div class="tile" style="text-align:center">
-    <p>Curaduría musical personal. Próximamente más novedades aquí.</p>
-  </div>
-</section>
-
-<!-- CONTACTO -->
-<section id="contacto">
+<section>
   <h2 class="title">Contacto</h2>
   <div class="tile" style="text-align:center">
-    <p><strong>Ubicación:</strong> Luján, Provincia de Buenos Aires, Argentina</p>
     <p><strong>Email profesional:</strong> <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></p>
     <p><strong>Email personal:</strong> <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a></p>
+    <p><strong>Ubicación:</strong> Luján, Provincia de Buenos Aires, Argentina</p>
     <p><strong>WhatsApp:</strong> <a href="https://wa.me/541124605401" target="_blank" rel="noopener">+54 11 2460-5401</a></p>
-    <a href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno" class="cta">Solicitar turno</a>
+    <p><a class="cta" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Solicitar turno</a></p>
   </div>
 </section>
 
@@ -182,79 +83,6 @@
   © <span id="year"></span> Juan Pablo Fernández Rebosio · Luján (Buenos Aires)
 </footer>
 
-<!-- Diagnóstico (podés borrar esta franja si no la querés ver) -->
-<div class="diag">BUILD FINAL — Portada & Collage: <span id="diagStatus">probando…</span></div>
-
-<script>
-  // Año
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  // Helper de carga con timeout y cache-buster
-  function tryLoad(src, timeout=10000){
-    return new Promise((resolve, reject)=>{
-      const i = new Image();
-      const t = setTimeout(()=>{ i.src=''; reject(new Error('timeout')); }, timeout);
-      i.onload = ()=>{ clearTimeout(t); resolve(src); };
-      i.onerror = ()=>{ clearTimeout(t); reject(new Error('error')); };
-      i.referrerPolicy = 'no-referrer';
-      i.src = src + (src.includes('?')?'&':'?') + 'v=' + Date.now();
-    });
-  }
-
-  // ========= Portada =========
-  const hero = document.getElementById('heroImg');
-  const heroPh = document.getElementById('heroPh');
-  const diag = document.getElementById('diagStatus');
-
-  const HERO_CANDIDATES = [
-    'img/hero.jpg',
-    'assets/hero.jpg',
-    'hero.jpg',
-    // tus imágenes de Dropbox (portada/collage general)
-    'https://www.dropbox.com/scl/fi/gdh9nvqvfx1glexfu1o7x/IMG_1894.JPG?raw=1'
-  ];
-
-  (async function(){
-    let ok=null;
-    for(const u of HERO_CANDIDATES){ try{ ok=await tryLoad(u); break; } catch(_){} }
-    if(ok){ hero.src = ok; hero.style.display='block'; heroPh.style.display='none'; diag.textContent='Portada OK → '+ok; diag.className='ok'; }
-    else { hero.style.display='none'; heroPh.style.display='flex'; diag.textContent='Portada en placeholder (subí /img/hero.jpg)'; diag.className='err'; }
-  })();
-
-  // ========= Collage 4 fotos =========
-  // Cada slot prueba: /img → /assets → raíz → Dropbox específico → placeholder
-  const slots = [
-    {img:'col1', ph:'col1ph', candidates:[
-      'img/collage-1.jpg','assets/collage-1.jpg','collage-1.jpg',
-      'https://www.dropbox.com/scl/fi/eti4id9palyp8bh1fb6wo/collage-1.jpg.JPG?raw=1'
-    ]},
-    {img:'col2', ph:'col2ph', candidates:[
-      'img/collage-2.jpg','assets/collage-2.jpg','collage-2.jpg',
-      'https://www.dropbox.com/scl/fi/khfl6pad7srw2pkp3rwae/collage-2.jpg.JPG?raw=1'
-    ]},
-    {img:'col3', ph:'col3ph', candidates:[
-      'img/collage-3.jpg','assets/collage-3.jpg','collage-3.jpg',
-      'https://www.dropbox.com/scl/fi/lk63nm3j13fob4d8trzq0/collage-3.jpg.JPG?raw=1'
-    ]},
-    {img:'col4', ph:'col4ph', candidates:[
-      'img/collage-4.jpg','assets/collage-4.jpg','collage-4.jpg',
-      'https://www.dropbox.com/scl/fi/fwi6rypnof64tz2exoc0x/collage-4.jpg.JPG?raw=1',
-      'https://www.dropbox.com/scl/fi/h54hh2vkn6grg3juhbv0x/collage-5.jpg.JPG?raw=1' /* extra por si usás la 5 */
-    ]}
-  ];
-
-  (async function(){
-    for (const s of slots){
-      const el = document.getElementById(s.img);
-      const ph = document.getElementById(s.ph);
-      let ok=null;
-      for(const u of s.candidates){ try{ ok=await tryLoad(u); break; } catch(_){} }
-      if(ok){ el.src=ok; el.style.display='block'; ph.style.display='none'; }
-      else { el.style.display='none'; ph.style.display='flex'; }
-    }
-  })();
-</script>
-
-<noscript>Para ver las imágenes, activá JavaScript.</noscript>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
 </body>
 </html>
