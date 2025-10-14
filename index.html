@@ -14,19 +14,37 @@
   html,body{margin:0;padding:0;font-family:"Inter",-apple-system,system-ui,Roboto,Arial,sans-serif}
   body{background:var(--bg);color:var(--ink);line-height:1.65}
 
-  header.hero{background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));color:#fff;text-align:center;padding:82px 20px 72px;box-shadow:0 3px 10px rgba(0,0,0,.2)}
+  header.hero{
+    background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));
+    color:#fff;text-align:center;padding:82px 20px 72px;box-shadow:0 3px 10px rgba(0,0,0,.2)
+  }
   header.hero h1{margin:0;font-size:clamp(28px,4vw,42px)}
   header.hero p{margin:10px 0 18px;opacity:.95}
-  .cta{display:inline-block;padding:12px 20px;border-radius:26px;font-weight:800;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--rose1),var(--violet1));box-shadow:0 4px 10px rgba(0,0,0,.18)}
+  .cta{
+    display:inline-block;padding:12px 20px;border-radius:26px;font-weight:800;text-decoration:none;color:#fff;
+    background:linear-gradient(135deg,var(--rose1),var(--violet1));box-shadow:0 4px 10px rgba(0,0,0,.18)
+  }
   .cta + .cta{margin-left:10px}
 
-  nav{position:sticky;top:0;z-index:100;background:#ffffffcc;backdrop-filter:blur(10px);border-bottom:1px solid #eee;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:10px}
-  nav a{color:#7a2c92;text-decoration:none;font-weight:700;padding:8px 14px;border:1px solid #f3d1ea;border-radius:20px;background:#fff}
-  nav a:hover{background:var(--rose1);color:#fff;border-color:var(--rose1);transform:translateY(-1px);transition:.2s}
+  nav{
+    position:sticky;top:0;z-index:100;background:#ffffffcc;backdrop-filter:blur(10px);
+    border-bottom:1px solid #eee;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:10px
+  }
+  nav a{
+    color:#7a2c92;text-decoration:none;font-weight:700;padding:8px 14px;border:1px solid #f3d1ea;border-radius:20px;background:#fff;
+    transition:.2s
+  }
+  nav a:hover{background:var(--rose1);color:#fff;border-color:var(--rose1);transform:translateY(-1px)}
 
   section{max-width:1100px;margin:auto;padding:60px 20px}
-  .title{text-align:center;margin:0 0 30px;font-size:2rem;font-weight:900;background:linear-gradient(90deg,var(--rose2),var(--violet1));-webkit-background-clip:text;color:transparent}
-  .tile{background:#fff;border-radius:16px;padding:25px;margin-bottom:25px;box-shadow:0 3px 12px rgba(0,0,0,.08);border:1px solid #f2d5ec}
+  .title{
+    text-align:center;margin:0 0 30px;font-size:2rem;font-weight:900;
+    background:linear-gradient(90deg,var(--rose2),var(--violet1));-webkit-background-clip:text;color:transparent
+  }
+  .tile{
+    background:#fff;border-radius:16px;padding:25px;margin-bottom:25px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);border:1px solid #f2d5ec
+  }
 
   .hero-frame{padding:4px;border-radius:22px;background:conic-gradient(from 0deg,var(--violet2),var(--rose2),var(--violet1),var(--violet2));max-width:1000px;margin:22px auto}
   .hero-img{width:100%;display:block;border-radius:18px;background:#eee;aspect-ratio:16/9;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,.15)}
@@ -36,7 +54,11 @@
   .collage img{width:100%;display:block;border-radius:12px;aspect-ratio:4/3;object-fit:cover;background:#eee;box-shadow:0 3px 10px rgba(0,0,0,.12)}
 
   ul{margin:8px 0 0 18px}
-  footer{text-align:center;color:#fff;padding:14px;background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));margin-top:40px}
+  footer{
+    text-align:center;color:#fff;padding:14px;
+    background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));
+    margin-top:40px
+  }
 </style>
 </head>
 <body>
@@ -60,7 +82,7 @@
   <div class="tile">
     <p><strong>Landia’s World</strong> · Universo creativo y terapéutico donde convergen música, arte y tecnología. Incluye Landia’s Musik, Likelandi y Just Barby — espacios digitales e interactivos para explorar emociones a través de la voz y el movimiento.</p>
 
-    <!-- Portada: Dropbox directo -->
+    <!-- Portada: Dropbox directo (no depende de hero.jpg local) -->
     <div class="hero-frame">
       <img class="hero-img" alt="Collage portada"
            src="https://www.dropbox.com/scl/fi/gdh9nvqvfx1glexfu1o7x/IMG_1894.JPG?raw=1" />
