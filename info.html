@@ -4,76 +4,70 @@
 <meta charset="UTF-8" />
 <meta http-equiv="x-ua-compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
 <title>Página informativa | Juan Pablo Fernández Rebosio</title>
-<meta name="description" content="Información de contacto y presentación breve de Juan Pablo Fernández Rebosio (psiquiatra) para compartir." />
-
+<meta name="description" content="Información breve y datos de contacto de Juan Pablo Fernández Rebosio para compartir rápidamente.">
 <style>
-  :root{
-    --rose1:#ffb4dc; --rose2:#f48fb1; --violet1:#c77dff; --violet2:#9c27b0;
-    --bg:#fff6fa; --ink:#220422;
-  }
+  :root{--rose1:#ffb4dc;--rose2:#f48fb1;--violet1:#c77dff;--violet2:#9c27b0;--bg:#fff6fa;--ink:#220422}
   *{box-sizing:border-box}
   html,body{margin:0;padding:0;font-family:"Inter",-apple-system,system-ui,Roboto,Arial,sans-serif}
   body{background:var(--bg);color:var(--ink);line-height:1.65}
-  header{background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));color:#fff;text-align:center;padding:70px 16px}
-  header h1{margin:0 0 8px}
-  .cta{
-    display:inline-block;padding:10px 18px;border-radius:26px;font-weight:800;text-decoration:none;color:#fff;
-    background:linear-gradient(135deg,var(--rose1),var(--violet1));box-shadow:0 3px 8px rgba(0,0,0,.18);
-  }
-  nav{text-align:center;background:#fff;border-bottom:1px solid #eee;padding:10px}
+
+  header.hero{background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));color:#fff;text-align:center;padding:72px 20px 58px}
+  header.hero h1{margin:0;font-size:clamp(28px,4vw,42px)}
+  header.hero p{margin:8px 0 0;opacity:.95}
+
+  nav{text-align:center;background:#fff;border-bottom:1px solid #eee;padding:10px;position:sticky;top:0;z-index:5}
   nav a{margin:0 8px;color:#7a2c92;text-decoration:none;font-weight:800;border:1px solid #f3d1ea;border-radius:14px;padding:8px 12px;background:#fff}
-  section{max-width:900px;margin:auto;padding:40px 18px}
-  .title{text-align:center;font-weight:900;font-size:1.7rem;margin:0 0 16px;background:linear-gradient(90deg,var(--rose2),var(--violet1));-webkit-background-clip:text;color:transparent}
-  .tile{background:#fff;border:1px solid #f2d5ec;border-radius:14px;box-shadow:0 2px 8px rgba(0,0,0,.08);padding:20px}
-  .about{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:center}
-  .frame{padding:3px;border-radius:18px;background:conic-gradient(from 0deg, var(--violet2), var(--rose2), var(--violet1))}
-  .portrait{width:280px;max-width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:14px;background:#eee}
-  footer{margin-top:20px;text-align:center;color:#fff;background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));padding:12px}
+  nav a:hover{background:var(--rose1);color:#fff;border-color:var(--rose1);transition:.2s}
+
+  section{max-width:1000px;margin:auto;padding:44px 18px}
+  .title{text-align:center;font-weight:900;font-size:1.8rem;margin:0 0 20px;background:linear-gradient(90deg,var(--rose2),var(--violet1));-webkit-background-clip:text;color:transparent}
+  .tile{background:#fff;border:1px solid #f2d5ec;border-radius:16px;box-shadow:0 2px 10px rgba(0,0,0,.08);padding:22px}
+
+  .hero-frame{padding:4px;border-radius:22px;background:conic-gradient(from 0deg,var(--violet2),var(--rose2),var(--violet1));max-width:900px;margin:0 auto 18px}
+  .hero-img{width:100%;display:block;border-radius:18px;background:#eee;aspect-ratio:16/9;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,.15)}
+
+  .cta{display:inline-block;padding:10px 18px;border-radius:26px;font-weight:800;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--rose1),var(--violet1));box-shadow:0 3px 8px rgba(0,0,0,.18)}
+  footer{text-align:center;color:#fff;background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));padding:12px;margin-top:20px}
 </style>
 </head>
 <body>
 
-<header>
-  <h1>Juan Pablo Fernández Rebosio</h1>
-  <p>Médico psiquiatra · Luján (Buenos Aires) · Presencial y online</p>
-  <p><a class="cta" href="index.html">Ir al sitio completo</a></p>
+<header class="hero">
+  <h1>Página informativa</h1>
+  <p>Resumen para compartir · Atención presencial y online · Luján (Buenos Aires)</p>
 </header>
 
 <nav>
   <a href="index.html">Inicio</a>
-  <a href="#sobre">Sobre mí</a>
-  <a href="#contacto">Contacto</a>
+  <a href="sobre-mi.html">Sobre mí</a>
 </nav>
 
-<section id="sobre">
-  <h2 class="title">Sobre mí (resumen)</h2>
-  <div class="about">
-    <div class="frame">
-      <img class="portrait" alt="Foto de Juan Pablo Fernández Rebosio"
-           src="https://www.dropbox.com/scl/fi/24vfuqim1heomyyfvboq9/fotomia.jpg?raw=1"
-           onerror="this.src='https://picsum.photos/640/800?random=21';" />
-    </div>
-    <div class="tile" style="flex:1 1 300px">
-      <p>Soy <strong>Juan Pablo Fernández Rebosio</strong>, médico psiquiatra. Mi enfoque es humano y práctico: rutinas que bajen el estrés, mejoren el sueño y acompañen el estado de ánimo, incorporando tecnología cuando aporta claridad y continuidad del cuidado.</p>
-      <ul>
-        <li>Ansiedad, estrés, trastornos del estado de ánimo y del sueño.</li>
-        <li>Procesos de <em>burnout</em>, foco/atención y hábitos.</li>
-        <li>Plan de hábitos: descanso, respiración, movimiento, estructura semanal.</li>
-      </ul>
-    </div>
+<section>
+  <!-- Portada para continuidad visual -->
+  <div class="hero-frame">
+    <img class="hero-img" alt="Portada Landia" src="img/hero.jpg" />
+  </div>
+
+  <h2 class="title">Presentación breve</h2>
+  <div class="tile">
+    <p>Soy <strong>Juan Pablo Fernández Rebosio</strong>, médico psiquiatra. Trabajo en el cruce entre salud mental, hábitos cotidianos y tecnología con sentido. Busco claridad, continuidad del cuidado y bienestar sostenible.</p>
+    <ul>
+      <li>Ansiedad, estrés, sueño y estado de ánimo.</li>
+      <li>Burnout, foco atencional y organización semanal.</li>
+      <li>Herramientas prácticas: respiración, descanso y movimiento.</li>
+    </ul>
+    <p style="margin-top:10px"><a class="cta" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Solicitar turno</a></p>
   </div>
 </section>
 
-<section id="contacto">
+<section>
   <h2 class="title">Contacto</h2>
   <div class="tile" style="text-align:center">
     <p><strong>Ubicación:</strong> Luján, Provincia de Buenos Aires, Argentina</p>
     <p><strong>Email profesional:</strong> <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></p>
     <p><strong>Email personal:</strong> <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a></p>
     <p><strong>WhatsApp:</strong> <a target="_blank" rel="noopener" href="https://wa.me/541124605401">+54 11 2460-5401</a></p>
-    <p><a class="cta" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Solicitar turno</a></p>
   </div>
 </section>
 
@@ -81,8 +75,6 @@
   © <span id="year"></span> Juan Pablo Fernández Rebosio · Luján (Buenos Aires)
 </footer>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+<script>document.getElementById("year").textContent=new Date().getFullYear();</script>
 </body>
 </html>
