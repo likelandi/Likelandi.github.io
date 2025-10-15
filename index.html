@@ -4,126 +4,86 @@
 <meta charset="UTF-8" />
 <meta http-equiv="x-ua-compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-<title>Juan Pablo Fernández Rebosio | Landia’s World</title>
-<meta name="description" content="Sitio personal y profesional de Juan Pablo Fernández Rebosio. Psiquiatría, tecnología y proyectos creativos en Luján, Buenos Aires." />
-
+<title>Sobre mí | Juan Pablo Fernández Rebosio</title>
+<meta name="description" content="Perfil profesional y humano de Juan Pablo Fernández Rebosio. Psiquiatría, tecnología y proyectos creativos.">
 <style>
   :root{--rose1:#ffb4dc;--rose2:#f48fb1;--violet1:#c77dff;--violet2:#9c27b0;--bg:#fff6fa;--ink:#220422}
   *{box-sizing:border-box}
   html,body{margin:0;padding:0;font-family:"Inter",-apple-system,system-ui,Roboto,Arial,sans-serif}
   body{background:var(--bg);color:var(--ink);line-height:1.65}
 
-  header.hero{
-    background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));
-    color:#fff;text-align:center;padding:82px 20px 72px;box-shadow:0 3px 10px rgba(0,0,0,.2)
-  }
+  header.hero{background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));color:#fff;text-align:center;padding:72px 20px 58px}
   header.hero h1{margin:0;font-size:clamp(28px,4vw,42px)}
-  header.hero p{margin:10px 0 18px;opacity:.95}
-  .cta{
-    display:inline-block;padding:12px 20px;border-radius:26px;font-weight:800;text-decoration:none;color:#fff;
-    background:linear-gradient(135deg,var(--rose1),var(--violet1));box-shadow:0 4px 10px rgba(0,0,0,.18)
-  }
-  .cta + .cta{margin-left:10px}
+  header.hero p{margin:10px 0 0;opacity:.95}
 
-  nav{
-    position:sticky;top:0;z-index:100;background:#ffffffcc;backdrop-filter:blur(10px);
-    border-bottom:1px solid #eee;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:10px
-  }
-  nav a{
-    color:#7a2c92;text-decoration:none;font-weight:700;padding:8px 14px;border:1px solid #f3d1ea;border-radius:20px;background:#fff;
-    transition:.2s
-  }
-  nav a:hover{background:var(--rose1);color:#fff;border-color:var(--rose1);transform:translateY(-1px)}
+  nav{text-align:center;background:#fff;border-bottom:1px solid #eee;padding:10px;position:sticky;top:0;z-index:5}
+  nav a{margin:0 8px;color:#7a2c92;text-decoration:none;font-weight:800;border:1px solid #f3d1ea;border-radius:14px;padding:8px 12px;background:#fff}
+  nav a:hover{background:var(--rose1);color:#fff;border-color:var(--rose1);transition:.2s}
 
-  section{max-width:1100px;margin:auto;padding:60px 20px}
-  .title{
-    text-align:center;margin:0 0 30px;font-size:2rem;font-weight:900;
-    background:linear-gradient(90deg,var(--rose2),var(--violet1));-webkit-background-clip:text;color:transparent
-  }
-  .tile{
-    background:#fff;border-radius:16px;padding:25px;margin-bottom:25px;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);border:1px solid #f2d5ec
-  }
+  section{max-width:1100px;margin:auto;padding:50px 20px}
+  .title{text-align:center;margin:0 0 26px;font-size:2rem;font-weight:900;background:linear-gradient(90deg,var(--rose2),var(--violet1));-webkit-background-clip:text;color:transparent}
+  .tile{background:#fff;border:1px solid #f2d5ec;border-radius:16px;box-shadow:0 3px 12px rgba(0,0,0,.08);padding:24px}
 
-  .hero-frame{padding:4px;border-radius:22px;background:conic-gradient(from 0deg,var(--violet2),var(--rose2),var(--violet1),var(--violet2));max-width:1000px;margin:22px auto}
+  .about{display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:center}
+  .frame{padding:4px;border-radius:22px;background:conic-gradient(from 0deg,var(--violet2),var(--rose2),var(--violet1))}
+  .portrait{width:320px;max-width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:18px;background:#eee;box-shadow:0 3px 10px rgba(0,0,0,.12)}
+  .hero-frame{padding:4px;border-radius:22px;background:conic-gradient(from 0deg,var(--violet2),var(--rose2),var(--violet1));max-width:1000px;margin:22px auto}
   .hero-img{width:100%;display:block;border-radius:18px;background:#eee;aspect-ratio:16/9;object-fit:cover;box-shadow:0 6px 18px rgba(0,0,0,.15)}
 
-  .collage{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:18px}
-  .collage .frame{padding:3px;border-radius:14px;background:conic-gradient(from 0deg,var(--rose2),var(--violet1),var(--rose1))}
-  .collage img{width:100%;display:block;border-radius:12px;aspect-ratio:4/3;object-fit:cover;background:#eee;box-shadow:0 3px 10px rgba(0,0,0,.12)}
+  .cta{display:inline-block;padding:10px 18px;border-radius:26px;font-weight:800;text-decoration:none;color:#fff;background:linear-gradient(135deg,var(--rose1),var(--violet1));box-shadow:0 3px 8px rgba(0,0,0,.18)}
 
-  ul{margin:8px 0 0 18px}
-  footer{
-    text-align:center;color:#fff;padding:14px;
-    background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));
-    margin-top:40px
-  }
+  footer{text-align:center;color:#fff;background:linear-gradient(120deg,var(--violet2),var(--rose2),var(--violet1));padding:14px;margin-top:38px}
 </style>
 </head>
 <body>
 
 <header class="hero">
-  <h1>Juan Pablo Fernández Rebosio</h1>
-  <p>Psiquiatría, tecnología y proyectos creativos · Landia’s World</p>
-  <a class="cta" href="sobre-mi.html">Ver Sobre mí</a>
-  <a class="cta" href="info.html">Página informativa</a>
+  <h1>Sobre mí</h1>
+  <p>Juan Pablo Fernández Rebosio · Médico Psiquiatra · Luján (Buenos Aires)</p>
 </header>
 
-<nav aria-label="principal">
-  <a href="#proyectos">Proyectos</a>
-  <a href="#servicios">Servicios</a>
-  <a href="#landiasmusik">Landia’s Musik</a>
-  <a href="#contacto">Contacto</a>
+<nav>
+  <a href="index.html">Inicio</a>
+  <a href="info.html">Página informativa</a>
 </nav>
 
-<section id="proyectos">
-  <h2 class="title">Proyectos Principales</h2>
-  <div class="tile">
-    <p><strong>Landia’s World</strong> · Universo creativo y terapéutico donde convergen música, arte y tecnología. Incluye Landia’s Musik, Likelandi y Just Barby — espacios digitales e interactivos para explorar emociones a través de la voz y el movimiento.</p>
+<section>
+  <!-- Encabezado con misma portada del sitio para coherencia visual -->
+  <div class="hero-frame">
+    <img class="hero-img" alt="Portada Landia" src="img/hero.jpg" />
+  </div>
 
-    <!-- Portada local -->
-    <div class="hero-frame">
-      <img class="hero-img" alt="Collage portada" src="img/hero.jpg" />
+  <h2 class="title">Perfil profesional y humano</h2>
+  <div class="about">
+    <div class="frame">
+      <img class="portrait" alt="Foto de Juan Pablo Fernández Rebosio" src="img/portrait.jpg" />
     </div>
-
-    <!-- Collage local (4 fotos) -->
-    <div class="collage" aria-label="Galería">
-      <div class="frame"><img alt="Collage 1" src="img/collage-1.jpg" /></div>
-      <div class="frame"><img alt="Collage 2" src="img/collage-2.jpg" /></div>
-      <div class="frame"><img alt="Collage 3" src="img/collage-3.jpg" /></div>
-      <div class="frame"><img alt="Collage 4" src="img/collage-4.jpg" /></div>
+    <div class="tile" style="flex:1 1 340px">
+      <p>Soy <strong>Juan Pablo Fernández Rebosio</strong>, médico psiquiatra. Mi enfoque es humano y práctico: rutinas que reduzcan el estrés, mejoren el sueño y acompañen el estado de ánimo. Integro tecnología cuando aporta claridad y continuidad del cuidado.</p>
+      <h3>En qué puedo ayudarte</h3>
+      <ul>
+        <li>Ansiedad, estrés, trastornos del ánimo y del sueño.</li>
+        <li>Procesos de <em>burnout</em>, foco/atención y hábitos.</li>
+        <li>Plan de bienestar: descanso, respiración, movimiento y estructura semanal.</li>
+      </ul>
+      <h3>Cómo trabajo</h3>
+      <ul>
+        <li>Primera entrevista: historia clínica y objetivos compartidos.</li>
+        <li>Seguimiento breve, claro y medible.</li>
+        <li>Privacidad, comunicación directa y material de apoyo.</li>
+      </ul>
+      <p style="margin-top:10px"><a class="cta" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Solicitar turno</a></p>
     </div>
   </div>
 </section>
 
-<section id="servicios">
-  <h2 class="title">Servicios Profesionales</h2>
-  <div class="tile">
-    <ul>
-      <li>Atención psiquiátrica presencial y online.</li>
-      <li>Asesoramiento en salud mental y tecnología aplicada.</li>
-      <li>Diseño de rutinas para gestión del estrés y hábitos saludables.</li>
-      <li>Proyectos creativos con base terapéutica y de integración sensorial.</li>
-    </ul>
-  </div>
-</section>
-
-<section id="landiasmusik">
-  <h2 class="title">Landia’s Musik</h2>
-  <div class="tile" style="text-align:center">
-    <p>Curaduría musical personal. Próximamente más novedades aquí.</p>
-  </div>
-</section>
-
-<section id="contacto">
+<section>
   <h2 class="title">Contacto</h2>
   <div class="tile" style="text-align:center">
     <p><strong>Ubicación:</strong> Luján, Provincia de Buenos Aires, Argentina</p>
     <p><strong>Email profesional:</strong> <a href="mailto:likelandi@proton.me">likelandi@proton.me</a></p>
     <p><strong>Email personal:</strong> <a href="mailto:jprebosio@proton.me">jprebosio@proton.me</a></p>
     <p><strong>WhatsApp:</strong> <a href="https://wa.me/541124605401" target="_blank" rel="noopener">+54 11 2460-5401</a></p>
-    <a class="cta" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Solicitar turno</a>
   </div>
 </section>
 
