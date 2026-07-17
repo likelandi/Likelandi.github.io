@@ -1,221 +1,196 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Juan Pablo — Sitio Personal</title>
-  <meta name="description" content="Sitio personal de Juan Pablo Fernández Rebosio — proyectos, servicios, música y contacto." />
+  <meta name="description" content="JPFR — Juan Pablo Fernández Rebosio. Psychiatrist, Community Builder and founder of Landia's Productions, developing ethical humanitarian technology, responsible documentation and creative projects." />
+  <meta name="theme-color" content="#090b13" />
+  <meta property="og:title" content="JPFR — Humanitarian Technology & Community Building" />
+  <meta property="og:description" content="Psychiatry, ethical AI, responsible documentation, creativity and community." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://likelandi.github.io/" />
+  <title>JPFR — Community Builder & Humanitarian Technology</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg-1:#0b0b12;           /* fondo base muy oscuro */
-      --bg-2:#111123;           /* tarjetas */
-      --violet:#7a5cff;         /* violeta principal */
-      --violet-2:#a88cff;       /* violeta claro */
-      --blue:#22a2ff;           /* acento azul */
-      --text:#eef1ff;           /* texto principal */
-      --muted:#b8c1ffcc;       /* texto secundario */
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
-      color:var(--text); background:
-        radial-gradient(1000px 600px at 10% -10%, rgba(122,92,255,.25), transparent 60%),
-        radial-gradient(800px 500px at 90% -10%, rgba(34,162,255,.2), transparent 60%),
-        var(--bg-1);
-      line-height:1.6;
-    }
-    a{color:var(--violet-2); text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:1080px; margin:0 auto; padding:24px}
-
-    /* Header */
-    header{position:sticky; top:0; z-index:10; backdrop-filter: blur(8px);
-      background: linear-gradient(to right, rgba(17,17,35,.85), rgba(17,17,35,.6));
-      border-bottom:1px solid rgba(122,92,255,.15)}
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
-    .brand{display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.3px}
-    .badge{font-size:12px; padding:4px 10px; border-radius:999px; background:linear-gradient(90deg, var(--violet), var(--blue)); box-shadow:var(--shadow)}
-    .links{display:flex; gap:14px; flex-wrap:wrap}
-    .links a{padding:10px 14px; border-radius:12px; background:rgba(122,92,255,.12); border:1px solid rgba(122,92,255,.18)}
-    .links a:hover{background:rgba(122,92,255,.2)}
-
-    /* Hero */
-    .hero{display:grid; grid-template-columns:1.2fr .8fr; gap:28px; align-items:center; padding:48px 0}
-    .card{background:linear-gradient(180deg, rgba(17,17,35,.9), rgba(17,17,35,.7)); border:1px solid rgba(122,92,255,.2); border-radius:var(--radius); box-shadow:var(--shadow)}
-    .card>.p{padding:28px}
-    h1{font-size:clamp(28px, 4.2vw, 44px); line-height:1.15; margin:0 0 14px}
-    .sub{color:var(--muted); font-size:clamp(14px, 2.2vw, 18px)}
-    .cta-row{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
-    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; padding:12px 16px; border-radius:14px; font-weight:600; border:1px solid transparent}
-    .btn-primary{background:linear-gradient(90deg, var(--violet), var(--blue)); color:#0b0b12}
-    .btn-primary:hover{filter:brightness(1.05)}
-    .btn-ghost{background:rgba(122,92,255,.12); color:var(--text); border-color:rgba(122,92,255,.3)}
-    .btn-ghost:hover{background:rgba(122,92,255,.2)}
-
-    .hero-media{min-height:260px; border-radius:var(--radius); overflow:hidden; border:1px solid rgba(122,92,255,.2); background:
-      linear-gradient(135deg, rgba(122,92,255,.25), rgba(34,162,255,.15)),
-      url('portada.jpg') center/cover no-repeat; box-shadow:var(--shadow)}
-    .hero-media.fallback{display:grid; place-items:center; font-weight:600; color:#0b0b12; background:linear-gradient(135deg, var(--violet-2), var(--blue))}
-
-    /* Sections */
-    section{margin:38px 0}
-    .section-title{font-size:22px; font-weight:800; margin:0 0 14px}
-    .grid{display:grid; gap:16px}
-    .grid.cols-3{grid-template-columns:repeat(3, 1fr)}
-    .tile{background:var(--bg-2); border:1px solid rgba(122,92,255,.14); border-radius:16px; padding:18px}
-    .kicker{font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
-
-    /* Landia's Musik Party section */
-    .musik{position:relative; border-radius:var(--radius); overflow:hidden; border:1px solid rgba(122,92,255,.18); box-shadow:var(--shadow)}
-    .musik::before{content:""; position:absolute; inset:0; background:url('landias-musik-party.jpg') center/cover no-repeat; filter:brightness(.55) saturate(1.1);}
-    .musik-inner{position:relative; padding:28px}
-    .musik h3{margin:0 0 10px}
-    .player{display:flex; gap:12px; align-items:center; background:rgba(17,17,35,.75); border:1px solid rgba(122,92,255,.25); padding:12px 14px; border-radius:14px}
-    .track{display:flex; flex-direction:column; gap:6px}
-    .track small{color:var(--muted)}
-
-    /* Contacto */
-    .contact{display:grid; gap:16px}
-    .contact .item{display:flex; gap:10px; align-items:center; background:var(--bg-2); border:1px solid rgba(122,92,255,.14); padding:14px 16px; border-radius:14px}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size:14px}
-
-    /* Footer */
-    footer{margin:32px 0 12px; color:var(--muted); font-size:13px}
-
-    /* Responsive */
-    @media (max-width: 880px){.hero{grid-template-columns:1fr}}
-    @media (max-width:640px){.grid.cols-3{grid-template-columns:1fr}}
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <div class="brand"><span class="badge" aria-hidden="true">JP</span><span>Juan Pablo — Personal</span></div>
-      <nav class="links" aria-label="Principal">
-        <a href="#proyectos">Proyectos</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#musik">Reproductores</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="#top" aria-label="JPFR home">
+      <span class="brand-mark">J+</span>
+      <span class="brand-copy"><strong>JPFR</strong><small>Landia’s Productions</small></span>
+    </a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#ecosystem" data-i18n="nav.projects">Projects</a>
+      <a href="#ethics" data-i18n="nav.ethics">AI Ethics</a>
+      <a href="#vision" data-i18n="nav.vision">Vision</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="language-toggle" id="languageToggle" type="button" aria-label="Change language">ES</button>
+      <a class="button button-small button-ghost" href="#contact" data-i18n="nav.collaborate">Collaborate</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
     </div>
   </header>
 
-  <main class="wrap">
-    <!-- HERO -->
-    <section class="hero" aria-label="Portada">
-      <div class="card">
-        <div class="p">
-          <h1>Psiquiatría, tecnología y proyectos creativos</h1>
-          <p class="sub">Estilo violeta–azulado legible, con foco en claridad y accesibilidad. Portada activa y sección musical con fondo de Landia’s Musik Party.</p>
-          <div class="cta-row">
-            <a class="btn btn-primary" href="#contacto">Solicitar turno</a>
-            <a class="btn btn-ghost" href="#musik">Escuchar ahora</a>
+  <div class="mobile-panel" id="mobilePanel" aria-hidden="true">
+    <a href="#about" data-i18n="nav.about">About</a>
+    <a href="#ecosystem" data-i18n="nav.projects">Projects</a>
+    <a href="#ethics" data-i18n="nav.ethics">AI Ethics</a>
+    <a href="#vision" data-i18n="nav.vision">Vision</a>
+    <a href="#contact" data-i18n="nav.contact">Contact</a>
+  </div>
+
+  <main>
+    <section class="hero section-shell">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="status-dot"></span><span data-i18n="hero.eyebrow">Psychiatry · Humanitarian Technology · Community</span></div>
+        <h1><span data-i18n="hero.line1">Building technology</span><br><span class="gradient-text" data-i18n="hero.line2">for human dignity.</span></h1>
+        <p class="hero-lede" data-i18n="hero.lede">I’m Juan Pablo Fernández Rebosio — psychiatrist, creator and Community Builder. I develop ethical systems connecting mental health, responsible audiovisual documentation, accessible AI and international collaboration.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#ecosystem"><span data-i18n="hero.explore">Explore the ecosystem</span><span>↗</span></a>
+          <a class="button button-secondary" href="#contact" data-i18n="hero.contact">Start a conversation</a>
+        </div>
+        <div class="trust-line">
+          <span data-i18n="hero.principles">Privacy-first</span><i></i>
+          <span data-i18n="hero.human">Human-reviewed</span><i></i>
+          <span data-i18n="hero.community">Community-oriented</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal delay-1" aria-label="JPFR project ecosystem visualization">
+        <div class="console-card glass-card">
+          <div class="console-top"><span>JPFR / COMMUNITY CONSOLE</span><span class="live-pill">ETHICAL AI</span></div>
+          <div class="core-orbit">
+            <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+            <div class="core"><strong>J+</strong><span>HUMAN<br>CENTERED</span></div>
+            <div class="satellite satellite-a">Evidence</div>
+            <div class="satellite satellite-b">Mental Health</div>
+            <div class="satellite satellite-c">Community</div>
+          </div>
+          <div class="console-grid">
+            <div><span>01</span><strong data-i18n="hero.card1">Document</strong></div>
+            <div><span>02</span><strong data-i18n="hero.card2">Protect</strong></div>
+            <div><span>03</span><strong data-i18n="hero.card3">Connect</strong></div>
           </div>
         </div>
       </div>
-      <div id="heroMedia" class="hero-media" role="img" aria-label="Imagen de portada"></div>
     </section>
 
-    <!-- PROYECTOS -->
-    <section id="proyectos" aria-labelledby="titulo-proyectos">
-      <h2 id="titulo-proyectos" class="section-title">Proyectos</h2>
-      <div class="grid cols-3">
-        <article class="tile"><div class="kicker">Landia’s World</div><div>Identidad creativa y ecosistema de experiencias físicas + digitales.</div></article>
-        <article class="tile"><div class="kicker">Landia’s Musik</div><div>Acceso rápido a playlists y catálogo propio con foco en privacidad.</div></article>
-        <article class="tile"><div class="kicker">Likelandii</div><div>Community building y tecnología aplicada al bienestar.</div></article>
+    <section class="marquee" aria-label="Focus areas"><div class="marquee-track"><span>HUMAN DIGNITY</span><b>✦</b><span>ETHICAL AI</span><b>✦</b><span>MENTAL HEALTH</span><b>✦</b><span>RESPONSIBLE DOCUMENTATION</span><b>✦</b><span>COMMUNITY BUILDING</span><b>✦</b><span>HUMAN DIGNITY</span><b>✦</b><span>ETHICAL AI</span><b>✦</b><span>MENTAL HEALTH</span></div></section>
+
+    <section class="section-shell split-section" id="about">
+      <div class="section-label reveal"><span>01</span><span data-i18n="about.label">About JPFR</span></div>
+      <div class="split-content reveal">
+        <h2 data-i18n="about.title">A multidisciplinary practice at the intersection of care, creativity and technology.</h2>
+        <div class="two-column-copy">
+          <p data-i18n="about.p1">JPFR is the authorial and professional identity of Juan Pablo Fernández Rebosio, an Argentine–Italian psychiatrist and founder of Landia’s Productions.</p>
+          <p data-i18n="about.p2">His work explores how ethical technology, mental-health knowledge and audiovisual culture can help communities document responsibly, communicate safely, recover from trauma and collaborate across borders.</p>
+        </div>
+        <div class="profile-tags">
+          <span data-i18n="about.tag1">Psychiatry</span><span data-i18n="about.tag2">Trauma-informed practice</span><span data-i18n="about.tag3">Humanitarian innovation</span><span data-i18n="about.tag4">Creative direction</span><span data-i18n="about.tag5">Digital rights</span>
+        </div>
       </div>
     </section>
 
-    <!-- SERVICIOS -->
-    <section id="servicios" aria-labelledby="titulo-servicios">
-      <h2 id="titulo-servicios" class="section-title">Servicios</h2>
-      <div class="grid cols-3">
-        <div class="tile"><div class="kicker">Psiquiatría</div><div>Evaluación clínica y acompañamiento terapéutico con enfoque humano.</div></div>
-        <div class="tile"><div class="kicker">Tecnología</div><div>Integración Apple, automatizaciones y privacidad de datos.</div></div>
-        <div class="tile"><div class="kicker">Creativo</div><div>Diseño de identidades y contenidos para marcas personales.</div></div>
+    <section class="projects-section" id="ecosystem">
+      <div class="section-shell">
+        <div class="section-heading reveal">
+          <div class="section-label"><span>02</span><span data-i18n="projects.label">The ecosystem</span></div>
+          <h2 data-i18n="projects.title">One vision. Multiple connected initiatives.</h2>
+          <p data-i18n="projects.intro">Landia’s Productions is the creative and strategic umbrella connecting storytelling, responsible documentation, public-health thinking and ethical innovation.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card featured reveal">
+            <div class="project-number">01 / FLAGSHIP</div><div class="project-icon">♥</div>
+            <h3>Landi Is Saving Lives</h3>
+            <p data-i18n="projects.saving">A humanitarian and public-health initiative connecting mental health, community resilience, emergency education and responsible technology.</p>
+            <div class="card-footer"><span>Humanitarian · Public Health</span><span>↗</span></div>
+          </article>
+          <article class="project-card reveal delay-1">
+            <div class="project-number">02</div><div class="project-icon">⌁</div>
+            <h3>Landia Undercover</h3>
+            <p data-i18n="projects.undercover">A privacy-first concept for secure preservation, structured organization and controlled human-reviewed handling of sensitive information.</p>
+            <div class="card-footer"><span>Privacy · Evidence</span><span>↗</span></div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-number">03</div><div class="project-icon">◇</div>
+            <h3>Evidence Creator</h3>
+            <p data-i18n="projects.evidence">Workflows for metadata, hashing, indexing, provenance and responsible chain-of-custody preparation.</p>
+            <div class="card-footer"><span>Integrity · Documentation</span><span>↗</span></div>
+          </article>
+          <article class="project-card reveal delay-1">
+            <div class="project-number">04</div><div class="project-icon">◉</div>
+            <h3>Landia Reporter</h3>
+            <p data-i18n="projects.reporter">A personal and documentary reporting system for structured narratives, chronology, multilingual notes and authorized records.</p>
+            <div class="card-footer"><span>Reporting · Archive</span><span>↗</span></div>
+          </article>
+          <article class="project-card reveal">
+            <div class="project-number">05</div><div class="project-icon">◫</div>
+            <h3>Landia Streaming Live</h3>
+            <p data-i18n="projects.streaming">Responsible live communication and audiovisual production with clear separation between public content and confidential evidence.</p>
+            <div class="card-footer"><span>Broadcast · Education</span><span>↗</span></div>
+          </article>
+          <article class="project-card reveal delay-1">
+            <div class="project-number">06</div><div class="project-icon">✦</div>
+            <h3>Landia’s World</h3>
+            <p data-i18n="projects.world">An original creative universe spanning characters, books, music, performance, visual culture and multimedia storytelling.</p>
+            <div class="card-footer"><span>Culture · Storytelling</span><span>↗</span></div>
+          </article>
+        </div>
       </div>
     </section>
 
-    <!-- LANDIA’S MUSIK PARTY / REPRODUCTORES -->
-    <section id="musik" class="musik" aria-labelledby="titulo-musik">
-      <div class="musik-inner">
-        <h2 id="titulo-musik" class="section-title" style="margin-top:0">Landia’s Musik Party</h2>
-        <h3 style="margin:0 0 12px">Reproductores</h3>
-        <div class="player" role="region" aria-label="Reproductor principal">
-          <div class="track">
-            <strong>Playlist Landia — Demo</strong>
-            <small>Reemplazá los archivos <code>audio/track-01.mp3</code> y <code>audio/track-01.ogg</code> por los tuyos.</small>
+    <section class="section-shell ethics-section" id="ethics">
+      <div class="ethics-panel glass-card reveal">
+        <div class="section-label"><span>03</span><span data-i18n="ethics.label">AI Ethics & Community Builder</span></div>
+        <div class="ethics-layout">
+          <div><h2 data-i18n="ethics.title">AI should assist people — never diminish their rights.</h2><p data-i18n="ethics.copy">The approved AI Ethics & Community Builder layer guides every future console component. It prioritizes dignity, informed consent, human oversight, privacy, accessibility and accountable use.</p></div>
+          <div class="principles-grid">
+            <div><span>01</span><strong data-i18n="ethics.p1">Human review by default</strong></div>
+            <div><span>02</span><strong data-i18n="ethics.p2">Privacy and data minimization</strong></div>
+            <div><span>03</span><strong data-i18n="ethics.p3">No unauthorized surveillance</strong></div>
+            <div><span>04</span><strong data-i18n="ethics.p4">Provenance and auditability</strong></div>
+            <div><span>05</span><strong data-i18n="ethics.p5">Accessibility and inclusion</strong></div>
+            <div><span>06</span><strong data-i18n="ethics.p6">Community benefit</strong></div>
           </div>
-          <audio controls preload="none" style="width:100%">
-            <source src="audio/track-01.mp3" type="audio/mpeg" />
-            <source src="audio/track-01.ogg" type="audio/ogg" />
-            Tu navegador no soporta audio HTML5.
-          </audio>
         </div>
-        <div class="player" role="region" aria-label="Reproductor secundario" style="margin-top:10px">
-          <div class="track">
-            <strong>Mix Party — Demo</strong>
-            <small>Reemplazá <code>audio/mix-party.mp3</code> por tu mezcla.</small>
-          </div>
-          <audio controls preload="none" style="width:100%">
-            <source src="audio/mix-party.mp3" type="audio/mpeg" />
-          </audio>
-        </div>
+        <div class="capability-row"><span>Multimodal AI</span><span>Speech-to-text</span><span>Translation</span><span>PII Redaction</span><span>Semantic Search</span><span>Content Credentials</span><span>Local AI</span></div>
       </div>
     </section>
 
-    <!-- CONTACTO (exacto como pediste) -->
-    <section id="contacto" class="contact" aria-labelledby="titulo-contacto">
-      <h2 id="titulo-contacto" class="section-title">Contacto</h2>
-
-      <div class="item"><strong>Ubicación:</strong> <span class="mono">Buenos Aires, Argentina</span></div>
-      <div class="item"><strong>Email:</strong> <a class="mono" href="mailto:likelandi@proton.me">likelandi@proton.me</a></div>
-
-      <div class="item">
-        <strong>Solicitar turno</strong>
-        <div class="cta-row" style="margin:0 0 0 8px">
-          <a class="btn btn-primary" href="mailto:likelandi@proton.me?subject=Solicitud%20de%20turno">Por Email</a>
-        </div>
+    <section class="vision-section" id="vision">
+      <div class="section-shell vision-grid">
+        <div class="section-label reveal"><span>04</span><span data-i18n="vision.label">Long-term vision</span></div>
+        <div class="vision-statement reveal"><blockquote data-i18n="vision.quote">“Technology should strengthen communities, support care and protect human dignity — not replace judgment or compromise rights.”</blockquote><p data-i18n="vision.copy">JPFR is building a framework for ethical collaboration among health professionals, researchers, developers, documentarians, educators, humanitarian organizations and community participants.</p></div>
       </div>
-
-      <div class="item" aria-live="polite" aria-atomic="true">
-        <strong>Contador de visitas</strong>
-        <span id="visitCounter" class="mono" style="margin-left:8px">—</span>
+      <div class="roadmap section-shell reveal">
+        <div class="roadmap-item"><span>NOW</span><strong data-i18n="roadmap.now.title">Foundation</strong><p data-i18n="roadmap.now.copy">Portfolio, governance, ethical framework and proof of concept.</p></div>
+        <div class="roadmap-item"><span>NEXT</span><strong data-i18n="roadmap.next.title">Partner-led pilots</strong><p data-i18n="roadmap.next.copy">Small, lawful and human-reviewed collaborations.</p></div>
+        <div class="roadmap-item"><span>FUTURE</span><strong data-i18n="roadmap.future.title">Community infrastructure</strong><p data-i18n="roadmap.future.copy">Resilient, accessible and internationally collaborative systems.</p></div>
       </div>
     </section>
 
-    <footer>
-      © <span id="year"></span> Juan Pablo — Todos los derechos reservados.
-    </footer>
+    <section class="section-shell contact-section" id="contact">
+      <div class="contact-card reveal">
+        <div class="contact-copy"><div class="section-label"><span>05</span><span data-i18n="contact.label">Collaborate</span></div><h2 data-i18n="contact.title">Let’s build something that serves people.</h2><p data-i18n="contact.copy">Open to ethical collaboration with humanitarian organizations, research institutions, digital-rights teams, health professionals, responsible technologists and creative partners.</p></div>
+        <div class="contact-actions"><a class="button button-light" href="mailto:jprebosio@proton.me">jprebosio@proton.me <span>↗</span></a><span class="contact-note" data-i18n="contact.note">Written contact preferred · Buenos Aires, Argentina · International collaboration</span></div>
+      </div>
+    </section>
   </main>
 
-  <script>
-    // Año dinámico
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Fallback si no carga la imagen del hero
-    (function(){
-      const m = document.getElementById('heroMedia');
-      const test = new Image();
-      test.onerror = () => { m.classList.add('fallback'); m.textContent = 'Imagen de portada'; };
-      test.src = 'portada.jpg';
-    })();
-
-    // Contador de visitas (por dispositivo/navegador)
-    (function(){
-      const KEY = 'jp_visit_counter_v1';
-      let n = 0;
-      try{ n = parseInt(localStorage.getItem(KEY) || '0', 10) || 0; }catch(_){ }
-      n++;
-      try{ localStorage.setItem(KEY, String(n)); }catch(_){ }
-      const el = document.getElementById('visitCounter');
-      if(el){ el.textContent = n.toLocaleString('es-AR'); }
-    })();
-  </script>
+  <footer class="site-footer section-shell">
+    <div><a class="brand footer-brand" href="#top"><span class="brand-mark">J+</span><span class="brand-copy"><strong>JPFR</strong><small>Community Builder</small></span></a></div>
+    <p data-i18n="footer.copy">Psychiatry, creativity and ethical technology for human dignity and community.</p>
+    <div class="footer-meta"><span>© <span id="year"></span> JPFR</span><span>Juan Pablo Fernández Rebosio</span><a href="#top">↑ Top</a></div>
+  </footer>
 </body>
 </html>
