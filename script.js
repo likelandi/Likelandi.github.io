@@ -9,7 +9,7 @@ const translations={es:{
 document.querySelectorAll('[data-i18n]').forEach(el=>{el.dataset.en=el.textContent});
 let lang='en';
 const btn=document.getElementById('languageToggle');
-btn.addEventListener('click',()=>{
+if(btn) btn.addEventListener('click',()=>{
   lang=lang==='en'?'es':'en';
   document.documentElement.lang=lang;
   btn.textContent=lang==='en'?'ES':'EN';
@@ -18,5 +18,33 @@ btn.addEventListener('click',()=>{
     el.textContent=lang==='es'&&translations.es[key]?translations.es[key]:el.dataset.en;
   });
 });
-const toggle=document.getElementById('menuToggle'),panel=document.getElementById('mobilePanel');toggle.addEventListener('click',()=>{const open=panel.classList.toggle('open');toggle.setAttribute('aria-expanded',open);panel.setAttribute('aria-hidden',!open)});panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{panel.classList.remove('open');toggle.setAttribute('aria-expanded','false')}));
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));document.getElementById('year').textContent=new Date().getFullYear();
+const toggle=document.getElementById('menuToggle');
+const panel=document.getElementById('mobilePanel');
+function closeMenu(){
+  panel.classList.remove('open');
+  toggle.setAttribute('aria-expanded','false');
+  panel.setAttribute('aria-hidden','true');
+}
+if(toggle && panel){
+  toggle.addEventListener('click',()=>{
+    const open=panel.classList.toggle('open');
+    toggle.setAttribute('aria-expanded',String(open));
+    panel.setAttribute('aria-hidden',String(!open));
+  });
+  panel.querySelectorAll('a').forEach(a=>a.addEventListener('click',closeMenu));
+  document.addEventListener('keydown',event=>{if(event.key==='Escape') closeMenu()});
+}
+const revealElements=document.querySelectorAll('.reveal');
+if('IntersectionObserver' in window){
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  }),{threshold:.12});
+  revealElements.forEach(el=>observer.observe(el));
+}else{
+  revealElements.forEach(el=>el.classList.add('visible'));
+}
+const year=document.getElementById('year');
+if(year) year.textContent=new Date().getFullYear();
